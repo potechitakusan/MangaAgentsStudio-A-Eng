@@ -37,3 +37,11 @@
 ### README provenance clarification
 
 At the owner's request, the root README now explains that this edition originated as an automated AI translation of a kit designed for Japanese-speaking readers, with later localization and review, and that Japanese manga conventions may remain. The example README explicitly identifies its English-lettered pages as originally Japanese-generated images whose dialogue and other lettering Codex subsequently replaced with English. An independent sub-agent checked both additions against the owner's Japanese intent and the documented image dispositions.
+
+## 2026-10-03 — Japanese 0.4.2, localization 0.4.2-en-US.1
+
+- Compared the clean Japanese 0.4.2 checkout against the recorded 0.4.1 source hashes: 12 additions, 19 modifications, no deletions or image changes.
+- Translated every changed prose section and all new runtime messages/help; integrated portable creation/review/optional-skill entry points, Antigravity files, NovelAI V5 observations, E4/E5 evidence, V15, and upstream regression tests.
+- Retained English reading/lettering defaults. Added en-US/ltr/localization metadata and English SFX SVG support to the portable creator; the optional-skill reader recognizes both English fields and legacy Japanese fixtures.
+- Updated source version/commit/hashes and localization version. Existing examples and image-edit prompts retain their earlier provenance.
+- Independent comparison is recorded in [0.4.2 review](REVIEW-0.4.2.md); update scope and verification limits are in [the update record](UPDATE-0.4.2.md). No runtime, scaffold, shell, or publication tests were run. No external calls, staging, commit, or publication.

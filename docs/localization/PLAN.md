@@ -11,3 +11,7 @@ Source: Japanese kit 0.4.1, captured 2026-09-30. This is a localization of the p
 - [x] Record reproducible update instructions, source hashes, validation evidence, and unresolved owner preferences in Japanese.
 
 Publication itself is not part of this work. The existing checkout is the English edition; no separate release folder or archive is created.
+
+## Japanese 0.4.2 update — 2026-10-03
+
+The completed 0.4.1 plan above is historical. The 0.4.2 update covers all 12 added and 19 modified upstream files, portable script adaptation, Antigravity mode, NovelAI V5 production guidance, and corresponding tests/provenance. Preserve English defaults and existing image provenance. Record independent semantic review separately from automated tests; runtime/publication tests are not authorized by the translation request.

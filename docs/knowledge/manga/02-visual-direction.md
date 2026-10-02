@@ -103,3 +103,21 @@ For image generation, also align the focal subject, how much of a face is visibl
 ## V14 Check at reduced size that important things look important
 
 Display the PNG at its intended publication size and check whether key expressions and props are discoverable. Readability only when enlarged is not enough to mark the artwork complete.
+
+<a id="v15"></a>
+
+## V15: Present difficult actions differently while preserving intent
+
+When image generation repeatedly breaks contact, simultaneous actions, or an operation in progress, propose another presentation before continuing to add words. First state the panel's job in one sentence: who did what, what it resulted from, and what it conveys about character or relationships. Narrow the essential conditions to about three. Even if people and tools remain, the intent is lost if supporting, teaching, or sharing disappears.
+
+| Alternative | Example | What may be lost |
+| --- | --- | --- |
+| Move closer to the expression | Looking at light → cupping a mug in both hands with eyes closed | Location and table information; retain hands or objects that show what the emotion concerns |
+| Show the completed state | Hanging a bag → its handle already on a hook | Demonstrating the person's action; a support point or closed opening must distinguish completion |
+| Keep one contact point | Writing with both hands involved → the right hand and pencil tip | The supporting hand's role |
+| Shift the moment | Ball contacting arms → just after the ball separates | The moment itself; reject a result that reads as a different action, such as tossing the ball to someone |
+| Distribute information across neighboring panels | Separate the wide view, greeting, and preparation | The receiving panel must actually convey its assigned information |
+
+Record “intent → substitute visible state → lost effect → connection to neighboring panels.” Substitution is not universal. Closer framing can magnify broken instrument, hand, or tool structures; changing the angle can increase the number of hands. Changing only one panel can contradict the next panel's state, so inspect the full page, including crops and dialogue placement. Even if the new version can be drawn, keep the original if it conveys the scene's meaning adequately. Substitution is not an end in itself.
+
+Production proposal added 2026-09-30, based on a practical comparison within one project using NovelAI V5 ordinary t2i ([Evidence E5](../image-generation/production-evidence.md#e5)). Reader evaluation and effects with other generation methods remain unverified. Use with [V13](#v13) for spatial continuity and [V14](#v14) for inspection at reduced size.

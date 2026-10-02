@@ -110,8 +110,9 @@ def public_files(root=ROOT):
                     or (path.parent.relative_to(root).as_posix() == 'templates/manga-project/templates/onomatopoeia/svg' and path.suffix == '.svg')
                 )
                 panel_renderer = relative_path == 'scripts/render_panel_templates.cjs'
+                portable_shell = path.parent == root / 'scripts' and path.suffix == '.sh'
                 template_requirements = relative_path == TEMPLATE_REQUIREMENTS
-                if path.suffix not in EXTENSIONS and name not in SPECIAL_FILES and not example_image and not panel_asset and not novelai_resource and not onomatopoeia_asset and not panel_renderer and not template_requirements:
+                if path.suffix not in EXTENSIONS and name not in SPECIAL_FILES and not example_image and not panel_asset and not novelai_resource and not onomatopoeia_asset and not panel_renderer and not portable_shell and not template_requirements:
                     raise ValueError(f'Unexpected file in the public scope: {relative_path}')
                 if (name.startswith('.env') and name != '.env.example') or '.secrets' in path.parts:
                     raise ValueError(f'Secret settings in the public scope: {relative_path}')
@@ -312,8 +313,10 @@ def check(root=ROOT):
             continue
         # Exclude code examples from link checks; inspect prose and reference-definition links.
         prose = re.sub(r'^```[^\n]*\n.*?^```\s*$', '', body, flags=re.M | re.S)
-        targets = re.findall(r'\[[^\]\n]*\]\(([^)\s]+)\)', prose)
-        targets += re.findall(r'^\[[^\]\n]+\]:\s+(\S+)', prose, re.M)
+        # Ignore link syntax examples inside inline code.
+        link_prose = re.sub(r'(`+)(?!`)([^\n]*?)(?<!`)\1(?!`)', '', prose)
+        targets = re.findall(r'\[[^\]\n]*\]\(([^)\s]+)\)', link_prose)
+        targets += re.findall(r'^\[[^\]\n]+\]:\s+(\S+)', link_prose, re.M)
         for value in targets:
             if re.match(r'https?://|mailto:', value):
                 continue

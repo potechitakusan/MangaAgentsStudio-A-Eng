@@ -14,6 +14,8 @@ Work / version:　　　 Reviewer:　　　 Date:
 
 Key checks: main action stages in order (e.g. fold → release → land → pick up → unfold); appearance (hair, glasses, clothing layers, prop side); posture (sitting/standing); face/hands cut off by edges; visible space in wide shots; prop state (folded/open).
 
+Even when the people and objects are present, check that the action has not changed: shoes meant to be empty and lined up may instead be worn, or an object meant to be held may be resting on a surface.
+
 ## Post-typesetting checks
 
 Inspect completed pages including text/balloons and fill per page. For `scripts/typeset_manga.py`, record `check.json` counts and reasons for retained warnings. For imagegen text/balloons, visually inspect and compare source text after generation; mark `check.json` not applicable (whole-page generation). Automatic checks identify potential corrections, not a substitute for visual review.

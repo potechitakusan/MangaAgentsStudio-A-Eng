@@ -1,5 +1,11 @@
 # Working with Codex
 
+## Guidance for Antigravity mode
+
+Only when the user explicitly chooses Gemini (Antigravity), select `-AgentMode Antigravity` during creation (`--agent-mode Antigravity` at the Linux Bash entry point). Verify the project's `project.json`, `GEMINI.md`, and `AGENT-MODE.md` exist, and provide an absolute-path link plus copyable text with “Reopen Antigravity in this folder.” The environment-specific guidance policy, reopening from kit to project, and relative saved paths below also apply. Consult current official Antigravity information only when the user requests operating steps. Use the project's dedicated `AGENT-MODE.md` for adaptations.
+
+Added 2026-10-03. When Antigravity mode is not selected, retain the Codex behavior and guidance below.
+
 Skills and instruction files checked: 2026-09-12. Official reopening information retrieved and checked: 2026-09-13.
 
 The post-creation guidance policy changed at the user's request on 2026-09-19. Research and explain operating steps only when the user asks. Official information was not re-researched for that policy change.

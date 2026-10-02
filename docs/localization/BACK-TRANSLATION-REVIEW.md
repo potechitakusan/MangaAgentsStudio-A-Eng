@@ -19,3 +19,7 @@ The revision-1 audit did not cover embedded example lettering. Revision 2 closes
 ## Follow-up review, 2026-10-03
 
 Revision 0.4.1-en-US.3 adds a further independent comparison requested by the owner and restores original Japanese source identities. Three sub-agents reviewed general knowledge, story/supervision and saved example dialogue, and scaffold/skills/operating text. Resolved corrections and actual coverage are recorded in the [follow-up review](REVIEW-2026-10-03.md). This is a new prose and saved-dialogue review; the earlier image inspections are not represented as having been repeated.
+
+## Japanese 0.4.2 update
+
+The separate reviewer compared changed English prose and new portable code against the supplied Japanese 0.4.2 source. See [0.4.2 review](REVIEW-0.4.2.md) for exact scope and findings. The review covered numbers, negation, permissions, optional/mandatory distinctions, and evidence limits. It does not carry earlier runtime/image checks forward to this version.

@@ -7,8 +7,8 @@ param(
     [string]$ProjectName,
     [string]$DestinationParent,
     [string]$ProcessRequirementsFrom,
-    # Default to Codex with built-in image generation. Add Claude entry files and adaptations only when Claude is selected.
-    [ValidateSet('Codex', 'Claude')]
+    # Default to Codex. Add environment-specific entry files and adaptations only when Claude or Antigravity is explicitly selected.
+    [ValidateSet('Codex', 'Claude', 'Antigravity')]
     [string]$AgentMode = 'Codex'
 )
 Set-StrictMode -Version Latest
@@ -145,11 +145,26 @@ $package.Add([pscustomobject]@{ Source = $validator; Destination = 'scripts\vali
 $package.Add([pscustomobject]@{ Source = (Join-Path $PSScriptRoot 'prepare_page_layout.py'); Destination = 'scripts\prepare_page_layout.py' })
 $package.Add([pscustomobject]@{ Source = (Join-Path $PSScriptRoot 'Initialize-OptionalSkills.ps1'); Destination = 'scripts\Initialize-OptionalSkills.ps1' })
 $package.Add([pscustomobject]@{ Source = (Join-Path $PSScriptRoot 'process_checker.py'); Destination = 'scripts\process_checker.py' })
+# Include portable project entry points while retaining Windows behavior.
+foreach ($portableScript in @('Resolve-ReviewProfile.sh', 'resolve_review_profile.py', 'Initialize-OptionalSkills.sh', 'initialize_optional_skills.py')) {
+    $portableSource = Join-Path $PSScriptRoot $portableScript
+    Assert-NoLinks $portableSource
+    if (-not (Test-Path -LiteralPath $portableSource -PathType Leaf)) { throw "Missing portable script: $portableScript" }
+    $package.Add([pscustomobject]@{ Source = $portableSource; Destination = "scripts\$portableScript" })
+}
 $package.Add([pscustomobject]@{ Source = (Join-Path $sourceRootPath 'LICENSE'); Destination = 'docs\toolkit-license.txt' })
 if ($AgentMode -eq 'Claude') {
     foreach ($name in @('CLAUDE.md', 'AGENT-MODE.md')) {
         $modeSource = Join-Path $sourceRootPath "templates\manga-project\agent-modes\claude\$name"
         if (-not (Test-Path -LiteralPath $modeSource -PathType Leaf)) { throw "Missing Claude mode template: $name" }
+        Assert-NoLinks $modeSource
+        $package.Add([pscustomobject]@{ Source = $modeSource; Destination = $name })
+    }
+}
+if ($AgentMode -eq 'Antigravity') {
+    foreach ($name in @('GEMINI.md', 'AGENT-MODE.md')) {
+        $modeSource = Join-Path $sourceRootPath "templates\manga-project\agent-modes\antigravity\$name"
+        if (-not (Test-Path -LiteralPath $modeSource -PathType Leaf)) { throw "Missing Antigravity mode template: $name" }
         Assert-NoLinks $modeSource
         $package.Add([pscustomobject]@{ Source = $modeSource; Destination = $name })
     }
@@ -195,7 +210,7 @@ try {
         agentMode = $AgentMode
         locale = 'en-US'
         readingDirection = 'ltr'
-        localizationVersion = '0.4.1-en-US.3'
+        localizationVersion = '0.4.2-en-US.1'
     }
     if ($processSourceRelativePath) { $project.processRequirementsSourceRelativePath = $processSourceRelativePath }
     [IO.File]::WriteAllText((Join-Path $target 'project.json'), ($project | ConvertTo-Json -Depth 10), $utf8)
@@ -216,6 +231,9 @@ try {
     if ($AgentMode -eq 'Claude') {
         Write-Host 'Created in Claude mode with CLAUDE.md and AGENT-MODE.md. Reopen Claude in this folder and start a new conversation there before producing the comic.'
         Write-Host 'Artwork defaults to NovelAI. NovelAI connections may require permission in Claude Code.'
+    } elseif ($AgentMode -eq 'Antigravity') {
+        Write-Host 'Created in Antigravity mode with GEMINI.md and AGENT-MODE.md. Reopen Antigravity in this folder and start a new conversation there before producing the comic.'
+        Write-Host 'Artwork defaults to NovelAI. Check available generation and image viewing tools and network permissions before drawing.'
     } else {
         Write-Host 'Reopen Codex in this folder. Start a new conversation in the project folder before producing the comic.'
     }

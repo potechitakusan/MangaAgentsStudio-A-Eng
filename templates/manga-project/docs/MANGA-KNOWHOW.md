@@ -30,11 +30,11 @@ Version 0.3.2 [Shared know-how](knowledge/review-workflow.md#common-knowledge) c
 | Fix horizontal lettering, balloons, reading order | [English comic readability](knowledge/japanese-manga-readability.md), [Typesetting/checks](knowledge/japanese-manga-readability.md#typeset-script) | [Approved dialogue](production/DIALOGUE.md); "Post-artwork comparison" and "Post-typesetting checks" in [Checklist](reviews/NAME-REVIEW.md) |
 | Generate art and preserve identity | [Image production/experiments](knowledge/ai-production.md) | [Experiment](experiments/TEMPLATE.md) |
 | Supply sketch/reference images to external per-panel tools | [Shared workflow](knowledge/external-panel-i2i.md), [Qwen-Image 2.1](knowledge/image-generation/qwen-image-2.1.md), [Production evidence](knowledge/image-generation/production-evidence.md) | `manga-external-panel-i2i`, [Experiment](experiments/TEMPLATE.md) |
-| NovelAI assets/composition | [Connection/cost](knowledge/novelai-api.md), [Production](knowledge/novelai-composed-production.md), [Batch/adopt/rebuild](knowledge/novelai-composed-production.md#batch) | Adopted settings/normal records; distinguish t2i/image inputs. [Batch records](production/NOVELAI-BATCH.md) |
+| NovelAI assets/composition | [Connection/cost](knowledge/novelai-api.md), [Production](knowledge/novelai-composed-production.md), [Batch/adopt/rebuild](knowledge/novelai-composed-production.md#batch), [V5 observations](knowledge/image-generation/novelai-v5.md), [Evidence E4/E5](knowledge/image-generation/production-evidence.md#e4) | Adopted settings/normal records; distinguish t2i/image inputs. [Batch records](production/NOVELAI-BATCH.md) |
 | PSD for human finishing | [Handoff requirements](knowledge/psd-handoff.md) | [Specifications/validation](production/PSD-HANDOFF.md) |
 | Check terminology, sources, acceptance | [Glossary](knowledge/glossary.md), [Imported sources](knowledge/manga-sources.md), [Feedback workflow](knowledge/feedback-workflow.md) | [Story terms](story/TERMS.md), [Requested feedback](feedback/TEMPLATE.md) |
 
-## Technique index (77 items)
+## Technique index (78 items)
 
 Six areas collect techniques for comic production/review, consolidating knowledge with the same purpose. Distinguish verified facts, production proposals, original examples, and unverified effects. Numbers are search IDs, not a required reading order or count of mandatory items.
 
@@ -71,6 +71,7 @@ Six areas collect techniques for comic production/review, consolidating knowledg
 | V12 | [Create meaning by juxtaposing adjacent images](knowledge/manga/02-visual-direction.md#v12) |
 | V13 | [Preserve spatial continuity in the text storyboard](knowledge/manga/02-visual-direction.md#v13) |
 | V14 | [Reduce the image to check whether important elements look important](knowledge/manga/02-visual-direction.md#v14) |
+| V15 | [Present difficult actions differently while preserving intent](knowledge/manga/02-visual-direction.md#v15) |
 
 ### 03 Beats, pacing, presentation timing, pauses
 

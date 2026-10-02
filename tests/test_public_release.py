@@ -264,6 +264,28 @@ class PublicReleaseTests(unittest.TestCase):
             stream.write('\n[Link test](docs/knowledge/supervision/unlisted.md)\n')
         self.assertTrue(any('Link' in error for error in check(self.root)['errors']))
 
+    def test_inline_link_examples_and_antigravity_includes(self):
+        path = self.root / 'docs/knowledge/link-fixture.md'
+        path.write_text('Syntax: `@[label](path)` または ``[Example](missing.md)``\n', encoding='utf-8')
+        self.assertFalse(check(self.root)['errors'])
+        with path.open('a', encoding='utf-8') as stream:
+            stream.write('\n@[Actual include](missing.md)\n')
+        self.assertTrue(any('link-fixture.md => missing.md' in error for error in check(self.root)['errors']))
+
+    def test_root_claude_instructions_are_checked(self):
+        path = self.root / 'CLAUDE.md'
+        self.assertIn(path, public_files(self.root))
+        path.write_text('[Reference](missing.md)\n', encoding='utf-8')
+        self.assertTrue(any('CLAUDE.md => missing.md' in error for error in check(self.root)['errors']))
+
+    def test_template_owned_knowledge_is_checked_from_both_locations(self):
+        source = self.root / 'templates/manga-project/docs/knowledge/novelai-composed-production.md'
+        path = self.root / 'docs/knowledge/link-fixture.md'
+        path.write_text('[Production](novelai-composed-production.md#batch)\n', encoding='utf-8')
+        self.assertFalse(check(self.root)['errors'])
+        source.unlink()
+        self.assertTrue(any('novelai-composed-production.md' in error for error in check(self.root)['errors']))
+
     def test_panel_media_permission_is_limited_to_designated_locations(self):
         for name in ('scripts/panel-templates-private.png', 'docs/knowledge/panel-templates/private.png',
                      'templates/manga-project/private.svg', 'templates/manga-project/private.html',

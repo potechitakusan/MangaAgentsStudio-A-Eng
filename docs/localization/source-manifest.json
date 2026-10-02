@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "sourceCommit": "46ce2c25019d9738be1238c2bf2cab0b07904b6c",
-  "sourceVersion": "0.4.1",
-  "capturedOn": "2026-09-30",
+  "sourceCommit": "b6a958a29ba9da5b8f9514f68c29c2e35401e6e5",
+  "sourceVersion": "0.4.2",
+  "capturedOn": "2026-10-03",
   "files": [
     {
       "path": ".gitattributes",
-      "sha256": "a84eef33b6c737f957e8de230cc2d1bd5655ab801051b02f3962587007359d6f",
-      "bytes": 304
+      "sha256": "4ed24dd74182edd8a753143ae281ada5304ccd1be783995102757565bd995542",
+      "bytes": 325
     },
     {
       "path": ".gitignore",
-      "sha256": "a668abedf7213a80a9e675635ecb641f9db9720efe123d9695c6f485cedeb491",
-      "bytes": 5199
+      "sha256": "411a037bdd80e6ad9c2b5f62a2efd8ecab9816c86e68601eba704d253f9cd583",
+      "bytes": 5215
     },
     {
       "path": "AGENTS.md",
-      "sha256": "b121268deb2f3b5029f8d3e3169c7d5758f160697e868e2a2bdff98166922e60",
-      "bytes": 11796
+      "sha256": "33aad63c302f51e3f82b8b396d2c4c3a87234b7203f630b3e61ddf0dd5169aed",
+      "bytes": 12268
     },
     {
       "path": "CLAUDE.md",
@@ -31,12 +31,12 @@
     },
     {
       "path": "README.md",
-      "sha256": "45119292b8fc8cd0789706443ce9897b504920613e18a5a66407f67b93646852",
-      "bytes": 29383
+      "sha256": "ae5d1c2eb68dda8abbf61ff7967907f61138c3a1ae7d5fc0a85512a40c669361",
+      "bytes": 33151
     },
     {
       "path": "distribution-version.txt",
-      "sha256": "21a71f6eb4facd7d9182e569b7c940e33f8021b5c83ac93796746587100e14ab",
+      "sha256": "d4d4151542d57bda5beb57ff8fb51f5ffbdba30b3755060db00ff144eda5d250",
       "bytes": 7
     },
     {
@@ -56,8 +56,8 @@
     },
     {
       "path": "docs/architecture.md",
-      "sha256": "f608455bf287aca1ef66b074cd7fa01b38f7341ef13a717f1eed67d6c212f37c",
-      "bytes": 15988
+      "sha256": "c14b90d7057f8843cc9e748f778d6ca81f59c45649e0b780e40e68f8fe8457be",
+      "bytes": 17707
     },
     {
       "path": "docs/knowledge/ai-production.md",
@@ -66,8 +66,8 @@
     },
     {
       "path": "docs/knowledge/codex-operation.md",
-      "sha256": "dd94fd9dd3e4013ba7f57e148a4559d43fddac0c506f365911ce8fb37001d7f4",
-      "bytes": 10928
+      "sha256": "63c3005044b4257bf19b220118e012725cb8bfe9560890d4b46e6262dc789c1c",
+      "bytes": 11834
     },
     {
       "path": "docs/knowledge/external-panel-i2i.md",
@@ -85,9 +85,14 @@
       "bytes": 2959
     },
     {
+      "path": "docs/knowledge/image-generation/novelai-v5.md",
+      "sha256": "12be83049720a9e02422d74ada5a100c8e853e9c267785ec18dd828ba08dca5c",
+      "bytes": 4597
+    },
+    {
       "path": "docs/knowledge/image-generation/production-evidence.md",
-      "sha256": "61a8a34ea3fdf9d84559013b4fb5ce6f13571729322306d1c12ce6055487d8ce",
-      "bytes": 4459
+      "sha256": "8fdc4618519e2ffbde2165db78727eb05454e76906a07edb06f5f3861e1e5563",
+      "bytes": 10291
     },
     {
       "path": "docs/knowledge/image-generation/qwen-image-2.1.md",
@@ -121,8 +126,8 @@
     },
     {
       "path": "docs/knowledge/manga/02-visual-direction.md",
-      "sha256": "b746ff1c253fe0ae702014c7a5c36aa8ea4d512874970e066673294cd29864cd",
-      "bytes": 6754
+      "sha256": "142a641bfc8b35cfb3bed1ea3adfe66a7397072387ef53516572b345758d566a",
+      "bytes": 9019
     },
     {
       "path": "docs/knowledge/manga/03-beat-pacing-timing.md",
@@ -166,8 +171,8 @@
     },
     {
       "path": "docs/knowledge/optional-skills.md",
-      "sha256": "959300d77580eef89f1bd76e05578781e7d58185bb4d9e472bf49bb51e4cd99d",
-      "bytes": 9404
+      "sha256": "b21511b14df78b9ecfbfd917134462ec8c35e1eeba327f0d43ccaafcde428f2c",
+      "bytes": 10979
     },
     {
       "path": "docs/knowledge/page-layout.md",
@@ -620,14 +625,29 @@
       "bytes": 15025
     },
     {
+      "path": "scripts/Initialize-OptionalSkills.sh",
+      "sha256": "966db14ac78b8a7dd33e615b0e726d649ff86fa145eb459538097f38af875558",
+      "bytes": 850
+    },
+    {
       "path": "scripts/New-MangaProject.ps1",
-      "sha256": "5a636daa8e0dbebb4c9a258efd9ee691f85f48a5c1a799cf0240f3f389e05ba1",
-      "bytes": 16220
+      "sha256": "4b8b35195426c50976077fa1844a6b0dccde5355b6fc4ec672196fc55278b394",
+      "bytes": 17759
+    },
+    {
+      "path": "scripts/New-MangaProject.sh",
+      "sha256": "9082ddc13642193993231509b8444e5cea83fe54d0acd2814bd2cd612ade3994",
+      "bytes": 856
     },
     {
       "path": "scripts/Resolve-ReviewProfile.ps1",
       "sha256": "b416ecc8cfb57a28d1481c790147ad2d36ba8a81e4194537e9343ee33e84fe55",
       "bytes": 3930
+    },
+    {
+      "path": "scripts/Resolve-ReviewProfile.sh",
+      "sha256": "1a51be04bddea8f5e6c11dcc708e36cf3c277ba7fe796436dd609a7c2b956bd7",
+      "bytes": 846
     },
     {
       "path": "scripts/build_panel_templates.py",
@@ -638,6 +658,16 @@
       "path": "scripts/check_panel_templates.py",
       "sha256": "6b506dd05d3f3a76475f21c96b98d79bdc0616bfb06992877a6be3e07b4103f0",
       "bytes": 4862
+    },
+    {
+      "path": "scripts/initialize_optional_skills.py",
+      "sha256": "a406c503a0a903c794b97edb812e2fc2fd66901ab55c9eb2bcad08445183f580",
+      "bytes": 14057
+    },
+    {
+      "path": "scripts/new_manga_project.py",
+      "sha256": "057d28a67e1951b957b870384f3a1f92fc175445d7f069205a8eccdeb43df2e1",
+      "bytes": 13427
     },
     {
       "path": "scripts/prepare_page_layout.py",
@@ -651,13 +681,18 @@
     },
     {
       "path": "scripts/public_release.py",
-      "sha256": "b2d28775c47fca2c56195585e456d318c130821cd53da63fe01b43d2da106b27",
-      "bytes": 18962
+      "sha256": "5ae8ad94db9725aece402654066b988ae304f16aff14a466aea19f03cd569a67",
+      "bytes": 19515
     },
     {
       "path": "scripts/render_panel_templates.cjs",
       "sha256": "aa8f77938d8960f54ce98f4f50dc6648ef934a382c134deb273743065a3c994a",
       "bytes": 2762
+    },
+    {
+      "path": "scripts/resolve_review_profile.py",
+      "sha256": "e5b96fe3a7a01cd95ed0fb28f96e47b3a5f77bc297d0cb19e025ef38d5115f35",
+      "bytes": 4788
     },
     {
       "path": "scripts/validate_panel_plan.py",
@@ -756,8 +791,8 @@
     },
     {
       "path": "templates/manga-project/AGENTS.md",
-      "sha256": "cb56ae172c07406b05084e050a992804c86c4d664f73985e6c4a56bd3fac2499",
-      "bytes": 16971
+      "sha256": "b496387a376c1b8d6a090cdf6424298dee87219020cc86534296e351b83859f6",
+      "bytes": 17003
     },
     {
       "path": "templates/manga-project/OPTION.md",
@@ -771,8 +806,18 @@
     },
     {
       "path": "templates/manga-project/README.md",
-      "sha256": "9345a42c981e764ba38e927b66df2a914b53d8943a3e1fa24edb2c1cb3c3ae9f",
+      "sha256": "3f28f3e9a95d53c99cb9e881256cb47ef02f6d2c2529dd3ead676f40803afc43",
       "bytes": 5967
+    },
+    {
+      "path": "templates/manga-project/agent-modes/antigravity/AGENT-MODE.md",
+      "sha256": "a572351f03e9fa4ea0de6440c46a08166970b9affdc6c7ab3b27aca5a9d04120",
+      "bytes": 5848
+    },
+    {
+      "path": "templates/manga-project/agent-modes/antigravity/GEMINI.md",
+      "sha256": "1768f056824c49286dad368a7d7508cfa383f0d664f41ef438c74f65fbbb97aa",
+      "bytes": 510
     },
     {
       "path": "templates/manga-project/agent-modes/claude/AGENT-MODE.md",
@@ -826,8 +871,8 @@
     },
     {
       "path": "templates/manga-project/docs/MANGA-KNOWHOW.md",
-      "sha256": "846dd0df4434513c4c3f19ccdcef02213a94ff7ea929f016599b204b27417d41",
-      "bytes": 15689
+      "sha256": "33df8a2139ff1ecd4756cf23c7c13b82e97fbed93c8648ebb8a3b057848f671c",
+      "bytes": 15969
     },
     {
       "path": "templates/manga-project/docs/PLAN.md",
@@ -856,8 +901,8 @@
     },
     {
       "path": "templates/manga-project/docs/knowledge/novelai-composed-production.md",
-      "sha256": "b25b609bc9b7c8dd25566f1f3c087ad73d3531d712372fb0c72032c961f3e898",
-      "bytes": 23789
+      "sha256": "40e36fd29bf2119889f1656999cd36f74f15a58ad26a084445d915bf82f72866",
+      "bytes": 25821
     },
     {
       "path": "templates/manga-project/docs/production/DIALOGUE.md",
@@ -881,8 +926,8 @@
     },
     {
       "path": "templates/manga-project/docs/reviews/NAME-REVIEW.md",
-      "sha256": "db43b9da1cad3dad22e63dc7edf3233faa827b29971330c432ad2b2a95741863",
-      "bytes": 8583
+      "sha256": "7c2b7e71b144a2b0a4655517a3d0289221a454d089dc06235ed943ec398fd079",
+      "bytes": 8763
     },
     {
       "path": "templates/manga-project/docs/reviews/SUPERVISION.md",
@@ -3556,8 +3601,8 @@
     },
     {
       "path": "tests/Test-Scaffold.ps1",
-      "sha256": "9d6d86ddf7afc7d479e87bfce8ee6e783e081883d76306b03f132c6bd0c5b313",
-      "bytes": 25770
+      "sha256": "caef2a36526cc653dba041be68f6d97b94fa2a9b7bead6104c235018f2e26d53",
+      "bytes": 28361
     },
     {
       "path": "tests/test_export_composed_psd.py",
@@ -3573,6 +3618,11 @@
       "path": "tests/test_novelai_batch.py",
       "sha256": "c7ef67bf44ae19e5179f33903e3244c8342fa0148acbdd19d79d5af610a443da",
       "bytes": 15573
+    },
+    {
+      "path": "tests/test_optional_skills_portable.py",
+      "sha256": "39d7fa3c66ef24b20ff2dcbacd02f3fafa8e273647e833a800bcf3c6e5625ed6",
+      "bytes": 11878
     },
     {
       "path": "tests/test_page_layout.py",
@@ -3591,13 +3641,23 @@
     },
     {
       "path": "tests/test_public_release.py",
-      "sha256": "17539114b820b4ef6a8582daab34e2d30d0a7313a532c56246d059c399e154fb",
-      "bytes": 16088
+      "sha256": "ef7c25a12a721776d3c0fc421cd7e610cb3371c62c3c792313e04656673b1f96",
+      "bytes": 17458
     },
     {
       "path": "tests/test_recolor_onomatopoeia.py",
       "sha256": "b276e2da4a8d3c932abf2dd43c7579c4a9e7c542a9b8b4df3c4a3587b5eef3e1",
       "bytes": 15375
+    },
+    {
+      "path": "tests/test_review_profile_portable.py",
+      "sha256": "828144a8fdfd7dae3205c9aee07c05c79d838e62d444b186963fbff3e12f8068",
+      "bytes": 6802
+    },
+    {
+      "path": "tests/test_scaffold_portable.py",
+      "sha256": "e7a07dc0aefd522008d4cff6504314045558075d1231f26f45121738f27037c9",
+      "bytes": 11434
     },
     {
       "path": "tests/test_typeset_manga.py",

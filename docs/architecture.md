@@ -24,7 +24,7 @@ This kit is maintained for distribution; ordinary comic production takes place i
 | `templates/manga-project/scripts/novelai_batch.py` | Sequential generation of per-panel request JSON by page or all pages, candidate adoption, expansion of per-character prompt variables (`NOVELAI_CHAR_*` in `.env`), and rebuilding page PNG/PSD from adopted images, placement, and lettering in a human-repeatable form | Copied to `scripts/`; uses `novelai_api.py` for generation, `typeset_manga.py` for lettering, and `export_composed_psd.py` for PSD |
 | `templates/manga-project/scripts/typeset_manga.py` | Transparent layers for balloons, horizontal English dialogue, in-art text, and panel borders; checks punctuation, tails, overlaps, and reading order. Does not alter artwork | Copied to `scripts/`; uses Pillow. Fonts are not bundled; use project `assets/fonts/` or OS fonts |
 | `templates/manga-project/config/novelai-request.example.json` | Generation request example with model and prompt unset | Copied to the same path; create actual request JSON in the project after selection |
-| `scripts/New-MangaProject.ps1` | Create projects; `-AgentMode` (`Codex` default or `Claude`) selects extra agent-specific files | Not copied |
+| `scripts/New-MangaProject.ps1` | Create projects; `-AgentMode` (`Codex` default, `Claude`, or `Antigravity`) selects extra agent-specific files | Not copied |
 | `templates/manga-project/agent-modes/claude/` | Claude-mode `CLAUDE.md` (loads AGENTS and adaptations) and `AGENT-MODE.md` (adapts Codex assumptions) | Excluded from the default bulk copy; copied to the project root only with `-AgentMode Claude` |
 | `scripts/Resolve-ReviewProfile.ps1` | Resolve review priorities | Copied to `scripts/` |
 | `scripts/Initialize-OptionalSkills.ps1` | Install enabled polishing skills at the first project work session; Gemini variant only after authorization | Copied to `scripts/`; not run during project creation |
@@ -89,3 +89,14 @@ Version `0.3.1` placed general knowledge in `docs/knowledge/manga/` and existing
 Record project feedback only when the user asks for it. Do not ask whether to record it or prepare routine feedback candidates. Continue ordinary progress, production decisions, and delivery verification as needed. See [Feedback workflow](knowledge/feedback-workflow.md).
 
 English-edition maintenance guidance is kept in `docs/localization/`. Preserve source provenance and distinguish translation updates from changes in production behavior.
+
+## Portable entry points and Antigravity mode (0.4.2)
+
+| Source | Role | Distribution |
+| --- | --- | --- |
+| `scripts/New-MangaProject.sh`, `scripts/new_manga_project.py` | Create projects through Bash using Python 3.10+ and the standard library without PowerShell | Kit only |
+| `scripts/Resolve-ReviewProfile.sh`, `scripts/resolve_review_profile.py` | Resolve review priorities on Linux; JSON output | Copy to project `scripts/` |
+| `scripts/Initialize-OptionalSkills.sh`, `scripts/initialize_optional_skills.py` | Optional-skill installation with existing consent and pinned-version checks | Copy to project `scripts/`; do not execute at creation |
+| `templates/manga-project/agent-modes/antigravity/` | `GEMINI.md` entry point and `AGENT-MODE.md` adaptations | Exclude from bulk template copy; add only with `-AgentMode Antigravity` or `--agent-mode Antigravity` |
+
+Both PowerShell and the portable Python creator support `Codex` (default), `Claude`, and `Antigravity`. Explicit Antigravity selection adds only `GEMINI.md` and its dedicated `AGENT-MODE.md` to the project root and records the mode in `project.json` and the distribution snapshot. `GEMINI.md` refers to the common `AGENTS.md` as authoritative and expands adaptations with `@[label](path)`. Skills retain `.agents/skills/`; do not duplicate common knowledge or skill bodies. Codex defaults, imagegen production, and Claude branching remain in effect. Do not distribute Antigravity credentials, permissions, or global user rules. Sources, check dates, and limits of actual-environment verification are in its adaptations.

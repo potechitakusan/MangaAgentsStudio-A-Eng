@@ -78,3 +78,13 @@ Installation only retrieves/places files; it does not call Gemini. Before use, r
 | [Geminiを使うスキルの配布記事](https://note.com/genkaijokyo/n/n8562c2500420) and [公開ZIP](https://note.com/api/v2/attachments/download/33c55af0abaece1236195095d1e31bb3) | Retrieved 2026-09-19. README, SKILL, execution contract, and all 12 files checked. Antigravity CLI and the named model are distributor requirements; check availability separately in the user's environment |
 
 Do not bundle third-party skill bodies or ZIPs. Explicit redistribution permission was not found for the Gemini variant, so authorized projects retrieve it directly. Exclude installed third-party skills from project Git tracking. Kit settings distribute only retrieval locations, pinned versions, and hashes. Preserve original text at installation and record the invocation-policy addition. Writing quality, Gemini execution, quota amounts, and English editing support remain untested.
+
+## Running on Linux
+
+Use `bash scripts/Initialize-OptionalSkills.sh` from the project root. PowerShell is not required; Python 3.10 or later is required. `--provider`, `--gemini-consent`, `--consent-note`, and `--project-root` correspond to the PowerShell parameters of the same names. Results are JSON. Disabled defaults, consent before installation, pinned-version/file-hash checks, and project-specific receipts match the PowerShell procedure. Do not specify `--gemini-consent Granted` without an explicit user response.
+
+## Applying optional skills in Antigravity mode
+
+When `project.json` has `agentMode` set to `Antigravity`, follow the dedicated `AGENT-MODE.md`. Retain `.agents/skills/` as the storage location. Do not use skills while disabled, even if installed. When enabled, explicitly apply only the selected skill to selected Japanese source targets. Do not assume `agents/openai.yaml` settings work in Antigravity. Production in Antigravity does not authorize installation or additional calls to optional Gemini polishing skills. Apply the consent procedure above unchanged.
+
+If a third-party skill requires Codex comparison or a specified CLI/model, do not silently substitute Gemini self-review, another CLI, or another API. Defer only that polishing if its required environment is missing. Execution in Antigravity mode is unverified. This kit operating policy was added 2026-10-03; the Codex installation procedure and defaults remain in effect.

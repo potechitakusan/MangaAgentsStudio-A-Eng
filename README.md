@@ -4,9 +4,9 @@ Knowledge, ten skills, and a project template for planning a comic with Codex an
 
 This kit was originally designed for creating manga for Japanese-speaking readers. This English edition was produced through automated AI translation of that Japanese kit, with subsequent localization and review. Some guidance and expressive conventions may still reflect Japanese manga practices.
 
-This edition uses **US English, left-to-right and top-to-bottom panel and balloon order, and horizontal English lettering**. Dialogue is normally centered within balloons and uses standard English punctuation. Source filenames and machine identifiers are retained where needed for compatibility. Source citations retain their original Japanese wording. See [English maintenance records](docs/localization/README.md) for translation policy, validation, independent semantic review, and Japanese-upstream updates. Source kit version: **0.4.1**; localization revision: **0.4.1-en-US.3**.
+This edition uses **US English, left-to-right and top-to-bottom panel and balloon order, and horizontal English lettering**. Dialogue is normally centered within balloons and uses standard English punctuation. Source filenames and machine identifiers are retained where needed for compatibility. Source citations retain their original Japanese wording. See [English maintenance records](docs/localization/README.md) for translation policy, validation, independent semantic review, and Japanese-upstream updates. Source kit version: **0.4.2**; localization revision: **0.4.2-en-US.1**.
 
-**This folder maintains and distributes the kit. Normally, create a separate project outside it with `scripts/New-MangaProject.ps1`, reopen Codex there, and make your comic in that project.** `templates/manga-project/` is the master template; do not write a work directly into it.
+**This folder maintains and distributes the kit. Normally, create a separate project outside it with `scripts/New-MangaProject.ps1` (or `scripts/New-MangaProject.sh` on Linux), reopen Codex there, and make your comic in that project.** `templates/manga-project/` is the master template; do not write a work directly into it.
 
 The original author also reports that much of the kit can be used by giving ChatGPT Work this repository's URL along with comic characters and a story. This is a retained description of the author's usage, not a new verification of current product availability.
 
@@ -26,7 +26,7 @@ After opening a separate project, you can:
 
 ```mermaid
 flowchart TD
-    P["Create a project outside the kit with New-MangaProject.ps1"] --> Q["Provide the absolute path and reopening guidance; explain steps if needed"]
+    P["Create a project outside the kit with New-MangaProject.ps1 or .sh"] --> Q["Provide the absolute path and reopening guidance; explain steps if needed"]
     Q --> R["User reopens Codex in the project folder"]
     R --> A
     A["Concept and reader experience"] --> B["Characters, scenes, and information order"]
@@ -53,7 +53,36 @@ Stage deliverables and checks are in the [Production workflow](docs/knowledge/ma
 
 ## Getting started
 
-Run from the repository root in Windows PowerShell 5.1 or later.
+### Linux (Bash and Python 3.10 or later)
+
+PowerShell and additional Python packages are not required. Run from the repository root:
+
+```bash
+bash scripts/New-MangaProject.sh --project-name 'My Comic' --what-if
+bash scripts/New-MangaProject.sh --project-name 'My Comic'
+# Another existing parent directory and Claude mode
+bash scripts/New-MangaProject.sh 'My Comic' --destination-parent .. --agent-mode Claude
+# Production with Gemini (Antigravity)
+bash scripts/New-MangaProject.sh 'My Comic' --agent-mode Antigravity
+# Carry forward requirements only from an explicitly named project
+# bash scripts/New-MangaProject.sh 'Next Comic' --process-requirements-from '../Previous Comic'
+```
+
+`--what-if` (`--dry-run`) previews placement without creating files. Names may contain Japanese characters and spaces. Existing projects are not overwritten; copying through links is rejected. Legacy argument names `-ProjectName`, `-DestinationParent`, `-AgentMode`, `-ProcessRequirementsFrom`, and `-WhatIf` also work. You may invoke the entry point by path from any working directory. Relative destinations and inheritance sources are resolved from the current working directory. Set `PYTHON` to an interpreter executable path, or let the wrapper find `python3`, then `python`.
+
+After creation, move to the displayed project folder. Review and optional-skill entry points are included in the project:
+
+```bash
+bash scripts/Resolve-ReviewProfile.sh
+bash scripts/Initialize-OptionalSkills.sh
+python3 scripts/process_checker.py status
+```
+
+Optional Japanese polishing skills are disabled by default and apply only to Japanese source text. Enabling them, external retrieval, and Gemini use follow the [existing consent procedure](docs/knowledge/optional-skills.md). Project creation on Linux does not retrieve optional skills, generate artwork, or call paid APIs. Use each `.sh` entry point's `--help` for arguments. On Linux, match the case of configured preset names, scene names, and choices. JSON results go to stdout; guidance and errors go to stderr. Calling through `bash` works even if ZIP extraction loses executable permissions.
+
+### Windows PowerShell
+
+Run from the repository root in Windows PowerShell 5.1 or later. Existing `.ps1` entry points, arguments, `-WhatIf`, and `-Confirm` remain available. Windows creation does not require installing the Linux Python implementation; requirements inheritance still requires Python as before.
 
 ```powershell
 .\scripts\New-MangaProject.ps1 -ProjectName 'My Comic' -WhatIf
@@ -65,6 +94,14 @@ The kit primarily targets Codex with its available built-in image generation. On
 ```powershell
 .\scripts\New-MangaProject.ps1 -ProjectName 'My Comic' -AgentMode Claude
 ```
+
+For production with Gemini (Antigravity), specify `-AgentMode Antigravity`. This adds `GEMINI.md` and a dedicated `AGENT-MODE.md`. Reopen Antigravity in the displayed project folder. Codex remains the default; Antigravity files are distributed only when explicitly selected.
+
+```powershell
+.\scripts\New-MangaProject.ps1 -ProjectName 'My Comic' -AgentMode Antigravity
+```
+
+Antigravity mode checks available generation, editing, and image viewing tools before artwork. It defaults to NovelAI panel generation with separate composition, requiring an API key, style selection, and cost checks. Chrome, Edge, and built-in browser control are prohibited. Optional Japanese polishing stays disabled by default; installing or making additional calls to Gemini polishing skills requires the existing consent procedure. See [adaptations and verification scope](templates/manga-project/agent-modes/antigravity/AGENT-MODE.md). This mode does not cover other environments such as Gemini CLI. Operation in an actual Antigravity environment is unverified.
 
 The default destination is `../My Comic/`. To use another parent, specify an existing relative path with `-DestinationParent` that places the project outside the kit. The repository folder may be renamed. Existing projects are not overwritten. `-WhatIf` only previews placement; it does not create a project.
 
@@ -113,6 +150,10 @@ These are historical impressions from the author's environment and contemporaneo
 ### Can I set parameters before production?
 
 See the project's `OPTION.md`. Options include panel-template use, selection rates by panel count, limits on repeated three-wide-tier layouts, lettering direction, and PSD creation. Ask Codex about `OPTION.md` at the start if you want an explanation of how each option changes behavior. Unspecified choices use defaults; this English edition defaults to horizontal English and left-to-right reading.
+
+### What changed in version 0.4.2?
+
+Version 0.4.2 adds Linux entry points for project creation, review-profile resolution, and optional-skill initialization; an explicitly selected Antigravity mode; and NovelAI V5 production observations, prompt relationship checks, comparisons using the same seeds, and V15 guidance for presenting difficult actions while preserving their intent. The observations retain their one-project/model/input limits. Existing projects are not automatically updated. Create a separate project with this kit to use the new files; the US English reading and lettering defaults remain in effect.
 
 ### What changed in version 0.4.1, and how do I use it?
 

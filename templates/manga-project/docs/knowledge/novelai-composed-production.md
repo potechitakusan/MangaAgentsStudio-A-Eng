@@ -68,6 +68,18 @@ Translate storyboard content into **visible forms** before prompting. These prod
 
 9. **Avoid numeric ages and man/woman:** numeric ages such as `25 years old` or a Japanese numeric-age expression may have little effect on appearance. `man`/`woman` can create another person beside the `1girl`/`1boy` character (user instruction, 2026-09-29). Describe people using `1girl`, `1boy`, `solo`, and appearance. Era/role terms such as `teenage`, `high school student`, and `adult` are allowed. For older/younger appearance also specify build, facial features, and clothing.
 
+10. **Check character/object relationships separately from names.** Listing people and objects can lose relationships such as holding, touching, or putting something inside. Define one to three image-verifiable conditions distinguishing the panel from a different action, then write only relevant conditions. The English examples below are not additions required in every panel.
+
+| Aspect | Example content |
+| --- | --- |
+| Contact and possession | Holding (`water bottle in her hand`), contact with the face, hand shape (`cupped hands`, `palms pressed together`) |
+| Operation | Hands tying, adjusting, or fastening; each hand handling a different end |
+| Inside/outside, above/below, distance | Putting something into a bag, `close to the ground`, on a stand |
+| Gaze target | `smiling at each other`, lowering eyes toward a page |
+| Viewpoint and direction | Going to school seen from behind, position relative to the destination |
+
+When shortening, read the main prompt, character prompts, coordinates, and negative prompts together and check whether the same meaning remains elsewhere. Do not assume two individually safe removals remain safe together. Evidence comes from V5 Full ordinary t2i ([E4](image-generation/production-evidence.md#e4), [V5 N1](image-generation/novelai-v5.md#n1)); effects with other versions or image inputs are unverified.
+
 `novelai_batch.py generate` checks items 2, 3, 5, 6, 8, 9 and repeated angles before sending. Fix warnings or record retention reasons in [Batch records](../production/NOVELAI-BATCH.md) before sending with `--accept-warnings`. These are term detections, not judgments of prompt quality.
 
 <a id="batch"></a>
@@ -118,6 +130,7 @@ python -X utf8 scripts/novelai_batch.py build --all --write-psd
 
 - `generate` uses request seed first, random seeds later (`--seed request` fixes it). Requests run sequentially with a default 3-second interval and a default limit of 30 requests per run. Failure stops remaining requests without automatic retry. Do not regenerate panels with unknown-result records until results are checked and records moved. Cost flags mean the same as `novelai_api.py`; never assert unverified flags.
 - `build` stops if images are unselected and warns when placement does not cover a panel. Human-command PSDs are intended for later painting-software adjustment. Codex handoff PSDs still require both PNG revision confirmation and PSD instructions.
+- Keep the previously adopted request separate from alternatives such as `p01-03b.json`. Set both requests' `parameters.seed` to the same value and generate with `--seed request`; change seed values to make multiple pairs. Record settings other than the changed wording, whether the unchanged control succeeded, and all attempts including failed seeds. Do not conclude a phrase is necessary or unnecessary from a pair whose control failed. This is a recommended method, not a mandatory trial count for every panel. Evidence: [E4](image-generation/production-evidence.md#e4).
 - Codex uses this workflow from initial artwork onward and records per-page commands in [Batch records](../production/NOVELAI-BATCH.md). Present PNGs from `build`.
 
 <a id="character-variables"></a>

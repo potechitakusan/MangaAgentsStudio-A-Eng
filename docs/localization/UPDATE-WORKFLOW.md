@@ -12,7 +12,7 @@ Maintain separate Japanese and English checkouts. The Japanese author remains th
 - `VALIDATION.md`: checks actually performed, limitations, and exact scope.
 - `HEARING-SHEET.ja.md`: outstanding owner preferences in Japanese. Working decisions remain usable while responses are pending.
 
-The source kit version remains `0.4.1`; the current English localization is `0.4.1-en-US.3` (revision 1 localized the kit; revision 2 added the bundled English comic pages; revision 3 corrected further meaning drift and restored original Japanese citations). Record both in release notes and generated project metadata. The unchanged image and prompt records retain their revision-2 provenance. Do not silently reuse the same localization revision after substantive changes.
+The current source kit version is `0.4.2`; the English localization is `0.4.2-en-US.1`. The preceding `0.4.1-en-US.3` release localized the kit, bundled comic pages, and source-fidelity corrections. Version 0.4.2 incorporates the reviewed upstream update described in [the update record](UPDATE-0.4.2.md). Record both in release notes and generated project metadata. The unchanged image and prompt records retain their revision-2 provenance. Do not silently reuse the same localization revision after substantive changes.
 
 ## Each Japanese update
 

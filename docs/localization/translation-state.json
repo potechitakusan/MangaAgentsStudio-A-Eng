@@ -1,31 +1,31 @@
 {
   "schemaVersion": 1,
   "locale": "en-US",
-  "localizationVersion": "0.4.1-en-US.3",
-  "sourceCommit": "46ce2c25019d9738be1238c2bf2cab0b07904b6c",
-  "sourceVersion": "0.4.1",
+  "localizationVersion": "0.4.2-en-US.1",
+  "sourceCommit": "b6a958a29ba9da5b8f9514f68c29c2e35401e6e5",
+  "sourceVersion": "0.4.2",
   "recordedOn": "2026-10-03",
   "note": "Hashes establish file correspondence, not semantic approval. See the back-translation review and validation records. This state file excludes its own hash.",
   "files": [
     {
       "sourcePath": ".gitattributes",
-      "sourceSha256": "a84eef33b6c737f957e8de230cc2d1bd5655ab801051b02f3962587007359d6f",
+      "sourceSha256": "4ed24dd74182edd8a753143ae281ada5304ccd1be783995102757565bd995542",
       "targetPath": ".gitattributes",
-      "targetSha256": "b5884191efd32ea6211f4f1bc2e1a63fa91bebc840370f35c610f559b7f5a51e",
+      "targetSha256": "b8fbd01548094d463dad348675937f5f6a5935d96d2fe333b6f42795bdb9e290",
       "disposition": "translated-or-adapted"
     },
     {
       "sourcePath": ".gitignore",
-      "sourceSha256": "a668abedf7213a80a9e675635ecb641f9db9720efe123d9695c6f485cedeb491",
+      "sourceSha256": "411a037bdd80e6ad9c2b5f62a2efd8ecab9816c86e68601eba704d253f9cd583",
       "targetPath": ".gitignore",
-      "targetSha256": "c31b4ec287ec0f181d83827a658a1c20308001fedae08c16c0a6e5aeb28d4516",
+      "targetSha256": "7af79ad8769a6c4d8f487099b4abfba034f0362fc9a274577079292bd92bc696",
       "disposition": "translated-or-adapted"
     },
     {
       "sourcePath": "AGENTS.md",
-      "sourceSha256": "b121268deb2f3b5029f8d3e3169c7d5758f160697e868e2a2bdff98166922e60",
+      "sourceSha256": "33aad63c302f51e3f82b8b396d2c4c3a87234b7203f630b3e61ddf0dd5169aed",
       "targetPath": "AGENTS.md",
-      "targetSha256": "2302a6d80142f3b54c5e96df7c872fcc2c7a92e7f4d2df90e2a9e2f6dfa591ba",
+      "targetSha256": "06edacbf4b377accef2792968b10fa86dde563af30de8ce113fc41af754b2b2b",
       "disposition": "translated-or-adapted"
     },
     {
@@ -44,16 +44,16 @@
     },
     {
       "sourcePath": "README.md",
-      "sourceSha256": "45119292b8fc8cd0789706443ce9897b504920613e18a5a66407f67b93646852",
+      "sourceSha256": "ae5d1c2eb68dda8abbf61ff7967907f61138c3a1ae7d5fc0a85512a40c669361",
       "targetPath": "README.md",
-      "targetSha256": "1b7ec7ed8a0ef7d8def6ee014ba977c144db3367d355035d9d379edde2d35048",
+      "targetSha256": "7b79ba313a8196c6f5d12e158656c092d8830cee2b90d7a1815a25edcb08d53f",
       "disposition": "translated-or-adapted"
     },
     {
       "sourcePath": "distribution-version.txt",
-      "sourceSha256": "21a71f6eb4facd7d9182e569b7c940e33f8021b5c83ac93796746587100e14ab",
+      "sourceSha256": "d4d4151542d57bda5beb57ff8fb51f5ffbdba30b3755060db00ff144eda5d250",
       "targetPath": "distribution-version.txt",
-      "targetSha256": "f62184cee8787f2f6941c82041a5725d4edc9aa293ebe5dbf664406e82ec1fe1",
+      "targetSha256": "e2f7bb608ebc9e24092ffcb796ad0aa83f0015afe23635f017df52273150f00d",
       "disposition": "translated-or-adapted"
     },
     {
@@ -79,9 +79,9 @@
     },
     {
       "sourcePath": "docs/architecture.md",
-      "sourceSha256": "f608455bf287aca1ef66b074cd7fa01b38f7341ef13a717f1eed67d6c212f37c",
+      "sourceSha256": "c14b90d7057f8843cc9e748f778d6ca81f59c45649e0b780e40e68f8fe8457be",
       "targetPath": "docs/architecture.md",
-      "targetSha256": "0f3a3ce9292d051a4015b04bd25977e837a1745879ec3884ead603aeb81be57b",
+      "targetSha256": "4981bfea1223dccb825f76580e210ff8cb7d9c43c8f9b5048472e6f060d7e68c",
       "disposition": "translated-or-adapted"
     },
     {
@@ -93,9 +93,9 @@
     },
     {
       "sourcePath": "docs/knowledge/codex-operation.md",
-      "sourceSha256": "dd94fd9dd3e4013ba7f57e148a4559d43fddac0c506f365911ce8fb37001d7f4",
+      "sourceSha256": "63c3005044b4257bf19b220118e012725cb8bfe9560890d4b46e6262dc789c1c",
       "targetPath": "docs/knowledge/codex-operation.md",
-      "targetSha256": "02839679148eddf8c1129afb731e268ad3e07b489ba89a92e23960c471eb6ea7",
+      "targetSha256": "4b330c27d60c182f13369f5b30b704f6584f27713964669705cdc354dc0335e7",
       "disposition": "translated-or-adapted"
     },
     {
@@ -120,10 +120,17 @@
       "disposition": "translated-or-adapted"
     },
     {
+      "sourcePath": "docs/knowledge/image-generation/novelai-v5.md",
+      "sourceSha256": "12be83049720a9e02422d74ada5a100c8e853e9c267785ec18dd828ba08dca5c",
+      "targetPath": "docs/knowledge/image-generation/novelai-v5.md",
+      "targetSha256": "1c8aaf9e105db87341dec6235ba4223fbfd130be72b72c78e87ca313adab2774",
+      "disposition": "translated-or-adapted"
+    },
+    {
       "sourcePath": "docs/knowledge/image-generation/production-evidence.md",
-      "sourceSha256": "61a8a34ea3fdf9d84559013b4fb5ce6f13571729322306d1c12ce6055487d8ce",
+      "sourceSha256": "8fdc4618519e2ffbde2165db78727eb05454e76906a07edb06f5f3861e1e5563",
       "targetPath": "docs/knowledge/image-generation/production-evidence.md",
-      "targetSha256": "a9f9c9977e460ad5f7610dbeba9322838dd6e90f77a951ba4e189d36d76f722b",
+      "targetSha256": "281311e78d39d938f678913eee938990335f1e0ccb0c4a3eebcfac6a3bde4cc1",
       "disposition": "translated-or-adapted"
     },
     {
@@ -170,9 +177,9 @@
     },
     {
       "sourcePath": "docs/knowledge/manga/02-visual-direction.md",
-      "sourceSha256": "b746ff1c253fe0ae702014c7a5c36aa8ea4d512874970e066673294cd29864cd",
+      "sourceSha256": "142a641bfc8b35cfb3bed1ea3adfe66a7397072387ef53516572b345758d566a",
       "targetPath": "docs/knowledge/manga/02-visual-direction.md",
-      "targetSha256": "f50dde177b79788382ac18ecb77206fa7649898a296710a8ddace772f136fb94",
+      "targetSha256": "ed9fadf507810b8de8cf7ef6e016d7cc9fdb75576d9785fdde0e30a777aaa0fc",
       "disposition": "translated-or-adapted"
     },
     {
@@ -233,9 +240,9 @@
     },
     {
       "sourcePath": "docs/knowledge/optional-skills.md",
-      "sourceSha256": "959300d77580eef89f1bd76e05578781e7d58185bb4d9e472bf49bb51e4cd99d",
+      "sourceSha256": "b21511b14df78b9ecfbfd917134462ec8c35e1eeba327f0d43ccaafcde428f2c",
       "targetPath": "docs/knowledge/optional-skills.md",
-      "targetSha256": "a54a3ca724844a326ab00a19117b98e8a277a86fd18aed71cee5ff60f4ebd9df",
+      "targetSha256": "3fa46b3c6282b4a081f3b089de3a763356a95638c5627376ddb191b4df02eb51",
       "disposition": "translated-or-adapted"
     },
     {
@@ -480,7 +487,7 @@
       "sourcePath": null,
       "sourceSha256": null,
       "targetPath": "docs/localization/BACK-TRANSLATION-REVIEW.md",
-      "targetSha256": "8056080ade7f3609098e1e47058cf3d46a19a07cc8b3d9ea7939ee8115a7a5f9",
+      "targetSha256": "38f87257566004e26b329ec151b05263e69018c398d36cf5cdf51d13a586564e",
       "disposition": "english-edition-addition"
     },
     {
@@ -494,35 +501,42 @@
       "sourcePath": null,
       "sourceSha256": null,
       "targetPath": "docs/localization/HEARING-SHEET.ja.md",
-      "targetSha256": "cea9baa093084e9cdf10d1a36f411a9be346aa2672553ff8d23db9c68236d8ff",
+      "targetSha256": "3a1745591f0ed2f09e1ff83047bdd1d3d43f93fde20b77a3f52e21c825c7c354",
       "disposition": "english-edition-addition"
     },
     {
       "sourcePath": null,
       "sourceSha256": null,
       "targetPath": "docs/localization/PLAN.md",
-      "targetSha256": "db87bf0ed1deeeaec0685eb9acd894eb500141a34bfae2352134156cffa3901e",
+      "targetSha256": "31b057aaeb91fe6c81a8cd9fccb671c29b75995aa2609f9881e58e3aa89b7e88",
       "disposition": "english-edition-addition"
     },
     {
       "sourcePath": null,
       "sourceSha256": null,
       "targetPath": "docs/localization/PROGRESS.md",
-      "targetSha256": "369a8c0af9a4d4cb1d487572c5957d0f85597201351df3c9d67960e606c22f48",
+      "targetSha256": "32b946039be865282e5c47b8f239ce83fe2ca823699fbba36830898acdeea1e9",
       "disposition": "english-edition-addition"
     },
     {
       "sourcePath": null,
       "sourceSha256": null,
       "targetPath": "docs/localization/README.md",
-      "targetSha256": "e3058f75efa28775f64765dccce13b93640a2bd6ef57a3a853982169983171fd",
+      "targetSha256": "5433eca6a2c8352bc5f75b223b3ea3a3c71e1ac58a4847cf40645be30e3886c9",
+      "disposition": "english-edition-addition"
+    },
+    {
+      "sourcePath": null,
+      "sourceSha256": null,
+      "targetPath": "docs/localization/REVIEW-0.4.2.md",
+      "targetSha256": "fde0bf871e7ecf64223e9cebdaac6b971af2e2401092c950c0fc71d0408caaf2",
       "disposition": "english-edition-addition"
     },
     {
       "sourcePath": null,
       "sourceSha256": null,
       "targetPath": "docs/localization/REVIEW-2026-10-03-runtime.md",
-      "targetSha256": "a0d120f3dc261f838f4ac0bd6a5ec692f9a1d36d7d0f11ca61e5298a5d444291",
+      "targetSha256": "fbfb87c9a847bc0a9a34aa28e1077c3a373fd83a8abdf5aa46ceec6b9181a0c4",
       "disposition": "english-edition-addition"
     },
     {
@@ -591,15 +605,22 @@
     {
       "sourcePath": null,
       "sourceSha256": null,
+      "targetPath": "docs/localization/UPDATE-0.4.2.md",
+      "targetSha256": "826bbbc4da294d1a375b9c99b22fc2012f0094dcc83b9dac61b4a9a507d064fa",
+      "disposition": "english-edition-addition"
+    },
+    {
+      "sourcePath": null,
+      "sourceSha256": null,
       "targetPath": "docs/localization/UPDATE-WORKFLOW.md",
-      "targetSha256": "5722c41f1e4ea828efcc1872f2ab6021315c213ea1c3fab6812b534e47d27b9f",
+      "targetSha256": "c9395ae200179bf4f6f526872c5e06b3b8efb4f78d656a561f9081eb631f7d88",
       "disposition": "english-edition-addition"
     },
     {
       "sourcePath": null,
       "sourceSha256": null,
       "targetPath": "docs/localization/VALIDATION.md",
-      "targetSha256": "48d782e8ae7b4445f7e278fac184aaa97aab0972614e1bac401869a7d87c34ef",
+      "targetSha256": "b58c730554b80b72b5b5a13090784f1bc9fae2e90da1ceb57124a6a76e444c6f",
       "disposition": "english-edition-addition"
     },
     {
@@ -620,14 +641,14 @@
       "sourcePath": null,
       "sourceSha256": null,
       "targetPath": "docs/localization/source-manifest.json",
-      "targetSha256": "84a14dd82afdda29547f9e0be899e94b1e20c079a4ef3fd2bbc50f8312885e56",
+      "targetSha256": "50a328e060c0a25b2cca466ec8f7d4bfe64ee11173da1c2fabf3001069e845c0",
       "disposition": "english-edition-addition"
     },
     {
       "sourcePath": "docs/publication.md",
       "sourceSha256": "254a82e0d38581125a90889d989d01912c5522c319a08b93fff775def029a64a",
       "targetPath": "docs/publication.md",
-      "targetSha256": "fb0f818a11b4c0dd273b1d3b759d113386b0406c9627b5a74d41d36b8ebb9c82",
+      "targetSha256": "e5b64aeef8fa52cb809399b52c60c8daad8be61d92adf2c9fb77bd618e411ea4",
       "disposition": "translated-or-adapted"
     },
     {
@@ -1016,10 +1037,24 @@
       "disposition": "translated-or-adapted"
     },
     {
+      "sourcePath": "scripts/Initialize-OptionalSkills.sh",
+      "sourceSha256": "966db14ac78b8a7dd33e615b0e726d649ff86fa145eb459538097f38af875558",
+      "targetPath": "scripts/Initialize-OptionalSkills.sh",
+      "targetSha256": "f13b323f785a13ef9a43212d0a5d7a5d4f478413c275e6845578bdee7f3a33c4",
+      "disposition": "translated-or-adapted"
+    },
+    {
       "sourcePath": "scripts/New-MangaProject.ps1",
-      "sourceSha256": "5a636daa8e0dbebb4c9a258efd9ee691f85f48a5c1a799cf0240f3f389e05ba1",
+      "sourceSha256": "4b8b35195426c50976077fa1844a6b0dccde5355b6fc4ec672196fc55278b394",
       "targetPath": "scripts/New-MangaProject.ps1",
-      "targetSha256": "9028b279598dd86d16020f87484d1d62a887ab84dadb268ec334d2321ff6fe5c",
+      "targetSha256": "973965002e412b1aee824df370dbc2167d715a515d9d3dcbb6fa63d5e4f6b154",
+      "disposition": "translated-or-adapted"
+    },
+    {
+      "sourcePath": "scripts/New-MangaProject.sh",
+      "sourceSha256": "9082ddc13642193993231509b8444e5cea83fe54d0acd2814bd2cd612ade3994",
+      "targetPath": "scripts/New-MangaProject.sh",
+      "targetSha256": "a2b422e05da0f1c15549400cb41f42b3dbaca6b8c9101cc1be58de5433341bc4",
       "disposition": "translated-or-adapted"
     },
     {
@@ -1028,6 +1063,13 @@
       "targetPath": "scripts/Resolve-ReviewProfile.ps1",
       "targetSha256": "b416ecc8cfb57a28d1481c790147ad2d36ba8a81e4194537e9343ee33e84fe55",
       "disposition": "unchanged-source"
+    },
+    {
+      "sourcePath": "scripts/Resolve-ReviewProfile.sh",
+      "sourceSha256": "1a51be04bddea8f5e6c11dcc708e36cf3c277ba7fe796436dd609a7c2b956bd7",
+      "targetPath": "scripts/Resolve-ReviewProfile.sh",
+      "targetSha256": "da8701920904fc702f1ee1d03d935c2d0526626c9137aa7aa679f91ad4889e0a",
+      "disposition": "translated-or-adapted"
     },
     {
       "sourcePath": null,
@@ -1051,11 +1093,25 @@
       "disposition": "translated-or-adapted"
     },
     {
+      "sourcePath": "scripts/initialize_optional_skills.py",
+      "sourceSha256": "a406c503a0a903c794b97edb812e2fc2fd66901ab55c9eb2bcad08445183f580",
+      "targetPath": "scripts/initialize_optional_skills.py",
+      "targetSha256": "d7edcb861863459ce09c3742f141192fa9b9b5d4165fcceadb7d817785ff8141",
+      "disposition": "translated-or-adapted"
+    },
+    {
       "sourcePath": null,
       "sourceSha256": null,
       "targetPath": "scripts/localization_sync.py",
       "targetSha256": "970a09dbd62f974de91cb3b04577bf1aff49e399b6d8f314329755e34ab65163",
       "disposition": "english-edition-addition"
+    },
+    {
+      "sourcePath": "scripts/new_manga_project.py",
+      "sourceSha256": "057d28a67e1951b957b870384f3a1f92fc175445d7f069205a8eccdeb43df2e1",
+      "targetPath": "scripts/new_manga_project.py",
+      "targetSha256": "9a240fa8078a099e77881eb9a9f30d74555b38ac8addef3763e5210599aa910f",
+      "disposition": "translated-or-adapted"
     },
     {
       "sourcePath": "scripts/prepare_page_layout.py",
@@ -1073,16 +1129,16 @@
     },
     {
       "sourcePath": "scripts/public_release.py",
-      "sourceSha256": "b2d28775c47fca2c56195585e456d318c130821cd53da63fe01b43d2da106b27",
+      "sourceSha256": "5ae8ad94db9725aece402654066b988ae304f16aff14a466aea19f03cd569a67",
       "targetPath": "scripts/public_release.py",
-      "targetSha256": "6e16bd4949b4d3ffdeb3f84f8248583aecb3488d9941fd0bcab139a0310f15a2",
+      "targetSha256": "77770bae3fc748d49241bca3b7cfd034221d86326ec84d4468134490a2e092cb",
       "disposition": "translated-or-adapted"
     },
     {
       "sourcePath": null,
       "sourceSha256": null,
       "targetPath": "scripts/record_localization_state.py",
-      "targetSha256": "636ca6c25504895092d22dd7260415c285b46899640bc091e52e88b1af7299ed",
+      "targetSha256": "d49b35e95eb1c43a0eee24fddfa575dc3cd7b7a766ee06d20ae3fb55a700ad31",
       "disposition": "english-edition-addition"
     },
     {
@@ -1105,6 +1161,13 @@
       "targetPath": "scripts/render_panel_templates.py",
       "targetSha256": "09b574b944791d992eb3e2dee7d66fd8980af5a4335207741dfacf8cd2c63f33",
       "disposition": "english-edition-addition"
+    },
+    {
+      "sourcePath": "scripts/resolve_review_profile.py",
+      "sourceSha256": "e5b96fe3a7a01cd95ed0fb28f96e47b3a5f77bc297d0cb19e025ef38d5115f35",
+      "targetPath": "scripts/resolve_review_profile.py",
+      "targetSha256": "d9e67a58683921f2c9f0b066d0a325e0cd47aaa33c4010279e55e3cf877a65d4",
+      "disposition": "translated-or-adapted"
     },
     {
       "sourcePath": "scripts/validate_panel_plan.py",
@@ -1241,9 +1304,9 @@
     },
     {
       "sourcePath": "templates/manga-project/AGENTS.md",
-      "sourceSha256": "cb56ae172c07406b05084e050a992804c86c4d664f73985e6c4a56bd3fac2499",
+      "sourceSha256": "b496387a376c1b8d6a090cdf6424298dee87219020cc86534296e351b83859f6",
       "targetPath": "templates/manga-project/AGENTS.md",
-      "targetSha256": "5566c85bcc5df26e1d0410f915ee8248808618ed6d3d1d5cc8544abb3fb99cf1",
+      "targetSha256": "6700fdd83733e42e6e085f7bbeecc0bc2a113004cfa114e7cff07b1da20f9d4d",
       "disposition": "translated-or-adapted"
     },
     {
@@ -1262,9 +1325,23 @@
     },
     {
       "sourcePath": "templates/manga-project/README.md",
-      "sourceSha256": "9345a42c981e764ba38e927b66df2a914b53d8943a3e1fa24edb2c1cb3c3ae9f",
+      "sourceSha256": "3f28f3e9a95d53c99cb9e881256cb47ef02f6d2c2529dd3ead676f40803afc43",
       "targetPath": "templates/manga-project/README.md",
-      "targetSha256": "7cbc9804a260a0ab5fc6a970f0f09d14ead42595d0dc1e4e6c74fe78680dc578",
+      "targetSha256": "d07daa3639dab13443e3a0414351df9c0a5905af459c7bddafa9af3929a7fc39",
+      "disposition": "translated-or-adapted"
+    },
+    {
+      "sourcePath": "templates/manga-project/agent-modes/antigravity/AGENT-MODE.md",
+      "sourceSha256": "a572351f03e9fa4ea0de6440c46a08166970b9affdc6c7ab3b27aca5a9d04120",
+      "targetPath": "templates/manga-project/agent-modes/antigravity/AGENT-MODE.md",
+      "targetSha256": "6eeec15d417e92c818e97abe2570df60139a58827d7029c3f47c527ae48dc04d",
+      "disposition": "translated-or-adapted"
+    },
+    {
+      "sourcePath": "templates/manga-project/agent-modes/antigravity/GEMINI.md",
+      "sourceSha256": "1768f056824c49286dad368a7d7508cfa383f0d664f41ef438c74f65fbbb97aa",
+      "targetPath": "templates/manga-project/agent-modes/antigravity/GEMINI.md",
+      "targetSha256": "1e082805333926f6f0e3367fd4c91608864fc9e8729fe659fb6f4353cdbb6e61",
       "disposition": "translated-or-adapted"
     },
     {
@@ -1339,9 +1416,9 @@
     },
     {
       "sourcePath": "templates/manga-project/docs/MANGA-KNOWHOW.md",
-      "sourceSha256": "846dd0df4434513c4c3f19ccdcef02213a94ff7ea929f016599b204b27417d41",
+      "sourceSha256": "33df8a2139ff1ecd4756cf23c7c13b82e97fbed93c8648ebb8a3b057848f671c",
       "targetPath": "templates/manga-project/docs/MANGA-KNOWHOW.md",
-      "targetSha256": "0beaa67d65740b5b5fa0cb4870793ed4c9be12fd84b2581a2cd0808304990041",
+      "targetSha256": "42b6980b8ed10784c9efb1d9923584ae69cbca7b757eafeaaea49eab5501c86a",
       "disposition": "translated-or-adapted"
     },
     {
@@ -1381,9 +1458,9 @@
     },
     {
       "sourcePath": "templates/manga-project/docs/knowledge/novelai-composed-production.md",
-      "sourceSha256": "b25b609bc9b7c8dd25566f1f3c087ad73d3531d712372fb0c72032c961f3e898",
+      "sourceSha256": "40e36fd29bf2119889f1656999cd36f74f15a58ad26a084445d915bf82f72866",
       "targetPath": "templates/manga-project/docs/knowledge/novelai-composed-production.md",
-      "targetSha256": "0ffc6064d0f82737eb07ec4b3c62217d0bd1ab8aba1862d0f699287a36eb8322",
+      "targetSha256": "5dd6a3002b74da77884f9cae151bc3f401879899e11bf4e147437b0f44e9d172",
       "disposition": "translated-or-adapted"
     },
     {
@@ -1416,9 +1493,9 @@
     },
     {
       "sourcePath": "templates/manga-project/docs/reviews/NAME-REVIEW.md",
-      "sourceSha256": "db43b9da1cad3dad22e63dc7edf3233faa827b29971330c432ad2b2a95741863",
+      "sourceSha256": "7c2b7e71b144a2b0a4655517a3d0289221a454d089dc06235ed943ec398fd079",
       "targetPath": "templates/manga-project/docs/reviews/NAME-REVIEW.md",
-      "targetSha256": "274672742dfdcb7dccf68e97571c539f492da43c34bbd8adf93a27a69919810e",
+      "targetSha256": "49e243531bd686828b66d313153dd3f72d726bd5db88a0d5b149b62b96874686",
       "disposition": "translated-or-adapted"
     },
     {
@@ -5959,9 +6036,9 @@
     },
     {
       "sourcePath": "tests/Test-Scaffold.ps1",
-      "sourceSha256": "9d6d86ddf7afc7d479e87bfce8ee6e783e081883d76306b03f132c6bd0c5b313",
+      "sourceSha256": "caef2a36526cc653dba041be68f6d97b94fa2a9b7bead6104c235018f2e26d53",
       "targetPath": "tests/Test-Scaffold.ps1",
-      "targetSha256": "aa357b85673cd6da2b8d91442d004ba286829f3b3020a2003fe9176f303e0016",
+      "targetSha256": "69024c6d14772d69b3ec18b4719142a8784286bea0c4ad255f82d0c1bf1eaed4",
       "disposition": "translated-or-adapted"
     },
     {
@@ -6000,6 +6077,13 @@
       "disposition": "translated-or-adapted"
     },
     {
+      "sourcePath": "tests/test_optional_skills_portable.py",
+      "sourceSha256": "39d7fa3c66ef24b20ff2dcbacd02f3fafa8e273647e833a800bcf3c6e5625ed6",
+      "targetPath": "tests/test_optional_skills_portable.py",
+      "targetSha256": "19e3149112fe00a54e598e55b41d73f72d7eba295efe53de94e3dbfbc6d91616",
+      "disposition": "translated-or-adapted"
+    },
+    {
       "sourcePath": "tests/test_page_layout.py",
       "sourceSha256": "2ea3d8b955782736ce28b29e2c74790d36f864cf04977de134d7d9a934747713",
       "targetPath": "tests/test_page_layout.py",
@@ -6022,9 +6106,9 @@
     },
     {
       "sourcePath": "tests/test_public_release.py",
-      "sourceSha256": "17539114b820b4ef6a8582daab34e2d30d0a7313a532c56246d059c399e154fb",
+      "sourceSha256": "ef7c25a12a721776d3c0fc421cd7e610cb3371c62c3c792313e04656673b1f96",
       "targetPath": "tests/test_public_release.py",
-      "targetSha256": "36d7cca99b8c786c88f9fd3c5aa4eb0490f1797b2f447d120a0c0b1e2e8ef39a",
+      "targetSha256": "0581cc88c13a7bdc729fe2534191a12e1d8562b15bafff0fb209fce43711e4ab",
       "disposition": "translated-or-adapted"
     },
     {
@@ -6032,6 +6116,20 @@
       "sourceSha256": "b276e2da4a8d3c932abf2dd43c7579c4a9e7c542a9b8b4df3c4a3587b5eef3e1",
       "targetPath": "tests/test_recolor_onomatopoeia.py",
       "targetSha256": "102b4a3edb0f1ad3c0a3c9172fc2e633067b20f5976d45f9b54cce48356f9955",
+      "disposition": "translated-or-adapted"
+    },
+    {
+      "sourcePath": "tests/test_review_profile_portable.py",
+      "sourceSha256": "828144a8fdfd7dae3205c9aee07c05c79d838e62d444b186963fbff3e12f8068",
+      "targetPath": "tests/test_review_profile_portable.py",
+      "targetSha256": "33a85366f644d86c2c1bf93b0970b92a2f8ec8c6f81ae7a99b3db30bb0feb733",
+      "disposition": "translated-or-adapted"
+    },
+    {
+      "sourcePath": "tests/test_scaffold_portable.py",
+      "sourceSha256": "e7a07dc0aefd522008d4cff6504314045558075d1231f26f45121738f27037c9",
+      "targetPath": "tests/test_scaffold_portable.py",
+      "targetSha256": "486a48e1d7c01ba67781692321f0b60469c8325dbaebc1f1209b0962012e934c",
       "disposition": "translated-or-adapted"
     },
     {

@@ -145,11 +145,12 @@ Check $inheritedHashesValid 'Inherited AGENTS and requirements match creation-ti
 Check ((Get-FileHash -LiteralPath (Join-Path $processSource 'config/process-requirements.json')).Hash -eq $sourceRequirementsHash) 'Source requirements remain unchanged'
 $originalHash = (Get-FileHash -LiteralPath (Join-Path $projectRoot 'project.json')).Hash
 Must-Fail { & $maker -ProjectName $japaneseName -DestinationParent $testRoot } 'Existing project is rejected'
-# Codex is the default; Claude files are distributed only with -AgentMode Claude.
+# Codex is the default; environment-specific files require explicit mode selection.
 Check ($project.agentMode -eq 'Codex' -and
        -not (Test-Path -LiteralPath (Join-Path $projectRoot 'CLAUDE.md')) -and
+       -not (Test-Path -LiteralPath (Join-Path $projectRoot 'GEMINI.md')) -and
        -not (Test-Path -LiteralPath (Join-Path $projectRoot 'AGENT-MODE.md')) -and
-       -not (Test-Path -LiteralPath (Join-Path $projectRoot 'agent-modes'))) 'Default Codex mode creates no Claude-specific files'
+       -not (Test-Path -LiteralPath (Join-Path $projectRoot 'agent-modes'))) 'Default Codex mode creates no other environment-specific files'
 $claudeResult = & $maker -ProjectName 'ClaudeMode' -DestinationParent $testRoot -AgentMode Claude -InformationVariable claudeMessages
 $claudeRoot = (Resolve-Path -LiteralPath $claudeResult.Path).ProviderPath
 $claudeProject = Get-Content -LiteralPath (Join-Path $claudeRoot 'project.json') -Raw -Encoding UTF8 | ConvertFrom-Json
@@ -160,6 +161,23 @@ Check ($claudeProject.agentMode -eq 'Claude' -and $claudeResult.AgentMode -eq 'C
        (Get-Content -LiteralPath (Join-Path $claudeRoot 'CLAUDE.md') -Raw -Encoding UTF8).Contains('@AGENTS.md') -and
        -not (Test-Path -LiteralPath (Join-Path $claudeRoot 'agent-modes'))) 'Claude mode distributes and records CLAUDE.md and adaptation instructions'
 Check (($claudeMessages | Out-String -Width 4096).Contains('Reopen Claude in this folder')) 'Claude mode instructs reopening in Claude'
+Check (-not (Test-Path -LiteralPath (Join-Path $claudeRoot 'GEMINI.md'))) 'Claude mode does not distribute the Antigravity entry point'
+$antigravityResult = & $maker -ProjectName 'AntigravityMode' -DestinationParent $testRoot -AgentMode Antigravity -InformationVariable antigravityMessages
+$antigravityRoot = (Resolve-Path -LiteralPath $antigravityResult.Path).ProviderPath
+$antigravityProject = Get-Content -LiteralPath (Join-Path $antigravityRoot 'project.json') -Raw -Encoding UTF8 | ConvertFrom-Json
+$antigravitySnapshot = Get-Content -LiteralPath (Join-Path $antigravityRoot 'docs\distribution-snapshot.json') -Raw -Encoding UTF8 | ConvertFrom-Json
+$antigravityFiles = @($antigravitySnapshot.files | Where-Object { $_.path -in @('GEMINI.md', 'AGENT-MODE.md') })
+Check ($antigravityProject.agentMode -eq 'Antigravity' -and $antigravityResult.AgentMode -eq 'Antigravity' -and $antigravityFiles.Count -eq 2 -and
+       @($antigravityFiles | Where-Object { $_.sha256 -ne (Get-FileHash -LiteralPath (Join-Path $antigravityRoot $_.path) -Algorithm SHA256).Hash.ToLowerInvariant() }).Count -eq 0 -and
+       (Get-Content -LiteralPath (Join-Path $antigravityRoot 'GEMINI.md') -Raw -Encoding UTF8).Contains('@[Antigravity adaptations](AGENT-MODE.md)') -and
+       -not (Test-Path -LiteralPath (Join-Path $antigravityRoot 'CLAUDE.md')) -and
+       -not (Test-Path -LiteralPath (Join-Path $antigravityRoot 'agent-modes'))) 'Distribute and record only the two Antigravity mode files'
+Check ((Get-FileHash -LiteralPath (Join-Path $antigravityRoot 'AGENTS.md')).Hash -eq (Get-FileHash -LiteralPath (Join-Path $projectRoot 'AGENTS.md')).Hash -and
+       (Get-FileHash -LiteralPath (Join-Path $antigravityRoot 'OPTION.md')).Hash -eq (Get-FileHash -LiteralPath (Join-Path $projectRoot 'OPTION.md')).Hash) 'Antigravity retains common rules and default options'
+Check (($antigravityMessages | Out-String -Width 4096).Contains('Reopen Antigravity in this folder')) 'Antigravity mode gives reopening guidance'
+$null = & $maker -ProjectName 'AntigravityPreviewOnly' -DestinationParent $testRoot -AgentMode Antigravity -WhatIf -InformationVariable antigravityPreviewMessages
+Check (-not (Test-Path -LiteralPath (Join-Path $testRoot 'AntigravityPreviewOnly')) -and
+       -not (($antigravityPreviewMessages | Out-String).Contains('Reopen Antigravity in this folder'))) 'Antigravity WhatIf neither creates files nor reports completion'
 Must-Fail { & $maker -ProjectName 'UnknownMode' -DestinationParent $testRoot -AgentMode 'Gemini' } 'Unsupported agent mode is rejected'
 Check ((Get-FileHash -LiteralPath (Join-Path $projectRoot 'project.json')).Hash -eq $originalHash) 'Existing project remains unchanged'
 $previewResult = & $maker -ProjectName 'PreviewOnly' -DestinationParent $testRoot -WhatIf -InformationVariable previewMessages

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "scope": "Initial settings for US English, left-to-right page comics. Adapt proportions and restrictions to the work and user instructions.",
+  "hardRules": {
+    "horizontalThree": {
+      "enabled": true,
+      "restrictionGroup": "horizontal-three",
+      "includeDiagonalVariants": true,
+      "minimumInterveningPages": 4,
+      "rollingWindowPages": 20,
+      "maximumInWindow": 3,
+      "example": "If used on p1, leave p2-p5 between uses; next use is p6 or later. Check every rolling 20-page window, including p2-p21, not only p1-p20."
+    },
+    "mostCommonPanelCount": 5,
+    "dominanceMinimumPages": 20,
+    "dominanceScope": "For plans of at least 20 pages, five-panel pages must outnumber each other panel count."
+  },
+  "recommended": {
+    "standard20PageMix": {
+      "5": 12,
+      "4": 3,
+      "3": 3,
+      "6": 2
+    },
+    "standardPercent": {
+      "5": 60,
+      "4": 15,
+      "3": 15,
+      "6": 10
+    },
+    "horizontalThreeTargetPer20": 2,
+    "diagonalFiveMaximumPer20": 1,
+    "avoidAdjacentIdenticalTemplate": true,
+    "exceptionNote": "Adjust large panels, spreads, two-panel pages, and added time-passage panels for staging and count actual panels. Exact proportions are not required."
+  },
+  "selectionWorkflow": [
+    "Decide the emotional change and focal moment of the page.",
+    "Choose panel count according to adopted proportions; narrow templates by wide-panel placement and purpose. Do not choose uniformly from all templates.",
+    "Choose an outline different from adjacent pages and assign events/dialogue by numbered reading order, left to right and top to bottom.",
+    "Use templates as a rule. If existing shapes cannot convey the staging adequately, record the page, intent, and reason and use a custom layout. User-required or disabled-template instructions take precedence.",
+    "All-template plans can be validated as JSON. With custom pages, inspect per-page records and actual placement; do not invent IDs or renumber pages to force validation.",
+    "Before imagegen artwork generation, actually supply a numbered layout image and panel contents; default to whole-page generation. Custom layouts also need references. Record reasons for separate-panel generation when needed.",
+    "After generation, compare panel count, placement, reading order, content, and text. Remove explanatory numbers/guides. Follow environment-specific procedures for NovelAI and other tools.",
+    "Do not mechanically crop existing wide artwork and claim it was composed for a new panel layout."
+  ]
+}

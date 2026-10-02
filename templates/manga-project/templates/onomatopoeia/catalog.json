@@ -1,0 +1,4672 @@
+{
+  "schema_version": 1,
+  "title_ja": "English sound-effect lettering — three styles",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "attribution_required": false,
+  "commercial_use": true,
+  "redistribution": true,
+  "modification": true,
+  "rights_note_ja": "CC0 applies only to rights held by the distributor. No guarantee of absence of third-party rights; see LICENSE.md.",
+  "styles": [
+    {
+      "id": "block",
+      "name_ja": "Bold geometric",
+      "name_en": "Bold geometric"
+    },
+    {
+      "id": "burst",
+      "name_ja": "Slanted impact",
+      "name_en": "Slanted impact"
+    },
+    {
+      "id": "drybrush",
+      "name_ja": "Textured slant",
+      "name_en": "Textured slant"
+    }
+  ],
+  "intensity_scale_ja": "1 = quiet or small; 5 = loud or intense. A usage guideline.",
+  "entries": [
+    {
+      "id": "block-zawa",
+      "kind": "word",
+      "text": "MURMUR",
+      "reading": "murmur",
+      "style_id": "block",
+      "tags": [
+        "crowd",
+        "unease",
+        "murmur"
+      ],
+      "meaning_ja": "Crowd murmuring or an unsettled atmosphere.",
+      "intensity": 2,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 6,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-zawa.webp",
+        "format": "webp",
+        "width": 858,
+        "height": 240,
+        "bytes": 4814,
+        "sha256": "d9189cefe5e15cc7f0a369c752ad888853217b2d6ff694f6baab982bf1abab5d",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "murmur",
+        "zawa"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ザワ",
+      "meaning_en": "Crowd murmuring or an unsettled atmosphere.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-zawa.svg"
+    },
+    {
+      "id": "block-waa",
+      "kind": "word",
+      "text": "CHEER",
+      "reading": "cheer",
+      "style_id": "block",
+      "tags": [
+        "cheers",
+        "crowd",
+        "surprise"
+      ],
+      "meaning_ja": "A crowd cheering, reacting in surprise, or making a lively noise.",
+      "intensity": 3,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 5,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-waa.webp",
+        "format": "webp",
+        "width": 723,
+        "height": 240,
+        "bytes": 4062,
+        "sha256": "1dbccdb48db6ec22eddd8fa4fea026eca24229d7ffb33b0ee506033a1c357475",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "cheer",
+        "waa"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ワー",
+      "meaning_en": "A crowd cheering, reacting in surprise, or making a lively noise.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-waa.svg"
+    },
+    {
+      "id": "block-pachi",
+      "kind": "word",
+      "text": "CLAP",
+      "reading": "clap",
+      "style_id": "block",
+      "tags": [
+        "clap",
+        "spark",
+        "blink"
+      ],
+      "meaning_ja": "A small clap, ignition, or a small snap; use CLICK or SNAP when the action calls for it.",
+      "intensity": 2,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 4,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-pachi.webp",
+        "format": "webp",
+        "width": 588,
+        "height": 240,
+        "bytes": 5350,
+        "sha256": "83322a264e64be0bbf4df9a4101e8e79129bb7be4adff4a1467bd62755d26d43",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "clap",
+        "pachi"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "パチ",
+      "meaning_en": "A small clap, ignition, or a small snap; use CLICK or SNAP when the action calls for it.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-pachi.svg"
+    },
+    {
+      "id": "block-haa",
+      "kind": "word",
+      "text": "HUFF",
+      "reading": "huff",
+      "style_id": "block",
+      "tags": [
+        "breath",
+        "fatigue",
+        "sigh"
+      ],
+      "meaning_ja": "Heavy breathing or an exhausted sigh.",
+      "intensity": 1,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 4,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-haa.webp",
+        "format": "webp",
+        "width": 588,
+        "height": 240,
+        "bytes": 2002,
+        "sha256": "d8064729cb591f08fbf0560ac000929af24fb739f80dd08eb5a5e6dc82b261bb",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "huff",
+        "haa"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ハア",
+      "meaning_en": "Heavy breathing or an exhausted sigh.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-haa.svg"
+    },
+    {
+      "id": "block-hat",
+      "kind": "word",
+      "text": "GASP",
+      "reading": "gasp",
+      "style_id": "block",
+      "tags": [
+        "realization",
+        "surprise",
+        "breath"
+      ],
+      "meaning_ja": "A sudden realization or sharply drawn breath.",
+      "intensity": 2,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 4,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-hat.webp",
+        "format": "webp",
+        "width": 588,
+        "height": 240,
+        "bytes": 6590,
+        "sha256": "6bfdd3ca4e54f47fc075055be020bd24d716ab4fadaf446bb583196ff8ab7409",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "gasp",
+        "hat"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ハッ",
+      "meaning_en": "A sudden realization or sharply drawn breath.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-hat.svg"
+    },
+    {
+      "id": "block-doki",
+      "kind": "word",
+      "text": "THUMP",
+      "reading": "thump",
+      "style_id": "block",
+      "tags": [
+        "heartbeat",
+        "tension",
+        "romance"
+      ],
+      "meaning_ja": "A single strong heartbeat. Repeat for sustained nervousness or excitement.",
+      "intensity": 2,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 5,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-doki.webp",
+        "format": "webp",
+        "width": 723,
+        "height": 240,
+        "bytes": 4034,
+        "sha256": "9f18499b4d5a4b65d0b227957a13ed4034a83f94ac1b8bcda98b44c38c57fea1",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "thump",
+        "doki"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ドキ",
+      "meaning_en": "A single strong heartbeat. Repeat for sustained nervousness or excitement.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-doki.svg"
+    },
+    {
+      "id": "block-bat",
+      "kind": "word",
+      "text": "WHOOSH",
+      "reading": "whoosh",
+      "style_id": "block",
+      "tags": [
+        "sudden movement",
+        "turn",
+        "spread"
+      ],
+      "meaning_ja": "A sudden turn or a sweeping movement of fabric or arms.",
+      "intensity": 3,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 6,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-bat.webp",
+        "format": "webp",
+        "width": 858,
+        "height": 240,
+        "bytes": 7156,
+        "sha256": "b4e64c8c3826127eb0b3853619b31128e67460c1fcfd0eed4e9cb634aee407cf",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "whoosh",
+        "bat"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "バッ",
+      "meaning_en": "A sudden turn or a sweeping movement of fabric or arms.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-bat.svg"
+    },
+    {
+      "id": "block-wai",
+      "kind": "word",
+      "text": "CHATTER",
+      "reading": "chatter",
+      "style_id": "block",
+      "tags": [
+        "crowd",
+        "liveliness",
+        "conversation"
+      ],
+      "meaning_ja": "A cheerful group bustle or lively conversation.",
+      "intensity": 2,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 7,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-wai.webp",
+        "format": "webp",
+        "width": 993,
+        "height": 240,
+        "bytes": 6712,
+        "sha256": "a75d019b61a5adcc8f7f0085980dbbc87f72a872752c39049bfb5d8d2f18980a",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "chatter",
+        "wai"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ワイ",
+      "meaning_en": "A cheerful group bustle or lively conversation.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-wai.svg"
+    },
+    {
+      "id": "block-don",
+      "kind": "word",
+      "text": "THUD",
+      "reading": "thud",
+      "style_id": "block",
+      "tags": [
+        "impact",
+        "strike",
+        "landing"
+      ],
+      "meaning_ja": "A heavy impact or landing; also a forceful entrance.",
+      "intensity": 4,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 4,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-don.webp",
+        "format": "webp",
+        "width": 588,
+        "height": 240,
+        "bytes": 2914,
+        "sha256": "49981eaaf25f0f23befacfc0b213d2658d35a0eef1565888a738a857b6f87beb",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "thud",
+        "don"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ドン",
+      "meaning_en": "A heavy impact or landing; also a forceful entrance.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-don.svg"
+    },
+    {
+      "id": "block-zat",
+      "kind": "word",
+      "text": "SCRUNCH",
+      "reading": "scrunch",
+      "style_id": "block",
+      "tags": [
+        "footstep",
+        "movement",
+        "friction"
+      ],
+      "meaning_ja": "A firm footstep or coordinated movement; choose the sound to suit the ground.",
+      "intensity": 3,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 7,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-zat.webp",
+        "format": "webp",
+        "width": 993,
+        "height": 240,
+        "bytes": 6900,
+        "sha256": "f4badba6aba083a6d6ec3a6c0db50ccee2e71873207f518effa4c954aa06406f",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "scrunch",
+        "zat"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ザッ",
+      "meaning_en": "A firm footstep or coordinated movement; choose the sound to suit the ground.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-zat.svg"
+    },
+    {
+      "id": "block-gat",
+      "kind": "word",
+      "text": "CLACK",
+      "reading": "clack",
+      "style_id": "block",
+      "tags": [
+        "impact",
+        "grab",
+        "contact"
+      ],
+      "meaning_ja": "Hard contact or a forceful grab; use GRAB for a silent action label.",
+      "intensity": 3,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 5,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-gat.webp",
+        "format": "webp",
+        "width": 723,
+        "height": 240,
+        "bytes": 5752,
+        "sha256": "80f90668a400d301520e4d1978b184678d8d57ab82a47a2e9458b4785c1685f3",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "clack",
+        "gat"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ガッ",
+      "meaning_en": "Hard contact or a forceful grab; use GRAB for a silent action label.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-gat.svg"
+    },
+    {
+      "id": "block-haa-small",
+      "kind": "word",
+      "text": "SIGH",
+      "reading": "sigh",
+      "style_id": "block",
+      "tags": [
+        "breath",
+        "fatigue",
+        "sigh"
+      ],
+      "meaning_ja": "An exhale or a weary, deflated sigh.",
+      "intensity": 1,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 4,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-haa-small.webp",
+        "format": "webp",
+        "width": 588,
+        "height": 240,
+        "bytes": 4244,
+        "sha256": "3f4408be55fa53e763582a8dbed3496ff6afc9c2bfa42dfafcb01efbcaf44b54",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "sigh",
+        "haa-small"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ハァ",
+      "meaning_en": "An exhale or a weary, deflated sigh.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-haa-small.svg"
+    },
+    {
+      "id": "block-goro",
+      "kind": "word",
+      "text": "RUMBLE",
+      "reading": "rumble",
+      "style_id": "block",
+      "tags": [
+        "rolling",
+        "thunder",
+        "low sound"
+      ],
+      "meaning_ja": "Heavy rolling or low, rumbling thunder.",
+      "intensity": 3,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 6,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-goro.webp",
+        "format": "webp",
+        "width": 858,
+        "height": 240,
+        "bytes": 5720,
+        "sha256": "99d6648b2517a35f03adba816578da2c350a0afcca6d3e631ffdbfd9bb0226aa",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "rumble",
+        "goro"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ゴロ",
+      "meaning_en": "Heavy rolling or low, rumbling thunder.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-goro.svg"
+    },
+    {
+      "id": "block-ban",
+      "kind": "word",
+      "text": "SLAM",
+      "reading": "slam",
+      "style_id": "block",
+      "tags": [
+        "strike",
+        "door",
+        "burst"
+      ],
+      "meaning_ja": "A slammed door or sharp impact.",
+      "intensity": 4,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 4,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-ban.webp",
+        "format": "webp",
+        "width": 588,
+        "height": 240,
+        "bytes": 6394,
+        "sha256": "92947c64ec12f856d70c3b2016160d3cf1398865ed925bd808224de95e0adaa4",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "slam",
+        "ban"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "バン",
+      "meaning_en": "A slammed door or sharp impact.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-ban.svg"
+    },
+    {
+      "id": "block-pan",
+      "kind": "word",
+      "text": "POP",
+      "reading": "pop",
+      "style_id": "block",
+      "tags": [
+        "clap",
+        "pop",
+        "light impact"
+      ],
+      "meaning_ja": "A handclap or light, dry pop; use CLAP for explicit applause.",
+      "intensity": 3,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 3,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-pan.webp",
+        "format": "webp",
+        "width": 453,
+        "height": 240,
+        "bytes": 2890,
+        "sha256": "51809c763ea746b544767fa9653e1d9779cf5207bf231771ec9ad4fcdf98cbe0",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "pop",
+        "pan"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "パン",
+      "meaning_en": "A handclap or light, dry pop; use CLAP for explicit applause.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-pan.svg"
+    },
+    {
+      "id": "block-bata",
+      "kind": "word",
+      "text": "FLAP",
+      "reading": "flap",
+      "style_id": "block",
+      "tags": [
+        "footsteps",
+        "fall",
+        "flapping"
+      ],
+      "meaning_ja": "Hurried motion, falling, or flapping; choose THUMP for a fall.",
+      "intensity": 3,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 4,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-bata.webp",
+        "format": "webp",
+        "width": 588,
+        "height": 240,
+        "bytes": 4558,
+        "sha256": "6d4aa0eb0c54d1493f873e24a1d7c6abbc956b3d7f92db76534d68b4fa7d6ae2",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "flap",
+        "bata"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "バタ",
+      "meaning_en": "Hurried motion, falling, or flapping; choose THUMP for a fall.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-bata.svg"
+    },
+    {
+      "id": "block-puru",
+      "kind": "word",
+      "text": "TREMBLE",
+      "reading": "tremble",
+      "style_id": "block",
+      "tags": [
+        "trembling",
+        "tension",
+        "vibration"
+      ],
+      "meaning_ja": "Small repeated trembling or vibration. English TREMBLE can stand alone.",
+      "intensity": 1,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 7,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-puru.webp",
+        "format": "webp",
+        "width": 993,
+        "height": 240,
+        "bytes": 5584,
+        "sha256": "25d30f582f38761237ddff37d1cb4d8f8a946918409335e6edfe561950a1e3cd",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "tremble",
+        "puru"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "プル",
+      "meaning_en": "Small repeated trembling or vibration. English TREMBLE can stand alone.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-puru.svg"
+    },
+    {
+      "id": "block-pata",
+      "kind": "word",
+      "text": "PAT",
+      "reading": "pat",
+      "style_id": "block",
+      "tags": [
+        "footsteps",
+        "light contact",
+        "flapping"
+      ],
+      "meaning_ja": "A light footstep, tap, or flap. Repeat only when the action repeats.",
+      "intensity": 2,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 3,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-pata.webp",
+        "format": "webp",
+        "width": 453,
+        "height": 240,
+        "bytes": 3902,
+        "sha256": "5803572380dbbdee133e347c38e95eaa037ffb6edf7cd931e39f87118a8e48d8",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "pat",
+        "pata"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "パタ",
+      "meaning_en": "A light footstep, tap, or flap. Repeat only when the action repeats.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-pata.svg"
+    },
+    {
+      "id": "block-sut",
+      "kind": "word",
+      "text": "SWISH",
+      "reading": "swish",
+      "style_id": "block",
+      "tags": [
+        "quiet movement",
+        "vanish",
+        "offer"
+      ],
+      "meaning_ja": "Quiet movement, smoothly offering an object, or slipping out of sight.",
+      "intensity": 1,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 5,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-sut.webp",
+        "format": "webp",
+        "width": 723,
+        "height": 240,
+        "bytes": 6172,
+        "sha256": "0d9617fdee2cd7491981a7e480b10c7e347a626c759e7679c174e60f8f420dc0",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "swish",
+        "sut"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "スッ",
+      "meaning_en": "Quiet movement, smoothly offering an object, or slipping out of sight.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-sut.svg"
+    },
+    {
+      "id": "block-dat",
+      "kind": "word",
+      "text": "DASH",
+      "reading": "dash",
+      "style_id": "block",
+      "tags": [
+        "run",
+        "step",
+        "sudden movement"
+      ],
+      "meaning_ja": "A sudden, energetic start into a run.",
+      "intensity": 3,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 4,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-dat.webp",
+        "format": "webp",
+        "width": 588,
+        "height": 240,
+        "bytes": 5798,
+        "sha256": "641e1d61c75ee87f5cb94a9737b0c7ea94d69438ee47c8276802d6047c9a4b9e",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "dash",
+        "dat"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ダッ",
+      "meaning_en": "A sudden, energetic start into a run.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-dat.svg"
+    },
+    {
+      "id": "block-doon",
+      "kind": "word",
+      "text": "BOOM!",
+      "reading": "boom!",
+      "style_id": "block",
+      "tags": [
+        "impact",
+        "explosion",
+        "entrance"
+      ],
+      "meaning_ja": "A large resonant impact, heavy landing, or dramatic entrance.",
+      "intensity": 5,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 5,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-doon.webp",
+        "format": "webp",
+        "width": 723,
+        "height": 240,
+        "bytes": 4584,
+        "sha256": "a06e596996afd897d9cb0083570291c0e442b6955292212490d0efbbf5e594d2",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "boom!",
+        "doon"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ドーン！",
+      "meaning_en": "A large resonant impact, heavy landing, or dramatic entrance.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-doon.svg"
+    },
+    {
+      "id": "block-baan",
+      "kind": "word",
+      "text": "BANG!",
+      "reading": "bang!",
+      "style_id": "block",
+      "tags": [
+        "impact",
+        "explosion",
+        "reveal"
+      ],
+      "meaning_ja": "A sharp, spectacular impact or explosion, or an emphatic reveal.",
+      "intensity": 5,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 5,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-baan.webp",
+        "format": "webp",
+        "width": 723,
+        "height": 240,
+        "bytes": 6868,
+        "sha256": "440faa0585ea3c0456d7ef335b18c831e39eb1998a253c26570ac37d8f5ca95c",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "bang!",
+        "baan"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "バーン！",
+      "meaning_en": "A sharp, spectacular impact or explosion, or an emphatic reveal.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-baan.svg"
+    },
+    {
+      "id": "block-go-4",
+      "kind": "repeat",
+      "text": "RUMBLE RUMBLE RUMBLE RUMBLE",
+      "reading": "rumble rumble rumble rumble",
+      "style_id": "block",
+      "tags": [
+        "unease",
+        "intimidation",
+        "low sound"
+      ],
+      "meaning_ja": "An ominous pressure or the deep resonance of something enormous.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 27,
+      "repeat": {
+        "unit": "RUMBLE",
+        "count": 4,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-go-4.webp",
+        "format": "webp",
+        "width": 3480,
+        "height": 240,
+        "bytes": 7038,
+        "sha256": "4664480a17c2057c51490ab5b83b04c01955ba2dfd1fbe943db620ecd0a67822",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "rumble rumble rumble rumble",
+        "go"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ゴゴゴゴ",
+      "meaning_en": "An ominous pressure or the deep resonance of something enormous.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-go-4.svg"
+    },
+    {
+      "id": "block-go-5",
+      "kind": "repeat",
+      "text": "RUMBLE RUMBLE RUMBLE RUMBLE RUMBLE",
+      "reading": "rumble rumble rumble rumble rumble",
+      "style_id": "block",
+      "tags": [
+        "unease",
+        "intimidation",
+        "low sound"
+      ],
+      "meaning_ja": "An ominous pressure or the deep resonance of something enormous.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 34,
+      "repeat": {
+        "unit": "RUMBLE",
+        "count": 5,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-go-5.webp",
+        "format": "webp",
+        "width": 4354,
+        "height": 240,
+        "bytes": 7080,
+        "sha256": "1359ae6c967ba623cff480a9764c77c46434598f902f6ac4fa8c2d688a471af3",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "rumble rumble rumble rumble rumble",
+        "go"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ゴゴゴゴゴ",
+      "meaning_en": "An ominous pressure or the deep resonance of something enormous.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-go-5.svg"
+    },
+    {
+      "id": "block-go-6",
+      "kind": "repeat",
+      "text": "RUMBLE RUMBLE RUMBLE RUMBLE RUMBLE RUMBLE",
+      "reading": "rumble rumble rumble rumble rumble rumble",
+      "style_id": "block",
+      "tags": [
+        "unease",
+        "intimidation",
+        "low sound"
+      ],
+      "meaning_ja": "An ominous pressure or the deep resonance of something enormous.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 41,
+      "repeat": {
+        "unit": "RUMBLE",
+        "count": 6,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-go-6.webp",
+        "format": "webp",
+        "width": 5228,
+        "height": 240,
+        "bytes": 7492,
+        "sha256": "a78ec3af62df389031dd2e9680dda24ef7da250df0ab7391c08f7baaee011206",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "rumble rumble rumble rumble rumble rumble",
+        "go"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ゴゴゴゴゴゴ",
+      "meaning_en": "An ominous pressure or the deep resonance of something enormous.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-go-6.svg"
+    },
+    {
+      "id": "block-go-7",
+      "kind": "repeat",
+      "text": "RUMBLE RUMBLE RUMBLE RUMBLE RUMBLE RUMBLE RUMBLE",
+      "reading": "rumble rumble rumble rumble rumble rumble rumble",
+      "style_id": "block",
+      "tags": [
+        "unease",
+        "intimidation",
+        "low sound"
+      ],
+      "meaning_ja": "An ominous pressure or the deep resonance of something enormous.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 48,
+      "repeat": {
+        "unit": "RUMBLE",
+        "count": 7,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-go-7.webp",
+        "format": "webp",
+        "width": 6102,
+        "height": 240,
+        "bytes": 7700,
+        "sha256": "30e8843cf2acf49b029a23942cba0abea5cb459cfd905bfeaff8dffb8cef6ef7",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "rumble rumble rumble rumble rumble rumble rumble",
+        "go"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ゴゴゴゴゴゴゴ",
+      "meaning_en": "An ominous pressure or the deep resonance of something enormous.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-go-7.svg"
+    },
+    {
+      "id": "block-do-4",
+      "kind": "repeat",
+      "text": "THUD THUD THUD THUD",
+      "reading": "thud thud thud thud",
+      "style_id": "block",
+      "tags": [
+        "repeated impact",
+        "run",
+        "vibration"
+      ],
+      "meaning_ja": "Repeated impacts, heavy running, or strong vibration.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 19,
+      "repeat": {
+        "unit": "THUD",
+        "count": 4,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-do-4.webp",
+        "format": "webp",
+        "width": 2400,
+        "height": 240,
+        "bytes": 3618,
+        "sha256": "834eb518e6f00350aa31bda3c21c0cc9e67555371e824750ce1b7b2676421172",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "thud thud thud thud",
+        "do"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ドドドド",
+      "meaning_en": "Repeated impacts, heavy running, or strong vibration.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-do-4.svg"
+    },
+    {
+      "id": "block-do-5",
+      "kind": "repeat",
+      "text": "THUD THUD THUD THUD THUD",
+      "reading": "thud thud thud thud thud",
+      "style_id": "block",
+      "tags": [
+        "repeated impact",
+        "run",
+        "vibration"
+      ],
+      "meaning_ja": "Repeated impacts, heavy running, or strong vibration.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 24,
+      "repeat": {
+        "unit": "THUD",
+        "count": 5,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-do-5.webp",
+        "format": "webp",
+        "width": 3004,
+        "height": 240,
+        "bytes": 3586,
+        "sha256": "5a881ba79bd01351c70c21876c0290764c837a5429914239e44293bd9e057af2",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "thud thud thud thud thud",
+        "do"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ドドドドド",
+      "meaning_en": "Repeated impacts, heavy running, or strong vibration.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-do-5.svg"
+    },
+    {
+      "id": "block-do-6",
+      "kind": "repeat",
+      "text": "THUD THUD THUD THUD THUD THUD",
+      "reading": "thud thud thud thud thud thud",
+      "style_id": "block",
+      "tags": [
+        "repeated impact",
+        "run",
+        "vibration"
+      ],
+      "meaning_ja": "Repeated impacts, heavy running, or strong vibration.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 29,
+      "repeat": {
+        "unit": "THUD",
+        "count": 6,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-do-6.webp",
+        "format": "webp",
+        "width": 3608,
+        "height": 240,
+        "bytes": 3672,
+        "sha256": "62e6dc2bdc4e396df552c3848481469df5596fa88ea4c6cfc351685313518ac6",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "thud thud thud thud thud thud",
+        "do"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ドドドドドド",
+      "meaning_en": "Repeated impacts, heavy running, or strong vibration.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-do-6.svg"
+    },
+    {
+      "id": "block-do-7",
+      "kind": "repeat",
+      "text": "THUD THUD THUD THUD THUD THUD THUD",
+      "reading": "thud thud thud thud thud thud thud",
+      "style_id": "block",
+      "tags": [
+        "repeated impact",
+        "run",
+        "vibration"
+      ],
+      "meaning_ja": "Repeated impacts, heavy running, or strong vibration.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 34,
+      "repeat": {
+        "unit": "THUD",
+        "count": 7,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-do-7.webp",
+        "format": "webp",
+        "width": 4212,
+        "height": 240,
+        "bytes": 3656,
+        "sha256": "84b8c0a8d19a2b8fd887c88d040b5c1fd11fc855f7316d5318c575905f548c2d",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "thud thud thud thud thud thud thud",
+        "do"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ドドドドドドド",
+      "meaning_en": "Repeated impacts, heavy running, or strong vibration.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-do-7.svg"
+    },
+    {
+      "id": "block-za-4",
+      "kind": "repeat",
+      "text": "HISS HISS HISS HISS",
+      "reading": "hiss hiss hiss hiss",
+      "style_id": "block",
+      "tags": [
+        "rain",
+        "water",
+        "crowd"
+      ],
+      "meaning_ja": "Heavy rain, flowing water, or a sustained rustling crowd; choose contextually.",
+      "intensity": 3,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 19,
+      "repeat": {
+        "unit": "HISS",
+        "count": 4,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-za-4.webp",
+        "format": "webp",
+        "width": 2400,
+        "height": 240,
+        "bytes": 4246,
+        "sha256": "5ec833f63a9b95039e978115dccc36ceba2980969c2b3e136f9abbbc958911bc",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "hiss hiss hiss hiss",
+        "za"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ザザザザ",
+      "meaning_en": "Heavy rain, flowing water, or a sustained rustling crowd; choose contextually.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-za-4.svg"
+    },
+    {
+      "id": "block-za-5",
+      "kind": "repeat",
+      "text": "HISS HISS HISS HISS HISS",
+      "reading": "hiss hiss hiss hiss hiss",
+      "style_id": "block",
+      "tags": [
+        "rain",
+        "water",
+        "crowd"
+      ],
+      "meaning_ja": "Heavy rain, flowing water, or a sustained rustling crowd; choose contextually.",
+      "intensity": 3,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 24,
+      "repeat": {
+        "unit": "HISS",
+        "count": 5,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-za-5.webp",
+        "format": "webp",
+        "width": 3004,
+        "height": 240,
+        "bytes": 4184,
+        "sha256": "63c45979285d2c9e8b2378eb19fa70f3708c7d27b7d0a9d70a4724d159bdcecb",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "hiss hiss hiss hiss hiss",
+        "za"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ザザザザザ",
+      "meaning_en": "Heavy rain, flowing water, or a sustained rustling crowd; choose contextually.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-za-5.svg"
+    },
+    {
+      "id": "block-za-6",
+      "kind": "repeat",
+      "text": "HISS HISS HISS HISS HISS HISS",
+      "reading": "hiss hiss hiss hiss hiss hiss",
+      "style_id": "block",
+      "tags": [
+        "rain",
+        "water",
+        "crowd"
+      ],
+      "meaning_ja": "Heavy rain, flowing water, or a sustained rustling crowd; choose contextually.",
+      "intensity": 3,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 29,
+      "repeat": {
+        "unit": "HISS",
+        "count": 6,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-za-6.webp",
+        "format": "webp",
+        "width": 3608,
+        "height": 240,
+        "bytes": 4208,
+        "sha256": "f94a601088fa358d3841cf29c56d84e45c92c8d867313af54b5f124b33888572",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "hiss hiss hiss hiss hiss hiss",
+        "za"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ザザザザザザ",
+      "meaning_en": "Heavy rain, flowing water, or a sustained rustling crowd; choose contextually.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-za-6.svg"
+    },
+    {
+      "id": "block-za-7",
+      "kind": "repeat",
+      "text": "HISS HISS HISS HISS HISS HISS HISS",
+      "reading": "hiss hiss hiss hiss hiss hiss hiss",
+      "style_id": "block",
+      "tags": [
+        "rain",
+        "water",
+        "crowd"
+      ],
+      "meaning_ja": "Heavy rain, flowing water, or a sustained rustling crowd; choose contextually.",
+      "intensity": 3,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 34,
+      "repeat": {
+        "unit": "HISS",
+        "count": 7,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-za-7.webp",
+        "format": "webp",
+        "width": 4212,
+        "height": 240,
+        "bytes": 4206,
+        "sha256": "d4161bd8219c55e6c788c3b09027ceec8c97212870b0ff8c985309c3885e4897",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "hiss hiss hiss hiss hiss hiss hiss",
+        "za"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ザザザザザザザ",
+      "meaning_en": "Heavy rain, flowing water, or a sustained rustling crowd; choose contextually.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-za-7.svg"
+    },
+    {
+      "id": "block-ga-4",
+      "kind": "repeat",
+      "text": "RAT RAT RAT RAT",
+      "reading": "rat rat rat rat",
+      "style_id": "block",
+      "tags": [
+        "machine",
+        "rapid impact",
+        "vibration"
+      ],
+      "meaning_ja": "Repeated mechanical clatter or hard objects striking rapidly.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 15,
+      "repeat": {
+        "unit": "RAT",
+        "count": 4,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-ga-4.webp",
+        "format": "webp",
+        "width": 1860,
+        "height": 240,
+        "bytes": 5306,
+        "sha256": "ae365b6066f6055b481662a487ebec6541adb10532bf0225144e65a4bffa56cb",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "rat rat rat rat",
+        "ga"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ガガガガ",
+      "meaning_en": "Repeated mechanical clatter or hard objects striking rapidly.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-ga-4.svg"
+    },
+    {
+      "id": "block-ga-5",
+      "kind": "repeat",
+      "text": "RAT RAT RAT RAT RAT",
+      "reading": "rat rat rat rat rat",
+      "style_id": "block",
+      "tags": [
+        "machine",
+        "rapid impact",
+        "vibration"
+      ],
+      "meaning_ja": "Repeated mechanical clatter or hard objects striking rapidly.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 19,
+      "repeat": {
+        "unit": "RAT",
+        "count": 5,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-ga-5.webp",
+        "format": "webp",
+        "width": 2329,
+        "height": 240,
+        "bytes": 5330,
+        "sha256": "f16546dafe3ba47a4d7def23e940cd42b27f49528340bcc9c21d965429012844",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "rat rat rat rat rat",
+        "ga"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ガガガガガ",
+      "meaning_en": "Repeated mechanical clatter or hard objects striking rapidly.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-ga-5.svg"
+    },
+    {
+      "id": "block-ga-6",
+      "kind": "repeat",
+      "text": "RAT RAT RAT RAT RAT RAT",
+      "reading": "rat rat rat rat rat rat",
+      "style_id": "block",
+      "tags": [
+        "machine",
+        "rapid impact",
+        "vibration"
+      ],
+      "meaning_ja": "Repeated mechanical clatter or hard objects striking rapidly.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 23,
+      "repeat": {
+        "unit": "RAT",
+        "count": 6,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-ga-6.webp",
+        "format": "webp",
+        "width": 2798,
+        "height": 240,
+        "bytes": 5318,
+        "sha256": "2f6ee2a09021d5cf38de5c428d4c3c9e54a8db371aeda68fb63153888caf0f7c",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "rat rat rat rat rat rat",
+        "ga"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ガガガガガガ",
+      "meaning_en": "Repeated mechanical clatter or hard objects striking rapidly.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-ga-6.svg"
+    },
+    {
+      "id": "block-ga-7",
+      "kind": "repeat",
+      "text": "RAT RAT RAT RAT RAT RAT RAT",
+      "reading": "rat rat rat rat rat rat rat",
+      "style_id": "block",
+      "tags": [
+        "machine",
+        "rapid impact",
+        "vibration"
+      ],
+      "meaning_ja": "Repeated mechanical clatter or hard objects striking rapidly.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 27,
+      "repeat": {
+        "unit": "RAT",
+        "count": 7,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/block-ga-7.webp",
+        "format": "webp",
+        "width": 3267,
+        "height": 240,
+        "bytes": 5330,
+        "sha256": "5c96003fd93933e1ec01245ea698dcab95d1db41fb428d7d2318659b5bf9044e",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "rat rat rat rat rat rat rat",
+        "ga"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ガガガガガガガ",
+      "meaning_en": "Repeated mechanical clatter or hard objects striking rapidly.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/block-ga-7.svg"
+    },
+    {
+      "id": "burst-zawa",
+      "kind": "word",
+      "text": "MURMUR",
+      "reading": "murmur",
+      "style_id": "burst",
+      "tags": [
+        "crowd",
+        "unease",
+        "murmur"
+      ],
+      "meaning_ja": "Crowd murmuring or an unsettled atmosphere.",
+      "intensity": 2,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 6,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-zawa.webp",
+        "format": "webp",
+        "width": 858,
+        "height": 240,
+        "bytes": 9050,
+        "sha256": "68660a35291879883727315deec71ec56c2fe5e8accf32ce412016619085f8a6",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "murmur",
+        "zawa"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ザワ",
+      "meaning_en": "Crowd murmuring or an unsettled atmosphere.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-zawa.svg"
+    },
+    {
+      "id": "burst-waa",
+      "kind": "word",
+      "text": "CHEER",
+      "reading": "cheer",
+      "style_id": "burst",
+      "tags": [
+        "cheers",
+        "crowd",
+        "surprise"
+      ],
+      "meaning_ja": "A crowd cheering, reacting in surprise, or making a lively noise.",
+      "intensity": 3,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 5,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-waa.webp",
+        "format": "webp",
+        "width": 723,
+        "height": 240,
+        "bytes": 8086,
+        "sha256": "29d32b2d573139a859f3deb89d4f8102399aa00c48aa6d581ba8bb46ba9150a8",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "cheer",
+        "waa"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ワー",
+      "meaning_en": "A crowd cheering, reacting in surprise, or making a lively noise.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-waa.svg"
+    },
+    {
+      "id": "burst-pachi",
+      "kind": "word",
+      "text": "CLAP",
+      "reading": "clap",
+      "style_id": "burst",
+      "tags": [
+        "clap",
+        "spark",
+        "blink"
+      ],
+      "meaning_ja": "A small clap, ignition, or a small snap; use CLICK or SNAP when the action calls for it.",
+      "intensity": 2,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 4,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-pachi.webp",
+        "format": "webp",
+        "width": 588,
+        "height": 240,
+        "bytes": 8138,
+        "sha256": "62079554724cf16d8276ea29e29c6452819d67398f91765efe17ec12253267b4",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "clap",
+        "pachi"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "パチ",
+      "meaning_en": "A small clap, ignition, or a small snap; use CLICK or SNAP when the action calls for it.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-pachi.svg"
+    },
+    {
+      "id": "burst-haa",
+      "kind": "word",
+      "text": "HUFF",
+      "reading": "huff",
+      "style_id": "burst",
+      "tags": [
+        "breath",
+        "fatigue",
+        "sigh"
+      ],
+      "meaning_ja": "Heavy breathing or an exhausted sigh.",
+      "intensity": 1,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 4,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-haa.webp",
+        "format": "webp",
+        "width": 588,
+        "height": 240,
+        "bytes": 4162,
+        "sha256": "e5e5aca23948b6e4791119939e1ef4b9786f64993a83b4befcd8e53edf26bd2c",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "huff",
+        "haa"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ハア",
+      "meaning_en": "Heavy breathing or an exhausted sigh.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-haa.svg"
+    },
+    {
+      "id": "burst-hat",
+      "kind": "word",
+      "text": "GASP",
+      "reading": "gasp",
+      "style_id": "burst",
+      "tags": [
+        "realization",
+        "surprise",
+        "breath"
+      ],
+      "meaning_ja": "A sudden realization or sharply drawn breath.",
+      "intensity": 2,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 4,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-hat.webp",
+        "format": "webp",
+        "width": 588,
+        "height": 240,
+        "bytes": 9762,
+        "sha256": "371f52ba1ceb8c4ee7289289a03aed74801499c84e41bec48be07df5f8b125a7",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "gasp",
+        "hat"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ハッ",
+      "meaning_en": "A sudden realization or sharply drawn breath.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-hat.svg"
+    },
+    {
+      "id": "burst-doki",
+      "kind": "word",
+      "text": "THUMP",
+      "reading": "thump",
+      "style_id": "burst",
+      "tags": [
+        "heartbeat",
+        "tension",
+        "romance"
+      ],
+      "meaning_ja": "A single strong heartbeat. Repeat for sustained nervousness or excitement.",
+      "intensity": 2,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 5,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-doki.webp",
+        "format": "webp",
+        "width": 723,
+        "height": 240,
+        "bytes": 7762,
+        "sha256": "ebd7e07c052d2614a8ec751e795e20c0f6bc4931613aa27708a94e8f22c89062",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "thump",
+        "doki"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ドキ",
+      "meaning_en": "A single strong heartbeat. Repeat for sustained nervousness or excitement.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-doki.svg"
+    },
+    {
+      "id": "burst-bat",
+      "kind": "word",
+      "text": "WHOOSH",
+      "reading": "whoosh",
+      "style_id": "burst",
+      "tags": [
+        "sudden movement",
+        "turn",
+        "spread"
+      ],
+      "meaning_ja": "A sudden turn or a sweeping movement of fabric or arms.",
+      "intensity": 3,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 6,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-bat.webp",
+        "format": "webp",
+        "width": 858,
+        "height": 240,
+        "bytes": 11698,
+        "sha256": "00f351534c160121cf63896f8d3dc371a7051d3794cdec43abd303ea49a85e40",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "whoosh",
+        "bat"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "バッ",
+      "meaning_en": "A sudden turn or a sweeping movement of fabric or arms.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-bat.svg"
+    },
+    {
+      "id": "burst-wai",
+      "kind": "word",
+      "text": "CHATTER",
+      "reading": "chatter",
+      "style_id": "burst",
+      "tags": [
+        "crowd",
+        "liveliness",
+        "conversation"
+      ],
+      "meaning_ja": "A cheerful group bustle or lively conversation.",
+      "intensity": 2,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 7,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-wai.webp",
+        "format": "webp",
+        "width": 993,
+        "height": 240,
+        "bytes": 10766,
+        "sha256": "3163871f0419efee8625b2acbaf3b2f25e0c521303c13ceadc3cc90437d61807",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "chatter",
+        "wai"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ワイ",
+      "meaning_en": "A cheerful group bustle or lively conversation.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-wai.svg"
+    },
+    {
+      "id": "burst-don",
+      "kind": "word",
+      "text": "THUD",
+      "reading": "thud",
+      "style_id": "burst",
+      "tags": [
+        "impact",
+        "strike",
+        "landing"
+      ],
+      "meaning_ja": "A heavy impact or landing; also a forceful entrance.",
+      "intensity": 4,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 4,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-don.webp",
+        "format": "webp",
+        "width": 588,
+        "height": 240,
+        "bytes": 5248,
+        "sha256": "5ac0b5d13e01d1df6512f302eda86705f51a1e4c9975a9781e482f86e079c699",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "thud",
+        "don"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ドン",
+      "meaning_en": "A heavy impact or landing; also a forceful entrance.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-don.svg"
+    },
+    {
+      "id": "burst-zat",
+      "kind": "word",
+      "text": "SCRUNCH",
+      "reading": "scrunch",
+      "style_id": "burst",
+      "tags": [
+        "footstep",
+        "movement",
+        "friction"
+      ],
+      "meaning_ja": "A firm footstep or coordinated movement; choose the sound to suit the ground.",
+      "intensity": 3,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 7,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-zat.webp",
+        "format": "webp",
+        "width": 993,
+        "height": 240,
+        "bytes": 12446,
+        "sha256": "d258d06c22ca605c747d29252542c5c80308e910d088e4554672807561781a56",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "scrunch",
+        "zat"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ザッ",
+      "meaning_en": "A firm footstep or coordinated movement; choose the sound to suit the ground.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-zat.svg"
+    },
+    {
+      "id": "burst-gat",
+      "kind": "word",
+      "text": "CLACK",
+      "reading": "clack",
+      "style_id": "burst",
+      "tags": [
+        "impact",
+        "grab",
+        "contact"
+      ],
+      "meaning_ja": "Hard contact or a forceful grab; use GRAB for a silent action label.",
+      "intensity": 3,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 5,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-gat.webp",
+        "format": "webp",
+        "width": 723,
+        "height": 240,
+        "bytes": 8910,
+        "sha256": "e9d627423d0d6f6224b32a34dbd39180de411e80b2a29a1845ead2c28d62a89c",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "clack",
+        "gat"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ガッ",
+      "meaning_en": "Hard contact or a forceful grab; use GRAB for a silent action label.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-gat.svg"
+    },
+    {
+      "id": "burst-haa-small",
+      "kind": "word",
+      "text": "SIGH",
+      "reading": "sigh",
+      "style_id": "burst",
+      "tags": [
+        "breath",
+        "fatigue",
+        "sigh"
+      ],
+      "meaning_ja": "An exhale or a weary, deflated sigh.",
+      "intensity": 1,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 4,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-haa-small.webp",
+        "format": "webp",
+        "width": 588,
+        "height": 240,
+        "bytes": 7546,
+        "sha256": "11e3bf3642571032357dfe9a64cd2d8f4947a1523047caa86e70befa1060c5b5",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "sigh",
+        "haa-small"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ハァ",
+      "meaning_en": "An exhale or a weary, deflated sigh.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-haa-small.svg"
+    },
+    {
+      "id": "burst-goro",
+      "kind": "word",
+      "text": "RUMBLE",
+      "reading": "rumble",
+      "style_id": "burst",
+      "tags": [
+        "rolling",
+        "thunder",
+        "low sound"
+      ],
+      "meaning_ja": "Heavy rolling or low, rumbling thunder.",
+      "intensity": 3,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 6,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-goro.webp",
+        "format": "webp",
+        "width": 858,
+        "height": 240,
+        "bytes": 9934,
+        "sha256": "a02ec36aca9e5f79809c3efb027aff59f50834ba7d72d58f6b102a5c8f30a980",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "rumble",
+        "goro"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ゴロ",
+      "meaning_en": "Heavy rolling or low, rumbling thunder.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-goro.svg"
+    },
+    {
+      "id": "burst-ban",
+      "kind": "word",
+      "text": "SLAM",
+      "reading": "slam",
+      "style_id": "burst",
+      "tags": [
+        "strike",
+        "door",
+        "burst"
+      ],
+      "meaning_ja": "A slammed door or sharp impact.",
+      "intensity": 4,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 4,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-ban.webp",
+        "format": "webp",
+        "width": 588,
+        "height": 240,
+        "bytes": 9492,
+        "sha256": "6e232332794ecc17af7afd63d06916b23897c48984eef97214cef5843c8fe2de",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "slam",
+        "ban"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "バン",
+      "meaning_en": "A slammed door or sharp impact.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-ban.svg"
+    },
+    {
+      "id": "burst-pan",
+      "kind": "word",
+      "text": "POP",
+      "reading": "pop",
+      "style_id": "burst",
+      "tags": [
+        "clap",
+        "pop",
+        "light impact"
+      ],
+      "meaning_ja": "A handclap or light, dry pop; use CLAP for explicit applause.",
+      "intensity": 3,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 3,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-pan.webp",
+        "format": "webp",
+        "width": 453,
+        "height": 240,
+        "bytes": 4894,
+        "sha256": "169c4ff647fcbbd7c71ecef1da83a3bcf72a9ce2fb250e03bca9307963e4ae35",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "pop",
+        "pan"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "パン",
+      "meaning_en": "A handclap or light, dry pop; use CLAP for explicit applause.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-pan.svg"
+    },
+    {
+      "id": "burst-bata",
+      "kind": "word",
+      "text": "FLAP",
+      "reading": "flap",
+      "style_id": "burst",
+      "tags": [
+        "footsteps",
+        "fall",
+        "flapping"
+      ],
+      "meaning_ja": "Hurried motion, falling, or flapping; choose THUMP for a fall.",
+      "intensity": 3,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 4,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-bata.webp",
+        "format": "webp",
+        "width": 588,
+        "height": 240,
+        "bytes": 6476,
+        "sha256": "07901c63b46ee9b33c08e3801a6ebc1f64df768ad9a87341cba58b5009b4ffab",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "flap",
+        "bata"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "バタ",
+      "meaning_en": "Hurried motion, falling, or flapping; choose THUMP for a fall.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-bata.svg"
+    },
+    {
+      "id": "burst-puru",
+      "kind": "word",
+      "text": "TREMBLE",
+      "reading": "tremble",
+      "style_id": "burst",
+      "tags": [
+        "trembling",
+        "tension",
+        "vibration"
+      ],
+      "meaning_ja": "Small repeated trembling or vibration. English TREMBLE can stand alone.",
+      "intensity": 1,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 7,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-puru.webp",
+        "format": "webp",
+        "width": 993,
+        "height": 240,
+        "bytes": 9504,
+        "sha256": "6c014bcf9f9d96ea540283c588f1d4567c9153379a3aa31fd08a9d53f00ea26d",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "tremble",
+        "puru"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "プル",
+      "meaning_en": "Small repeated trembling or vibration. English TREMBLE can stand alone.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-puru.svg"
+    },
+    {
+      "id": "burst-pata",
+      "kind": "word",
+      "text": "PAT",
+      "reading": "pat",
+      "style_id": "burst",
+      "tags": [
+        "footsteps",
+        "light contact",
+        "flapping"
+      ],
+      "meaning_ja": "A light footstep, tap, or flap. Repeat only when the action repeats.",
+      "intensity": 2,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 3,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-pata.webp",
+        "format": "webp",
+        "width": 453,
+        "height": 240,
+        "bytes": 5438,
+        "sha256": "81f8073cacdbb6c32a6ac9315c4dc204c426fb8cbf20cf3e225b6d3e513da802",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "pat",
+        "pata"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "パタ",
+      "meaning_en": "A light footstep, tap, or flap. Repeat only when the action repeats.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-pata.svg"
+    },
+    {
+      "id": "burst-sut",
+      "kind": "word",
+      "text": "SWISH",
+      "reading": "swish",
+      "style_id": "burst",
+      "tags": [
+        "quiet movement",
+        "vanish",
+        "offer"
+      ],
+      "meaning_ja": "Quiet movement, smoothly offering an object, or slipping out of sight.",
+      "intensity": 1,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 5,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-sut.webp",
+        "format": "webp",
+        "width": 723,
+        "height": 240,
+        "bytes": 9684,
+        "sha256": "17c61f2bbeeb597f4ad96ef4360f2db1f37a6b4b7fea03b8404f4f007c051ee7",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "swish",
+        "sut"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "スッ",
+      "meaning_en": "Quiet movement, smoothly offering an object, or slipping out of sight.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-sut.svg"
+    },
+    {
+      "id": "burst-dat",
+      "kind": "word",
+      "text": "DASH",
+      "reading": "dash",
+      "style_id": "burst",
+      "tags": [
+        "run",
+        "step",
+        "sudden movement"
+      ],
+      "meaning_ja": "A sudden, energetic start into a run.",
+      "intensity": 3,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 4,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-dat.webp",
+        "format": "webp",
+        "width": 588,
+        "height": 240,
+        "bytes": 9000,
+        "sha256": "03b39b958e7cf80faaef5c45a281513c09c9b426c09b9a42a57bd6c486d69afb",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "dash",
+        "dat"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ダッ",
+      "meaning_en": "A sudden, energetic start into a run.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-dat.svg"
+    },
+    {
+      "id": "burst-doon",
+      "kind": "word",
+      "text": "BOOM!",
+      "reading": "boom!",
+      "style_id": "burst",
+      "tags": [
+        "impact",
+        "explosion",
+        "entrance"
+      ],
+      "meaning_ja": "A large resonant impact, heavy landing, or dramatic entrance.",
+      "intensity": 5,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 5,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-doon.webp",
+        "format": "webp",
+        "width": 723,
+        "height": 240,
+        "bytes": 8420,
+        "sha256": "c41b02ca87f4015d5dad8eda300bbb7d6d5a8bfc7f202c88c746f728396f7fad",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "boom!",
+        "doon"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ドーン！",
+      "meaning_en": "A large resonant impact, heavy landing, or dramatic entrance.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-doon.svg"
+    },
+    {
+      "id": "burst-baan",
+      "kind": "word",
+      "text": "BANG!",
+      "reading": "bang!",
+      "style_id": "burst",
+      "tags": [
+        "impact",
+        "explosion",
+        "reveal"
+      ],
+      "meaning_ja": "A sharp, spectacular impact or explosion, or an emphatic reveal.",
+      "intensity": 5,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 5,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-baan.webp",
+        "format": "webp",
+        "width": 723,
+        "height": 240,
+        "bytes": 10498,
+        "sha256": "e613c959c02da4d560636f291a47815346a38ef39cc3dcef16e9bed777fde427",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "bang!",
+        "baan"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "バーン！",
+      "meaning_en": "A sharp, spectacular impact or explosion, or an emphatic reveal.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-baan.svg"
+    },
+    {
+      "id": "burst-go-4",
+      "kind": "repeat",
+      "text": "RUMBLE RUMBLE RUMBLE RUMBLE",
+      "reading": "rumble rumble rumble rumble",
+      "style_id": "burst",
+      "tags": [
+        "unease",
+        "intimidation",
+        "low sound"
+      ],
+      "meaning_ja": "An ominous pressure or the deep resonance of something enormous.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 27,
+      "repeat": {
+        "unit": "RUMBLE",
+        "count": 4,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-go-4.webp",
+        "format": "webp",
+        "width": 3480,
+        "height": 240,
+        "bytes": 14434,
+        "sha256": "d9d12b84ffce05dd7cf710ee84f21f5e2bc309b6939d6314a79f2d088477a441",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "rumble rumble rumble rumble",
+        "go"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ゴゴゴゴ",
+      "meaning_en": "An ominous pressure or the deep resonance of something enormous.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-go-4.svg"
+    },
+    {
+      "id": "burst-go-5",
+      "kind": "repeat",
+      "text": "RUMBLE RUMBLE RUMBLE RUMBLE RUMBLE",
+      "reading": "rumble rumble rumble rumble rumble",
+      "style_id": "burst",
+      "tags": [
+        "unease",
+        "intimidation",
+        "low sound"
+      ],
+      "meaning_ja": "An ominous pressure or the deep resonance of something enormous.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 34,
+      "repeat": {
+        "unit": "RUMBLE",
+        "count": 5,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-go-5.webp",
+        "format": "webp",
+        "width": 4354,
+        "height": 240,
+        "bytes": 14816,
+        "sha256": "2b7bf34864585d09a435a5b0114432f442a79c18b95eb4d8c830db06c4db487d",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "rumble rumble rumble rumble rumble",
+        "go"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ゴゴゴゴゴ",
+      "meaning_en": "An ominous pressure or the deep resonance of something enormous.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-go-5.svg"
+    },
+    {
+      "id": "burst-go-6",
+      "kind": "repeat",
+      "text": "RUMBLE RUMBLE RUMBLE RUMBLE RUMBLE RUMBLE",
+      "reading": "rumble rumble rumble rumble rumble rumble",
+      "style_id": "burst",
+      "tags": [
+        "unease",
+        "intimidation",
+        "low sound"
+      ],
+      "meaning_ja": "An ominous pressure or the deep resonance of something enormous.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 41,
+      "repeat": {
+        "unit": "RUMBLE",
+        "count": 6,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-go-6.webp",
+        "format": "webp",
+        "width": 5228,
+        "height": 240,
+        "bytes": 14864,
+        "sha256": "b20a12e904473798b2d26ac671df46226b591f4bdd763bbb768d9c3d3b4643b4",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "rumble rumble rumble rumble rumble rumble",
+        "go"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ゴゴゴゴゴゴ",
+      "meaning_en": "An ominous pressure or the deep resonance of something enormous.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-go-6.svg"
+    },
+    {
+      "id": "burst-go-7",
+      "kind": "repeat",
+      "text": "RUMBLE RUMBLE RUMBLE RUMBLE RUMBLE RUMBLE RUMBLE",
+      "reading": "rumble rumble rumble rumble rumble rumble rumble",
+      "style_id": "burst",
+      "tags": [
+        "unease",
+        "intimidation",
+        "low sound"
+      ],
+      "meaning_ja": "An ominous pressure or the deep resonance of something enormous.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 48,
+      "repeat": {
+        "unit": "RUMBLE",
+        "count": 7,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-go-7.webp",
+        "format": "webp",
+        "width": 6102,
+        "height": 240,
+        "bytes": 15624,
+        "sha256": "0f18691a5ec7d197041eb5385c65982fc69a297f9aafff234f37a0a6ee80d68e",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "rumble rumble rumble rumble rumble rumble rumble",
+        "go"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ゴゴゴゴゴゴゴ",
+      "meaning_en": "An ominous pressure or the deep resonance of something enormous.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-go-7.svg"
+    },
+    {
+      "id": "burst-do-4",
+      "kind": "repeat",
+      "text": "THUD THUD THUD THUD",
+      "reading": "thud thud thud thud",
+      "style_id": "burst",
+      "tags": [
+        "repeated impact",
+        "run",
+        "vibration"
+      ],
+      "meaning_ja": "Repeated impacts, heavy running, or strong vibration.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 19,
+      "repeat": {
+        "unit": "THUD",
+        "count": 4,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-do-4.webp",
+        "format": "webp",
+        "width": 2400,
+        "height": 240,
+        "bytes": 8070,
+        "sha256": "4db570923b2cc5cd01385eca8edd2dc5239674d08b8afdef3f1a6a2ff7ffae37",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "thud thud thud thud",
+        "do"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ドドドド",
+      "meaning_en": "Repeated impacts, heavy running, or strong vibration.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-do-4.svg"
+    },
+    {
+      "id": "burst-do-5",
+      "kind": "repeat",
+      "text": "THUD THUD THUD THUD THUD",
+      "reading": "thud thud thud thud thud",
+      "style_id": "burst",
+      "tags": [
+        "repeated impact",
+        "run",
+        "vibration"
+      ],
+      "meaning_ja": "Repeated impacts, heavy running, or strong vibration.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 24,
+      "repeat": {
+        "unit": "THUD",
+        "count": 5,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-do-5.webp",
+        "format": "webp",
+        "width": 3004,
+        "height": 240,
+        "bytes": 8260,
+        "sha256": "e13b22fdecdce0591dcc73233718b0e22348bdf3d3a28ac7cf512e4ed1517a2b",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "thud thud thud thud thud",
+        "do"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ドドドドド",
+      "meaning_en": "Repeated impacts, heavy running, or strong vibration.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-do-5.svg"
+    },
+    {
+      "id": "burst-do-6",
+      "kind": "repeat",
+      "text": "THUD THUD THUD THUD THUD THUD",
+      "reading": "thud thud thud thud thud thud",
+      "style_id": "burst",
+      "tags": [
+        "repeated impact",
+        "run",
+        "vibration"
+      ],
+      "meaning_ja": "Repeated impacts, heavy running, or strong vibration.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 29,
+      "repeat": {
+        "unit": "THUD",
+        "count": 6,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-do-6.webp",
+        "format": "webp",
+        "width": 3608,
+        "height": 240,
+        "bytes": 8376,
+        "sha256": "993b458b9697c1f79a641a6588f6f3992d37780c1e273fae97ee1ebaed50111a",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "thud thud thud thud thud thud",
+        "do"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ドドドドドド",
+      "meaning_en": "Repeated impacts, heavy running, or strong vibration.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-do-6.svg"
+    },
+    {
+      "id": "burst-do-7",
+      "kind": "repeat",
+      "text": "THUD THUD THUD THUD THUD THUD THUD",
+      "reading": "thud thud thud thud thud thud thud",
+      "style_id": "burst",
+      "tags": [
+        "repeated impact",
+        "run",
+        "vibration"
+      ],
+      "meaning_ja": "Repeated impacts, heavy running, or strong vibration.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 34,
+      "repeat": {
+        "unit": "THUD",
+        "count": 7,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-do-7.webp",
+        "format": "webp",
+        "width": 4212,
+        "height": 240,
+        "bytes": 8446,
+        "sha256": "cd9c3b0b010bb3f40cdb2e954b3d472476b5fb38f85b434a95c6ee8e2a792b51",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "thud thud thud thud thud thud thud",
+        "do"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ドドドドドドド",
+      "meaning_en": "Repeated impacts, heavy running, or strong vibration.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-do-7.svg"
+    },
+    {
+      "id": "burst-za-4",
+      "kind": "repeat",
+      "text": "HISS HISS HISS HISS",
+      "reading": "hiss hiss hiss hiss",
+      "style_id": "burst",
+      "tags": [
+        "rain",
+        "water",
+        "crowd"
+      ],
+      "meaning_ja": "Heavy rain, flowing water, or a sustained rustling crowd; choose contextually.",
+      "intensity": 3,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 19,
+      "repeat": {
+        "unit": "HISS",
+        "count": 4,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-za-4.webp",
+        "format": "webp",
+        "width": 2400,
+        "height": 240,
+        "bytes": 8812,
+        "sha256": "049d9db413c771c2ec5eab6b726aa33d72f9b8f68adeef7837f08cb4c58d4ade",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "hiss hiss hiss hiss",
+        "za"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ザザザザ",
+      "meaning_en": "Heavy rain, flowing water, or a sustained rustling crowd; choose contextually.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-za-4.svg"
+    },
+    {
+      "id": "burst-za-5",
+      "kind": "repeat",
+      "text": "HISS HISS HISS HISS HISS",
+      "reading": "hiss hiss hiss hiss hiss",
+      "style_id": "burst",
+      "tags": [
+        "rain",
+        "water",
+        "crowd"
+      ],
+      "meaning_ja": "Heavy rain, flowing water, or a sustained rustling crowd; choose contextually.",
+      "intensity": 3,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 24,
+      "repeat": {
+        "unit": "HISS",
+        "count": 5,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-za-5.webp",
+        "format": "webp",
+        "width": 3004,
+        "height": 240,
+        "bytes": 8800,
+        "sha256": "60a8aade55f49f997a9f45083ec0ef31098654696890dc137d66df2810457bc5",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "hiss hiss hiss hiss hiss",
+        "za"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ザザザザザ",
+      "meaning_en": "Heavy rain, flowing water, or a sustained rustling crowd; choose contextually.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-za-5.svg"
+    },
+    {
+      "id": "burst-za-6",
+      "kind": "repeat",
+      "text": "HISS HISS HISS HISS HISS HISS",
+      "reading": "hiss hiss hiss hiss hiss hiss",
+      "style_id": "burst",
+      "tags": [
+        "rain",
+        "water",
+        "crowd"
+      ],
+      "meaning_ja": "Heavy rain, flowing water, or a sustained rustling crowd; choose contextually.",
+      "intensity": 3,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 29,
+      "repeat": {
+        "unit": "HISS",
+        "count": 6,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-za-6.webp",
+        "format": "webp",
+        "width": 3608,
+        "height": 240,
+        "bytes": 8926,
+        "sha256": "e1789a2300fe8c525f3c469ee6d405d5360688819eff49bcab84ad0434db7bd9",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "hiss hiss hiss hiss hiss hiss",
+        "za"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ザザザザザザ",
+      "meaning_en": "Heavy rain, flowing water, or a sustained rustling crowd; choose contextually.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-za-6.svg"
+    },
+    {
+      "id": "burst-za-7",
+      "kind": "repeat",
+      "text": "HISS HISS HISS HISS HISS HISS HISS",
+      "reading": "hiss hiss hiss hiss hiss hiss hiss",
+      "style_id": "burst",
+      "tags": [
+        "rain",
+        "water",
+        "crowd"
+      ],
+      "meaning_ja": "Heavy rain, flowing water, or a sustained rustling crowd; choose contextually.",
+      "intensity": 3,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 34,
+      "repeat": {
+        "unit": "HISS",
+        "count": 7,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-za-7.webp",
+        "format": "webp",
+        "width": 4212,
+        "height": 240,
+        "bytes": 9004,
+        "sha256": "5837b1681b60c9649429dc83ed5d765f3cd81486b3f7eea35e16599c8cf78723",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "hiss hiss hiss hiss hiss hiss hiss",
+        "za"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ザザザザザザザ",
+      "meaning_en": "Heavy rain, flowing water, or a sustained rustling crowd; choose contextually.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-za-7.svg"
+    },
+    {
+      "id": "burst-ga-4",
+      "kind": "repeat",
+      "text": "RAT RAT RAT RAT",
+      "reading": "rat rat rat rat",
+      "style_id": "burst",
+      "tags": [
+        "machine",
+        "rapid impact",
+        "vibration"
+      ],
+      "meaning_ja": "Repeated mechanical clatter or hard objects striking rapidly.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 15,
+      "repeat": {
+        "unit": "RAT",
+        "count": 4,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-ga-4.webp",
+        "format": "webp",
+        "width": 1860,
+        "height": 240,
+        "bytes": 7366,
+        "sha256": "89b7bf1770710bf4deb450656eb9262e8554342f28870b0fcbeeaa884318c11c",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "rat rat rat rat",
+        "ga"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ガガガガ",
+      "meaning_en": "Repeated mechanical clatter or hard objects striking rapidly.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-ga-4.svg"
+    },
+    {
+      "id": "burst-ga-5",
+      "kind": "repeat",
+      "text": "RAT RAT RAT RAT RAT",
+      "reading": "rat rat rat rat rat",
+      "style_id": "burst",
+      "tags": [
+        "machine",
+        "rapid impact",
+        "vibration"
+      ],
+      "meaning_ja": "Repeated mechanical clatter or hard objects striking rapidly.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 19,
+      "repeat": {
+        "unit": "RAT",
+        "count": 5,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-ga-5.webp",
+        "format": "webp",
+        "width": 2329,
+        "height": 240,
+        "bytes": 7480,
+        "sha256": "f8a0efdc5d50b35659ce3c0ac45e85cf98d35619c8dd5a7b3bd98dc307169a46",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "rat rat rat rat rat",
+        "ga"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ガガガガガ",
+      "meaning_en": "Repeated mechanical clatter or hard objects striking rapidly.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-ga-5.svg"
+    },
+    {
+      "id": "burst-ga-6",
+      "kind": "repeat",
+      "text": "RAT RAT RAT RAT RAT RAT",
+      "reading": "rat rat rat rat rat rat",
+      "style_id": "burst",
+      "tags": [
+        "machine",
+        "rapid impact",
+        "vibration"
+      ],
+      "meaning_ja": "Repeated mechanical clatter or hard objects striking rapidly.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 23,
+      "repeat": {
+        "unit": "RAT",
+        "count": 6,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-ga-6.webp",
+        "format": "webp",
+        "width": 2798,
+        "height": 240,
+        "bytes": 7490,
+        "sha256": "ec28d1167d798f809e99842f6d046f791c319e22c497e591d4f6a14889b70413",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "rat rat rat rat rat rat",
+        "ga"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ガガガガガガ",
+      "meaning_en": "Repeated mechanical clatter or hard objects striking rapidly.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-ga-6.svg"
+    },
+    {
+      "id": "burst-ga-7",
+      "kind": "repeat",
+      "text": "RAT RAT RAT RAT RAT RAT RAT",
+      "reading": "rat rat rat rat rat rat rat",
+      "style_id": "burst",
+      "tags": [
+        "machine",
+        "rapid impact",
+        "vibration"
+      ],
+      "meaning_ja": "Repeated mechanical clatter or hard objects striking rapidly.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 27,
+      "repeat": {
+        "unit": "RAT",
+        "count": 7,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/burst-ga-7.webp",
+        "format": "webp",
+        "width": 3267,
+        "height": 240,
+        "bytes": 7514,
+        "sha256": "6b8465b430a0a04990a328534ffe94f2a0907b9d51940c7d5862122df38c3f9f",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "rat rat rat rat rat rat rat",
+        "ga"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ガガガガガガガ",
+      "meaning_en": "Repeated mechanical clatter or hard objects striking rapidly.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/burst-ga-7.svg"
+    },
+    {
+      "id": "drybrush-zawa",
+      "kind": "word",
+      "text": "MURMUR",
+      "reading": "murmur",
+      "style_id": "drybrush",
+      "tags": [
+        "crowd",
+        "unease",
+        "murmur"
+      ],
+      "meaning_ja": "Crowd murmuring or an unsettled atmosphere.",
+      "intensity": 2,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 6,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-zawa.webp",
+        "format": "webp",
+        "width": 858,
+        "height": 240,
+        "bytes": 8528,
+        "sha256": "4f1bd816618f9347c5f96e64362b1a3d7d32423cc2a1b1617d843dfe7f704511",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "murmur",
+        "zawa"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ザワ",
+      "meaning_en": "Crowd murmuring or an unsettled atmosphere.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-zawa.svg"
+    },
+    {
+      "id": "drybrush-waa",
+      "kind": "word",
+      "text": "CHEER",
+      "reading": "cheer",
+      "style_id": "drybrush",
+      "tags": [
+        "cheers",
+        "crowd",
+        "surprise"
+      ],
+      "meaning_ja": "A crowd cheering, reacting in surprise, or making a lively noise.",
+      "intensity": 3,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 5,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-waa.webp",
+        "format": "webp",
+        "width": 723,
+        "height": 240,
+        "bytes": 8384,
+        "sha256": "8ca761ec8c06f2b5c718a36e90eda9ab49750c216180f564d1981e42ff791de8",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "cheer",
+        "waa"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ワー",
+      "meaning_en": "A crowd cheering, reacting in surprise, or making a lively noise.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-waa.svg"
+    },
+    {
+      "id": "drybrush-pachi",
+      "kind": "word",
+      "text": "CLAP",
+      "reading": "clap",
+      "style_id": "drybrush",
+      "tags": [
+        "clap",
+        "spark",
+        "blink"
+      ],
+      "meaning_ja": "A small clap, ignition, or a small snap; use CLICK or SNAP when the action calls for it.",
+      "intensity": 2,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 4,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-pachi.webp",
+        "format": "webp",
+        "width": 588,
+        "height": 240,
+        "bytes": 8412,
+        "sha256": "7c71f30465ed4e1154b5b96f1889772c1690c400166f23ee57cf6930924e71e8",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "clap",
+        "pachi"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "パチ",
+      "meaning_en": "A small clap, ignition, or a small snap; use CLICK or SNAP when the action calls for it.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-pachi.svg"
+    },
+    {
+      "id": "drybrush-haa",
+      "kind": "word",
+      "text": "HUFF",
+      "reading": "huff",
+      "style_id": "drybrush",
+      "tags": [
+        "breath",
+        "fatigue",
+        "sigh"
+      ],
+      "meaning_ja": "Heavy breathing or an exhausted sigh.",
+      "intensity": 1,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 4,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-haa.webp",
+        "format": "webp",
+        "width": 588,
+        "height": 240,
+        "bytes": 4400,
+        "sha256": "6f2fea51dab1c9e6baf942d872e4822dbd63490e0ddcc7e466a20b8cad627783",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "huff",
+        "haa"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ハア",
+      "meaning_en": "Heavy breathing or an exhausted sigh.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-haa.svg"
+    },
+    {
+      "id": "drybrush-hat",
+      "kind": "word",
+      "text": "GASP",
+      "reading": "gasp",
+      "style_id": "drybrush",
+      "tags": [
+        "realization",
+        "surprise",
+        "breath"
+      ],
+      "meaning_ja": "A sudden realization or sharply drawn breath.",
+      "intensity": 2,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 4,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-hat.webp",
+        "format": "webp",
+        "width": 588,
+        "height": 240,
+        "bytes": 9964,
+        "sha256": "c3a8566ce57705b30ff6fbfca532d40840197be1982c3e0155c73609d959651d",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "gasp",
+        "hat"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ハッ",
+      "meaning_en": "A sudden realization or sharply drawn breath.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-hat.svg"
+    },
+    {
+      "id": "drybrush-doki",
+      "kind": "word",
+      "text": "THUMP",
+      "reading": "thump",
+      "style_id": "drybrush",
+      "tags": [
+        "heartbeat",
+        "tension",
+        "romance"
+      ],
+      "meaning_ja": "A single strong heartbeat. Repeat for sustained nervousness or excitement.",
+      "intensity": 2,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 5,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-doki.webp",
+        "format": "webp",
+        "width": 723,
+        "height": 240,
+        "bytes": 8106,
+        "sha256": "b1f4304e4cf9e4414323fee1db6eed767d004f8a2fe2a0ead3e1fa19303ea284",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "thump",
+        "doki"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ドキ",
+      "meaning_en": "A single strong heartbeat. Repeat for sustained nervousness or excitement.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-doki.svg"
+    },
+    {
+      "id": "drybrush-bat",
+      "kind": "word",
+      "text": "WHOOSH",
+      "reading": "whoosh",
+      "style_id": "drybrush",
+      "tags": [
+        "sudden movement",
+        "turn",
+        "spread"
+      ],
+      "meaning_ja": "A sudden turn or a sweeping movement of fabric or arms.",
+      "intensity": 3,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 6,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-bat.webp",
+        "format": "webp",
+        "width": 858,
+        "height": 240,
+        "bytes": 11916,
+        "sha256": "88faee64790e88268881aaadc7e1887a1a60cd0679b9fdc9047261f5aaef38f6",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "whoosh",
+        "bat"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "バッ",
+      "meaning_en": "A sudden turn or a sweeping movement of fabric or arms.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-bat.svg"
+    },
+    {
+      "id": "drybrush-wai",
+      "kind": "word",
+      "text": "CHATTER",
+      "reading": "chatter",
+      "style_id": "drybrush",
+      "tags": [
+        "crowd",
+        "liveliness",
+        "conversation"
+      ],
+      "meaning_ja": "A cheerful group bustle or lively conversation.",
+      "intensity": 2,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 7,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-wai.webp",
+        "format": "webp",
+        "width": 993,
+        "height": 240,
+        "bytes": 11192,
+        "sha256": "ea670995faff4387eb58d3fbc4f22ac7d7a5911923f77c180f0ec871e08abb16",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "chatter",
+        "wai"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ワイ",
+      "meaning_en": "A cheerful group bustle or lively conversation.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-wai.svg"
+    },
+    {
+      "id": "drybrush-don",
+      "kind": "word",
+      "text": "THUD",
+      "reading": "thud",
+      "style_id": "drybrush",
+      "tags": [
+        "impact",
+        "strike",
+        "landing"
+      ],
+      "meaning_ja": "A heavy impact or landing; also a forceful entrance.",
+      "intensity": 4,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 4,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-don.webp",
+        "format": "webp",
+        "width": 588,
+        "height": 240,
+        "bytes": 5632,
+        "sha256": "5ab28b7b57151fec45fc6a0582a33d73cc1c0f4bec1f962cd431208d87fded96",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "thud",
+        "don"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ドン",
+      "meaning_en": "A heavy impact or landing; also a forceful entrance.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-don.svg"
+    },
+    {
+      "id": "drybrush-zat",
+      "kind": "word",
+      "text": "SCRUNCH",
+      "reading": "scrunch",
+      "style_id": "drybrush",
+      "tags": [
+        "footstep",
+        "movement",
+        "friction"
+      ],
+      "meaning_ja": "A firm footstep or coordinated movement; choose the sound to suit the ground.",
+      "intensity": 3,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 7,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-zat.webp",
+        "format": "webp",
+        "width": 993,
+        "height": 240,
+        "bytes": 12708,
+        "sha256": "00e1916da97b039e7611df12733bac55eacf0cb7af28562e3e50cbf89ed692b3",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "scrunch",
+        "zat"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ザッ",
+      "meaning_en": "A firm footstep or coordinated movement; choose the sound to suit the ground.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-zat.svg"
+    },
+    {
+      "id": "drybrush-gat",
+      "kind": "word",
+      "text": "CLACK",
+      "reading": "clack",
+      "style_id": "drybrush",
+      "tags": [
+        "impact",
+        "grab",
+        "contact"
+      ],
+      "meaning_ja": "Hard contact or a forceful grab; use GRAB for a silent action label.",
+      "intensity": 3,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 5,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-gat.webp",
+        "format": "webp",
+        "width": 723,
+        "height": 240,
+        "bytes": 9038,
+        "sha256": "2bd7db8f970eaf26946408dd6a4140cd29137a88d1dd36776b8de5d297d35cf6",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "clack",
+        "gat"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ガッ",
+      "meaning_en": "Hard contact or a forceful grab; use GRAB for a silent action label.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-gat.svg"
+    },
+    {
+      "id": "drybrush-haa-small",
+      "kind": "word",
+      "text": "SIGH",
+      "reading": "sigh",
+      "style_id": "drybrush",
+      "tags": [
+        "breath",
+        "fatigue",
+        "sigh"
+      ],
+      "meaning_ja": "An exhale or a weary, deflated sigh.",
+      "intensity": 1,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 4,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-haa-small.webp",
+        "format": "webp",
+        "width": 588,
+        "height": 240,
+        "bytes": 7982,
+        "sha256": "6dc3fe72c442fc70b32d5e9f8207383ec3e8ddcefa3c904f4324e3f92692416a",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "sigh",
+        "haa-small"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ハァ",
+      "meaning_en": "An exhale or a weary, deflated sigh.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-haa-small.svg"
+    },
+    {
+      "id": "drybrush-goro",
+      "kind": "word",
+      "text": "RUMBLE",
+      "reading": "rumble",
+      "style_id": "drybrush",
+      "tags": [
+        "rolling",
+        "thunder",
+        "low sound"
+      ],
+      "meaning_ja": "Heavy rolling or low, rumbling thunder.",
+      "intensity": 3,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 6,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-goro.webp",
+        "format": "webp",
+        "width": 858,
+        "height": 240,
+        "bytes": 10042,
+        "sha256": "19fa177acd051ba03ab9ed7954d20fad7d12e4122a1d63501e1897075f91192e",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "rumble",
+        "goro"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ゴロ",
+      "meaning_en": "Heavy rolling or low, rumbling thunder.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-goro.svg"
+    },
+    {
+      "id": "drybrush-ban",
+      "kind": "word",
+      "text": "SLAM",
+      "reading": "slam",
+      "style_id": "drybrush",
+      "tags": [
+        "strike",
+        "door",
+        "burst"
+      ],
+      "meaning_ja": "A slammed door or sharp impact.",
+      "intensity": 4,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 4,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-ban.webp",
+        "format": "webp",
+        "width": 588,
+        "height": 240,
+        "bytes": 9750,
+        "sha256": "78b53323d96324dc7a6e12a94623943950855ea21182faf51ddf2353b471a659",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "slam",
+        "ban"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "バン",
+      "meaning_en": "A slammed door or sharp impact.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-ban.svg"
+    },
+    {
+      "id": "drybrush-pan",
+      "kind": "word",
+      "text": "POP",
+      "reading": "pop",
+      "style_id": "drybrush",
+      "tags": [
+        "clap",
+        "pop",
+        "light impact"
+      ],
+      "meaning_ja": "A handclap or light, dry pop; use CLAP for explicit applause.",
+      "intensity": 3,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 3,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-pan.webp",
+        "format": "webp",
+        "width": 453,
+        "height": 240,
+        "bytes": 4842,
+        "sha256": "fe24a51127be3388221a013b09dfb373c5196bb29be4cb10d5ee9fcb949417ec",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "pop",
+        "pan"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "パン",
+      "meaning_en": "A handclap or light, dry pop; use CLAP for explicit applause.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-pan.svg"
+    },
+    {
+      "id": "drybrush-bata",
+      "kind": "word",
+      "text": "FLAP",
+      "reading": "flap",
+      "style_id": "drybrush",
+      "tags": [
+        "footsteps",
+        "fall",
+        "flapping"
+      ],
+      "meaning_ja": "Hurried motion, falling, or flapping; choose THUMP for a fall.",
+      "intensity": 3,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 4,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-bata.webp",
+        "format": "webp",
+        "width": 588,
+        "height": 240,
+        "bytes": 6674,
+        "sha256": "7deb99dea00d4d7983efd5c59d7e4cf61e22e9a6971cf7d7a5948695c9e2b68d",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "flap",
+        "bata"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "バタ",
+      "meaning_en": "Hurried motion, falling, or flapping; choose THUMP for a fall.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-bata.svg"
+    },
+    {
+      "id": "drybrush-puru",
+      "kind": "word",
+      "text": "TREMBLE",
+      "reading": "tremble",
+      "style_id": "drybrush",
+      "tags": [
+        "trembling",
+        "tension",
+        "vibration"
+      ],
+      "meaning_ja": "Small repeated trembling or vibration. English TREMBLE can stand alone.",
+      "intensity": 1,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 7,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-puru.webp",
+        "format": "webp",
+        "width": 993,
+        "height": 240,
+        "bytes": 9746,
+        "sha256": "22beaf4acbf2c4ff96929c8136cbafbd385135bfa33582bb5b4322411cf84a95",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "tremble",
+        "puru"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "プル",
+      "meaning_en": "Small repeated trembling or vibration. English TREMBLE can stand alone.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-puru.svg"
+    },
+    {
+      "id": "drybrush-pata",
+      "kind": "word",
+      "text": "PAT",
+      "reading": "pat",
+      "style_id": "drybrush",
+      "tags": [
+        "footsteps",
+        "light contact",
+        "flapping"
+      ],
+      "meaning_ja": "A light footstep, tap, or flap. Repeat only when the action repeats.",
+      "intensity": 2,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 3,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-pata.webp",
+        "format": "webp",
+        "width": 453,
+        "height": 240,
+        "bytes": 5674,
+        "sha256": "b89d65803448aad2a0afcd0d29234bb6498c659cb97b97b723c678cb716b0714",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "pat",
+        "pata"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "パタ",
+      "meaning_en": "A light footstep, tap, or flap. Repeat only when the action repeats.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-pata.svg"
+    },
+    {
+      "id": "drybrush-sut",
+      "kind": "word",
+      "text": "SWISH",
+      "reading": "swish",
+      "style_id": "drybrush",
+      "tags": [
+        "quiet movement",
+        "vanish",
+        "offer"
+      ],
+      "meaning_ja": "Quiet movement, smoothly offering an object, or slipping out of sight.",
+      "intensity": 1,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 5,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-sut.webp",
+        "format": "webp",
+        "width": 723,
+        "height": 240,
+        "bytes": 10094,
+        "sha256": "f2efe8f58401ec639e9e923911cbfd97de0e507bbcae5c62bb0c6d2ace90fe12",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "swish",
+        "sut"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "スッ",
+      "meaning_en": "Quiet movement, smoothly offering an object, or slipping out of sight.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-sut.svg"
+    },
+    {
+      "id": "drybrush-dat",
+      "kind": "word",
+      "text": "DASH",
+      "reading": "dash",
+      "style_id": "drybrush",
+      "tags": [
+        "run",
+        "step",
+        "sudden movement"
+      ],
+      "meaning_ja": "A sudden, energetic start into a run.",
+      "intensity": 3,
+      "selection_class": "Localized source-core entry",
+      "grapheme_count": 4,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-dat.webp",
+        "format": "webp",
+        "width": 588,
+        "height": 240,
+        "bytes": 9160,
+        "sha256": "e30aaa6dec850b37b4a33bbc6a25313c2fd8689805b5cf2f61654154fbbafa74",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "dash",
+        "dat"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ダッ",
+      "meaning_en": "A sudden, energetic start into a run.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-dat.svg"
+    },
+    {
+      "id": "drybrush-doon",
+      "kind": "word",
+      "text": "BOOM!",
+      "reading": "boom!",
+      "style_id": "drybrush",
+      "tags": [
+        "impact",
+        "explosion",
+        "entrance"
+      ],
+      "meaning_ja": "A large resonant impact, heavy landing, or dramatic entrance.",
+      "intensity": 5,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 5,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-doon.webp",
+        "format": "webp",
+        "width": 723,
+        "height": 240,
+        "bytes": 8298,
+        "sha256": "84cdd6049b79cb57e3b2a3956f1cb2172cdca84fa14f376ac318fe78397cc685",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "boom!",
+        "doon"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ドーン！",
+      "meaning_en": "A large resonant impact, heavy landing, or dramatic entrance.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-doon.svg"
+    },
+    {
+      "id": "drybrush-baan",
+      "kind": "word",
+      "text": "BANG!",
+      "reading": "bang!",
+      "style_id": "drybrush",
+      "tags": [
+        "impact",
+        "explosion",
+        "reveal"
+      ],
+      "meaning_ja": "A sharp, spectacular impact or explosion, or an emphatic reveal.",
+      "intensity": 5,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 5,
+      "repeat": null,
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-baan.webp",
+        "format": "webp",
+        "width": 723,
+        "height": 240,
+        "bytes": 10796,
+        "sha256": "b16288f3e7a93df6d077ef52f2cbe2df072fe06b76301fdc42a9567829b7ebf3",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "bang!",
+        "baan"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "バーン！",
+      "meaning_en": "A sharp, spectacular impact or explosion, or an emphatic reveal.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-baan.svg"
+    },
+    {
+      "id": "drybrush-go-4",
+      "kind": "repeat",
+      "text": "RUMBLE RUMBLE RUMBLE RUMBLE",
+      "reading": "rumble rumble rumble rumble",
+      "style_id": "drybrush",
+      "tags": [
+        "unease",
+        "intimidation",
+        "low sound"
+      ],
+      "meaning_ja": "An ominous pressure or the deep resonance of something enormous.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 27,
+      "repeat": {
+        "unit": "RUMBLE",
+        "count": 4,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-go-4.webp",
+        "format": "webp",
+        "width": 3480,
+        "height": 240,
+        "bytes": 11474,
+        "sha256": "45f3ddc7a4db701e5ce9685c81faed1b97b46f2c78373ec009d261ae501ca140",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "rumble rumble rumble rumble",
+        "go"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ゴゴゴゴ",
+      "meaning_en": "An ominous pressure or the deep resonance of something enormous.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-go-4.svg"
+    },
+    {
+      "id": "drybrush-go-5",
+      "kind": "repeat",
+      "text": "RUMBLE RUMBLE RUMBLE RUMBLE RUMBLE",
+      "reading": "rumble rumble rumble rumble rumble",
+      "style_id": "drybrush",
+      "tags": [
+        "unease",
+        "intimidation",
+        "low sound"
+      ],
+      "meaning_ja": "An ominous pressure or the deep resonance of something enormous.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 34,
+      "repeat": {
+        "unit": "RUMBLE",
+        "count": 5,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-go-5.webp",
+        "format": "webp",
+        "width": 4354,
+        "height": 240,
+        "bytes": 11600,
+        "sha256": "e4f9ea949e79187ae3d6140f1f691189dfa6900754fe36c3387a3b7677f4e98c",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "rumble rumble rumble rumble rumble",
+        "go"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ゴゴゴゴゴ",
+      "meaning_en": "An ominous pressure or the deep resonance of something enormous.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-go-5.svg"
+    },
+    {
+      "id": "drybrush-go-6",
+      "kind": "repeat",
+      "text": "RUMBLE RUMBLE RUMBLE RUMBLE RUMBLE RUMBLE",
+      "reading": "rumble rumble rumble rumble rumble rumble",
+      "style_id": "drybrush",
+      "tags": [
+        "unease",
+        "intimidation",
+        "low sound"
+      ],
+      "meaning_ja": "An ominous pressure or the deep resonance of something enormous.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 41,
+      "repeat": {
+        "unit": "RUMBLE",
+        "count": 6,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-go-6.webp",
+        "format": "webp",
+        "width": 5228,
+        "height": 240,
+        "bytes": 12226,
+        "sha256": "451291501a058875392208d1c0f13e1061cccaed57a059703930b700f8c35f0c",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "rumble rumble rumble rumble rumble rumble",
+        "go"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ゴゴゴゴゴゴ",
+      "meaning_en": "An ominous pressure or the deep resonance of something enormous.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-go-6.svg"
+    },
+    {
+      "id": "drybrush-go-7",
+      "kind": "repeat",
+      "text": "RUMBLE RUMBLE RUMBLE RUMBLE RUMBLE RUMBLE RUMBLE",
+      "reading": "rumble rumble rumble rumble rumble rumble rumble",
+      "style_id": "drybrush",
+      "tags": [
+        "unease",
+        "intimidation",
+        "low sound"
+      ],
+      "meaning_ja": "An ominous pressure or the deep resonance of something enormous.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 48,
+      "repeat": {
+        "unit": "RUMBLE",
+        "count": 7,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-go-7.webp",
+        "format": "webp",
+        "width": 6102,
+        "height": 240,
+        "bytes": 12362,
+        "sha256": "a82863271e02ef2ef8334ef92e35150793122aa32a3a1f8e70242ee481e6519d",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "rumble rumble rumble rumble rumble rumble rumble",
+        "go"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ゴゴゴゴゴゴゴ",
+      "meaning_en": "An ominous pressure or the deep resonance of something enormous.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-go-7.svg"
+    },
+    {
+      "id": "drybrush-do-4",
+      "kind": "repeat",
+      "text": "THUD THUD THUD THUD",
+      "reading": "thud thud thud thud",
+      "style_id": "drybrush",
+      "tags": [
+        "repeated impact",
+        "run",
+        "vibration"
+      ],
+      "meaning_ja": "Repeated impacts, heavy running, or strong vibration.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 19,
+      "repeat": {
+        "unit": "THUD",
+        "count": 4,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-do-4.webp",
+        "format": "webp",
+        "width": 2400,
+        "height": 240,
+        "bytes": 7516,
+        "sha256": "c27a0408f5b76624c65f4ff1d931677486dc43435e22b633eb4f791f8b1ee19c",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "thud thud thud thud",
+        "do"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ドドドド",
+      "meaning_en": "Repeated impacts, heavy running, or strong vibration.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-do-4.svg"
+    },
+    {
+      "id": "drybrush-do-5",
+      "kind": "repeat",
+      "text": "THUD THUD THUD THUD THUD",
+      "reading": "thud thud thud thud thud",
+      "style_id": "drybrush",
+      "tags": [
+        "repeated impact",
+        "run",
+        "vibration"
+      ],
+      "meaning_ja": "Repeated impacts, heavy running, or strong vibration.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 24,
+      "repeat": {
+        "unit": "THUD",
+        "count": 5,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-do-5.webp",
+        "format": "webp",
+        "width": 3004,
+        "height": 240,
+        "bytes": 7642,
+        "sha256": "e05e1a5592191c3faf50af8f72776168a3737a0cbebec1e7cd80099d16653327",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "thud thud thud thud thud",
+        "do"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ドドドドド",
+      "meaning_en": "Repeated impacts, heavy running, or strong vibration.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-do-5.svg"
+    },
+    {
+      "id": "drybrush-do-6",
+      "kind": "repeat",
+      "text": "THUD THUD THUD THUD THUD THUD",
+      "reading": "thud thud thud thud thud thud",
+      "style_id": "drybrush",
+      "tags": [
+        "repeated impact",
+        "run",
+        "vibration"
+      ],
+      "meaning_ja": "Repeated impacts, heavy running, or strong vibration.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 29,
+      "repeat": {
+        "unit": "THUD",
+        "count": 6,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-do-6.webp",
+        "format": "webp",
+        "width": 3608,
+        "height": 240,
+        "bytes": 7726,
+        "sha256": "fd747220b8001156538228f8c999ffeb28a1cf61fe6fc77cfcf04327cbe5d9fd",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "thud thud thud thud thud thud",
+        "do"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ドドドドドド",
+      "meaning_en": "Repeated impacts, heavy running, or strong vibration.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-do-6.svg"
+    },
+    {
+      "id": "drybrush-do-7",
+      "kind": "repeat",
+      "text": "THUD THUD THUD THUD THUD THUD THUD",
+      "reading": "thud thud thud thud thud thud thud",
+      "style_id": "drybrush",
+      "tags": [
+        "repeated impact",
+        "run",
+        "vibration"
+      ],
+      "meaning_ja": "Repeated impacts, heavy running, or strong vibration.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 34,
+      "repeat": {
+        "unit": "THUD",
+        "count": 7,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-do-7.webp",
+        "format": "webp",
+        "width": 4212,
+        "height": 240,
+        "bytes": 7776,
+        "sha256": "b8b6a518e6c5c35f87418d2ade6b29dadba77cba54ea836c8464e0e0e5943299",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "thud thud thud thud thud thud thud",
+        "do"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ドドドドドドド",
+      "meaning_en": "Repeated impacts, heavy running, or strong vibration.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-do-7.svg"
+    },
+    {
+      "id": "drybrush-za-4",
+      "kind": "repeat",
+      "text": "HISS HISS HISS HISS",
+      "reading": "hiss hiss hiss hiss",
+      "style_id": "drybrush",
+      "tags": [
+        "rain",
+        "water",
+        "crowd"
+      ],
+      "meaning_ja": "Heavy rain, flowing water, or a sustained rustling crowd; choose contextually.",
+      "intensity": 3,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 19,
+      "repeat": {
+        "unit": "HISS",
+        "count": 4,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-za-4.webp",
+        "format": "webp",
+        "width": 2400,
+        "height": 240,
+        "bytes": 8220,
+        "sha256": "1904e069103395268e4f42e219ba313788fc78975703c5651110570a50570f0e",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "hiss hiss hiss hiss",
+        "za"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ザザザザ",
+      "meaning_en": "Heavy rain, flowing water, or a sustained rustling crowd; choose contextually.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-za-4.svg"
+    },
+    {
+      "id": "drybrush-za-5",
+      "kind": "repeat",
+      "text": "HISS HISS HISS HISS HISS",
+      "reading": "hiss hiss hiss hiss hiss",
+      "style_id": "drybrush",
+      "tags": [
+        "rain",
+        "water",
+        "crowd"
+      ],
+      "meaning_ja": "Heavy rain, flowing water, or a sustained rustling crowd; choose contextually.",
+      "intensity": 3,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 24,
+      "repeat": {
+        "unit": "HISS",
+        "count": 5,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-za-5.webp",
+        "format": "webp",
+        "width": 3004,
+        "height": 240,
+        "bytes": 8360,
+        "sha256": "bece70ca91da94294f3f604129b00d39a7d76c9a651215e7416a2710ff1d0d5c",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "hiss hiss hiss hiss hiss",
+        "za"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ザザザザザ",
+      "meaning_en": "Heavy rain, flowing water, or a sustained rustling crowd; choose contextually.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-za-5.svg"
+    },
+    {
+      "id": "drybrush-za-6",
+      "kind": "repeat",
+      "text": "HISS HISS HISS HISS HISS HISS",
+      "reading": "hiss hiss hiss hiss hiss hiss",
+      "style_id": "drybrush",
+      "tags": [
+        "rain",
+        "water",
+        "crowd"
+      ],
+      "meaning_ja": "Heavy rain, flowing water, or a sustained rustling crowd; choose contextually.",
+      "intensity": 3,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 29,
+      "repeat": {
+        "unit": "HISS",
+        "count": 6,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-za-6.webp",
+        "format": "webp",
+        "width": 3608,
+        "height": 240,
+        "bytes": 8430,
+        "sha256": "854fa76600d905a085db40d5db32a42089e20d54f3e001af6ce480c536914b6f",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "hiss hiss hiss hiss hiss hiss",
+        "za"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ザザザザザザ",
+      "meaning_en": "Heavy rain, flowing water, or a sustained rustling crowd; choose contextually.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-za-6.svg"
+    },
+    {
+      "id": "drybrush-za-7",
+      "kind": "repeat",
+      "text": "HISS HISS HISS HISS HISS HISS HISS",
+      "reading": "hiss hiss hiss hiss hiss hiss hiss",
+      "style_id": "drybrush",
+      "tags": [
+        "rain",
+        "water",
+        "crowd"
+      ],
+      "meaning_ja": "Heavy rain, flowing water, or a sustained rustling crowd; choose contextually.",
+      "intensity": 3,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 34,
+      "repeat": {
+        "unit": "HISS",
+        "count": 7,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-za-7.webp",
+        "format": "webp",
+        "width": 4212,
+        "height": 240,
+        "bytes": 8440,
+        "sha256": "3435d8f8eda7eae4460dc49d6c6c99a75549fd71a1a2047df14869632dfac39e",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "hiss hiss hiss hiss hiss hiss hiss",
+        "za"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ザザザザザザザ",
+      "meaning_en": "Heavy rain, flowing water, or a sustained rustling crowd; choose contextually.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-za-7.svg"
+    },
+    {
+      "id": "drybrush-ga-4",
+      "kind": "repeat",
+      "text": "RAT RAT RAT RAT",
+      "reading": "rat rat rat rat",
+      "style_id": "drybrush",
+      "tags": [
+        "machine",
+        "rapid impact",
+        "vibration"
+      ],
+      "meaning_ja": "Repeated mechanical clatter or hard objects striking rapidly.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 15,
+      "repeat": {
+        "unit": "RAT",
+        "count": 4,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-ga-4.webp",
+        "format": "webp",
+        "width": 1860,
+        "height": 240,
+        "bytes": 7562,
+        "sha256": "b008d9dac0e6ea0a8e18daf688a81566138076c4e648c4362646c5998823f68f",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "rat rat rat rat",
+        "ga"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ガガガガ",
+      "meaning_en": "Repeated mechanical clatter or hard objects striking rapidly.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-ga-4.svg"
+    },
+    {
+      "id": "drybrush-ga-5",
+      "kind": "repeat",
+      "text": "RAT RAT RAT RAT RAT",
+      "reading": "rat rat rat rat rat",
+      "style_id": "drybrush",
+      "tags": [
+        "machine",
+        "rapid impact",
+        "vibration"
+      ],
+      "meaning_ja": "Repeated mechanical clatter or hard objects striking rapidly.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 19,
+      "repeat": {
+        "unit": "RAT",
+        "count": 5,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-ga-5.webp",
+        "format": "webp",
+        "width": 2329,
+        "height": 240,
+        "bytes": 7680,
+        "sha256": "92269413a240a39589cfc4bbaac4a433a00f296c5a6be071b3003093e7cf17b6",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "rat rat rat rat rat",
+        "ga"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ガガガガガ",
+      "meaning_en": "Repeated mechanical clatter or hard objects striking rapidly.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-ga-5.svg"
+    },
+    {
+      "id": "drybrush-ga-6",
+      "kind": "repeat",
+      "text": "RAT RAT RAT RAT RAT RAT",
+      "reading": "rat rat rat rat rat rat",
+      "style_id": "drybrush",
+      "tags": [
+        "machine",
+        "rapid impact",
+        "vibration"
+      ],
+      "meaning_ja": "Repeated mechanical clatter or hard objects striking rapidly.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 23,
+      "repeat": {
+        "unit": "RAT",
+        "count": 6,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-ga-6.webp",
+        "format": "webp",
+        "width": 2798,
+        "height": 240,
+        "bytes": 7696,
+        "sha256": "45f786703ce4b3a0dd374ec34998579cb3945dc74cf6b5a4985d85c127741b5b",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "rat rat rat rat rat rat",
+        "ga"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ガガガガガガ",
+      "meaning_en": "Repeated mechanical clatter or hard objects striking rapidly.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-ga-6.svg"
+    },
+    {
+      "id": "drybrush-ga-7",
+      "kind": "repeat",
+      "text": "RAT RAT RAT RAT RAT RAT RAT",
+      "reading": "rat rat rat rat rat rat rat",
+      "style_id": "drybrush",
+      "tags": [
+        "machine",
+        "rapid impact",
+        "vibration"
+      ],
+      "meaning_ja": "Repeated mechanical clatter or hard objects striking rapidly.",
+      "intensity": 4,
+      "selection_class": "Additional source entry",
+      "grapheme_count": 27,
+      "repeat": {
+        "unit": "RAT",
+        "count": 7,
+        "method": "Repeated whole English expression rendered from vector strokes"
+      },
+      "license": "CC0-1.0",
+      "image": {
+        "path": "images/drybrush-ga-7.webp",
+        "format": "webp",
+        "width": 3267,
+        "height": 240,
+        "bytes": 7734,
+        "sha256": "7d2ac6d19d65ff29606ae5b32f73527875bbe73fd2d854fb6323fb84bd24f7eb",
+        "alpha": true,
+        "lossless_encoding": true
+      },
+      "aliases": [
+        "rat rat rat rat rat rat rat",
+        "ga"
+      ],
+      "orientation": "horizontal",
+      "placement_hint_ja": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "attribution_required": false,
+      "source_text_ja": "ガガガガガガガ",
+      "meaning_en": "Repeated mechanical clatter or hard objects striking rapidly.",
+      "placement_hint_en": "Place near the source, clear of faces, dialogue, and contact points. Preserve aspect ratio; rotate only when appropriate. Read left to right. Select wording for the scene rather than treating the legacy ID as a literal translation.",
+      "source_svg": "svg/drybrush-ga-7.svg"
+    }
+  ],
+  "locale": "en-US",
+  "title_en": "English sound-effect lettering — three styles",
+  "provenance": "US edition lettering rendered from original geometric vector strokes; no third-party font files. Japanese IDs retained for update compatibility."
+}

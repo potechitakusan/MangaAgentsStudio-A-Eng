@@ -1,0 +1,72 @@
+{
+  "id": "P1-splash",
+  "name": "1 panel · splash",
+  "summary": "One large image. For a two-page spread, coordinate the composition with the facing page.",
+  "panelCount": 1,
+  "family": "1",
+  "rows": [
+    1
+  ],
+  "rowHeightRatios": [
+    1.0
+  ],
+  "splitPositionsFromLeft": [
+    0.5
+  ],
+  "widthPattern": "Equal width",
+  "shortWidePanel": false,
+  "verticalTilt": 0,
+  "horizontalTilt": 0,
+  "diagonal": false,
+  "frequency": "Special use",
+  "usage": [
+    "Major reveal",
+    "Two-page spread"
+  ],
+  "extra": true,
+  "restrictionGroup": null,
+  "readingDirection": "Left to right within each row, then top to bottom",
+  "panels": [
+    {
+      "id": "panel-01",
+      "order": 1,
+      "row": 1,
+      "position": "Full width",
+      "role": "Standard",
+      "polygon": [
+        [
+          60,
+          60
+        ],
+        [
+          940,
+          60
+        ],
+        [
+          940,
+          1440.0
+        ],
+        [
+          60,
+          1440.0
+        ]
+      ]
+    }
+  ],
+  "modifiers": [],
+  "baseTemplateId": null,
+  "coordinateSystem": {
+    "width": 1000,
+    "height": 1500,
+    "origin": "Top left",
+    "unit": "SVG user units",
+    "pngScale": 2
+  },
+  "assets": {
+    "svg": "svg/P1-splash.svg",
+    "guideSvg": "guides/P1-splash.svg",
+    "transparentPng": "png/P1-splash.png",
+    "previewPng": "previews/P1-splash.png",
+    "json": "json/P1-splash.json"
+  }
+}

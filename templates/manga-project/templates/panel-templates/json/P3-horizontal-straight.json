@@ -1,0 +1,128 @@
+{
+  "id": "P3-horizontal-straight",
+  "name": "3 panels · three tiers · Straight",
+  "summary": "Three wide panels stacked vertically. Slanted variants count toward the same three-tier limit.",
+  "panelCount": 3,
+  "family": "horizontal-three",
+  "rows": [
+    1,
+    1,
+    1
+  ],
+  "rowHeightRatios": [
+    0.3333333333333333,
+    0.3333333333333333,
+    0.3333333333333333
+  ],
+  "splitPositionsFromLeft": [
+    0.5,
+    0.5,
+    0.5
+  ],
+  "widthPattern": "Equal width",
+  "shortWidePanel": false,
+  "verticalTilt": 0,
+  "horizontalTilt": 0,
+  "diagonal": false,
+  "frequency": "Frequency limited",
+  "usage": [
+    "Quiet reaction",
+    "Time break"
+  ],
+  "extra": false,
+  "restrictionGroup": "horizontal-three",
+  "readingDirection": "Left to right within each row, then top to bottom",
+  "panels": [
+    {
+      "id": "panel-01",
+      "order": 1,
+      "row": 1,
+      "position": "Full width",
+      "role": "Standard",
+      "polygon": [
+        [
+          60,
+          60
+        ],
+        [
+          940,
+          60
+        ],
+        [
+          940,
+          504.82
+        ],
+        [
+          60,
+          504.82
+        ]
+      ]
+    },
+    {
+      "id": "panel-02",
+      "order": 2,
+      "row": 2,
+      "position": "Full width",
+      "role": "Standard",
+      "polygon": [
+        [
+          60,
+          535.18
+        ],
+        [
+          940,
+          535.18
+        ],
+        [
+          940,
+          964.82
+        ],
+        [
+          60,
+          964.82
+        ]
+      ]
+    },
+    {
+      "id": "panel-03",
+      "order": 3,
+      "row": 3,
+      "position": "Full width",
+      "role": "Standard",
+      "polygon": [
+        [
+          60,
+          995.18
+        ],
+        [
+          940,
+          995.18
+        ],
+        [
+          940,
+          1440.0
+        ],
+        [
+          60,
+          1440.0
+        ]
+      ]
+    }
+  ],
+  "modifiers": [],
+  "baseTemplateId": null,
+  "coordinateSystem": {
+    "width": 1000,
+    "height": 1500,
+    "origin": "Top left",
+    "unit": "SVG user units",
+    "pngScale": 2
+  },
+  "assets": {
+    "svg": "svg/P3-horizontal-straight.svg",
+    "guideSvg": "guides/P3-horizontal-straight.svg",
+    "transparentPng": "png/P3-horizontal-straight.png",
+    "previewPng": "previews/P3-horizontal-straight.png",
+    "json": "json/P3-horizontal-straight.json"
+  }
+}

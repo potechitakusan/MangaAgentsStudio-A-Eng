@@ -1,0 +1,610 @@
+{
+  "schemaVersion": 1,
+  "locale": "en-US",
+  "localizationVersion": "0.4.1-en-US.2",
+  "date": "2026-09-30",
+  "counts": {
+    "comicPages": 29,
+    "editedPages": 26,
+    "unchangedWordlessPages": 3,
+    "referenceImages": 6
+  },
+  "note": "Generated edits are not pixel-identical to source art. Original source images are preserved locally and traceable through source hashes. English text and story order were reviewed; no artwork was intentionally mirrored. External linked Japanese comics and PSD downloads were not localized.",
+  "images": [
+    {
+      "sourcePath": "examples/01/characters.png",
+      "sourceSha256": "8cffa6e851e034ece82507c272aa6d1a1536c8f1b5e295104e23c7fe04d5fa72",
+      "sourceDimensions": [
+        1227,
+        1282
+      ],
+      "targetPath": "examples/01/characters.png",
+      "targetSha256": "8cffa6e851e034ece82507c272aa6d1a1536c8f1b5e295104e23c7fe04d5fa72",
+      "targetDimensions": [
+        1227,
+        1282
+      ],
+      "status": "text-free-reference",
+      "method": "original retained after visual inspection",
+      "readingDirection": "not-applicable"
+    },
+    {
+      "sourcePath": "examples/01/page-001.png",
+      "sourceSha256": "f93286b959ee5149a5e32a8b0ec24ff41f5a1b5c2143a0399922324c118b1f85",
+      "sourceDimensions": [
+        1819,
+        2551
+      ],
+      "targetPath": "examples/01/page-001.png",
+      "targetSha256": "aa0ae598ccb005f67be67f3f5159d843a2b4df03fc8ecb20825be7adfb19f43b",
+      "targetDimensions": [
+        1060,
+        1484
+      ],
+      "status": "localized",
+      "method": "built-in imagegen edit",
+      "readingDirection": "ltr"
+    },
+    {
+      "sourcePath": "examples/01/page-002.png",
+      "sourceSha256": "fdc1db4a90e50e249d4ac6fb1c450c3aeb89d8034a7d04345e8668840256c50f",
+      "sourceDimensions": [
+        1819,
+        2551
+      ],
+      "targetPath": "examples/01/page-002.png",
+      "targetSha256": "b80d2c8331f9e92ee37c1f4cac2925193a3c27c0742332138a70a0d2d4ebbe13",
+      "targetDimensions": [
+        1059,
+        1485
+      ],
+      "status": "localized",
+      "method": "built-in imagegen edit",
+      "readingDirection": "ltr"
+    },
+    {
+      "sourcePath": "examples/02/page-001.png",
+      "sourceSha256": "8d2697e50a7bc9fadb4a737f10ca690b2c4181a51fa3b18b8fa9bac673da8a1e",
+      "sourceDimensions": [
+        1024,
+        1536
+      ],
+      "targetPath": "examples/02/page-001.png",
+      "targetSha256": "fec70c5adcd803f6b6b516d6e3559ff4cdcff55a21576aa835c923572c3c0bb2",
+      "targetDimensions": [
+        1024,
+        1536
+      ],
+      "status": "localized",
+      "method": "built-in imagegen edit",
+      "readingDirection": "ltr"
+    },
+    {
+      "sourcePath": "examples/02/page-002.png",
+      "sourceSha256": "f072b748f7291fbc25f7e8f3abf6a2375b87c6ce8b379bd831a9eea0f79849e8",
+      "sourceDimensions": [
+        1024,
+        1536
+      ],
+      "targetPath": "examples/02/page-002.png",
+      "targetSha256": "f072b748f7291fbc25f7e8f3abf6a2375b87c6ce8b379bd831a9eea0f79849e8",
+      "targetDimensions": [
+        1024,
+        1536
+      ],
+      "status": "wordless-ltr-compatible",
+      "method": "original retained after visual inspection",
+      "readingDirection": "ltr"
+    },
+    {
+      "sourcePath": "examples/02/page-003.png",
+      "sourceSha256": "f5bd812e3b80752b6fea369a015158efeda3193aa8a9f14b5da7060b89a5c55c",
+      "sourceDimensions": [
+        1024,
+        1536
+      ],
+      "targetPath": "examples/02/page-003.png",
+      "targetSha256": "f5bd812e3b80752b6fea369a015158efeda3193aa8a9f14b5da7060b89a5c55c",
+      "targetDimensions": [
+        1024,
+        1536
+      ],
+      "status": "wordless-ltr-compatible",
+      "method": "original retained after visual inspection",
+      "readingDirection": "ltr"
+    },
+    {
+      "sourcePath": "examples/03/character1.png",
+      "sourceSha256": "f6298693fa77300f68c3f9fb66cb61c4184402ba6be13dfb1578bd1db726899e",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "targetPath": "examples/03/character1.png",
+      "targetSha256": "f6298693fa77300f68c3f9fb66cb61c4184402ba6be13dfb1578bd1db726899e",
+      "targetDimensions": [
+        1254,
+        1254
+      ],
+      "status": "text-free-reference",
+      "method": "original retained after visual inspection",
+      "readingDirection": "not-applicable"
+    },
+    {
+      "sourcePath": "examples/03/character2.png",
+      "sourceSha256": "b7e8f9fe2b2ad5faa83acb8aa563e93690835695176bc476f8ceefb69aad9351",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "targetPath": "examples/03/character2.png",
+      "targetSha256": "b7e8f9fe2b2ad5faa83acb8aa563e93690835695176bc476f8ceefb69aad9351",
+      "targetDimensions": [
+        1254,
+        1254
+      ],
+      "status": "text-free-reference",
+      "method": "original retained after visual inspection",
+      "readingDirection": "not-applicable"
+    },
+    {
+      "sourcePath": "examples/03/page-001.png",
+      "sourceSha256": "507eaf99cdc06a067bd80e1ae3bf52432a1c06cd042e35087b7f8522b9c82e91",
+      "sourceDimensions": [
+        1024,
+        1536
+      ],
+      "targetPath": "examples/03/page-001.png",
+      "targetSha256": "43f9deea29b3072c986def40c3e72b370398cd28ffce5a2c9690e788788a7ed8",
+      "targetDimensions": [
+        1024,
+        1536
+      ],
+      "status": "localized",
+      "method": "built-in imagegen edit",
+      "readingDirection": "ltr"
+    },
+    {
+      "sourcePath": "examples/03/page-002.png",
+      "sourceSha256": "10c0e16a3da412f069f68ab7832146a9ce611f948e9352e4fa4f913063724fa0",
+      "sourceDimensions": [
+        1024,
+        1536
+      ],
+      "targetPath": "examples/03/page-002.png",
+      "targetSha256": "23861e59f4f4a75e6c6f126666ac592f0486788d88a0ee00c60d18af490bf7f8",
+      "targetDimensions": [
+        1024,
+        1536
+      ],
+      "status": "localized",
+      "method": "built-in imagegen edit",
+      "readingDirection": "ltr"
+    },
+    {
+      "sourcePath": "examples/03/page-003.png",
+      "sourceSha256": "f135f8ab2c742a3a67612455189a3b147f6c6b9ad65fab4570a5ee671bf56bfb",
+      "sourceDimensions": [
+        1024,
+        1536
+      ],
+      "targetPath": "examples/03/page-003.png",
+      "targetSha256": "f135f8ab2c742a3a67612455189a3b147f6c6b9ad65fab4570a5ee671bf56bfb",
+      "targetDimensions": [
+        1024,
+        1536
+      ],
+      "status": "wordless-ltr-compatible",
+      "method": "original retained after visual inspection",
+      "readingDirection": "ltr"
+    },
+    {
+      "sourcePath": "examples/03/page-004.png",
+      "sourceSha256": "b296f30cd30464119f937b5310b3d811c632be4549fa5b86d7a10325ed9af588",
+      "sourceDimensions": [
+        1024,
+        1536
+      ],
+      "targetPath": "examples/03/page-004.png",
+      "targetSha256": "3b9f905a22b60d5016e7a90638932b1e4a84aba82230c068b7b75ba307756e04",
+      "targetDimensions": [
+        1024,
+        1536
+      ],
+      "status": "localized",
+      "method": "built-in imagegen edit",
+      "readingDirection": "ltr"
+    },
+    {
+      "sourcePath": "examples/04/character1.png",
+      "sourceSha256": "4b9dd844f98791f5d998a1747174b215632d23ba537ed4199231ab2b2368a031",
+      "sourceDimensions": [
+        1024,
+        1536
+      ],
+      "targetPath": "examples/04/character1.png",
+      "targetSha256": "4b9dd844f98791f5d998a1747174b215632d23ba537ed4199231ab2b2368a031",
+      "targetDimensions": [
+        1024,
+        1536
+      ],
+      "status": "text-free-reference",
+      "method": "original retained after visual inspection",
+      "readingDirection": "not-applicable"
+    },
+    {
+      "sourcePath": "examples/04/character2.png",
+      "sourceSha256": "7294737e398bd4248b448c1ed3696849aa3a92b582bb7388671d2df40808bf56",
+      "sourceDimensions": [
+        1024,
+        1536
+      ],
+      "targetPath": "examples/04/character2.png",
+      "targetSha256": "7294737e398bd4248b448c1ed3696849aa3a92b582bb7388671d2df40808bf56",
+      "targetDimensions": [
+        1024,
+        1536
+      ],
+      "status": "text-free-reference",
+      "method": "original retained after visual inspection",
+      "readingDirection": "not-applicable"
+    },
+    {
+      "sourcePath": "examples/04/robot1.png",
+      "sourceSha256": "14a33025b6d889c730b1f2cf43392dafc3cc50e8e6e53a29af9ba6d1b0347c9a",
+      "sourceDimensions": [
+        1024,
+        1536
+      ],
+      "targetPath": "examples/04/robot1.png",
+      "targetSha256": "14a33025b6d889c730b1f2cf43392dafc3cc50e8e6e53a29af9ba6d1b0347c9a",
+      "targetDimensions": [
+        1024,
+        1536
+      ],
+      "status": "text-free-reference",
+      "method": "original retained after visual inspection",
+      "readingDirection": "not-applicable"
+    },
+    {
+      "sourcePath": "examples/05/page-001.jpg",
+      "sourceSha256": "701c905efb3d9e2a1cee088bce738d40ba0264d5786c16208525f9e245b9134e",
+      "sourceDimensions": [
+        1600,
+        2400
+      ],
+      "targetPath": "examples/05/page-001.jpg",
+      "targetSha256": "cb1f831bd656018337d3c1fc92c7859119fa656ed6aa1daae32e0f5ad7178e54",
+      "targetDimensions": [
+        1024,
+        1536
+      ],
+      "status": "localized",
+      "method": "built-in imagegen edit",
+      "readingDirection": "ltr"
+    },
+    {
+      "sourcePath": "examples/05/page-002.jpg",
+      "sourceSha256": "3eb521c3ccbcedffe9e2f7c7307d8d1e15087ea30cecd057b3022eabc9158166",
+      "sourceDimensions": [
+        1600,
+        2400
+      ],
+      "targetPath": "examples/05/page-002.jpg",
+      "targetSha256": "4f7d526b1cc9df041d883d686fcc1865c517e09640266f32346dc723af3a1f62",
+      "targetDimensions": [
+        1024,
+        1536
+      ],
+      "status": "localized",
+      "method": "built-in imagegen edit",
+      "readingDirection": "ltr"
+    },
+    {
+      "sourcePath": "examples/05/page-003.jpg",
+      "sourceSha256": "8a1d188ce00b1e18dd290744c7a2e9de60e09591a653b3be275d3f97a303bd2d",
+      "sourceDimensions": [
+        1600,
+        2400
+      ],
+      "targetPath": "examples/05/page-003.jpg",
+      "targetSha256": "0b85d1a8e7492bee10b3d3510ced96f2908da5ad824fedc3f00c827227ece8ea",
+      "targetDimensions": [
+        1024,
+        1536
+      ],
+      "status": "localized",
+      "method": "built-in imagegen edit",
+      "readingDirection": "ltr"
+    },
+    {
+      "sourcePath": "examples/05/page-004.jpg",
+      "sourceSha256": "20a2166bdbd7ffdf7772cb39f83cf0e3a16c9f5eb747b231be4a39f78b2c4de9",
+      "sourceDimensions": [
+        1600,
+        2400
+      ],
+      "targetPath": "examples/05/page-004.jpg",
+      "targetSha256": "bd1d988ddb080249aeb5f6fd03997a5cb515315c3a95802529da8c160c67fbf3",
+      "targetDimensions": [
+        1024,
+        1536
+      ],
+      "status": "localized",
+      "method": "built-in imagegen edit",
+      "readingDirection": "ltr"
+    },
+    {
+      "sourcePath": "examples/05/page-005.jpg",
+      "sourceSha256": "831431fc36e2539c7a1d79dc02b942c1510dbd8c5be379854268c87a2ebfe508",
+      "sourceDimensions": [
+        1600,
+        2400
+      ],
+      "targetPath": "examples/05/page-005.jpg",
+      "targetSha256": "29e088997c920b82ef1ea258133ce117776d5a719c36685de31bb3b33f887d63",
+      "targetDimensions": [
+        1024,
+        1536
+      ],
+      "status": "localized",
+      "method": "built-in imagegen edit",
+      "readingDirection": "ltr"
+    },
+    {
+      "sourcePath": "examples/05/page-006.jpg",
+      "sourceSha256": "73962e3f5344785620ce96d17b5b1b62ef5bfa34c09a38b8fe846e3528541ddd",
+      "sourceDimensions": [
+        1600,
+        2400
+      ],
+      "targetPath": "examples/05/page-006.jpg",
+      "targetSha256": "64df5ba50e1282fccc7a04d30a9e18d8db91af4af99707a94d6f2a2295e35e9f",
+      "targetDimensions": [
+        1024,
+        1536
+      ],
+      "status": "localized",
+      "method": "built-in imagegen edit",
+      "readingDirection": "ltr"
+    },
+    {
+      "sourcePath": "examples/05/page-007.jpg",
+      "sourceSha256": "fb42969ad82b4d04069885670894ceaf93398005d3bf62fd372c6eb9a4778bc6",
+      "sourceDimensions": [
+        1600,
+        2400
+      ],
+      "targetPath": "examples/05/page-007.jpg",
+      "targetSha256": "17976ce4c3fa7492cf2acda9b2508a69900d3bde66d2cdec21abffb92b3fda38",
+      "targetDimensions": [
+        1024,
+        1536
+      ],
+      "status": "localized",
+      "method": "built-in imagegen edit",
+      "readingDirection": "ltr"
+    },
+    {
+      "sourcePath": "examples/05/page-008.jpg",
+      "sourceSha256": "5e92bb22a65680d05e4d56d183853c1648b9a72a7821b90d7c3c6d1742897ac0",
+      "sourceDimensions": [
+        1600,
+        2400
+      ],
+      "targetPath": "examples/05/page-008.jpg",
+      "targetSha256": "0f77dc22264627a759de55d441ca45e41255dfe9f368bb8473af427e8dba62e0",
+      "targetDimensions": [
+        1024,
+        1536
+      ],
+      "status": "localized",
+      "method": "built-in imagegen edit",
+      "readingDirection": "ltr"
+    },
+    {
+      "sourcePath": "examples/06/page-001.jpg",
+      "sourceSha256": "bf97e051412bc20ea9b44a09feee0bfc4261a0cd2b337bdb2fec476d7796cbff",
+      "sourceDimensions": [
+        1600,
+        2400
+      ],
+      "targetPath": "examples/06/page-001.jpg",
+      "targetSha256": "1b3f9db047d3e0f9cad54166bbc706867f51a77f9b16d210b3b00061a8016527",
+      "targetDimensions": [
+        1024,
+        1536
+      ],
+      "status": "localized",
+      "method": "built-in imagegen edit",
+      "readingDirection": "ltr"
+    },
+    {
+      "sourcePath": "examples/06/page-002.jpg",
+      "sourceSha256": "7f5f0916b06decf218d9f2980fe345b786a1bbabd2c9b09173e6dba66e19fc9f",
+      "sourceDimensions": [
+        1600,
+        2400
+      ],
+      "targetPath": "examples/06/page-002.jpg",
+      "targetSha256": "f829e4353345d43d5aab5fef47e135ce5bc0be8aaa6dc7de6a965e3c947b922e",
+      "targetDimensions": [
+        1024,
+        1536
+      ],
+      "status": "localized",
+      "method": "built-in imagegen edit",
+      "readingDirection": "ltr"
+    },
+    {
+      "sourcePath": "examples/06/page-003.jpg",
+      "sourceSha256": "03bfc4a0bcaf2948f0d4d4a8edd43afacba975610b9993d1ff4d7d836b2c103c",
+      "sourceDimensions": [
+        1600,
+        2400
+      ],
+      "targetPath": "examples/06/page-003.jpg",
+      "targetSha256": "9758b18115e8dec07b03558f965c0859560f44772e93f30492df496bc84e6d2e",
+      "targetDimensions": [
+        1024,
+        1536
+      ],
+      "status": "localized",
+      "method": "built-in imagegen edit",
+      "readingDirection": "ltr"
+    },
+    {
+      "sourcePath": "examples/06/page-004.jpg",
+      "sourceSha256": "497940d71f51bb7be601ded3c9df9be3f78d6b555f07c00b1143983a5fdd97cd",
+      "sourceDimensions": [
+        1600,
+        2400
+      ],
+      "targetPath": "examples/06/page-004.jpg",
+      "targetSha256": "5783fe2d51706fe68e16023e5c4d9dc757cd5168f5356f00926f1992f4330d04",
+      "targetDimensions": [
+        1024,
+        1536
+      ],
+      "status": "localized",
+      "method": "built-in imagegen edit",
+      "readingDirection": "ltr"
+    },
+    {
+      "sourcePath": "examples/06/page-005.jpg",
+      "sourceSha256": "263e908a9b9a0df316ccc841dba906866b755b83dc226fda498f4614f1b5f409",
+      "sourceDimensions": [
+        1600,
+        2400
+      ],
+      "targetPath": "examples/06/page-005.jpg",
+      "targetSha256": "c2e8fa376b790c395919997f1ab577e492ddbe9f6716928117b578e3276cf6a8",
+      "targetDimensions": [
+        1024,
+        1536
+      ],
+      "status": "localized",
+      "method": "built-in imagegen edit",
+      "readingDirection": "ltr"
+    },
+    {
+      "sourcePath": "examples/06/page-006.jpg",
+      "sourceSha256": "b1aff4a755d147feb22a92657f17a3b5c133f577a676f4b82ee7dcb7c9f5ad53",
+      "sourceDimensions": [
+        1600,
+        2400
+      ],
+      "targetPath": "examples/06/page-006.jpg",
+      "targetSha256": "d85ec4aaf21641470c70bff970fd7be963c652f791fd5382f050e891fb686d87",
+      "targetDimensions": [
+        1024,
+        1536
+      ],
+      "status": "localized",
+      "method": "built-in imagegen edit",
+      "readingDirection": "ltr"
+    },
+    {
+      "sourcePath": "examples/06/page-007.jpg",
+      "sourceSha256": "51209b80fae82eeb4e418435602df651a236c495bc475fee84cebd9b817979e8",
+      "sourceDimensions": [
+        1600,
+        2400
+      ],
+      "targetPath": "examples/06/page-007.jpg",
+      "targetSha256": "9287394f07ae71fc900e823bf94a4c43237ea389cd631cd80486d7edf0a01983",
+      "targetDimensions": [
+        1024,
+        1536
+      ],
+      "status": "localized",
+      "method": "built-in imagegen edit",
+      "readingDirection": "ltr"
+    },
+    {
+      "sourcePath": "examples/06/page-008.jpg",
+      "sourceSha256": "a14ff2dff423dc2d65355f384b52b4b54a247965a2cd91a7bb02ffe5788d96c5",
+      "sourceDimensions": [
+        1600,
+        2400
+      ],
+      "targetPath": "examples/06/page-008.jpg",
+      "targetSha256": "f66fc1933cc7b7de60107029c9cfee91da84b2072f687ad7f5a2851a662a27a8",
+      "targetDimensions": [
+        1024,
+        1536
+      ],
+      "status": "localized",
+      "method": "built-in imagegen edit",
+      "readingDirection": "ltr"
+    },
+    {
+      "sourcePath": "examples/06/page-009.jpg",
+      "sourceSha256": "85d55cd46b454c1f23eea53eff76c4cb5b470723ac7ec19614ad6fb63a24ff53",
+      "sourceDimensions": [
+        1600,
+        2400
+      ],
+      "targetPath": "examples/06/page-009.jpg",
+      "targetSha256": "9eb526a1efa6f08172e8ac47994a3ffa232e613089cb4d0a6ca9b2128c0da687",
+      "targetDimensions": [
+        1024,
+        1536
+      ],
+      "status": "localized",
+      "method": "built-in imagegen edit",
+      "readingDirection": "ltr"
+    },
+    {
+      "sourcePath": "examples/06/page-010.jpg",
+      "sourceSha256": "0d75974a5d0beb5e2b1f076aec35a7619fa5c756673fba6b71dd8e30227888f8",
+      "sourceDimensions": [
+        1600,
+        2400
+      ],
+      "targetPath": "examples/06/page-010.jpg",
+      "targetSha256": "468b750c24593c7536d7a2ee37025bda827aaff5975af98c13d92ef7bb47d196",
+      "targetDimensions": [
+        1024,
+        1536
+      ],
+      "status": "localized",
+      "method": "built-in imagegen edit",
+      "readingDirection": "ltr"
+    },
+    {
+      "sourcePath": "examples/06/page-011.jpg",
+      "sourceSha256": "66797e6a5e5ca11b462351753dd042c1d41f4ff39224e181a23f69ccafdd76c7",
+      "sourceDimensions": [
+        1600,
+        2400
+      ],
+      "targetPath": "examples/06/page-011.jpg",
+      "targetSha256": "63a89415b67589a5fee7e1064bcc60e57849c56370ef3f12f36d1f17e512c981",
+      "targetDimensions": [
+        1024,
+        1536
+      ],
+      "status": "localized",
+      "method": "built-in imagegen edit",
+      "readingDirection": "ltr"
+    },
+    {
+      "sourcePath": "examples/06/page-012.jpg",
+      "sourceSha256": "9ee217e2a0b66802e0932e14ccf9b468ebfcd9073ccf4128ad113cd03d878fcc",
+      "sourceDimensions": [
+        1600,
+        2400
+      ],
+      "targetPath": "examples/06/page-012.jpg",
+      "targetSha256": "a260c58f8e916f50211328977f31cbe2f8c340e5da86e935e78dbac7e6b73255",
+      "targetDimensions": [
+        1024,
+        1536
+      ],
+      "status": "localized",
+      "method": "built-in imagegen edit",
+      "readingDirection": "ltr"
+    }
+  ]
+}

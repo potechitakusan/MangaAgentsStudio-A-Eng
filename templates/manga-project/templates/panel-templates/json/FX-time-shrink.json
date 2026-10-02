@@ -1,0 +1,235 @@
+{
+  "id": "FX-time-shrink",
+  "name": "Effect · white panels shrink",
+  "summary": "Replace the middle wide panel of a five-panel layout with three white panels that shrink from left to right. Use for elapsed time or a breath-held pause.",
+  "panelCount": 7,
+  "family": "time-passage",
+  "rows": [
+    2,
+    3,
+    2
+  ],
+  "rowHeightRatios": [
+    0.38,
+    0.24,
+    0.38
+  ],
+  "splitPositionsFromLeft": [
+    0.5,
+    0.5,
+    0.5
+  ],
+  "widthPattern": "Equal widths in split tiers",
+  "shortWidePanel": true,
+  "verticalTilt": 0,
+  "horizontalTilt": 0,
+  "diagonal": false,
+  "frequency": "Special use",
+  "usage": [
+    "Time passage",
+    "Breath-held pause"
+  ],
+  "extra": true,
+  "restrictionGroup": null,
+  "readingDirection": "Left to right within each row, then top to bottom",
+  "panels": [
+    {
+      "id": "panel-01",
+      "order": 1,
+      "row": 1,
+      "position": "Left",
+      "role": "Standard",
+      "polygon": [
+        [
+          60,
+          60
+        ],
+        [
+          490.32,
+          60
+        ],
+        [
+          490.32,
+          569.22
+        ],
+        [
+          60,
+          569.22
+        ]
+      ]
+    },
+    {
+      "id": "panel-02",
+      "order": 2,
+      "row": 1,
+      "position": "Right",
+      "role": "Standard",
+      "polygon": [
+        [
+          509.68,
+          60
+        ],
+        [
+          940,
+          60
+        ],
+        [
+          940,
+          569.22
+        ],
+        [
+          509.68,
+          569.22
+        ]
+      ]
+    },
+    {
+      "id": "panel-03",
+      "order": 3,
+      "row": 2,
+      "position": "Time passage",
+      "role": "White timing panel",
+      "polygon": [
+        [
+          60,
+          622.143
+        ],
+        [
+          412.0,
+          622.143
+        ],
+        [
+          412.0,
+          877.857
+        ],
+        [
+          60,
+          877.857
+        ]
+      ]
+    },
+    {
+      "id": "panel-04",
+      "order": 4,
+      "row": 2,
+      "position": "Time passage",
+      "role": "White timing panel",
+      "polygon": [
+        [
+          431.36,
+          643.202
+        ],
+        [
+          660.16,
+          643.202
+        ],
+        [
+          660.16,
+          856.798
+        ],
+        [
+          431.36,
+          856.798
+        ]
+      ]
+    },
+    {
+      "id": "panel-05",
+      "order": 5,
+      "row": 2,
+      "position": "Time passage",
+      "role": "White timing panel",
+      "polygon": [
+        [
+          679.52,
+          658.244
+        ],
+        [
+          820.32,
+          658.244
+        ],
+        [
+          820.32,
+          841.756
+        ],
+        [
+          679.52,
+          841.756
+        ]
+      ]
+    },
+    {
+      "id": "panel-06",
+      "order": 6,
+      "row": 3,
+      "position": "Left",
+      "role": "Standard",
+      "polygon": [
+        [
+          60,
+          930.78
+        ],
+        [
+          490.32,
+          930.78
+        ],
+        [
+          490.32,
+          1440.0
+        ],
+        [
+          60,
+          1440.0
+        ]
+      ]
+    },
+    {
+      "id": "panel-07",
+      "order": 7,
+      "row": 3,
+      "position": "Right",
+      "role": "Standard",
+      "polygon": [
+        [
+          509.68,
+          930.78
+        ],
+        [
+          940,
+          930.78
+        ],
+        [
+          940,
+          1440.0
+        ],
+        [
+          509.68,
+          1440.0
+        ]
+      ]
+    }
+  ],
+  "modifiers": [
+    {
+      "type": "time-passage",
+      "replacesPanelOrder": 3,
+      "direction": "shrink",
+      "note": "These are separate panels, bringing the total to seven. The surrounding images establish the actual elapsed time."
+    }
+  ],
+  "baseTemplateId": "P5-212-equal-short-straight",
+  "coordinateSystem": {
+    "width": 1000,
+    "height": 1500,
+    "origin": "Top left",
+    "unit": "SVG user units",
+    "pngScale": 2
+  },
+  "assets": {
+    "svg": "svg/FX-time-shrink.svg",
+    "guideSvg": "guides/FX-time-shrink.svg",
+    "transparentPng": "png/FX-time-shrink.png",
+    "previewPng": "previews/FX-time-shrink.png",
+    "json": "json/FX-time-shrink.json"
+  }
+}

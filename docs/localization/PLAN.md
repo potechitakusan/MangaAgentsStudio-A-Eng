@@ -1,0 +1,13 @@
+# US English edition plan
+
+Source: Japanese kit 0.4.1, captured 2026-09-30. This is a localization of the production kit, including its scaffold, knowledge, scripts, layout library, and asset catalogs.
+
+- [x] Preserve the source baseline and inventory tracked files.
+- [x] Translate distributed prose, prompts, UI, configuration descriptions, and runtime messages while retaining technical identifiers and provenance.
+- [x] Adapt layout ordering, horizontal English lettering, wrapping, punctuation, and preview assets for US readers.
+- [x] Translate asset selection interfaces and supply English sound-effect assets.
+- [x] Localize all bundled comic pages for English reading, preserve source images, and review dialogue meaning and visual sequence.
+- [x] Independently audit meaning against the source, resolve findings, and verify the changed scaffold and rendering behavior.
+- [x] Record reproducible update instructions, source hashes, validation evidence, and unresolved owner preferences in Japanese.
+
+Publication itself is not part of this work. The existing checkout is the English edition; no separate release folder or archive is created.

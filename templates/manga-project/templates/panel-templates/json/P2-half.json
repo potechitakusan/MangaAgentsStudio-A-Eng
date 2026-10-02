@@ -1,0 +1,101 @@
+{
+  "id": "P2-half",
+  "name": "2 panels · equal vertical split",
+  "summary": "Two equally sized wide panels, stacked vertically. Contrast two scenes or convey a quiet passage of time.",
+  "panelCount": 2,
+  "family": "1-1",
+  "rows": [
+    1,
+    1
+  ],
+  "rowHeightRatios": [
+    0.5,
+    0.5
+  ],
+  "splitPositionsFromLeft": [
+    0.5,
+    0.5
+  ],
+  "widthPattern": "Equal width",
+  "shortWidePanel": false,
+  "verticalTilt": 0,
+  "horizontalTilt": 0,
+  "diagonal": false,
+  "frequency": "Standard",
+  "usage": [
+    "Scene contrast",
+    "Elapsed time",
+    "Quiet afterbeat"
+  ],
+  "extra": false,
+  "restrictionGroup": null,
+  "readingDirection": "Left to right within each row, then top to bottom",
+  "panels": [
+    {
+      "id": "panel-01",
+      "order": 1,
+      "row": 1,
+      "position": "Full width",
+      "role": "Standard",
+      "polygon": [
+        [
+          60,
+          60
+        ],
+        [
+          940,
+          60
+        ],
+        [
+          940,
+          734.82
+        ],
+        [
+          60,
+          734.82
+        ]
+      ]
+    },
+    {
+      "id": "panel-02",
+      "order": 2,
+      "row": 2,
+      "position": "Full width",
+      "role": "Standard",
+      "polygon": [
+        [
+          60,
+          765.18
+        ],
+        [
+          940,
+          765.18
+        ],
+        [
+          940,
+          1440.0
+        ],
+        [
+          60,
+          1440.0
+        ]
+      ]
+    }
+  ],
+  "modifiers": [],
+  "baseTemplateId": null,
+  "coordinateSystem": {
+    "width": 1000,
+    "height": 1500,
+    "origin": "Top left",
+    "unit": "SVG user units",
+    "pngScale": 2
+  },
+  "assets": {
+    "svg": "svg/P2-half.svg",
+    "guideSvg": "guides/P2-half.svg",
+    "transparentPng": "png/P2-half.png",
+    "previewPng": "previews/P2-half.png",
+    "json": "json/P2-half.json"
+  }
+}

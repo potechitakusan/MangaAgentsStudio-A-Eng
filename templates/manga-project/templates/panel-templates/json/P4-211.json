@@ -1,0 +1,153 @@
+{
+  "id": "P4-211",
+  "name": "4 panels · 2+1+1",
+  "summary": "Split the top tier into two panels; use full-width panels in the middle and bottom tiers.",
+  "panelCount": 4,
+  "family": "2-1-1",
+  "rows": [
+    2,
+    1,
+    1
+  ],
+  "rowHeightRatios": [
+    0.3333333333333333,
+    0.3333333333333333,
+    0.3333333333333333
+  ],
+  "splitPositionsFromLeft": [
+    0.5,
+    0.5,
+    0.5
+  ],
+  "widthPattern": "Equal width",
+  "shortWidePanel": false,
+  "verticalTilt": 0,
+  "horizontalTilt": 0,
+  "diagonal": false,
+  "frequency": "Standard",
+  "usage": [
+    "Dialogue",
+    "Context and reaction"
+  ],
+  "extra": false,
+  "restrictionGroup": null,
+  "readingDirection": "Left to right within each row, then top to bottom",
+  "panels": [
+    {
+      "id": "panel-01",
+      "order": 1,
+      "row": 1,
+      "position": "Left",
+      "role": "Standard",
+      "polygon": [
+        [
+          60,
+          60
+        ],
+        [
+          490.32,
+          60
+        ],
+        [
+          490.32,
+          504.82
+        ],
+        [
+          60,
+          504.82
+        ]
+      ]
+    },
+    {
+      "id": "panel-02",
+      "order": 2,
+      "row": 1,
+      "position": "Right",
+      "role": "Standard",
+      "polygon": [
+        [
+          509.68,
+          60
+        ],
+        [
+          940,
+          60
+        ],
+        [
+          940,
+          504.82
+        ],
+        [
+          509.68,
+          504.82
+        ]
+      ]
+    },
+    {
+      "id": "panel-03",
+      "order": 3,
+      "row": 2,
+      "position": "Full width",
+      "role": "Standard",
+      "polygon": [
+        [
+          60,
+          535.18
+        ],
+        [
+          940,
+          535.18
+        ],
+        [
+          940,
+          964.82
+        ],
+        [
+          60,
+          964.82
+        ]
+      ]
+    },
+    {
+      "id": "panel-04",
+      "order": 4,
+      "row": 3,
+      "position": "Full width",
+      "role": "Standard",
+      "polygon": [
+        [
+          60,
+          995.18
+        ],
+        [
+          940,
+          995.18
+        ],
+        [
+          940,
+          1440.0
+        ],
+        [
+          60,
+          1440.0
+        ]
+      ]
+    }
+  ],
+  "modifiers": [],
+  "baseTemplateId": null,
+  "coordinateSystem": {
+    "width": 1000,
+    "height": 1500,
+    "origin": "Top left",
+    "unit": "SVG user units",
+    "pngScale": 2
+  },
+  "assets": {
+    "svg": "svg/P4-211.svg",
+    "guideSvg": "guides/P4-211.svg",
+    "transparentPng": "png/P4-211.png",
+    "previewPng": "previews/P4-211.png",
+    "json": "json/P4-211.json"
+  }
+}

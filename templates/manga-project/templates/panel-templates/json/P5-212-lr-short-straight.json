@@ -1,0 +1,179 @@
+{
+  "id": "P5-212-lr-short-straight",
+  "name": "5 panels · Wide middle tier · First split tier wider left, next wider right · Short wide tier · Straight",
+  "summary": "Wide middle tier · First split tier wider left, next wider right · Short wide tier · ",
+  "panelCount": 5,
+  "family": "2-1-2",
+  "rows": [
+    2,
+    1,
+    2
+  ],
+  "rowHeightRatios": [
+    0.38,
+    0.24,
+    0.38
+  ],
+  "splitPositionsFromLeft": [
+    0.57,
+    0.5,
+    0.43
+  ],
+  "widthPattern": "First split tier wider left, next wider right",
+  "shortWidePanel": true,
+  "verticalTilt": 0,
+  "horizontalTilt": 0,
+  "diagonal": false,
+  "frequency": "Core layout",
+  "usage": [
+    "Dialogue",
+    "Action and reaction",
+    "Everyday scene"
+  ],
+  "extra": false,
+  "restrictionGroup": null,
+  "readingDirection": "Left to right within each row, then top to bottom",
+  "panels": [
+    {
+      "id": "panel-01",
+      "order": 1,
+      "row": 1,
+      "position": "Left",
+      "role": "Standard",
+      "polygon": [
+        [
+          60,
+          60
+        ],
+        [
+          551.92,
+          60
+        ],
+        [
+          551.92,
+          569.22
+        ],
+        [
+          60,
+          569.22
+        ]
+      ]
+    },
+    {
+      "id": "panel-02",
+      "order": 2,
+      "row": 1,
+      "position": "Right",
+      "role": "Standard",
+      "polygon": [
+        [
+          571.28,
+          60
+        ],
+        [
+          940,
+          60
+        ],
+        [
+          940,
+          569.22
+        ],
+        [
+          571.28,
+          569.22
+        ]
+      ]
+    },
+    {
+      "id": "panel-03",
+      "order": 3,
+      "row": 2,
+      "position": "Full width",
+      "role": "Standard",
+      "polygon": [
+        [
+          60,
+          599.58
+        ],
+        [
+          940,
+          599.58
+        ],
+        [
+          940,
+          900.42
+        ],
+        [
+          60,
+          900.42
+        ]
+      ]
+    },
+    {
+      "id": "panel-04",
+      "order": 4,
+      "row": 3,
+      "position": "Left",
+      "role": "Standard",
+      "polygon": [
+        [
+          60,
+          930.78
+        ],
+        [
+          428.72,
+          930.78
+        ],
+        [
+          428.72,
+          1440.0
+        ],
+        [
+          60,
+          1440.0
+        ]
+      ]
+    },
+    {
+      "id": "panel-05",
+      "order": 5,
+      "row": 3,
+      "position": "Right",
+      "role": "Standard",
+      "polygon": [
+        [
+          448.08,
+          930.78
+        ],
+        [
+          940,
+          930.78
+        ],
+        [
+          940,
+          1440.0
+        ],
+        [
+          448.08,
+          1440.0
+        ]
+      ]
+    }
+  ],
+  "modifiers": [],
+  "baseTemplateId": null,
+  "coordinateSystem": {
+    "width": 1000,
+    "height": 1500,
+    "origin": "Top left",
+    "unit": "SVG user units",
+    "pngScale": 2
+  },
+  "assets": {
+    "svg": "svg/P5-212-lr-short-straight.svg",
+    "guideSvg": "guides/P5-212-lr-short-straight.svg",
+    "transparentPng": "png/P5-212-lr-short-straight.png",
+    "previewPng": "previews/P5-212-lr-short-straight.png",
+    "json": "json/P5-212-lr-short-straight.json"
+  }
+}

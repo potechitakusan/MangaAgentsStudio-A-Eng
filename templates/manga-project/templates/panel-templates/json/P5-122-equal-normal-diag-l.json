@@ -1,0 +1,178 @@
+{
+  "id": "P5-122-equal-normal-diag-l",
+  "name": "5 panels · Wide top tier · Equal widths in split tiers · Three equal tiers · Diagonal B",
+  "summary": "Wide top tier · Equal widths in split tiers · Three equal tiers · Slant the two vertical dividers in opposite directions. Use sparingly.",
+  "panelCount": 5,
+  "family": "1-2-2",
+  "rows": [
+    1,
+    2,
+    2
+  ],
+  "rowHeightRatios": [
+    0.3333333333333333,
+    0.3333333333333333,
+    0.3333333333333333
+  ],
+  "splitPositionsFromLeft": [
+    0.5,
+    0.5,
+    0.5
+  ],
+  "widthPattern": "Equal widths in split tiers",
+  "shortWidePanel": false,
+  "verticalTilt": -0.064,
+  "horizontalTilt": 0,
+  "diagonal": true,
+  "frequency": "Use sparingly",
+  "usage": [
+    "Tension",
+    "Sudden turn"
+  ],
+  "extra": false,
+  "restrictionGroup": null,
+  "readingDirection": "Left to right within each row, then top to bottom",
+  "panels": [
+    {
+      "id": "panel-01",
+      "order": 1,
+      "row": 1,
+      "position": "Full width",
+      "role": "Standard",
+      "polygon": [
+        [
+          60,
+          60
+        ],
+        [
+          940,
+          60
+        ],
+        [
+          940,
+          504.82
+        ],
+        [
+          60,
+          504.82
+        ]
+      ]
+    },
+    {
+      "id": "panel-02",
+      "order": 2,
+      "row": 2,
+      "position": "Left",
+      "role": "Standard",
+      "polygon": [
+        [
+          60,
+          535.18
+        ],
+        [
+          518.48,
+          535.18
+        ],
+        [
+          462.16,
+          964.82
+        ],
+        [
+          60,
+          964.82
+        ]
+      ]
+    },
+    {
+      "id": "panel-03",
+      "order": 3,
+      "row": 2,
+      "position": "Right",
+      "role": "Standard",
+      "polygon": [
+        [
+          537.84,
+          535.18
+        ],
+        [
+          940,
+          535.18
+        ],
+        [
+          940,
+          964.82
+        ],
+        [
+          481.52,
+          964.82
+        ]
+      ]
+    },
+    {
+      "id": "panel-04",
+      "order": 4,
+      "row": 3,
+      "position": "Left",
+      "role": "Standard",
+      "polygon": [
+        [
+          60,
+          995.18
+        ],
+        [
+          462.16,
+          995.18
+        ],
+        [
+          518.48,
+          1440.0
+        ],
+        [
+          60,
+          1440.0
+        ]
+      ]
+    },
+    {
+      "id": "panel-05",
+      "order": 5,
+      "row": 3,
+      "position": "Right",
+      "role": "Standard",
+      "polygon": [
+        [
+          481.52,
+          995.18
+        ],
+        [
+          940,
+          995.18
+        ],
+        [
+          940,
+          1440.0
+        ],
+        [
+          537.84,
+          1440.0
+        ]
+      ]
+    }
+  ],
+  "modifiers": [],
+  "baseTemplateId": null,
+  "coordinateSystem": {
+    "width": 1000,
+    "height": 1500,
+    "origin": "Top left",
+    "unit": "SVG user units",
+    "pngScale": 2
+  },
+  "assets": {
+    "svg": "svg/P5-122-equal-normal-diag-l.svg",
+    "guideSvg": "guides/P5-122-equal-normal-diag-l.svg",
+    "transparentPng": "png/P5-122-equal-normal-diag-l.png",
+    "previewPng": "previews/P5-122-equal-normal-diag-l.png",
+    "json": "json/P5-122-equal-normal-diag-l.json"
+  }
+}

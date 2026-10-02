@@ -1,0 +1,100 @@
+{
+  "id": "P2-top-square",
+  "name": "2 panels · square above, wide below",
+  "summary": "A square panel above a wide panel. Feature a character or key subject above; place context or dialogue below.",
+  "panelCount": 2,
+  "family": "1-1",
+  "rows": [
+    1,
+    1
+  ],
+  "rowHeightRatios": [
+    0.6487,
+    0.3513
+  ],
+  "splitPositionsFromLeft": [
+    0.5,
+    0.5
+  ],
+  "widthPattern": "Equal width",
+  "shortWidePanel": false,
+  "verticalTilt": 0,
+  "horizontalTilt": 0,
+  "diagonal": false,
+  "frequency": "Standard",
+  "usage": [
+    "Character emphasis",
+    "Context and contrast"
+  ],
+  "extra": false,
+  "restrictionGroup": null,
+  "readingDirection": "Left to right within each row, then top to bottom",
+  "panels": [
+    {
+      "id": "panel-01",
+      "order": 1,
+      "row": 1,
+      "position": "Full width",
+      "role": "Standard",
+      "polygon": [
+        [
+          60,
+          60
+        ],
+        [
+          940,
+          60
+        ],
+        [
+          940,
+          940.026
+        ],
+        [
+          60,
+          940.026
+        ]
+      ]
+    },
+    {
+      "id": "panel-02",
+      "order": 2,
+      "row": 2,
+      "position": "Full width",
+      "role": "Standard",
+      "polygon": [
+        [
+          60,
+          970.386
+        ],
+        [
+          940,
+          970.386
+        ],
+        [
+          940,
+          1440.0
+        ],
+        [
+          60,
+          1440.0
+        ]
+      ]
+    }
+  ],
+  "modifiers": [],
+  "baseTemplateId": null,
+  "coordinateSystem": {
+    "width": 1000,
+    "height": 1500,
+    "origin": "Top left",
+    "unit": "SVG user units",
+    "pngScale": 2
+  },
+  "assets": {
+    "svg": "svg/P2-top-square.svg",
+    "guideSvg": "guides/P2-top-square.svg",
+    "transparentPng": "png/P2-top-square.png",
+    "previewPng": "previews/P2-top-square.png",
+    "json": "json/P2-top-square.json"
+  }
+}

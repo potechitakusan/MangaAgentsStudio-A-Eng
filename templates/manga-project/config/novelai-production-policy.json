@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "adopted_on": "2026-09-20",
+  "workflow": "separate_images_then_composition",
+  "layout_owner": "Codex",
+  "novelai_task": "illustration_assets_only",
+  "camera": {
+    "preferred": [
+      "from above",
+      "from below",
+      "from behind"
+    ],
+    "optional": [
+      "dutch angle",
+      "cinematic angle"
+    ],
+    "side_view_requires_intent": true,
+    "side_view_examples_ja": [
+      "Introduce a new character and the background together",
+      "Show tension through stillness"
+    ]
+  },
+  "composition": {
+    "roomy_source": true,
+    "allow_rotation": true,
+    "allow_cropped_view": true,
+    "preserve_full_source": true,
+    "allow_character_breakout": true,
+    "match_panel_aspect": true,
+    "crop_must_keep_planned_content": true
+  },
+  "character_trial_before_panels": true,
+  "panel_canvas_examples": [
+    {
+      "width": 832,
+      "height": 1216
+    },
+    {
+      "width": 1216,
+      "height": 832
+    },
+    {
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "width": 704,
+      "height": 1344
+    },
+    {
+      "width": 1344,
+      "height": 704
+    }
+  ],
+  "panel_canvas_note_ja": "Specify panel-asset dimensions in request JSON. Generate beyond panel bounds, then show selected regions with frames and masks. Examples are optional sizes within the zero-consumption candidate pixel limit.",
+  "batch": {
+    "script": "scripts/novelai_batch.py",
+    "requests_dir": "input/novelai/requests",
+    "adopted": "input/novelai/adopted.json",
+    "candidates_dir": "output/novelai/candidates",
+    "pages_dir": "input/pages",
+    "build_dir": "output/build",
+    "character_variable_prefix": "NOVELAI_CHAR_"
+  },
+  "post_generation_check": {
+    "form": "docs/reviews/NAME-REVIEW.md",
+    "section_ja": "Post-artwork comparison",
+    "required_before_typesetting": true
+  },
+  "typesetting": {
+    "script": "scripts/typeset_manga.py",
+    "speech_balloon_tail": true,
+    "in_image_text_as_drawn_object": true,
+    "no_unrequested_title_or_page_number": true
+  },
+  "opus": {
+    "checked_on": "2026-09-20",
+    "max_pixels_candidate": 1048576,
+    "max_steps_candidate": 28,
+    "n_samples": 1,
+    "require_zero_cost_and_remaining_allowance": true,
+    "stop_if_cost_unknown": true,
+    "upscale_or_outpaint_cost_must_be_checked_separately": true,
+    "page_pixels_independent_of_generation": true
+  },
+  "imagegen": {
+    "purpose": "localized_fix_of_otherwise_accepted_image",
+    "complex_sfx_edit_allowed": true
+  },
+  "sfx": {
+    "catalog": "templates/onomatopoeia/catalog.json",
+    "template_monochrome_alpha_only": true,
+    "prefer_existing": true,
+    "generate_missing_transparent_asset": true,
+    "color_derivatives_outside_template": true
+  },
+  "dialogue": {
+    "default_direction": "horizontal",
+    "horizontal_alignment": "center",
+    "locale": "en-US",
+    "reading_direction": "ltr",
+    "punctuation": "natural-English",
+    "wrap": "word-boundaries"
+  },
+  "psd": {
+    "full_source_layers": true,
+    "panel_masks": true,
+    "original_before_imagegen_also_kept": true,
+    "preview_and_approval_required": true,
+    "smart_objects": false
+  },
+  "implementation_note_ja": "Operational settings, not code automatically injected into MCP. Read during production startup and verify actual cost and remaining allowance before sending."
+}

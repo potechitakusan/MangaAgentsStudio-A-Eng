@@ -1,0 +1,30 @@
+# Independent source comparison: scaffold, skills, and operating guidance
+
+Review date: 2026-10-03. This reviewer independently compared the English edition with the frozen Japanese files under `.work/localization/source-ja/`. The source snapshot was read only. The reviewer reconstructed the operative English meaning in Japanese and checked subjects, conditions, requirements, exceptions, permissions, and evidence qualifications. Source labels are handled by the coordinating reviewer; this review did not edit them.
+
+## Coverage
+
+- All ten `skills/*/SKILL.md` documents were compared against their Japanese counterparts: AI production, external panel i2i, readability, story, cinema, immersion, terminology, supervision, process checker, and video previsualization.
+- Root `AGENTS.md` and `CLAUDE.md`, and `docs/publication.md` and `docs/RIGHTS.md`, were compared. `docs/architecture.md` was read with targeted comparison of production location, distribution responsibilities, project creation, process carryover, and update/feedback rules.
+- Project template `README.md`, `AGENTS.md`, `OPTION.md`, `PRINT-OPTION.md`, and Claude-mode entry/adaptation files were read with source comparison. The working-policy and option checks focused on required steps, paid-use boundaries, optional Japanese polishing, template exceptions, project switching, and PNG/PSD gates.
+- Project `docs/SETUP.md`, production `DIALOGUE.md`, `PSD-HANDOFF.md`, `NOVELAI-BATCH.md`, and the full `docs/knowledge/novelai-composed-production.md` were compared. Reviews `NAME-REVIEW.md` and `SUPERVISION.md`, story `BRIEF.md`, `INFORMATION-SHEET.md`, `SCENE-TEMPLATE.md`, `TERMS.md`, and `TEXT-STORYBOARD.md`, and experiment/feedback forms were compared. Production plan, know-how index, and panel-layout policy received targeted comparison, particularly reading direction, layout limits, and completion conditions.
+- Script review was limited to changed natural-language comments/messages/help and selected request/placement guidance. This included `New-MangaProject.ps1`, `Initialize-OptionalSkills.ps1`, `Resolve-ReviewProfile.ps1`, and selected Python layout, process, release, NovelAI, and video helpers. This was not an execution audit or a complete line-by-line script review.
+- No separate top-level `prompts/` directory exists. Prompt instructions embedded in the NovelAI production master were compared; archived example-generation prompts and generated artwork were outside this review.
+
+## Resolved findings
+
+| ID | Japanese source / intended meaning | English drift or integration problem | Correction and back-translation reasoning |
+| --- | --- | --- | --- |
+| SC-01 | Root `CLAUDE.md` includes the literal `@AGENTS.md` import directive in addition to telling the agent to read the rules | The English entry point omitted the import while retaining only a prose link | Restored `@AGENTS.md`. The source's instruction-loading mechanism is preserved; project-mode Claude imports already remained intact |
+| SC-02 | External i2i step 4: `仕上げモデルやLoRAを使った場合も` | “Even after finishing models/LoRA” can mean completing the models rather than using them to finish artwork | “Even when using finishing models or LoRA” → 仕上げモデルやLoRAを使用する場合でも左右・衣装等を照合する |
+| SC-03 | NovelAI composition preserves `全身や周囲の余白` | “Full bodies and surrounding room” can imply an interior room instead of space around the subjects | “Full bodies and space around the subjects” → 全身と人物周辺の余白を残す。The source does not require an indoor setting |
+| SC-04 | NovelAI batch requires the script copy inside a work project's `scripts/` tree; normal documented commands run from the project root | “Run from the work project scripts/ directory” can be understood as a required current working directory | “Use the copy of this script in a work project's scripts/ folder” → 作品内に配布されたスクリプトを使う。It describes the checked script location without contradicting the project-root command examples. Also added spaces after `Error:` in two messages |
+| SC-05 | Publication guidance must describe the delivered English edition accurately | A revision-1 paragraph still described bundled example artwork as untranslated Japanese historical material, contradicting the completed revision-2 image localization records | Now distinguishes English-adapted bundled comic pages, privately preserved Japanese originals, and externally linked Japanese artwork/PSDs. This synchronizes the guidance with `EXAMPLE-LOCALIZATION.md`; no new image editing was performed |
+
+## Preserved meaning and intentional adaptations
+
+The reviewed skill text retains the distinction between proposals and observed reader effects; unseen images remain unverified. Optional video work still requires an explicit request. NovelAI style selection, paid-use confirmation, unknown-result retry boundaries, and secret handling remain separate. Japanese polishing remains optional and limited to Japanese source text, with Gemini transmission/quota consent preserved. Personal process requirements require registration requests and named-source carryover; hook trust and external permissions are not imported. PNG revision confirmation and PSD creation instructions remain separate, and an existing PSD instruction is not asked again.
+
+Horizontal English lettering, left-to-right/top-to-bottom reading, natural English punctuation, English display/layer names, and US binding guidance are intentional edition adaptations. They were not reverted to the Japanese production defaults. The reviewed guidance preserves handedness and prohibits mirroring artwork to change reading order.
+
+No additional material reversals were identified in the listed scope after correction. This is a qualitative semantic review with explicit partial script/index coverage. It does not certify every string, generated asset, font, external product specification, legal conclusion, live API behavior, or actual PSD import. No tests, external requests, browser automation, Git staging, commit, or publication were performed by this reviewer. Text edits were reread against their source and surrounding guidance; earlier test results are not asserted to validate this revision.

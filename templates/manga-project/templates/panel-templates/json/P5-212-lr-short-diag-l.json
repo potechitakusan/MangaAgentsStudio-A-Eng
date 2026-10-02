@@ -1,0 +1,178 @@
+{
+  "id": "P5-212-lr-short-diag-l",
+  "name": "5 panels · Wide middle tier · First split tier wider left, next wider right · Short wide tier · Diagonal B",
+  "summary": "Wide middle tier · First split tier wider left, next wider right · Short wide tier · Slant the two vertical dividers in opposite directions. Use sparingly.",
+  "panelCount": 5,
+  "family": "2-1-2",
+  "rows": [
+    2,
+    1,
+    2
+  ],
+  "rowHeightRatios": [
+    0.38,
+    0.24,
+    0.38
+  ],
+  "splitPositionsFromLeft": [
+    0.57,
+    0.5,
+    0.43
+  ],
+  "widthPattern": "First split tier wider left, next wider right",
+  "shortWidePanel": true,
+  "verticalTilt": -0.064,
+  "horizontalTilt": 0,
+  "diagonal": true,
+  "frequency": "Use sparingly",
+  "usage": [
+    "Tension",
+    "Sudden turn"
+  ],
+  "extra": false,
+  "restrictionGroup": null,
+  "readingDirection": "Left to right within each row, then top to bottom",
+  "panels": [
+    {
+      "id": "panel-01",
+      "order": 1,
+      "row": 1,
+      "position": "Left",
+      "role": "Standard",
+      "polygon": [
+        [
+          60,
+          60
+        ],
+        [
+          580.08,
+          60
+        ],
+        [
+          523.76,
+          569.22
+        ],
+        [
+          60,
+          569.22
+        ]
+      ]
+    },
+    {
+      "id": "panel-02",
+      "order": 2,
+      "row": 1,
+      "position": "Right",
+      "role": "Standard",
+      "polygon": [
+        [
+          599.44,
+          60
+        ],
+        [
+          940,
+          60
+        ],
+        [
+          940,
+          569.22
+        ],
+        [
+          543.12,
+          569.22
+        ]
+      ]
+    },
+    {
+      "id": "panel-03",
+      "order": 3,
+      "row": 2,
+      "position": "Full width",
+      "role": "Standard",
+      "polygon": [
+        [
+          60,
+          599.58
+        ],
+        [
+          940,
+          599.58
+        ],
+        [
+          940,
+          900.42
+        ],
+        [
+          60,
+          900.42
+        ]
+      ]
+    },
+    {
+      "id": "panel-04",
+      "order": 4,
+      "row": 3,
+      "position": "Left",
+      "role": "Standard",
+      "polygon": [
+        [
+          60,
+          930.78
+        ],
+        [
+          400.56,
+          930.78
+        ],
+        [
+          456.88,
+          1440.0
+        ],
+        [
+          60,
+          1440.0
+        ]
+      ]
+    },
+    {
+      "id": "panel-05",
+      "order": 5,
+      "row": 3,
+      "position": "Right",
+      "role": "Standard",
+      "polygon": [
+        [
+          419.92,
+          930.78
+        ],
+        [
+          940,
+          930.78
+        ],
+        [
+          940,
+          1440.0
+        ],
+        [
+          476.24,
+          1440.0
+        ]
+      ]
+    }
+  ],
+  "modifiers": [],
+  "baseTemplateId": null,
+  "coordinateSystem": {
+    "width": 1000,
+    "height": 1500,
+    "origin": "Top left",
+    "unit": "SVG user units",
+    "pngScale": 2
+  },
+  "assets": {
+    "svg": "svg/P5-212-lr-short-diag-l.svg",
+    "guideSvg": "guides/P5-212-lr-short-diag-l.svg",
+    "transparentPng": "png/P5-212-lr-short-diag-l.png",
+    "previewPng": "previews/P5-212-lr-short-diag-l.png",
+    "json": "json/P5-212-lr-short-diag-l.json"
+  }
+}

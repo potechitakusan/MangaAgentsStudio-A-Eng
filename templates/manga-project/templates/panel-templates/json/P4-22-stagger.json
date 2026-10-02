@@ -1,0 +1,150 @@
+{
+  "id": "P4-22-stagger",
+  "name": "4 panels · staggered 2+2",
+  "summary": "Wider left panel on top; wider right panel below. Offset the vertical dividers between rows.",
+  "panelCount": 4,
+  "family": "2-2",
+  "rows": [
+    2,
+    2
+  ],
+  "rowHeightRatios": [
+    0.5,
+    0.5
+  ],
+  "splitPositionsFromLeft": [
+    0.57,
+    0.43
+  ],
+  "widthPattern": "Wider left above, wider right below",
+  "shortWidePanel": false,
+  "verticalTilt": 0,
+  "horizontalTilt": 0,
+  "diagonal": false,
+  "frequency": "Standard",
+  "usage": [
+    "Dialogue",
+    "Action and reaction"
+  ],
+  "extra": false,
+  "restrictionGroup": null,
+  "readingDirection": "Left to right within each row, then top to bottom",
+  "panels": [
+    {
+      "id": "panel-01",
+      "order": 1,
+      "row": 1,
+      "position": "Left",
+      "role": "Standard",
+      "polygon": [
+        [
+          60,
+          60
+        ],
+        [
+          551.92,
+          60
+        ],
+        [
+          551.92,
+          734.82
+        ],
+        [
+          60,
+          734.82
+        ]
+      ]
+    },
+    {
+      "id": "panel-02",
+      "order": 2,
+      "row": 1,
+      "position": "Right",
+      "role": "Standard",
+      "polygon": [
+        [
+          571.28,
+          60
+        ],
+        [
+          940,
+          60
+        ],
+        [
+          940,
+          734.82
+        ],
+        [
+          571.28,
+          734.82
+        ]
+      ]
+    },
+    {
+      "id": "panel-03",
+      "order": 3,
+      "row": 2,
+      "position": "Left",
+      "role": "Standard",
+      "polygon": [
+        [
+          60,
+          765.18
+        ],
+        [
+          428.72,
+          765.18
+        ],
+        [
+          428.72,
+          1440.0
+        ],
+        [
+          60,
+          1440.0
+        ]
+      ]
+    },
+    {
+      "id": "panel-04",
+      "order": 4,
+      "row": 2,
+      "position": "Right",
+      "role": "Standard",
+      "polygon": [
+        [
+          448.08,
+          765.18
+        ],
+        [
+          940,
+          765.18
+        ],
+        [
+          940,
+          1440.0
+        ],
+        [
+          448.08,
+          1440.0
+        ]
+      ]
+    }
+  ],
+  "modifiers": [],
+  "baseTemplateId": null,
+  "coordinateSystem": {
+    "width": 1000,
+    "height": 1500,
+    "origin": "Top left",
+    "unit": "SVG user units",
+    "pngScale": 2
+  },
+  "assets": {
+    "svg": "svg/P4-22-stagger.svg",
+    "guideSvg": "guides/P4-22-stagger.svg",
+    "transparentPng": "png/P4-22-stagger.png",
+    "previewPng": "previews/P4-22-stagger.png",
+    "json": "json/P4-22-stagger.json"
+  }
+}

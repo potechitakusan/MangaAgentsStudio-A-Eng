@@ -1,0 +1,204 @@
+{
+  "id": "FX-breakout-left",
+  "name": "Effect · character breakout on the left",
+  "summary": "Retain the five-panel frames and reserve a region on the left for a figure crossing tiers, such as a full-length figure beside a building.",
+  "panelCount": 5,
+  "family": "2-1-2",
+  "rows": [
+    2,
+    1,
+    2
+  ],
+  "rowHeightRatios": [
+    0.3333333333333333,
+    0.3333333333333333,
+    0.3333333333333333
+  ],
+  "splitPositionsFromLeft": [
+    0.43,
+    0.5,
+    0.57
+  ],
+  "widthPattern": "First split tier wider right, next wider left",
+  "shortWidePanel": false,
+  "verticalTilt": 0,
+  "horizontalTilt": 0,
+  "diagonal": false,
+  "frequency": "Special use",
+  "usage": [
+    "Character entrance",
+    "Full-length figure at a doorway"
+  ],
+  "extra": true,
+  "restrictionGroup": null,
+  "readingDirection": "Left to right within each row, then top to bottom",
+  "panels": [
+    {
+      "id": "panel-01",
+      "order": 1,
+      "row": 1,
+      "position": "Left",
+      "role": "Standard",
+      "polygon": [
+        [
+          60,
+          60
+        ],
+        [
+          428.72,
+          60
+        ],
+        [
+          428.72,
+          504.82
+        ],
+        [
+          60,
+          504.82
+        ]
+      ]
+    },
+    {
+      "id": "panel-02",
+      "order": 2,
+      "row": 1,
+      "position": "Right",
+      "role": "Standard",
+      "polygon": [
+        [
+          448.08,
+          60
+        ],
+        [
+          940,
+          60
+        ],
+        [
+          940,
+          504.82
+        ],
+        [
+          448.08,
+          504.82
+        ]
+      ]
+    },
+    {
+      "id": "panel-03",
+      "order": 3,
+      "row": 2,
+      "position": "Full width",
+      "role": "Standard",
+      "polygon": [
+        [
+          60,
+          535.18
+        ],
+        [
+          940,
+          535.18
+        ],
+        [
+          940,
+          964.82
+        ],
+        [
+          60,
+          964.82
+        ]
+      ]
+    },
+    {
+      "id": "panel-04",
+      "order": 4,
+      "row": 3,
+      "position": "Left",
+      "role": "Standard",
+      "polygon": [
+        [
+          60,
+          995.18
+        ],
+        [
+          551.92,
+          995.18
+        ],
+        [
+          551.92,
+          1440.0
+        ],
+        [
+          60,
+          1440.0
+        ]
+      ]
+    },
+    {
+      "id": "panel-05",
+      "order": 5,
+      "row": 3,
+      "position": "Right",
+      "role": "Standard",
+      "polygon": [
+        [
+          571.28,
+          995.18
+        ],
+        [
+          940,
+          995.18
+        ],
+        [
+          940,
+          1440.0
+        ],
+        [
+          571.28,
+          1440.0
+        ]
+      ]
+    }
+  ],
+  "modifiers": [
+    {
+      "type": "character-breakout",
+      "side": "left",
+      "sourcePanelOrder": 1,
+      "role": "Overlay region for a character, not a separate chronological panel.",
+      "region": [
+        [
+          112.8,
+          129.0
+        ],
+        [
+          324.0,
+          129.0
+        ],
+        [
+          350.4,
+          1384.8
+        ],
+        [
+          112.8,
+          1384.8
+        ]
+      ],
+      "frameMask": "Erase frame lines along the character silhouette during composition. Do not blank the entire guide region."
+    }
+  ],
+  "baseTemplateId": "P5-212-rl-normal-straight",
+  "coordinateSystem": {
+    "width": 1000,
+    "height": 1500,
+    "origin": "Top left",
+    "unit": "SVG user units",
+    "pngScale": 2
+  },
+  "assets": {
+    "svg": "svg/FX-breakout-left.svg",
+    "guideSvg": "guides/FX-breakout-left.svg",
+    "transparentPng": "png/FX-breakout-left.png",
+    "previewPng": "previews/FX-breakout-left.png",
+    "json": "json/FX-breakout-left.json"
+  }
+}

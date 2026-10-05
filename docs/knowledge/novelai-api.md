@@ -71,6 +71,38 @@ This stage neither reads the key nor communicates. It displays dimensions, steps
 
 For panel assets, save one request JSON per panel in `input/novelai/requests/` and use `scripts/novelai_batch.py` to generate page/all-page assets sequentially, one image at a time. Validation, cost confirmation, records, and no-resend handling are the same. See [NovelAI production procedure](novelai-composed-production.md#batch). Official API guidance requires human-initiated generation and prohibits excessive automated load: start batches on human instruction and preserve default intervals/count limits. Compliance of this workflow with service terms is unverified; users must check current terms.
 
+<a id="position-pins"></a>
+
+## Position-pin requests
+
+Use only when specifying the on-screen position of characters or objects in NovelAI. For UI usage, when to use pins, and differences by model, see [Position-pin production procedure](novelai-composed-production.md#position-pins).
+
+In the official image API schema, we confirmed `use_coords` and `use_order` (booleans) in `parameters.v4_prompt`, and `char_caption` (string) and `centers` (an array of objects with numeric `x` and `y`) in `caption.char_captions`. V5 also uses these field names in existing implementations, and `novelai_api.py` preserves the specified structure. Do not replace it with an invented top-level `position` or pin numbers inside the prompt.
+
+The following is an example of the `parameters.v4_prompt` structure, not a complete request that can be sent. Make the example's text match `input`, and align the style, exclusion text, model, generation dimensions, and so on with the project's adopted settings.
+
+```json
+{
+  "caption": {
+    "base_caption": "2girls, standing side by side, full body, outdoors",
+    "char_captions": [
+      {"char_caption": "girl, short black hair, blue jacket, on the left",
+       "centers": [{"x": 0.3, "y": 0.5}]},
+      {"char_caption": "girl, long brown hair, red jacket, on the right",
+       "centers": [{"x": 0.7, "y": 0.5}]}
+    ]
+  },
+  "use_coords": true,
+  "use_order": true
+}
+```
+
+The example is a verification candidate (for V5) that assumes normalized 0 to 1 coordinates with the origin at the top left of the generated asset, increasing rightward and downward. Do not confuse them with pixel coordinates in the page or with the typesetting `focus`. The official schema checked this time shows only the types of `x` and `y`; it does not state the coordinate range, the origin, or the numeric correspondence to the 5×5 grid of V4 and V4.5. Check their meaning and actual acceptance separately for the model in use, and do not assert an unconfirmed conversion as official specification.
+
+For comparison, you can use a plan that keeps the body text, per-character text, seed, and so on identical and toggles `use_coords`. A request returning to automatic placement states `use_coords: false` explicitly. Keep per-character input and the exclusion of text and frames, and when you specify `v4_negative_prompt`, also check the corresponding characters and order. Position pins are a separate feature from dedicated image references; do not add a reference image because pins are used.
+
+Source and checked date: 2026-10-04, [NovelAI公式画像APIスキーマ](https://image.novelai.net/docs/doc.json), `image.V4ConditionInput`, `image.V4ExternalCharacterCaption`, and `image.Coordinates`. What was confirmed is the format and a reading of the local implementation. API submission, generation effect, coordinate interpretation, and cost are unverified. Before generation, check the cost and allowance for all settings as usual.
+
 ## Generate after confirmation
 
 With an active Opus subscription, add `--confirm-zero-anlas` **only after actually verifying that all settings of this request cost 0 Anlas**. It declares a verified human/tool finding; it does not force the server to avoid charges. Follow [Opus conditions](ai-production.md#novelai-opus), stopping if API applicability cannot be verified.

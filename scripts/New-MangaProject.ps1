@@ -210,7 +210,7 @@ try {
         agentMode = $AgentMode
         locale = 'en-US'
         readingDirection = 'ltr'
-        localizationVersion = '0.4.2-en-US.1'
+        localizationVersion = '0.5.0-en-US.1'
     }
     if ($processSourceRelativePath) { $project.processRequirementsSourceRelativePath = $processSourceRelativePath }
     [IO.File]::WriteAllText((Join-Path $target 'project.json'), ($project | ConvertTo-Json -Depth 10), $utf8)

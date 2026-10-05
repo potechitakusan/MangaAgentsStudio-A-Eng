@@ -18,6 +18,7 @@ This folder maintains and distributes the production kit. First run `scripts/New
 | Supervise humor, appeal, emotion, relationships, and developments in a scene | [Supervision knowledge](knowledge/supervision/README.md), [Supervision skill](../skills/manga-supervision/SKILL.md) |
 | Check included content and distribution | [Architecture and distribution](architecture.md) |
 | Consider image-production environments and consistency | [AI image production](knowledge/ai-production.md) |
+| Edit and regenerate NovelAI characters, style, and backgrounds | [Beginner README](../templates/manga-project/docs/novelai-prompts/README.md) |
 | Supply roughs and references to external tools for individual panels | [Common procedure](knowledge/external-panel-i2i.md), [Qwen-Image 2.1](knowledge/image-generation/qwen-image-2.1.md), [Evidence and limits](knowledge/image-generation/production-evidence.md) |
 | Proceed from PNG review to PSD | [PSD handoff](knowledge/psd-handoff.md) |
 | Make an optional video prototype | [Video previsualization](knowledge/video-previsualization.md), [Video tools](knowledge/video-tools.md) |

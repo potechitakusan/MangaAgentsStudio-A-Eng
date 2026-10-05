@@ -23,3 +23,7 @@ Revision 0.4.1-en-US.3 adds a further independent comparison requested by the ow
 ## Japanese 0.4.2 update
 
 The separate reviewer compared changed English prose and new portable code against the supplied Japanese 0.4.2 source. See [0.4.2 review](REVIEW-0.4.2.md) for exact scope and findings. The review covered numbers, negation, permissions, optional/mandatory distinctions, and evidence limits. It does not carry earlier runtime/image checks forward to this version.
+
+## Japanese 0.5.0 update
+
+The integrating translator compared the changed English prose, the batch-script port, and the new editing README against the Japanese `b6a958a..b7a06f7` diff. This was **not** an independent sub-agent review; that workflow step remains open. See [0.5.0 review](REVIEW-0.5.0.md) for method, findings, intentional adaptations, and open items.

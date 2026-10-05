@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "locale": "en-US",
-  "localizationVersion": "0.4.2-en-US.1",
-  "sourceCommit": "b6a958a29ba9da5b8f9514f68c29c2e35401e6e5",
-  "sourceVersion": "0.4.2",
-  "recordedOn": "2026-10-03",
+  "localizationVersion": "0.5.0-en-US.1",
+  "sourceCommit": "b7a06f740da679a407b40cdc388d63a0b9a62126",
+  "sourceVersion": "0.5.0",
+  "recordedOn": "2026-10-06",
   "note": "Hashes establish file correspondence, not semantic approval. See the back-translation review and validation records. This state file excludes its own hash.",
   "files": [
     {
@@ -44,23 +44,23 @@
     },
     {
       "sourcePath": "README.md",
-      "sourceSha256": "ae5d1c2eb68dda8abbf61ff7967907f61138c3a1ae7d5fc0a85512a40c669361",
+      "sourceSha256": "c8345839e236ef236a970a62f733ee2b5c65a68389aa360111432c93b5abc89c",
       "targetPath": "README.md",
-      "targetSha256": "7b79ba313a8196c6f5d12e158656c092d8830cee2b90d7a1815a25edcb08d53f",
+      "targetSha256": "80d7edb231547c93d0d545b66ed8fa77971a409e0bbc855a37f44b0eaeae6652",
       "disposition": "translated-or-adapted"
     },
     {
       "sourcePath": "distribution-version.txt",
-      "sourceSha256": "d4d4151542d57bda5beb57ff8fb51f5ffbdba30b3755060db00ff144eda5d250",
+      "sourceSha256": "c2f2fc398169dfaf4b6a16077a5938b7361aefac1143f532b17ea18c3229cf3a",
       "targetPath": "distribution-version.txt",
-      "targetSha256": "e2f7bb608ebc9e24092ffcb796ad0aa83f0015afe23635f017df52273150f00d",
+      "targetSha256": "a0ad50640139a524f86591157145bf1d4674ea9c065bfea21558f0f7b04430c8",
       "disposition": "translated-or-adapted"
     },
     {
       "sourcePath": "docs/README.md",
-      "sourceSha256": "f1ddee4c918dcca27aa5831669049f402e5038fd89015810eb2d6001ced209c0",
+      "sourceSha256": "1afc2ed21320002db71fcd50d7a4da658cf6b6a5cdeb972f2cad2ee2c2bf7667",
       "targetPath": "docs/README.md",
-      "targetSha256": "652a331248c906a973f81ac0b0e2255d249574b437c0f049d84c77975541b9c3",
+      "targetSha256": "53913667b130c8a5b9eab2ff82b3534dbdfd1c9c7db67ffc0addbf33203d14a7",
       "disposition": "translated-or-adapted"
     },
     {
@@ -233,9 +233,9 @@
     },
     {
       "sourcePath": "docs/knowledge/novelai-api.md",
-      "sourceSha256": "d9f92a387e960f6161d84074e4b896f011defbe77dbd42e1183c265b3d01bf67",
+      "sourceSha256": "8c2232ba971509855f28ec8e97fe580804568922c44218d6ec9b0d0da0a34b4b",
       "targetPath": "docs/knowledge/novelai-api.md",
-      "targetSha256": "d2790bf32d1e0c4fa0b3fb1935e33af91f3989afa01bb7849d9523b44e52a7f8",
+      "targetSha256": "a633aabf678c3d9e166b022c6b802ee0fa7c0720c86b630c2f909e7fb9dee1b5",
       "disposition": "translated-or-adapted"
     },
     {
@@ -487,7 +487,7 @@
       "sourcePath": null,
       "sourceSha256": null,
       "targetPath": "docs/localization/BACK-TRANSLATION-REVIEW.md",
-      "targetSha256": "38f87257566004e26b329ec151b05263e69018c398d36cf5cdf51d13a586564e",
+      "targetSha256": "463e7d8feb1ef7f2ac9074f5b16b8ebdda0df672e96d3111ce6da5ad7dfe848b",
       "disposition": "english-edition-addition"
     },
     {
@@ -501,28 +501,28 @@
       "sourcePath": null,
       "sourceSha256": null,
       "targetPath": "docs/localization/HEARING-SHEET.ja.md",
-      "targetSha256": "3a1745591f0ed2f09e1ff83047bdd1d3d43f93fde20b77a3f52e21c825c7c354",
+      "targetSha256": "de0a6ece5315fba1689d899efec707bf5f230b79298dee2a041eb1b0b60df8bd",
       "disposition": "english-edition-addition"
     },
     {
       "sourcePath": null,
       "sourceSha256": null,
       "targetPath": "docs/localization/PLAN.md",
-      "targetSha256": "31b057aaeb91fe6c81a8cd9fccb671c29b75995aa2609f9881e58e3aa89b7e88",
+      "targetSha256": "21d396e5777c1f96c266b3702baac53ebc7f7c5dda329f2acb6dd1df7c058126",
       "disposition": "english-edition-addition"
     },
     {
       "sourcePath": null,
       "sourceSha256": null,
       "targetPath": "docs/localization/PROGRESS.md",
-      "targetSha256": "32b946039be865282e5c47b8f239ce83fe2ca823699fbba36830898acdeea1e9",
+      "targetSha256": "7a04b7a9e2d9b74515e3fe4209dff7e365fc72b3f69fcce8ab292a695a115cf9",
       "disposition": "english-edition-addition"
     },
     {
       "sourcePath": null,
       "sourceSha256": null,
       "targetPath": "docs/localization/README.md",
-      "targetSha256": "5433eca6a2c8352bc5f75b223b3ea3a3c71e1ac58a4847cf40645be30e3886c9",
+      "targetSha256": "c89bd081326456687d141264d330565f9e2efad0593d42e4fb808ee5b8c52582",
       "disposition": "english-edition-addition"
     },
     {
@@ -530,6 +530,13 @@
       "sourceSha256": null,
       "targetPath": "docs/localization/REVIEW-0.4.2.md",
       "targetSha256": "fde0bf871e7ecf64223e9cebdaac6b971af2e2401092c950c0fc71d0408caaf2",
+      "disposition": "english-edition-addition"
+    },
+    {
+      "sourcePath": null,
+      "sourceSha256": null,
+      "targetPath": "docs/localization/REVIEW-0.5.0.md",
+      "targetSha256": "54da954aa0f1f0a1d55bdaa3b086a001c85f39ebe9e78b163266fccd8cdd6888",
       "disposition": "english-edition-addition"
     },
     {
@@ -612,15 +619,22 @@
     {
       "sourcePath": null,
       "sourceSha256": null,
+      "targetPath": "docs/localization/UPDATE-0.5.0.md",
+      "targetSha256": "c76f4236eb34cea87c8a39a240491f46d5544419c7212bd9780f5aa558e4b4bd",
+      "disposition": "english-edition-addition"
+    },
+    {
+      "sourcePath": null,
+      "sourceSha256": null,
       "targetPath": "docs/localization/UPDATE-WORKFLOW.md",
-      "targetSha256": "c9395ae200179bf4f6f526872c5e06b3b8efb4f78d656a561f9081eb631f7d88",
+      "targetSha256": "26cc3eb1547c6fa46bb8262dc3d67e7a15864ae7249fd885aed4c9e74bd2878d",
       "disposition": "english-edition-addition"
     },
     {
       "sourcePath": null,
       "sourceSha256": null,
       "targetPath": "docs/localization/VALIDATION.md",
-      "targetSha256": "b58c730554b80b72b5b5a13090784f1bc9fae2e90da1ceb57124a6a76e444c6f",
+      "targetSha256": "0c7880b44cf7f401935d2e5a669a3cd5c3dd4dca4c1cc5b58e4c96a13bcd9446",
       "disposition": "english-edition-addition"
     },
     {
@@ -641,7 +655,7 @@
       "sourcePath": null,
       "sourceSha256": null,
       "targetPath": "docs/localization/source-manifest.json",
-      "targetSha256": "50a328e060c0a25b2cca466ec8f7d4bfe64ee11173da1c2fabf3001069e845c0",
+      "targetSha256": "de055cfe792d69a875a0c8a70b2e86193920f61469901f0077c963c11546ed09",
       "disposition": "english-edition-addition"
     },
     {
@@ -1047,7 +1061,7 @@
       "sourcePath": "scripts/New-MangaProject.ps1",
       "sourceSha256": "4b8b35195426c50976077fa1844a6b0dccde5355b6fc4ec672196fc55278b394",
       "targetPath": "scripts/New-MangaProject.ps1",
-      "targetSha256": "973965002e412b1aee824df370dbc2167d715a515d9d3dcbb6fa63d5e4f6b154",
+      "targetSha256": "c518d690b09cf1c8e167622f21fc0882de4884161c9704635ba9d3235c979cf1",
       "disposition": "translated-or-adapted"
     },
     {
@@ -1110,7 +1124,7 @@
       "sourcePath": "scripts/new_manga_project.py",
       "sourceSha256": "057d28a67e1951b957b870384f3a1f92fc175445d7f069205a8eccdeb43df2e1",
       "targetPath": "scripts/new_manga_project.py",
-      "targetSha256": "9a240fa8078a099e77881eb9a9f30d74555b38ac8addef3763e5210599aa910f",
+      "targetSha256": "bbc5329b2938978d4f4e16935ff2943eaca1249dd461ca2da3471aff5e3ac784",
       "disposition": "translated-or-adapted"
     },
     {
@@ -1138,7 +1152,7 @@
       "sourcePath": null,
       "sourceSha256": null,
       "targetPath": "scripts/record_localization_state.py",
-      "targetSha256": "d49b35e95eb1c43a0eee24fddfa575dc3cd7b7a766ee06d20ae3fb55a700ad31",
+      "targetSha256": "a824656024222c2e5da87eeaa78f85fb38a359c772b6442b49867bc0ad753f06",
       "disposition": "english-edition-addition"
     },
     {
@@ -1220,9 +1234,9 @@
     },
     {
       "sourcePath": "skills/manga-ai-production/SKILL.md",
-      "sourceSha256": "020aec7b2053b7559ec5b4451e0c00be95c1c25b9a117bc6afaa890d4b3a161e",
+      "sourceSha256": "ccb5b5efd1c61bd0871a2bf07c6936ae200eca6e5e11553e824db26301437465",
       "targetPath": "skills/manga-ai-production/SKILL.md",
-      "targetSha256": "6622d03bf2070116fb52d5c587dce856f751d7deb39bbb29b317d56ce437bc73",
+      "targetSha256": "3291254c492d02a60f4ad81a45223b1de1fa60fb35cebd8ec87c290600217fd9",
       "disposition": "translated-or-adapted"
     },
     {
@@ -1290,9 +1304,9 @@
     },
     {
       "sourcePath": "templates/manga-project/.env.example",
-      "sourceSha256": "e62acb1c1bce0cf1f66ac8ad44f413c3047998af7b80133ddfa301cd3f811124",
+      "sourceSha256": "ecec2afed542e2e7d09cf46c7fff53cab724614add2fb795617208c3dcd45bd2",
       "targetPath": "templates/manga-project/.env.example",
-      "targetSha256": "05ede6c782e40161dc85937cde53ffcd26cf7d01df8e2ee690188bfaf1b31618",
+      "targetSha256": "a15ebd1204e67dcab7a418ec64bfcd9e325f37756f756304285d11aeaa7a188e",
       "disposition": "translated-or-adapted"
     },
     {
@@ -1304,9 +1318,9 @@
     },
     {
       "sourcePath": "templates/manga-project/AGENTS.md",
-      "sourceSha256": "b496387a376c1b8d6a090cdf6424298dee87219020cc86534296e351b83859f6",
+      "sourceSha256": "53a15df17410b37977cfa7354d627caaefb04e3bdb779bc5184b208a98a14c05",
       "targetPath": "templates/manga-project/AGENTS.md",
-      "targetSha256": "6700fdd83733e42e6e085f7bbeecc0bc2a113004cfa114e7cff07b1da20f9d4d",
+      "targetSha256": "d671441e77956a860cf0f30a6257cc6f00b442a7df553d63e2f0c22bf14d2688",
       "disposition": "translated-or-adapted"
     },
     {
@@ -1325,9 +1339,9 @@
     },
     {
       "sourcePath": "templates/manga-project/README.md",
-      "sourceSha256": "3f28f3e9a95d53c99cb9e881256cb47ef02f6d2c2529dd3ead676f40803afc43",
+      "sourceSha256": "2478e6aeff62217e63beba135de7cd2331143ca61e6fc03d3658335d6e6134b2",
       "targetPath": "templates/manga-project/README.md",
-      "targetSha256": "d07daa3639dab13443e3a0414351df9c0a5905af459c7bddafa9af3929a7fc39",
+      "targetSha256": "38c8b1cf3a7245163aba1ec29a8b22da7cde3ad1c1bf368ac94df27e5464297b",
       "disposition": "translated-or-adapted"
     },
     {
@@ -1437,9 +1451,9 @@
     },
     {
       "sourcePath": "templates/manga-project/docs/SETUP.md",
-      "sourceSha256": "4b933da5bec3608e56dc51e3d075f1cdab2f3854689ac1f5b41e5e2300e554be",
+      "sourceSha256": "9cc29cca8d2e419140bd4446fdf93748a141da8c7037d6198a5a9a26f91c0240",
       "targetPath": "templates/manga-project/docs/SETUP.md",
-      "targetSha256": "20e9d24e3f172356275ba9e400bddbcdf85ef846d0c373fa781677126de6599d",
+      "targetSha256": "65b477488c645443424a9837341052cb009dd75ca6d8fb8c2ddd632e99b534aa",
       "disposition": "translated-or-adapted"
     },
     {
@@ -1458,9 +1472,16 @@
     },
     {
       "sourcePath": "templates/manga-project/docs/knowledge/novelai-composed-production.md",
-      "sourceSha256": "40e36fd29bf2119889f1656999cd36f74f15a58ad26a084445d915bf82f72866",
+      "sourceSha256": "41dba01ea7fbaf840da4b0581a10f8b8167439e364d6be909b0ef8f2fc3b6fa2",
       "targetPath": "templates/manga-project/docs/knowledge/novelai-composed-production.md",
-      "targetSha256": "5dd6a3002b74da77884f9cae151bc3f401879899e11bf4e147437b0f44e9d172",
+      "targetSha256": "d3c5df38c140111412c3da401202d572f2f423c2ada4cc75b9b5332a7b01fe38",
+      "disposition": "translated-or-adapted"
+    },
+    {
+      "sourcePath": "templates/manga-project/docs/novelai-prompts/README.md",
+      "sourceSha256": "b82f78a9ece109d2fefd320ba1e08c57eefe427a889f7788f1a40a8910a93627",
+      "targetPath": "templates/manga-project/docs/novelai-prompts/README.md",
+      "targetSha256": "41d99ee22ced5696d89b3d12dcf81db59790b45f33cb2ca33cf27cfe882b6be2",
       "disposition": "translated-or-adapted"
     },
     {
@@ -1472,9 +1493,9 @@
     },
     {
       "sourcePath": "templates/manga-project/docs/production/NOVELAI-BATCH.md",
-      "sourceSha256": "88b9542174e58a104d977b6e1cba4d5db9b3d12d3c751e333341f75c4af97a9e",
+      "sourceSha256": "86e19c6655ac13cf5aac3835c938e3c2aef8a5681624190125d7b8258ebf1127",
       "targetPath": "templates/manga-project/docs/production/NOVELAI-BATCH.md",
-      "targetSha256": "91be5e74ff7ed3062c0cddd728151ec48616022d89c37c9c9328927b705555ab",
+      "targetSha256": "69a4160475cee927b699ddfc4b1a3025525bf84be164bae1eecd79de5cc551c3",
       "disposition": "translated-or-adapted"
     },
     {
@@ -1570,9 +1591,9 @@
     },
     {
       "sourcePath": "templates/manga-project/scripts/novelai_batch.py",
-      "sourceSha256": "d2e613bb624cf143f8e1c6e39572d4ef325870054878102c04bae17f04445183",
+      "sourceSha256": "7e29d0f519083c9cdc32a4ee77710c9bbcacb6b47433b456d0caf6776db5ab54",
       "targetPath": "templates/manga-project/scripts/novelai_batch.py",
-      "targetSha256": "190bc8480de2eeb7bc9b59d2c9660a1429fb483dee9e7c8a640cd0e0cce938c9",
+      "targetSha256": "3762c88865e30ca027efa0fefa91c518640ffaa03fc4caf45daf33fa7a449550",
       "disposition": "translated-or-adapted"
     },
     {
@@ -6071,9 +6092,9 @@
     },
     {
       "sourcePath": "tests/test_novelai_batch.py",
-      "sourceSha256": "c7ef67bf44ae19e5179f33903e3244c8342fa0148acbdd19d79d5af610a443da",
+      "sourceSha256": "94fbb7319b4c080e1bc56b41582f98634354ae8adcc4359b6e1d5fd4999b57bb",
       "targetPath": "tests/test_novelai_batch.py",
-      "targetSha256": "7874018ae7130bd7497a429734071f3b64d2b2be463cd064cacfa9242ffd8ebc",
+      "targetSha256": "8cd7d316b521bed515636deeef8b51409a8a423c1c2f78ac7146f481e42c27b1",
       "disposition": "translated-or-adapted"
     },
     {
@@ -6129,7 +6150,7 @@
       "sourcePath": "tests/test_scaffold_portable.py",
       "sourceSha256": "e7a07dc0aefd522008d4cff6504314045558075d1231f26f45121738f27037c9",
       "targetPath": "tests/test_scaffold_portable.py",
-      "targetSha256": "486a48e1d7c01ba67781692321f0b60469c8325dbaebc1f1209b0962012e934c",
+      "targetSha256": "27ad6bdc7fd610e06b7b7538cc9648cfdb7f7b2f000c4e63281820848ef925d2",
       "disposition": "translated-or-adapted"
     },
     {

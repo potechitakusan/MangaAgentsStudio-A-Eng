@@ -57,7 +57,7 @@ def build_state():
                         'targetPath': None, 'targetSha256': None,
                         'disposition': 'not-in-current-public-scope'})
     return {'schemaVersion': 1, 'locale': 'en-US',
-            'localizationVersion': '0.4.2-en-US.1',
+            'localizationVersion': '0.5.0-en-US.1',
             'sourceCommit': baseline['sourceCommit'], 'sourceVersion': baseline['sourceVersion'],
             'recordedOn': date.today().isoformat(),
             'note': 'Hashes establish file correspondence, not semantic approval. See the back-translation review and validation records. This state file excludes its own hash.',

@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "sourceCommit": "b6a958a29ba9da5b8f9514f68c29c2e35401e6e5",
-  "sourceVersion": "0.4.2",
-  "capturedOn": "2026-10-03",
+  "sourceCommit": "b7a06f740da679a407b40cdc388d63a0b9a62126",
+  "sourceVersion": "0.5.0",
+  "capturedOn": "2026-10-05",
   "files": [
     {
       "path": ".gitattributes",
@@ -31,18 +31,18 @@
     },
     {
       "path": "README.md",
-      "sha256": "ae5d1c2eb68dda8abbf61ff7967907f61138c3a1ae7d5fc0a85512a40c669361",
-      "bytes": 33151
+      "sha256": "c8345839e236ef236a970a62f733ee2b5c65a68389aa360111432c93b5abc89c",
+      "bytes": 31096
     },
     {
       "path": "distribution-version.txt",
-      "sha256": "d4d4151542d57bda5beb57ff8fb51f5ffbdba30b3755060db00ff144eda5d250",
+      "sha256": "c2f2fc398169dfaf4b6a16077a5938b7361aefac1143f532b17ea18c3229cf3a",
       "bytes": 7
     },
     {
       "path": "docs/README.md",
-      "sha256": "f1ddee4c918dcca27aa5831669049f402e5038fd89015810eb2d6001ced209c0",
-      "bytes": 2861
+      "sha256": "1afc2ed21320002db71fcd50d7a4da658cf6b6a5cdeb972f2cad2ee2c2bf7667",
+      "bytes": 3027
     },
     {
       "path": "docs/RIGHTS.md",
@@ -166,8 +166,8 @@
     },
     {
       "path": "docs/knowledge/novelai-api.md",
-      "sha256": "d9f92a387e960f6161d84074e4b896f011defbe77dbd42e1183c265b3d01bf67",
-      "bytes": 14655
+      "sha256": "8c2232ba971509855f28ec8e97fe580804568922c44218d6ec9b0d0da0a34b4b",
+      "bytes": 17432
     },
     {
       "path": "docs/knowledge/optional-skills.md",
@@ -731,8 +731,8 @@
     },
     {
       "path": "skills/manga-ai-production/SKILL.md",
-      "sha256": "020aec7b2053b7559ec5b4451e0c00be95c1c25b9a117bc6afaa890d4b3a161e",
-      "bytes": 7657
+      "sha256": "ccb5b5efd1c61bd0871a2bf07c6936ae200eca6e5e11553e824db26301437465",
+      "bytes": 8909
     },
     {
       "path": "skills/manga-cinema-review/SKILL.md",
@@ -781,8 +781,8 @@
     },
     {
       "path": "templates/manga-project/.env.example",
-      "sha256": "e62acb1c1bce0cf1f66ac8ad44f413c3047998af7b80133ddfa301cd3f811124",
-      "bytes": 1141
+      "sha256": "ecec2afed542e2e7d09cf46c7fff53cab724614add2fb795617208c3dcd45bd2",
+      "bytes": 1354
     },
     {
       "path": "templates/manga-project/.gitignore",
@@ -791,8 +791,8 @@
     },
     {
       "path": "templates/manga-project/AGENTS.md",
-      "sha256": "b496387a376c1b8d6a090cdf6424298dee87219020cc86534296e351b83859f6",
-      "bytes": 17003
+      "sha256": "53a15df17410b37977cfa7354d627caaefb04e3bdb779bc5184b208a98a14c05",
+      "bytes": 17699
     },
     {
       "path": "templates/manga-project/OPTION.md",
@@ -806,8 +806,8 @@
     },
     {
       "path": "templates/manga-project/README.md",
-      "sha256": "3f28f3e9a95d53c99cb9e881256cb47ef02f6d2c2529dd3ead676f40803afc43",
-      "bytes": 5967
+      "sha256": "2478e6aeff62217e63beba135de7cd2331143ca61e6fc03d3658335d6e6134b2",
+      "bytes": 6249
     },
     {
       "path": "templates/manga-project/agent-modes/antigravity/AGENT-MODE.md",
@@ -886,8 +886,8 @@
     },
     {
       "path": "templates/manga-project/docs/SETUP.md",
-      "sha256": "4b933da5bec3608e56dc51e3d075f1cdab2f3854689ac1f5b41e5e2300e554be",
-      "bytes": 5430
+      "sha256": "9cc29cca8d2e419140bd4446fdf93748a141da8c7037d6198a5a9a26f91c0240",
+      "bytes": 5714
     },
     {
       "path": "templates/manga-project/docs/experiments/TEMPLATE.md",
@@ -901,8 +901,13 @@
     },
     {
       "path": "templates/manga-project/docs/knowledge/novelai-composed-production.md",
-      "sha256": "40e36fd29bf2119889f1656999cd36f74f15a58ad26a084445d915bf82f72866",
-      "bytes": 25821
+      "sha256": "41dba01ea7fbaf840da4b0581a10f8b8167439e364d6be909b0ef8f2fc3b6fa2",
+      "bytes": 38025
+    },
+    {
+      "path": "templates/manga-project/docs/novelai-prompts/README.md",
+      "sha256": "b82f78a9ece109d2fefd320ba1e08c57eefe427a889f7788f1a40a8910a93627",
+      "bytes": 23807
     },
     {
       "path": "templates/manga-project/docs/production/DIALOGUE.md",
@@ -911,8 +916,8 @@
     },
     {
       "path": "templates/manga-project/docs/production/NOVELAI-BATCH.md",
-      "sha256": "88b9542174e58a104d977b6e1cba4d5db9b3d12d3c751e333341f75c4af97a9e",
-      "bytes": 2179
+      "sha256": "86e19c6655ac13cf5aac3835c938e3c2aef8a5681624190125d7b8258ebf1127",
+      "bytes": 3899
     },
     {
       "path": "templates/manga-project/docs/production/PANEL-LAYOUT-POLICY.md",
@@ -981,8 +986,8 @@
     },
     {
       "path": "templates/manga-project/scripts/novelai_batch.py",
-      "sha256": "d2e613bb624cf143f8e1c6e39572d4ef325870054878102c04bae17f04445183",
-      "bytes": 35486
+      "sha256": "7e29d0f519083c9cdc32a4ee77710c9bbcacb6b47433b456d0caf6776db5ab54",
+      "bytes": 38001
     },
     {
       "path": "templates/manga-project/scripts/recolor_onomatopoeia.py",
@@ -3616,8 +3621,8 @@
     },
     {
       "path": "tests/test_novelai_batch.py",
-      "sha256": "c7ef67bf44ae19e5179f33903e3244c8342fa0148acbdd19d79d5af610a443da",
-      "bytes": 15573
+      "sha256": "94fbb7319b4c080e1bc56b41582f98634354ae8adcc4359b6e1d5fd4999b57bb",
+      "bytes": 21024
     },
     {
       "path": "tests/test_optional_skills_portable.py",

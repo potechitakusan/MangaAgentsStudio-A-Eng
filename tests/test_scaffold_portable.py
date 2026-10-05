@@ -5,7 +5,7 @@ import os
 from pathlib import Path
 import subprocess
 import sys
-import tempfile
+import temp_workspace as tempfile
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -15,7 +15,7 @@ from new_manga_project import create_project
 
 class PortableScaffoldTests(unittest.TestCase):
     def setUp(self):
-        self.temp = tempfile.TemporaryDirectory(prefix='manga portable ')
+        self.temp = tempfile.TemporaryDirectory()
         self.parent = Path(self.temp.name)
 
     def tearDown(self):
@@ -36,7 +36,7 @@ class PortableScaffoldTests(unittest.TestCase):
         self.assertEqual(data['agentMode'], 'Codex')
         self.assertEqual(data['locale'], 'en-US')
         self.assertEqual(data['readingDirection'], 'ltr')
-        self.assertEqual(data['localizationVersion'], '0.4.2-en-US.1')
+        self.assertEqual(data['localizationVersion'], '0.5.0-en-US.1')
         self.assertFalse((project / 'GEMINI.md').exists())
         self.assertFalse((project / 'AGENT-MODE.md').exists())
         self.assertFalse((project / 'agent-modes').exists())

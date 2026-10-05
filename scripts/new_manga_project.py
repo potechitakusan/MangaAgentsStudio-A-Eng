@@ -179,7 +179,7 @@ def create_project(project_name: str, destination_parent: str | Path | None = No
         for directory in ('input', 'assets/characters', 'assets/references', 'workflows', 'output', '.secrets'):
             (target / directory).mkdir(parents=True, exist_ok=True)
         now = datetime.now(timezone.utc).isoformat()
-        project = {'schemaVersion': 1, 'name': project_name, 'createdAt': now, 'distributionVersion': version, 'sourceKitRelativePath': Path(os.path.relpath(root, target)).as_posix(), 'agentMode': agent_mode, 'locale': 'en-US', 'readingDirection': 'ltr', 'localizationVersion': '0.4.2-en-US.1'}
+        project = {'schemaVersion': 1, 'name': project_name, 'createdAt': now, 'distributionVersion': version, 'sourceKitRelativePath': Path(os.path.relpath(root, target)).as_posix(), 'agentMode': agent_mode, 'locale': 'en-US', 'readingDirection': 'ltr', 'localizationVersion': '0.5.0-en-US.1'}
         if source:
             project['processRequirementsSourceRelativePath'] = Path(os.path.relpath(source, target)).as_posix()
         write_json(target / 'project.json', project)

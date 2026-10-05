@@ -3,12 +3,13 @@
 Preserve requests, candidates, selections, and page composition in files for repeatable human-run selection.
 
   list      List requests, candidate counts, and selections (no network)
-  vars      List character prompt variables (NOVELAI_CHAR_*) from .env etc. (no network)
-  env-set   Write character prompt variables to .env (leave other lines unchanged)
+  vars      List character, style, and background variables from .env etc. (no network)
+  env-set   Write a prompt variable to .env (leave other settings unchanged)
   templatize Replace matching variable values in request JSON with ${VARIABLE_NAME}
   generate  Generate requests per page, all pages, or IDs sequentially, one image each (dry run by default)
   adopt     Select an image from candidates
-  build     Rebuild page PNGs (PSD if requested) from selections, panel placement, and typesetting
+  adopt-latest Adopt the highest-numbered PNG in each target folder at once (no network)
+  build    Rebuild page PNGs (PSD if requested) from selections, panel placement, and typesetting
 
 Generation uses novelai_api.py validation, cost checks, and execution records; stop on failure without automatic retry.
 Never display or save API key values.
@@ -36,7 +37,9 @@ CANDIDATES_DIR = "output/novelai/candidates"
 PAGES_DIR = "input/pages"
 BUILD_DIR = "output/build"
 VAR_FILES = (".env", ".secrets/novelai.env", ".secrets/.env")
-VAR_NAME = re.compile(r"NOVELAI_CHAR_[A-Z0-9_]+")
+VAR_NAME = re.compile(r"NOVELAI_(?:CHAR|STYLE|BACKGROUND)_[A-Z0-9_]+")
+VAR_ASSIGNMENT = re.compile(r"^\s*(?:export\s+)?(NOVELAI_(?:CHAR|STYLE|BACKGROUND)_[A-Z0-9_]+)\s*=(.*)$")
+VAR_HELP = "NOVELAI_CHAR_, NOVELAI_STYLE_, or NOVELAI_BACKGROUND_ followed by uppercase ASCII letters, digits, or underscores"
 PLACEHOLDER = re.compile(r"\$\{([^}]*)\}")
 REQUEST_ID = re.compile(r"[A-Za-z0-9][A-Za-z0-9_-]{0,63}")
 PAGE_OF = re.compile(r"p(\d{1,3})-")
@@ -199,18 +202,19 @@ def select_ids(root: Path, pages: list[int] | None, ids: list[str] | None, all_p
 
 def candidates(root: Path, request_id: str) -> list[Path]:
     folder = root / CANDIDATES_DIR / request_id
-    return sorted(folder.glob("r[0-9][0-9][0-9].png")) if folder.is_dir() else []
+    return sorted((p for p in folder.glob("r*.png") if p.is_file() and re.fullmatch(r"r[0-9]{3,}", p.stem)),
+                  key=lambda p: int(p.stem[1:])) if folder.is_dir() else []
 
 
 def next_candidate(root: Path, request_id: str) -> int:
     """Find the next candidate number; stop on records without PNGs (unknown result) to prevent resending."""
     folder = root / CANDIDATES_DIR / request_id
-    records = sorted(folder.glob("r[0-9][0-9][0-9].novelai.json")) if folder.is_dir() else []
+    records = [p for p in folder.glob("r*.novelai.json") if p.is_file() and re.fullmatch(r"r[0-9]{3,}\.novelai\.json", p.name)] if folder.is_dir() else []
     unknown = [r.name for r in records if not r.with_name(r.name.split(".")[0] + ".png").is_file()]
     if unknown:
         raise BatchError(f"{request_id} has execution records with unknown results: {', '.join(unknown)}. "
                          "Check results and consumption at NovelAI, then move records to failed/ before retrying.")
-    numbers = [int(p.name[1:4]) for p in candidates(root, request_id)] + [int(r.name[1:4]) for r in records]
+    numbers = [int(p.stem[1:]) for p in candidates(root, request_id)] + [int(r.name.split(".")[0][1:]) for r in records]
     return max(numbers or [0]) + 1
 
 
@@ -223,7 +227,7 @@ def load_adopted(root: Path) -> dict:
     return data
 
 
-# ---------------------------------------------------------------- Character prompt variables
+# ---------------------------------------------------------------- Character, style, and background prompt variables
 
 def parse_value(raw: str) -> str:
     raw = raw.strip()
@@ -236,7 +240,7 @@ def parse_value(raw: str) -> str:
 
 
 def read_variables(root: Path) -> dict[str, tuple[str, str]]:
-    """Read only NOVELAI_CHAR_*; do not retain or display other lines, including API keys."""
+    """Read only the three permitted variable types; never expand or display API keys or other settings."""
     found: dict[str, list[tuple[str, str]]] = {}
     for name, value in os.environ.items():
         if VAR_NAME.fullmatch(name):
@@ -246,7 +250,7 @@ def read_variables(root: Path) -> dict[str, tuple[str, str]]:
         if not path.is_file():
             continue
         for line in path.read_text(encoding="utf-8-sig").splitlines():
-            match = re.match(r"^\s*(?:export\s+)?(NOVELAI_CHAR_[A-Z0-9_]+)\s*=(.*)$", line)
+            match = VAR_ASSIGNMENT.match(line)
             if match:
                 found.setdefault(match.group(1), []).append((parse_value(match.group(2)), relative))
     duplicated = [f"{n}（{'・'.join(s for _, s in v)}）" for n, v in found.items() if len(v) > 1]
@@ -260,7 +264,7 @@ def expand(value, variables: dict[str, tuple[str, str]], used: set[str]):
         def replace(match):
             name = match.group(1)
             if not VAR_NAME.fullmatch(name):
-                raise BatchError(f"Invalid variable: ${{{name}}}. Character prompts must start with NOVELAI_CHAR_.")
+                raise BatchError(f"Invalid variable: ${{{name}}}. Variable names must start with {VAR_HELP}.")
             if name not in variables:
                 raise BatchError(f"Variable {name} not found in .env or other sources. Check with vars.")
             used.add(name)
@@ -281,7 +285,7 @@ def resolved_request(root: Path, request_id: str, variables) -> tuple[dict, set[
 
 def env_set(root: Path, name: str, value: str) -> str:
     if not VAR_NAME.fullmatch(name):
-        raise BatchError("Variable names must start with NOVELAI_CHAR_ and use uppercase ASCII letters, digits, or underscores.")
+        raise BatchError(f"Variable names must start with {VAR_HELP}.")
     if "\n" in value or "\r" in value:
         raise BatchError("The value must be a single line.")
     if '"' in value and "'" in value:
@@ -416,6 +420,27 @@ def adopt(root: Path, request_id: str, number: int | None, file: str | None) -> 
     data["adopted"][request_id] = {"path": rel(root, path), "sha256": sha(path), "adopted_at": now()}
     write_json(root / ADOPTED, data)
     return path
+
+
+def adopt_latest(root: Path, ids: list[str], dry_run: bool) -> dict[str, Path]:
+    """Check candidates for every target first, then save the selections in one write."""
+    chosen = {}
+    missing = []
+    for request_id in ids:
+        available = candidates(root, request_id)
+        if not available:
+            missing.append(request_id)
+        else:
+            chosen[request_id] = available[-1]
+    if missing:
+        raise BatchError("No candidate PNGs for: " + ", ".join(missing) + ". The selection record was not changed.")
+    if not dry_run:
+        data = load_adopted(root)
+        timestamp = now()
+        for request_id, path in chosen.items():
+            data["adopted"][request_id] = {"path": rel(root, path), "sha256": sha(path), "adopted_at": timestamp}
+        write_json(root / ADOPTED, data)
+    return chosen
 
 
 # ---------------------------------------------------------------- Page rebuilding
@@ -576,9 +601,9 @@ def main(argv=None) -> int:
     commands = parser.add_subparsers(dest="command", required=True)
     listing = commands.add_parser("list", help="List requests, candidates, and selections")
     listing.add_argument("--page", type=int, action="append")
-    show = commands.add_parser("vars", help="List character prompt variables")
+    show = commands.add_parser("vars", help="List character, style, and background variables")
     show.add_argument("--show-values", action="store_true", help="Also display values (prompt text)")
-    setter = commands.add_parser("env-set", help="Write character prompt variables to .env")
+    setter = commands.add_parser("env-set", help="Write a character, style, or background variable to .env")
     setter.add_argument("name")
     group = setter.add_mutually_exclusive_group(required=True)
     group.add_argument("--value")
@@ -606,6 +631,12 @@ def main(argv=None) -> int:
     which = pick.add_mutually_exclusive_group(required=True)
     which.add_argument("--candidate", type=int, help="Candidate number (3 for r003.png)")
     which.add_argument("--file", help="Specify a project image directly, e.g. a corrected version")
+    latest = commands.add_parser("adopt-latest", help="Adopt the highest-numbered PNG in each folder at once")
+    target = latest.add_mutually_exclusive_group(required=True)
+    target.add_argument("--page", type=int, action="append", help="Page number; repeatable")
+    target.add_argument("--ids", type=lambda s: [v for v in s.split(",") if v], help="Comma-separated request IDs")
+    target.add_argument("--all", action="store_true", help="Requests for all pages (p01-... format)")
+    latest.add_argument("--dry-run", action="store_true", help="Show the targets without changing the selection record")
     make = commands.add_parser("build", help="Rebuild page PNG (PSD if requested)")
     make.add_argument("--page", type=int, action="append")
     make.add_argument("--all", action="store_true")
@@ -626,7 +657,7 @@ def main(argv=None) -> int:
         elif args.command == "vars":
             variables = read_variables(root)
             if not variables:
-                print("No variables starting with NOVELAI_CHAR_.")
+                print("No character, style, or background prompt variables (NOVELAI_CHAR_, NOVELAI_STYLE_, NOVELAI_BACKGROUND_).")
             for name, (value, source) in sorted(variables.items()):
                 print(f"{name} ({source}, {len(value)} characters)" + (f": {value}" if args.show_values else ""))
         elif args.command == "env-set":
@@ -643,6 +674,13 @@ def main(argv=None) -> int:
         elif args.command == "adopt":
             path = adopt(root, args.request_id, args.candidate, args.file)
             print(f"{args.request_id}: Selected {rel(root, path)}.")
+        elif args.command == "adopt-latest":
+            if args.ids == []:
+                raise BatchError("Specify request IDs with --ids.")
+            ids = select_ids(root, args.page, args.ids, args.all)
+            chosen = adopt_latest(root, ids, args.dry_run)
+            for request_id, path in chosen.items():
+                print(f"{request_id}: {rel(root, path)}" + (" (check only)" if args.dry_run else " selected."))
         elif args.command == "build":
             pages = pages_from_manifests(root) if args.all else (args.page or [])
             if not pages:

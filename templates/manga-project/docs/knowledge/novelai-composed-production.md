@@ -31,6 +31,24 @@ Generate panel assets **beyond panel bounds**. Show only needed areas using fram
 - Excessive enlargement of a spatial shot such as "wide overhead courtyard" removes the space. Regenerate the wide composition itself.
 - After placement use the comparison below to confirm subject, action, characters, and props remain visible. Fix placement if a face is half cut off by a panel edge.
 
+<a id="position-pins"></a>
+
+### Position pins (Character Positions)
+
+A NovelAI feature for guiding the on-screen position of characters and objects. It makes concrete the existing procedure for per-character prompts and coordinates, and it is a separate specification from panel-frame placement and the post-generation `focus`. Do not apply it to production with tools other than NovelAI.
+
+**Specifications confirmed in official documentation (2026-10-04):** Per-character input is supported from V4 onward. V5 supports up to 22 targets and free placement; V4 supports up to 6 targets; placement in V4 and V4.5 is limited to a 5×5 grid. In the UI, prepare at least one per-character input, change the position from `AI’s Choice` to `Custom`, and set positions on the `Character Positions` canvas. Pins work for objects as well as characters, but objects may need careful description and reinforcement in natural language. Do not let the order of per-character inputs contradict their positions; reinforcing positions in natural language is also recommended. Source: [NovelAI公式の人物別入力・位置指定](https://docs.novelai.net/en/image/multiplecharacters/). Codex does not operate the browser; the user performs UI operations.
+
+**Production proposal in this kit:**
+
+1. Consider pins for panels where placement must be legible: left/right positions of two characters, characters separated vertically, or where a prop sits. Do not use them in panels where automatic placement already conveys the intent.
+2. Put the number of characters in Base and each character's appearance and action in the corresponding Character. Order the per-character inputs top to bottom and left to right to match the position settings, and keep natural-language phrases such as `on the left` and `on the right` consistent. Do not copy the panel or balloon reading order directly into the Character input order (the Japanese mode reads right to left; this edition's default reads left to right).
+3. In the API, use the structure in [Position-pin requests](novelai-api.md#position-pins). For V4 and V4.5, do not reuse precise coordinates intended for free placement; check the grid and its correspondence for the model in use. Record the targets, positions, and intent in the existing request JSON and in the [batch records](../production/NOVELAI-BATCH.md).
+4. Pins specify positions across the whole generated asset. Do not pass page coordinates directly; choose positions where faces, hands, and contact points remain after cropping, enlarging, and rotating. Pins alone do not guarantee posture, gaze, contact between hand and prop, or front-to-back depth, so specify the necessary relationships in text as well.
+5. Before adopting an image, actually open it and check for swapped characters, left/right and up/down, relationships with objects, and how it looks after cropping. If a position changes, recheck the Character order and the position wording.
+
+**Unverified:** No generation was performed in this survey. Positional accuracy of pins, object placement, with/without comparisons at the same seed, API acceptance by model, and effects on the contract or extra charges are unconfirmed. Do not treat attaching a pin as placement agreement, quality improvement, or 0 Anlas; follow the existing cost checks and image comparison.
+
 <a id="prompt-writing"></a>
 
 ### Constructing request prompts
@@ -80,7 +98,47 @@ Translate storyboard content into **visible forms** before prompting. These prod
 
 When shortening, read the main prompt, character prompts, coordinates, and negative prompts together and check whether the same meaning remains elsewhere. Do not assume two individually safe removals remain safe together. Evidence comes from V5 Full ordinary t2i ([E4](image-generation/production-evidence.md#e4), [V5 N1](image-generation/novelai-v5.md#n1)); effects with other versions or image inputs are unverified.
 
-`novelai_batch.py generate` checks items 2, 3, 5, 6, 8, 9 and repeated angles before sending. Fix warnings or record retention reasons in [Batch records](../production/NOVELAI-BATCH.md) before sending with `--accept-warnings`. These are term detections, not judgments of prompt quality.
+<a id="scene-state"></a>
+
+### Expanding scene relationships and continuing state into each request
+
+A production procedure adopted 2026-10-03. Do not merely list the names of characters and objects: expand the text storyboard, in the following order, into the visible state of each panel before writing the request. Keep per-panel generation and later typesetting of text.
+
+1. **Fix the relationships at that instant:** Decide the main subject and who is doing what to what. In plain prose before converting to prompt terms, make concrete the necessary contact, possession, and operation; actor and other party; posture; body orientation; gaze target; and left/right and up/down as the reader sees them. Narrow the conditions that distinguish this panel from a different action to one to three items; do not add every item, including parts that are not visible. Do not stop at an emotion name or a list of objects.
+2. **Carry over the state continuing from before:** From the same scene's text storyboard and the previous panel, check current clothing and colors, belongings, the holding hand, posture and orientation, characters' left/right positions and distances, and the positions of doorways and tools. Update only the items specified to change, and restate in the request the continuing state visible in this panel. Sending the previous panel's request does not carry its state into this generation. Do not invent events or characters absent from the surrounding material. Decide missing placement as a proposal consistent with existing settings, record it, and distinguish it from established facts. Do not fill with guesses a gap that changes the story's meaning.
+3. **Assign scene-wide and per-character content:** Assign headcount, location, light, shared objects, and overall positional relationships to the scene-wide text (Base), and each person's fixed appearance, posture, assigned action, hands, orientation, and gaze to the per-character text (Character). For multiple characters, use per-character input confirmed for the supporting model and the official schema. Write an action toward another person so that both the actor and the recipient are identifiable. Where a corresponding action tag exists, `source#`, `target#`, and `mutual#` are aids; do not attach them mechanically to arbitrary action sentences. The text may combine short natural sentences and tags, and tagging must not drop the contact point or subject.
+4. **Expand into the actual request:** Make the scene-wide text match `input` and `v4_prompt.caption.base_caption`, and put per-character text into the corresponding `char_captions`. When using coordinates, keep each character's left/right and front/back wording consistent with them. Follow the [API procedure](novelai-api.md) to confirm the exact JSON format and available fields. For a model without per-character input, merge the text into the body with explicit subjects and record that constraint. Do not add per-character text to a panel without characters.
+
+Example: for a panel showing a notebook, first decide "The girl on the left sits at a desk and holds out an open notebook in both hands to the boy on the right. The boy stands and lowers his eyes to the notebook. The notebook is between them." Example distribution into the text (not the API request JSON itself):
+
+| Destination | Example content |
+| --- | --- |
+| Scene-wide | `1girl, 1boy, classroom, a desk between the two students, an open notebook between them` + adopted angle, light, and style |
+| Girl | adopted fixed appearance + `sitting on the left, holding an open notebook in both hands and extending it toward the boy on the right` |
+| Boy | adopted fixed appearance + `standing on the right, looking down at the notebook held by the girl` |
+
+If the boy receives it in the next panel, update the holder and hand state. If he does not, maintain the state in which the girl holds it. When a close-up puts one person offscreen, send only the visible person and do not add an invisible face or full body.
+
+**Do not pass dialogue, lettering, or balloons to NovelAI.** The speaker or emotion may be converted into instructions for body, gaze, and expression, but do not put dialogue text, `Text:`, or positive specifications such as `speech bubble`, `japanese text`, or drawn lettering into Base or Character. Do not generate frames either. For the negative text, use examples such as `text, speech bubble, panel border`; if you specify `v4_negative_prompt` explicitly, keep it consistent with the negative text. Keep dialogue, in-image text, and sound effects in the typesetting specification. A position left open for text may be specified as composition, but do not have an empty balloon drawn.
+
+<a id="prompt-content-check"></a>
+
+### Pre-send content verification
+
+When creating or checking prompts with `manga-ai-production`, read the body text, per-character text, coordinates, and negative text together after variable expansion, and verify the following against the text storyboard. Check right after creation and again before sending a revised request. Consolidate the record into the existing per-request records in [Batch records](../production/NOVELAI-BATCH.md); do not make a separate copy of every prompt.
+
+| Check | What to determine |
+| --- | --- |
+| Relationships | Whether the sent text identifies the main subject, actor and other party, and the necessary contact, possession, and operation, and has not shrunk to names only |
+| Continuing state | Whether clothing, belongings, hands, orientation, and positions unchanged from before remain in this request, and only changed items are updated. When swapping, whether the connection to the next panel was also checked |
+| Assignment and contradiction | Whether fixed appearance and action correspond to the same character, and whether the body text, per-character text, coordinates, and negative text avoid conflicts in left/right, posture, object form, and so on |
+| Text separation | Whether there are no dialogue text, `Text:`, or positive specifications of lettering or balloons, and whether exclusions for text, balloons, and frames and a later typesetting specification are present |
+
+Fix mismatches in the request. Record insufficient material as unconfirmed with its target and reason, and do not send the affected request until the required action and connection to adjacent panels are decided. Do not turn this into a procedure that asks the user for a batch of additional settings. The check record can take the form "request ID / required relationship / continuing and changed state / verification result and reason for revision." The absence of warnings from automatic checking does not substitute for this content verification.
+
+`novelai_batch.py generate` checks items 2, 3, 5, 6, 8, 9 and repeated angles before sending. Fix warnings or record retention reasons in [Batch records](../production/NOVELAI-BATCH.md) before sending with `--accept-warnings`. These are term detections that do not judge relationships, continuing state, or text separation by meaning. Do not use `--accept-warnings` to skip the content verification.
+
+Sources and scope: this makes concrete, as a procedure for expanding into generation requests, the relationship descriptions in the existing [production evidence E4](image-generation/production-evidence.md#e4) and [spatial continuity V13](manga/02-visual-direction.md#v13). Per-character input, reinforcing positions in natural language, and action tags: [NovelAI公式文書](https://docs.novelai.net/en/image/multiplecharacters/); correspondence between natural language and Japanese: [V5公式発表](https://journal.novelai.net/novelai-diffusion-v5-release-jp-343211a45664/) (checked 2026-10-03).
 
 <a id="batch"></a>
 
@@ -119,32 +177,42 @@ Commands from project root:
 # Inspect content, dimensions, and seed without sending
 python -X utf8 scripts/novelai_batch.py generate --page 1
 # Generate sequentially (all pages: --all; specific panels: --ids p01-02,p01-04)
-python -X utf8 scripts/novelai_batch.py generate --page 1 --execute --confirm-zero-anlas --confirm-v5-allowance --cost-note 'Verified method and time'
+python -X utf8 scripts/novelai_batch.py generate --page 1 --execute --accept-warnings --confirm-zero-anlas --confirm-v5-allowance --cost-note 'Verified method and time'
 # Compare candidates and adopt
 python -X utf8 scripts/novelai_batch.py list --page 1
 python -X utf8 scripts/novelai_batch.py adopt p01-02 --candidate 3
+# To use the highest-numbered PNG for each panel, adopt them all at once (--dry-run to check only)
+python -X utf8 scripts/novelai_batch.py adopt-latest --page 1
 # Rebuild identical page/panel placement; add --write-psd when requested
 python -X utf8 scripts/novelai_batch.py build --page 1
 python -X utf8 scripts/novelai_batch.py build --all --write-psd
 ```
 
 - `generate` uses request seed first, random seeds later (`--seed request` fixes it). Requests run sequentially with a default 3-second interval and a default limit of 30 requests per run. Failure stops remaining requests without automatic retry. Do not regenerate panels with unknown-result records until results are checked and records moved. Cost flags mean the same as `novelai_api.py`; never assert unverified flags.
+- The generation and regeneration examples include `--accept-warnings`. Remove it if you want to check warnings and stop sending when any remain. Warnings are still displayed when it is included, and cost confirmation and error validation are not skipped.
+- `adopt-latest` adopts the highest-numbered PNG in each target folder (`--all` for all pages, `--ids` for specific panels). If a target has no candidate PNG, it stops without changing the selection record. For a panel whose new generation failed, an earlier highest number is chosen, so check the generation results and the images. Details: [editing and regeneration README](../novelai-prompts/README.md#adopt-the-highest-numbered-image-in-each-folder-at-once).
 - `build` stops if images are unselected and warns when placement does not cover a panel. Human-command PSDs are intended for later painting-software adjustment. Codex handoff PSDs still require both PNG revision confirmation and PSD instructions.
 - Keep the previously adopted request separate from alternatives such as `p01-03b.json`. Set both requests' `parameters.seed` to the same value and generate with `--seed request`; change seed values to make multiple pairs. Record settings other than the changed wording, whether the unchanged control succeeded, and all attempts including failed seeds. Do not conclude a phrase is necessary or unnecessary from a pair whose control failed. This is a recommended method, not a mandatory trial count for every panel. Evidence: [E4](image-generation/production-evidence.md#e4).
 - Codex uses this workflow from initial artwork onward and records per-page commands in [Batch records](../production/NOVELAI-BATCH.md). Present PNGs from `build`.
 
 <a id="character-variables"></a>
 
-### Read character prompts from .env (only on request)
+### Read characters, style, and backgrounds from .env (only on request)
 
-To let humans change appearance globally before regenerating, prompts can become project-root `.env` variables referenced as `${NOVELAI_CHAR_MIO}` in request JSON. **Only do this when a human asks.**
+To let humans change appearance globally before regenerating, character, style, and background prompts can become project-root `.env` variables referenced as `${NOVELAI_CHAR_MIO}`, `${NOVELAI_STYLE_MAIN}`, and `${NOVELAI_BACKGROUND_CLASSROOM}` in request JSON. **Only do this when a human asks.**
 
-1. Propose names (`NOVELAI_CHAR_` plus uppercase ASCII letters, digits, `_`, e.g. `NOVELAI_CHAR_MIO`) and values; confirm with the user.
+1. Propose names (`NOVELAI_CHAR_`, `NOVELAI_STYLE_`, or `NOVELAI_BACKGROUND_` according to purpose, plus uppercase ASCII letters, digits, `_`) and the prompt for each variable; confirm with the user.
 2. Write with `python -X utf8 scripts/novelai_batch.py env-set NOVELAI_CHAR_MIO --value-file input/novelai/char-mio.txt`. Do not display/change other `.env` lines, including keys.
 3. Check replacements with `templatize NOVELAI_CHAR_MIO --dry-run`, then replace matching wording in JSON with `templatize NOVELAI_CHAR_MIO`.
 4. Check names with `vars`; record names and requests in [Batch records](../production/NOVELAI-BATCH.md).
 
-Humans can then edit `.env` and rerun `generate`. Execution records contain expanded requests. Never expand API keys or variables outside `NOVELAI_CHAR_`. Duplicate variables in `.env` and `.secrets/` stop execution.
+Humans can then edit `.env` and rerun `generate`. Execution records contain expanded requests. Never expand API keys or variables other than `NOVELAI_CHAR_*`, `NOVELAI_STYLE_*`, and `NOVELAI_BACKGROUND_*`. A variable defined in more than one of the environment, `.env`, `.secrets/novelai.env`, and `.secrets/.env` stops execution.
+
+Assign style and background to Base (`input` and `v4_prompt.caption.base_caption`), and character features to the corresponding Character. For requests that do not use per-character input, merge them into the body. Only requests that reference a variable are affected by a change, so do not give every panel the same background; use separate background variables for each scene. `templatize` replaces every matching string in the request JSON, so check the targets with `--dry-run` and by reading the diff.
+
+Values in Japanese can be saved and expanded as a single UTF-8 line. There is no translation feature, and the model's interpretation must be checked in the image. The feature check compares the terms registered in `characters.json` with the expanded request; it is not image recognition or semantic understanding. When a character's appearance changes, update that file's features and the specification of visible features (`cast`) as well, and separately verify the assignment to per-character input by content. Do not force the same feature check on style and background.
+
+Actual editing examples, applying edits from text files, dry-run checks, and regeneration, adoption, and PNG/PSD rebuilding are collected in the [user-facing README](../novelai-prompts/README.md). This feature is only for NovelAI batch generation and does not apply to other generation methods.
 
 ### Post-artwork comparison (required before typesetting)
 

@@ -24,6 +24,8 @@ The left-hand `NOVELAI_API_KEY` is a public setting name; the right-hand token i
 
 Before execution check official specifications and available allowance. With active Opus, review [No-Anlas conditions](knowledge/ai-production.md#novelai-opus): one image, at most 28 steps (V5 initial 23, V4.5 and earlier 28). Generation dimensions follow tool-appropriate shared [Page settings](knowledge/page-layout.md). Verify 0 Anlas with adopted dimensions/model/extras and remaining V5 allowance. Successful subscription lookup alone does not establish cost/allowance confirmation. [Connection request prompts](knowledge/novelai-api.md#example-request-for-a-connection-check) are also available.
 
+To edit NovelAI characters, style, and backgrounds yourself and regenerate, read the [prompt-editing README](novelai-prompts/README.md). Variables are created only on request; you can edit `.env` directly or apply edits from a text file.
+
 Open the project root in a new Codex session and confirm AGENTS.md and local skills are recognized. Bundled skills work with this project's shared knowledge.
 
 Choose needed references from [Know-how](MANGA-KNOWHOW.md). Review/revise PNG first, then proceed to PSD after no revisions remain. If no PSD instruction, ask and wait; do not re-ask existing instructions. Preserve separated assets/source dialogue for later PSD. Before PSD work, check creation/reopening tools and the environment for CLIP STUDIO PAINT verification; record PNG answers, PSD instructions, and specifications in [Handoff](production/PSD-HANDOFF.md). Create/validate requested PSDs and hand them to a human for finishing/publication. CBZ only on explicit request.

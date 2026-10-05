@@ -1,5 +1,7 @@
 # Manga project
 
+To change NovelAI's look yourself, see [Editing and regenerating characters, style, and backgrounds](docs/novelai-prompts/README.md). It includes example prompt changes and steps for people unfamiliar with commands.
+
 Codex must not launch, connect to, or control Chrome/Edge or use `chrome:control-chrome`. Inspect images with image-display tools; the user opens supplied HTML or other paths as needed.
 
 Provide characters, synopsis, and page count to produce all Web comic pages through PNG without extra configuration. Defaults: single pages, white background, left-to-right reading, horizontal English lettering. For full-page generation, fit frames and PNG dimensions to the tool's actual output. OPTION can specify generation, frame-layout, and final dimensions separately. Image-generation/editing capability is required. Example: "The characters are Alex and Sam; the synopsis is [story]. Make an eight-page comic for online publication." Wait for the user's PNG revision answer.

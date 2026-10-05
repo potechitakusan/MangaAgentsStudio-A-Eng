@@ -15,3 +15,7 @@ Publication itself is not part of this work. The existing checkout is the Englis
 ## Japanese 0.4.2 update — 2026-10-03
 
 The completed 0.4.1 plan above is historical. The 0.4.2 update covers all 12 added and 19 modified upstream files, portable script adaptation, Antigravity mode, NovelAI V5 production guidance, and corresponding tests/provenance. Preserve English defaults and existing image provenance. Record independent semantic review separately from automated tests; runtime/publication tests are not authorized by the translation request.
+
+## Japanese 0.5.0 update — 2026-10-05
+
+The 0.5.0 update covers the 1 added and 13 modified upstream files (NovelAI character/style/background variables, position pins, pre-send verification, `adopt-latest`, and the new editing README) between Japanese `b6a958a` and `b7a06f7`. No image or asset changes. Preserve English defaults, existing image provenance, and original-language citation labels. Record the integrating translator's review separately from an independent sub-agent review (still open) and from automated tests (not authorized by the request).

@@ -45,3 +45,11 @@ At the owner's request, the root README now explains that this edition originate
 - Retained English reading/lettering defaults. Added en-US/ltr/localization metadata and English SFX SVG support to the portable creator; the optional-skill reader recognizes both English fields and legacy Japanese fixtures.
 - Updated source version/commit/hashes and localization version. Existing examples and image-edit prompts retain their earlier provenance.
 - Independent comparison is recorded in [0.4.2 review](REVIEW-0.4.2.md); update scope and verification limits are in [the update record](UPDATE-0.4.2.md). No runtime, scaffold, shell, or publication tests were run. No external calls, staging, commit, or publication.
+
+## 2026-10-05 — Japanese 0.5.0, localization 0.5.0-en-US.1
+
+- Compared the clean Japanese checkout (`b7a06f7`, version file 0.5.0) against the recorded 0.4.2 source hashes and the real Git diff from `b6a958a`: 1 addition, 13 modifications, no deletions, no image or asset changes. The final upstream commit is labeled 0.5.1 but leaves the version file at 0.5.0; this edition follows the version file.
+- Translated the new editing README and every changed prose section; ported the batch-script changes (three variable types, numeric candidate names of three or more digits, `adopt-latest`) with English messages and the five new upstream tests. Position pins, scene-state expansion, and pre-send verification are integrated with their source dates and unverified-effect statements.
+- Retained English reading/lettering defaults and original-language citation labels. Two linguistic adaptations are recorded (reading-order wording in position pins; "plain prose" for the relationship step).
+- Updated the version file, README header and version FAQ, localization version in project creation, the state recorder, and the portable scaffold test, the source manifest, and the English state.
+- Review is recorded in [0.5.0 review](REVIEW-0.5.0.md) and scope in [the update record](UPDATE-0.5.0.md). The review was by the integrating translator, not an independent sub-agent; that step remains open. No unit, scaffold, publication, or state-check run was performed. No external calls, generation, staging, commit, or publication.

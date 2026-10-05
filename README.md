@@ -4,7 +4,7 @@ Knowledge, ten skills, and a project template for planning a comic with Codex an
 
 This kit was originally designed for creating manga for Japanese-speaking readers. This English edition was produced through automated AI translation of that Japanese kit, with subsequent localization and review. Some guidance and expressive conventions may still reflect Japanese manga practices.
 
-This edition uses **US English, left-to-right and top-to-bottom panel and balloon order, and horizontal English lettering**. Dialogue is normally centered within balloons and uses standard English punctuation. Source filenames and machine identifiers are retained where needed for compatibility. Source citations retain their original Japanese wording. See [English maintenance records](docs/localization/README.md) for translation policy, validation, independent semantic review, and Japanese-upstream updates. Source kit version: **0.4.2**; localization revision: **0.4.2-en-US.1**.
+This edition uses **US English, left-to-right and top-to-bottom panel and balloon order, and horizontal English lettering**. Dialogue is normally centered within balloons and uses standard English punctuation. Source filenames and machine identifiers are retained where needed for compatibility. Source citations retain their original Japanese wording. See [English maintenance records](docs/localization/README.md) for translation policy, validation, independent semantic review, and Japanese-upstream updates. Source kit version: **0.5.0**; localization revision: **0.5.0-en-US.1**.
 
 **This folder maintains and distributes the kit. Normally, create a separate project outside it with `scripts/New-MangaProject.ps1` (or `scripts/New-MangaProject.sh` on Linux), reopen Codex there, and make your comic in that project.** `templates/manga-project/` is the master template; do not write a work directly into it.
 
@@ -151,59 +151,37 @@ These are historical impressions from the author's environment and contemporaneo
 
 See the project's `OPTION.md`. Options include panel-template use, selection rates by panel count, limits on repeated three-wide-tier layouts, lettering direction, and PSD creation. Ask Codex about `OPTION.md` at the start if you want an explanation of how each option changes behavior. Unspecified choices use defaults; this English edition defaults to horizontal English and left-to-right reading.
 
-### What changed in version 0.4.2?
+### What changed in version 0.5.0 since the 0.4.0 release?
 
-Version 0.4.2 adds Linux entry points for project creation, review-profile resolution, and optional-skill initialization; an explicitly selected Antigravity mode; and NovelAI V5 production observations, prompt relationship checks, comparisons using the same seeds, and V15 guidance for presenting difficult actions while preserving their intent. The observations retain their one-project/model/input limits. Existing projects are not automatically updated. Create a separate project with this kit to use the new files; the US English reading and lettering defaults remain in effect.
+Version 0.5.0 includes the features added in 0.4.1 and 0.4.2 and the fixes made since. The main changes since the 0.4.0 release are summarized below.
 
-### What changed in version 0.4.1, and how do I use it?
+New projects receive the updated documents and scripts. Existing works are not updated automatically. To bring the changes into a work in progress, ask Codex to compare it with the kit and make the necessary updates so that the work's own settings and revisions are kept. The US English reading and lettering defaults of this edition remain in effect.
 
-There are four main changes. As with 0.4.0, first create a project and open Codex or Claude in that folder. They do not automatically apply to projects created with 0.4.0 or earlier; create a new project with 0.4.1 to use the new features.
+1. **Steps for editing and regenerating NovelAI characters, style, and backgrounds**
 
-The original update mainly improved use with other agents such as Claude Code or Grok and with the NovelAI API. The established Codex plus built-in imagegen workflow that generates balloons inside the image was largely unchanged. Users not using Claude, Grok, or NovelAI would therefore see relatively few changes from that upstream update. The English edition additionally localizes reading direction, lettering, documentation, and reusable text assets.
+   Each panel's request JSON is saved so that a human can generate, choose candidates, and rebuild PNGs; PSDs can also be created when needed. The procedure for gathering prompts into `.env` variables now covers style and backgrounds as well as characters. You can edit `.env` directly, or edit separate text and apply it with a command, and Japanese values are supported.
 
-1. **Claude Code production mode**
+   Who does what, example requests for preparation, example prompt changes, and how to run the commands are collected in [Editing characters, style, and backgrounds](templates/manga-project/docs/novelai-prompts/README.md). You can start from a work whose prompts are already assembled or whose PNG previews are finished.
 
-   Add `-AgentMode Claude` during project creation to make a Claude-oriented project. It adds `CLAUDE.md` and `AGENT-MODE.md` with Claude-specific adaptations.
+2. **NovelAI position pins, and per-panel requests and verification**
 
-   **Usage:** Run `.\scripts\New-MangaProject.ps1 -ProjectName 'My Comic' -AgentMode Claude` in the kit root, or ask, “Create a project for making this comic with Claude.” Then reopen Claude in the project. Without the option, creation remains Codex-oriented.
+   We added a procedure for position pins, which specify where characters and other elements appear. It distinguishes V5 free placement from the 5×5 placement of V4/V4.5, reinforces positions in text, and checks the result after generation and after cropping. The API request example with coordinates is presented as a candidate to verify; actual generation results and placement accuracy are unverified. See the [position-pin production procedure](templates/manga-project/docs/knowledge/novelai-composed-production.md#position-pins) and the [API request example](docs/knowledge/novelai-api.md).
 
-   The included Claude mode defaults to NovelAI for art because it assumes no built-in image generation; it requires an API key and style selection. Connections to NovelAI may require permission in Claude Code's settings.
+   We also made concrete the procedure for writing out, in each request, the contact between a character and an object, who does what, and the clothing, belongings, and positions that continue from the previous panel. It covers generation dimensions and cropping to fit the panel, warnings such as missing character features, and verification after generation. Even without automatic warnings, Codex checks the content of the requests and the images. See [NovelAI drawing and composition procedure](templates/manga-project/docs/knowledge/novelai-composed-production.md) for details.
 
-**The following features may still need more testing.**
+3. **Typesetting of balloons and vertical text, and review after drawing**
 
-2. **Human-repeatable NovelAI generation commands**
+   We added `scripts/typeset_manga.py` to projects for placing text after drawing. It handles balloon types, tails that point toward the speaker, vertical dialogue, output to transparent layers, and overflow checks. We also added to the production procedure a comparison of the drawn images with the plan, and checks after typesetting. The original Japanese release supports vertical dialogue; the English edition defaults to horizontal, centered English text.
 
-   Save each panel's NovelAI request as JSON and use `scripts/novelai_batch.py` for generation → candidate adoption → page rebuilding. After Codex draws, a person can regenerate individual pages or panels, choose preferred candidates, and rebuild PNGs/PSDs with the same layout. Page commands are recorded in the project's `docs/production/NOVELAI-BATCH.md`.
+   Codex normally handles this, so tell it the balloons or revisions you want. With imagegen, text and balloons are generated inside the image by default; with NovelAI and similar methods, they are added separately after drawing. See [Text, balloons, and finishing](docs/knowledge/page-layout.md).
 
-   **Usage:** Run commands like these at the project root. Without `--execute`, `generate` previews the request without sending it. Add a cost-confirmation flag only after actually checking the condition.
+4. **Linux support, and creation modes for Claude and Gemini (Antigravity)**
 
-   ```powershell
-   python -X utf8 scripts/novelai_batch.py generate --page 1                     # Preview without sending
-   python -X utf8 scripts/novelai_batch.py generate --page 1 --execute --confirm-zero-anlas --cost-note 'How and when the cost was checked'
-   python -X utf8 scripts/novelai_batch.py list --page 1                         # List candidates
-   python -X utf8 scripts/novelai_batch.py adopt p01-02 --candidate 3            # Adopt a candidate
-   python -X utf8 scripts/novelai_batch.py build --page 1                        # Rebuild; add --write-psd for PSD
-   ```
+   On Linux, a project can be created with Bash and Python 3.10 or later, so PowerShell is not required. Modes for Claude and for Antigravity were also added. Only when the human specifies the environment is the instruction file for that environment copied into the work. See [Getting started](#getting-started). Operation in an actual Antigravity environment is unverified.
 
-   You can also ask, “Regenerate panel 2 on page 3 and show me the candidates.” The workflow generates one prototype of the main characters before full production so appearance mismatches can be corrected first.
+5. **Procedure for external drawing that uses roughs and reference images**
 
-   **Batch changes to character prompts, only on request:** Ask to put each character's appearance prompt in an `.env` variable. Appearance specifications can be consolidated into `NOVELAI_CHAR_…` variables. Editing their values and running `generate` then changes those specifications across all panels.
-
-3. **Balloon and lettering script**
-
-   For lettering after drawing, `scripts/typeset_manga.py` places balloons, dialogue, in-art text, and panel borders on transparent layers and checks overflow and related issues. The original Japanese release supported vertical dialogue; the English edition defaults to horizontal, centered English text. Balloon choices include normal speech, whisper (dashed), shout (spiked), radial burst, narration, and internal monologue. Tails point toward the speaker's mouth. Use fonts from project `assets/fonts/` or the OS; fonts are not bundled.
-
-   **Usage:** Codex normally handles this without additional setup. Request changes such as “Use a shout balloon for this line” or “Point the tail toward A's mouth.”
-
-   imagegen defaults to generating text and balloons inside the image; NovelAI and other methods default to adding them after drawing. You need not choose a lettering method at creation. With imagegen, you may still request separate lettering, such as “Add the text afterward” (the “Text and balloon finishing” option in `OPTION.md`).
-
-4. **Panel artwork from roughs and reference images, using external generation such as Qwen**
-
-   The `manga-external-panel-i2i` skill adds a procedure for generating original panel art through Qwen, NovelAI, or other external tools conditioned on Blender renders, roughs, and character/prop references. It includes cautions drawn from Qwen-Image 2.1 production records, such as confusing characters' left/right positions or filling in unwanted faces.
-
-   **Usage:** Specify the environment and inputs, for example, “Use this Blender composition render and character references to draw each panel with Qwen.” The procedure comes from production records; its effects with other models remain unverified.
-
-Other additions include a post-artwork comparison table and post-lettering checks in thumbnail review. They require opening generated images and comparing them with the plan. Rules also clarify that voice examples in a brief are not ready-made dialogue, speech balloons need tails, unrequested titles/page numbers should not be added, and NovelAI prompts should describe visible forms.
+   The `manga-external-panel-i2i` skill draws panels with Qwen or similar tools from Blender renders, roughs, and reference images of characters and props. Based on production records with Qwen-Image 2.1, it also collects cautions such as confusing a character's left and right and filling in unwanted faces. See [Panel drawing with external generation](docs/knowledge/external-panel-i2i.md). Whether other models achieve the same effect is unverified.
 
 ### What changed in version 0.4.0, and how do I use it?
 

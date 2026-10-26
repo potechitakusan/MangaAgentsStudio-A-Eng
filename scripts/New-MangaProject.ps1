@@ -1,4 +1,4 @@
-﻿#requires -Version 5.1
+#requires -Version 5.1
 [CmdletBinding(SupportsShouldProcess = $true)]
 param(
     [Parameter(Mandatory = $true, Position = 0)]
@@ -81,7 +81,7 @@ if ($ProcessRequirementsFrom) {
     if ($LASTEXITCODE -ne 0) { throw 'Could not validate the source requirements. The new project has not been created.' }
 }
 $mappings = @(
-    @{ Source = 'templates\manga-project'; Target = ''; Extensions = @('.md', '.json', '.py'); Special = @('.gitignore', '.env.example', '.env.novelai.example', '.env.pixai.example', 'requirements-composition.txt') },
+    @{ Source = 'templates\manga-project'; Target = ''; Extensions = @('.md', '.json', '.py'); Special = @('.gitignore', '.env.example', '.env.novelai.example', '.env.pixai.example', 'Sample.env.txt', 'requirements-composition.txt') },
     @{ Source = 'docs\knowledge'; Target = 'docs\knowledge'; Extensions = @('.md'); Special = @() },
     @{ Source = 'skills'; Target = '.agents\skills'; Extensions = @('.md', '.py'); Special = @() },
     @{ Source = 'scripts\video'; Target = 'scripts\video'; Extensions = @('.py'); Special = @() }

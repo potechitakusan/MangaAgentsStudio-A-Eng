@@ -24,7 +24,7 @@ PNG_SIGNATURE = b'\x89PNG\r\n\x1a\n'
 PNG_IMAGE_CHUNKS = {b'IHDR', b'PLTE', b'IDAT', b'IEND', b'tRNS'}
 JPEG_JFIF_SEGMENT = b'\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00\x01\x00\x01\x00\x00'
 WEBP_IMAGE_CHUNKS = {b'VP8 ', b'VP8L', b'VP8X', b'ALPH', b'ANIM', b'ANMF'}
-SPECIAL_FILES = {'.gitignore', '.env.example', '.env.novelai.example', '.env.pixai.example'}
+SPECIAL_FILES = {'.gitignore', '.env.example', '.env.novelai.example', '.env.pixai.example', 'Sample.env.txt'}
 OLD_FOLDER_NAME = 'Proto' + 'type'
 OLD_FOLDER_PATH = re.compile(
     r'(?:' + re.escape(OLD_FOLDER_NAME) + r'[\\/]|[\\/]'

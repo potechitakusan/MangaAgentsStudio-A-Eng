@@ -19,7 +19,7 @@ KNOWLEDGE = re.compile(r'docs/knowledge/supervision/(?:(?:README|routing|sources
 PROJECT_SCRIPTS = ('Resolve-ReviewProfile.ps1', 'resolve_review_profile.py', 'Resolve-ReviewProfile.sh',
                    'Initialize-OptionalSkills.ps1', 'initialize_optional_skills.py', 'Initialize-OptionalSkills.sh',
                    'validate_panel_plan.py', 'prepare_page_layout.py', 'process_checker.py')
-ENV_EXAMPLES = {'.env.example', '.env.novelai.example', '.env.pixai.example'}
+ENV_EXAMPLES = {'.env.example', '.env.novelai.example', '.env.pixai.example', 'Sample.env.txt'}
 
 
 def no_links(path: Path) -> None:

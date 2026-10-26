@@ -34,7 +34,6 @@
 !/resources/novelai-style-samples/previews/
 !/resources/novelai-style-samples/previews/*.webp
 !/resources/pixai-model-samples/
-/resources/pixai-model-samples/*
 !/resources/pixai-model-samples/catalog.json
 !/resources/pixai-model-samples/index.html
 !/resources/pixai-model-samples/previews/
@@ -116,6 +115,7 @@ __pycache__/
 !/templates/manga-project/.env.example
 !/templates/manga-project/.env.novelai.example
 !/templates/manga-project/.env.pixai.example
+!/templates/manga-project/Sample.env.txt
 credentials.json
 secrets.json
 *.local.json

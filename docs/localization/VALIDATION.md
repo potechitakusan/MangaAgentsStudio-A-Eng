@@ -92,3 +92,26 @@ Date: 2026-10-06. The owner approved publication inspection, NovelAI batch/API t
 The portable scaffold suite initially failed because standard Python temporary directories had inaccessible Windows ACLs (14 tests, 17 errors, 5 skips). It now uses the existing `temp_workspace` helper, inheriting workspace permissions under `.work/`, as the other affected Windows suites do. The rerun passed; no product-code behavior was changed. English file correspondence was refreshed after this test fix and the verification records.
 
 The full Python suite, optional-skill tests, panel checks, Linux/Bash execution, live NovelAI or other services, artwork review, and independent semantic review were outside this run. The independent review item in [0.5.0 review](REVIEW-0.5.0.md) remains open. No browser, image generation, staging, commit, push, or publication was performed.
+
+## Version 0.5.4-en-US.1 — upstream integration (0.5.2–0.5.4)
+
+Date: 2026-10-26. Read the clean Japanese 0.5.4 checkout (`ad50dd0`), the Git diff from `b7a06f7` (`0.5.0`), and the 81 added and 46 modified upstream files. An independent `research` sub-agent performed a back-translation and semantic comparison across the modified and added documentation, configurations, scripts, WebUIs, and catalogs, and all nine findings were resolved before finalization; see [0.5.4 review](REVIEW-0.5.4.md) and [0.5.4 update](UPDATE-0.5.4.md). The source manifest (`ad50dd0`, `0.5.4`) and English correspondence record (`0.5.4-en-US.1`) were refreshed after integration.
+
+Checks actually performed:
+- All modified and newly added Python scripts and test files (`novelai_api.py`, `novelai_batch.py`, `novelai_compose.py`, `pixai_models.py`, `pixai_api.py`, `pixai_batch.py`, `pixai_compose.py`, `pixai_edit.py`, `pixai_mask.py`, `lora_apply.py`, `lora_run.py`, `novelai_webui.py`, `pixai_webui.py`, `new_manga_project.py`, `public_release.py`, `localization_sync.py`, `refresh_asset_indexes.py`, `record_localization_state.py`, and `tests/test_*.py`) were syntax-parsed via `ast.parse` and AST-compared against upstream function/class definitions.
+- Offline HTML galleries (`resources/novelai-style-samples/index.html` and `resources/pixai-model-samples/index.html`) were refreshed from their localized JSON catalogs via `scripts/refresh_asset_indexes.py`.
+- Read-only in-memory static checks verified all public files, internal Markdown links and heading anchors, Markdown table column counts, secret/path patterns, and WebP/JPEG image metadata (zero errors across all 17 NovelAI WebP previews and 50 PixAI JPEG previews).
+
+## Version 0.5.4-en-US.1 — owner-authorized prepublication checks
+
+Date: 2026-10-26. The owner authorized the prepublication test suite. The unit test suite, PowerShell scaffolding test, public release check, and localization state check were executed with the following results:
+
+| Target | Result |
+| --- | --- |
+| `python -X utf8 -m unittest discover -s tests -p 'test_*.py'` | 258 tests: 249 passed, 9 skipped for Windows POSIX/Bash limits and unavailable symlinks; external API requests mocked |
+| `powershell -NoProfile -ExecutionPolicy Bypass -File tests/Test-Scaffold.ps1` | 94 checks passed; actual Codex, Claude, and Antigravity projects created in ignored `.work/` |
+| `python -X utf8 scripts/public_release.py check` | 964 public files, 891 local links, zero errors |
+| `python -X utf8 scripts/record_localization_state.py --check` | Source/English mappings and hashes match all 963 public file records |
+| `git diff --check` | Zero whitespace errors |
+
+No live NovelAI or PixAI API calls were made (network mocked in tests), no Anlas or credits consumed, and no Git commit, push, or browser launch was performed.

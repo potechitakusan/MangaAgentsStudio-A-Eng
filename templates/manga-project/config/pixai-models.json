@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "retrieved_on": "2026-10-25",
+  "source": "https://pixai.art/en/@pixai-official/artworks/models (embedded data on the PixAI official account model list page), https://platform.pixai.art/en/docs/references/models, live generation verification (2026-10-25, 1 image per model across all 15 models via v2; kit resources/pixai-model-samples/)",
+  "note_ja": "Lists only the official PixAI models used for image generation (PixAI Edit and Reference Pro are excluded because they do not support the API). id is the API modelVersionId (at the end of the version URL on the model page). type is this kit's inspection category (dit or sdxl), mode/style/negativePrompt indicate whether each field can be sent (per official docs and model page indicators), and api records API acceptance verification status. Register additional models into a project's copy of this file with scripts/pixai_models.py add.",
+  "models": {
+    "tsubaki3": {
+      "label": "Tsubaki.3", "modelId": "2024383378759147749", "id": "2024383379556065549", "versionName": "v1",
+      "pixaiType": "MMDIT26B_MODEL", "type": "dit", "mode": true, "style": true, "negativePrompt": true, "commercialUse": true,
+      "modes_accepted": ["pro", "ultra"], "modes_rejected": ["standard", "lite"], "default_mode": "pro",
+      "api": "Verified via live generation (v2; mode pro/ultra accepted, standard/lite 422; v1 inpaint/i2i/inferenceProfile/modelStyle accepted; 1k 1 image >1 min)", "checked_on": "2026-10-25",
+      "strengths_ja": "Latest official DiT. Color control and prompt adherence. pro takes over a minute per image"
+    },
+    "tsubaki3-flash": {
+      "label": "Tsubaki.3 Flash", "modelId": "2050048242267339137", "id": "2050048243034896798", "versionName": "v1",
+      "pixaiType": "MMDIT26B_MODEL", "type": "dit", "mode": true, "style": true, "negativePrompt": false, "commercialUse": true,
+      "modes_rejected": ["pro"],
+      "api": "Verified via live generation (v2; accepted without mode; mode pro returns 422; other modes unverified; 1k 1 image ~41s)", "checked_on": "2026-10-25",
+      "strengths_ja": "Fast version of Tsubaki.3 (8 steps). Shown on the model page as not supporting negativePrompt"
+    },
+    "tsubaki2": {
+      "label": "Tsubaki.2", "modelId": "1982880136609467518", "id": "1983308862240288769", "versionName": "v1",
+      "pixaiType": "MMDIT26A_MODEL", "type": "dit", "mode": true, "style": true, "negativePrompt": true, "commercialUse": true,
+      "modes_accepted": ["lite", "standard", "pro", "ultra"], "default_mode": "standard", "controlnet": false, "inpaint": false,
+      "api": "Verified via live generation (v2; mode lite/standard/pro/ultra accepted; v1 IP-Adapter accepted; ControlNet 403, inpaint 400; 1k 1 image ~20s)", "checked_on": "2026-10-25",
+      "strengths_ja": "Officially recommended. Multi-character scenes, lighting, dynamic poses, and prompt adherence. Kit default"
+    },
+    "tsubaki": {
+      "label": "Tsubaki", "modelId": "1884107375027888751", "id": "1894092844569363483", "versionName": "v1.0",
+      "pixaiType": "DIT7B_MODEL", "type": "dit", "mode": false, "style": false, "negativePrompt": true, "commercialUse": true, "controlnet": false,
+      "api": "Verified via live generation (v2, 1k 1 image ~72s)", "checked_on": "2026-10-25",
+      "strengths_ja": "First-generation DiT. Multi-character scenes and natural-language prompts. mode and style presets are officially supported only on the Tsubaki.2 and Tsubaki.3 families"
+    },
+    "tsubaki-v1-1": {
+      "label": "Tsubaki v1.1", "modelId": "1935090614966005945", "id": "1935090615918113018", "versionName": "v1.1",
+      "pixaiType": "DIT7B_MODEL", "type": "dit", "mode": false, "style": false, "negativePrompt": true, "commercialUse": true, "controlnet": false,
+      "api": "Verified via live generation (v2, 1k 1 image ~30s)", "checked_on": "2026-10-25",
+      "strengths_ja": "Improved version of Tsubaki. High resolution and multi-character scenes"
+    },
+    "tsubaki-flash": {
+      "label": "Tsubaki Flash", "modelId": "1934789863877919615", "id": "1934789864939078594", "versionName": "v1",
+      "pixaiType": "DIT7B_MODEL", "type": "dit", "mode": false, "style": false, "negativePrompt": true, "commercialUse": true, "controlnet": false,
+      "api": "Verified via live generation (v2, 1k 1 image ~41s)", "checked_on": "2026-10-25",
+      "strengths_ja": "Fast version of Tsubaki"
+    },
+    "serin": {
+      "label": "Serin", "modelId": "1911477338694141481", "id": "1914519679917387494", "versionName": "v2",
+      "pixaiType": "DIT7B_MODEL", "type": "dit", "mode": false, "style": false, "negativePrompt": true, "commercialUse": true, "controlnet": false,
+      "api": "Verified via live generation (v2, 1k 1 image ~30s)", "checked_on": "2026-10-25",
+      "strengths_ja": "Korean webtoon and fashion style"
+    },
+    "haruka2": {
+      "label": "Haruka v2", "modelId": "1861558737426484240", "id": "1861558740588989558", "versionName": "v2",
+      "pixaiType": "SDXL_MODEL", "type": "sdxl", "mode": false, "style": false, "negativePrompt": true, "commercialUse": true,
+      "api": "Verified via live generation (v2 and v1; v1 inpaint, i2i, ControlNet (canny/depth/openpose), latentCouple, Hires, ADetailer, and v2 sampling accepted; 1k 1 image ~51s)", "checked_on": "2026-10-25",
+      "strengths_ja": "Officially recommended. Stable coloring, accurate hands, and high resolution. Most frequently used"
+    },
+    "haruka": {
+      "label": "Haruka", "modelId": "1805666668619097261", "id": "1805666669332128958", "versionName": "v1",
+      "pixaiType": "SDXL_MODEL", "type": "sdxl", "mode": false, "style": false, "negativePrompt": true, "commercialUse": true,
+      "api": "Verified via live generation (v2, 1k 1 image ~15s)", "checked_on": "2026-10-25",
+      "strengths_ja": "Earlier version before Haruka v2"
+    },
+    "hoshino2": {
+      "label": "Hoshino v2", "modelId": "1954632827019711809", "id": "1954632828118619567", "versionName": "v2",
+      "pixaiType": "SDXL_MODEL", "type": "sdxl", "mode": false, "style": false, "negativePrompt": true, "commercialUse": true,
+      "api": "Verified via live generation (v2, 1k 1 image ~21s)", "checked_on": "2026-10-25",
+      "strengths_ja": "Officially recommended. Popular Japanese style, retro anime look, and accurate hands"
+    },
+    "otome2": {
+      "label": "Otome v2", "modelId": "1856956427276171616", "id": "1856956435031440023", "versionName": "v2.1",
+      "pixaiType": "SDXL_MODEL", "type": "sdxl", "mode": false, "style": false, "negativePrompt": true, "commercialUse": true,
+      "api": "Verified via live generation (v2, 1k 1 image ~41s)", "checked_on": "2026-10-25",
+      "strengths_ja": "Geared toward male characters"
+    },
+    "hinata2": {
+      "label": "Hinata v2", "modelId": "1869108554114044295", "id": "1869108561160475178", "versionName": "v1",
+      "pixaiType": "SDXL_MODEL", "type": "sdxl", "mode": false, "style": false, "negativePrompt": true, "commercialUse": true, "controlnet": false,
+      "api": "Verified via live generation (v2, 1k 1 image ~30s)", "checked_on": "2026-10-25",
+      "strengths_ja": "Suited for style reproduction and short prompts"
+    },
+    "nagi": {
+      "label": "Nagi", "modelId": "1961253300562760878", "id": "1961253301321929990", "versionName": "v1",
+      "pixaiType": "SDXL_MODEL", "type": "sdxl", "mode": false, "style": false, "negativePrompt": true, "commercialUse": true,
+      "api": "Verified via live generation (v2, 1k 1 image ~30s)", "checked_on": "2026-10-25",
+      "strengths_ja": "Suited for style reproduction"
+    },
+    "crystalize": {
+      "label": "Crystalize", "modelId": "1964824607980730248", "id": "1964824608626653146", "versionName": "v1",
+      "pixaiType": "SDXL_MODEL", "type": "sdxl", "mode": false, "style": false, "negativePrompt": true, "commercialUse": true,
+      "api": "Verified via live generation (v2, 1k 1 image ~71s)", "checked_on": "2026-10-25",
+      "strengths_ja": "Suited for style reproduction"
+    },
+    "eternal": {
+      "label": "Eternal", "modelId": "1965302325046914604", "id": "1965302325944495788", "versionName": "v1",
+      "pixaiType": "SDXL_MODEL", "type": "sdxl", "mode": false, "style": false, "negativePrompt": true, "commercialUse": true,
+      "api": "Verified via live generation (v2, 1k 1 image ~41s)", "checked_on": "2026-10-25",
+      "strengths_ja": "Suited for style reproduction"
+    }
+  }
+}

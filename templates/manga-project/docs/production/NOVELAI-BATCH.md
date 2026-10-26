@@ -7,6 +7,10 @@ For NovelAI projects, record how humans can regenerate a page/all pages, choose 
 - Model, steps, and cost verification method (example content for `--cost-note`):
 - Cost flags, only when actually verified: `--confirm-zero-anlas`; for V5 also `--confirm-v5-allowance`.
 
+## Subscription check frequency
+
+The subscription, Anlas, and V5 allowance check API (`/user/subscription`) is called on the first generation (trial) and once every 10 generations thereafter counted from the previous check (user instruction, 2026-10-05; to avoid excessive API calls). The script counts automatically in `output/novelai/subscription-check.json` and records whether an API call or the previous result was used in `subscriptionCheck` within each generation's execution record (`.novelai.json`). It checks regardless of count when the model, dimensions, steps, or additional features change, when the previous generation did not complete, or when the remaining V5 allowance is low. Delete that file to force a check. Paid-use authorization, `--confirm-zero-anlas`, `--allow-anlas`, and `--cost-note` are still required on every run. Details: [Opus procedure](../knowledge/ai-production.md#novelai-opus).
+
 ## Per-page commands
 
 | Page | Requests (`input/novelai/requests/`) | Generation (for dry run remove `--execute` and subsequent flags) | Rebuild |
@@ -49,4 +53,4 @@ When creating or revising prompts, use `manga-ai-production` and fill this in ac
 | --- | --- | --- | --- |
 | | | | |
 
-Values live in project-root `.env`. Record only names here, not values. `NOVELAI_CHAR_*`, `NOVELAI_STYLE_*`, and `NOVELAI_BACKGROUND_*` may be used. Inspect with `python -X utf8 scripts/novelai_batch.py vars`. For editing, applying, and regenerating, see the [beginner README](../novelai-prompts/README.md).
+Values live in project-root `.env.novelai` (API keys and URLs are in shared `.env`). Record only names here, not values. `NOVELAI_CHAR_*`, `NOVELAI_STYLE_*`, and `NOVELAI_BACKGROUND_*` may be used. Inspect with `python -X utf8 scripts/novelai_batch.py vars`. For editing, applying, and regenerating, see the [beginner README](../novelai-prompts/README.md).

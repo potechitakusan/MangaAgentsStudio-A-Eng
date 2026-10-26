@@ -26,7 +26,10 @@ def main():
         for e in catalog['entries']])
     styles = ROOT/'resources/novelai-style-samples'
     refresh(styles/'index.html', json.loads((styles/'catalog.json').read_text(encoding='utf-8-sig'))['samples'])
-    print('Refreshed both offline asset galleries.')
+    pixai = ROOT/'resources/pixai-model-samples'
+    if (pixai/'catalog.json').is_file() and (pixai/'index.html').is_file():
+        refresh(pixai/'index.html', json.loads((pixai/'catalog.json').read_text(encoding='utf-8-sig'))['samples'])
+    print('Refreshed offline asset galleries.')
 
 
 if __name__ == '__main__':

@@ -19,3 +19,7 @@ The completed 0.4.1 plan above is historical. The 0.4.2 update covers all 12 add
 ## Japanese 0.5.0 update — 2026-10-05
 
 The 0.5.0 update covers the 1 added and 13 modified upstream files (NovelAI character/style/background variables, position pins, pre-send verification, `adopt-latest`, and the new editing README) between Japanese `b6a958a` and `b7a06f7`. No image or asset changes. Preserve English defaults, existing image provenance, and original-language citation labels. Record the integrating translator's review separately from an independent sub-agent review (still open) and from automated tests (not authorized by the request).
+
+## Japanese 0.5.4 update (0.5.2–0.5.4) — 2026-10-26
+
+The 0.5.4 update covers all 81 added and 46 modified upstream files between Japanese `b7a06f7` (`0.5.0`) and `ad50dd0` (`0.5.4`), including the NovelAI V5 Curated 11-style sample gallery, `novelai_compose.py`, subscription check caching, `.env.novelai` / `.env.pixai` split, `novelai-batch-webui`, PixAI API and composed-production support (`pixai_api.py`, `pixai_batch.py`, `pixai_compose.py`, `pixai_edit.py`, `pixai_mask.py`, `pixai_models.py`), `pixai-batch-webui`, the 50-image PixAI model and style-preset gallery, and corresponding unit/scaffold tests. Preserve US English defaults, existing bundled comic image provenance, and original-language citation labels, and perform an independent sub-agent semantic review before refreshing the localization state.

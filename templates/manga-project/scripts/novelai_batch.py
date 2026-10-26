@@ -3,12 +3,14 @@
 Preserve requests, candidates, selections, and page composition in files for repeatable human-run selection.
 
   list      List requests, candidate counts, and selections (no network)
-  vars      List character, style, and background variables from .env etc. (no network)
-  env-set   Write a prompt variable to .env (leave other settings unchanged)
+  vars      List character, style, and background variables from .env.novelai (no network)
+  env-set   Write a prompt variable to .env.novelai (leave other settings unchanged)
+  env-migrate Move variables and auxiliary settings from .env etc. in earlier versions to .env.novelai
   templatize Replace matching variable values in request JSON with ${VARIABLE_NAME}
   generate  Generate requests per page, all pages, or IDs sequentially, one image each (dry run by default)
   adopt     Select an image from candidates
   adopt-latest Adopt the highest-numbered PNG in each target folder at once (no network)
+  move-unknown Move execution records without images (unknown result) to failed/ after confirmation (not deleted; no network)
   build    Rebuild page PNGs (PSD if requested) from selections, panel placement, and typesetting
 
 Generation uses novelai_api.py validation, cost checks, and execution records; stop on failure without automatic retry.
@@ -36,7 +38,12 @@ ADOPTED = "input/novelai/adopted.json"
 CANDIDATES_DIR = "output/novelai/candidates"
 PAGES_DIR = "input/pages"
 BUILD_DIR = "output/build"
-VAR_FILES = (".env", ".secrets/novelai.env", ".secrets/.env")
+# Split configuration into three files: .env (shared settings such as API keys and URLs), .env.novelai (NovelAI prompt variables and auxiliary settings),
+# and .env.pixai (for PixAI; not read by this script). API keys can still be placed under .secrets/ as before (KEY_FILES in novelai_api.py).
+VAR_FILE = ".env.novelai"
+VAR_FILES = (VAR_FILE,)
+# Locations where variables and auxiliary settings were placed in earlier versions. If any remain there, do not silently ignore them; stop and prompt migration with env-migrate.
+LEGACY_VAR_FILES = (".env", ".secrets/novelai.env", ".secrets/.env")
 VAR_NAME = re.compile(r"NOVELAI_(?:CHAR|STYLE|BACKGROUND)_[A-Z0-9_]+")
 VAR_ASSIGNMENT = re.compile(r"^\s*(?:export\s+)?(NOVELAI_(?:CHAR|STYLE|BACKGROUND)_[A-Z0-9_]+)\s*=(.*)$")
 VAR_HELP = "NOVELAI_CHAR_, NOVELAI_STYLE_, or NOVELAI_BACKGROUND_ followed by uppercase ASCII letters, digits, or underscores"
@@ -72,7 +79,8 @@ def positive_texts(request: dict) -> list[str]:
 
 def lint_prompt(request: dict) -> list[str]:
     """Warn about wording unlikely to convey text-storyboard intent visually."""
-    text = " , ".join(positive_texts(request))
+    # The quality tag "no text" is officially added to the positive prompt; exclude it from negation warnings.
+    text = re.sub(r"\bno text\b", "", " , ".join(positive_texts(request)), flags=re.I)
     warnings = []
     found = sorted({m.group(0).lower() for m in NEGATION.finditer(text)})
     if found:
@@ -101,6 +109,89 @@ def lint_prompt(request: dict) -> list[str]:
 
 
 CHARACTERS = "input/novelai/characters.json"
+# Auxiliary settings. Read only lines matching the names listed here in order: environment variables -> .env.novelai (never read API keys or other settings).
+SETTING_NAMES = {"NOVELAI_QUALITY_TAGS", "NOVELAI_UC_PRESET", "NOVELAI_UC_PRESET_TEXT", "NOVELAI_CHECK_IDENTITY"}
+SETTING_ASSIGNMENT = re.compile(r"^\s*(?:export\s+)?(" + "|".join(sorted(SETTING_NAMES)) + r")\s*=(.*)$")
+
+
+def legacy_lines(root: Path) -> list[tuple[str, int, str]]:
+    """Variable and auxiliary setting lines remaining in earlier locations (.env, .secrets) as (file, line_index, variable_name). Values are never returned."""
+    found = []
+    for relative in LEGACY_VAR_FILES:
+        path = api.project_path(root, relative)
+        if not path.is_file():
+            continue
+        for index, line in enumerate(path.read_text(encoding="utf-8-sig").splitlines()):
+            match = VAR_ASSIGNMENT.match(line) or SETTING_ASSIGNMENT.match(line)
+            if match:
+                found.append((relative, index, match.group(1)))
+    return found
+
+
+def check_legacy(root: Path) -> None:
+    found = legacy_lines(root)
+    if found:
+        raise BatchError(f"NovelAI variables and auxiliary settings belong in {VAR_FILE}. Found in legacy locations: "
+                         + ", ".join(f"{name} ({relative})" for relative, _, name in found)
+                         + f". Run `python -X utf8 scripts/novelai_batch.py env-migrate` to move them to {VAR_FILE}"
+                         " (API keys and other lines are left unchanged).")
+
+
+def env_migrate(root: Path, dry_run: bool) -> list[tuple[str, str]]:
+    """Move variable and auxiliary setting lines from legacy locations to the end of .env.novelai and remove them from the source files. Preserve API keys and other lines."""
+    found = legacy_lines(root)
+    target = api.project_path(root, VAR_FILE)
+    current = target.read_text(encoding="utf-8-sig").splitlines() if target.is_file() else []
+    existing = {m.group(1) for line in current if (m := VAR_ASSIGNMENT.match(line) or SETTING_ASSIGNMENT.match(line))}
+    names = [name for _, _, name in found]
+    clash = sorted({n for n in names if n in existing or names.count(n) > 1})
+    if clash:
+        raise BatchError(f"Cannot migrate because the same name exists in {VAR_FILE} or multiple locations; keep one location: " + ", ".join(clash))
+    if dry_run or not found:
+        return [(relative, name) for relative, _, name in found]
+    lines_by_file: dict[str, set[int]] = {}
+    for relative, index, _ in found:
+        lines_by_file.setdefault(relative, set()).add(index)
+    moved_lines = []
+    source_updates = []
+    for relative, indexes in lines_by_file.items():
+        path = api.project_path(root, relative)
+        lines = path.read_text(encoding="utf-8-sig").splitlines()
+        moved_lines += [lines[i] for i in sorted(indexes)]
+        kept = [line for i, line in enumerate(lines) if i not in indexes]
+        source_updates.append((path, "\n".join(kept) + ("\n" if kept else "")))
+    # Commit the destination before removing source lines so a copy of the values is always preserved on save failure or interruption.
+    temporary = target.with_name(target.name + ".tmp")
+    temporary.write_text("\n".join(current + moved_lines) + "\n", encoding="utf-8")
+    temporary.replace(target)
+    for path, kept in source_updates:
+        temporary = path.with_name(path.name + ".tmp")
+        temporary.write_text(kept, encoding="utf-8")
+        temporary.replace(path)
+    return [(relative, name) for relative, _, name in found]
+
+
+def read_setting(root: Path, name: str) -> str | None:
+    if name not in SETTING_NAMES:
+        raise BatchError(f"Not an allowed auxiliary setting: {name}")
+    check_legacy(root)
+    if name in os.environ:
+        return os.environ[name]
+    pattern = re.compile(r"^\s*(?:export\s+)?" + re.escape(name) + r"\s*=(.*)$")
+    for relative in VAR_FILES:
+        path = api.project_path(root, relative)
+        if not path.is_file():
+            continue
+        for line in path.read_text(encoding="utf-8-sig").splitlines():
+            match = pattern.match(line)
+            if match:
+                return parse_value(match.group(1))
+    return None
+
+
+def identity_check_enabled(root: Path) -> bool:
+    """Perform identifying-feature checks only when NOVELAI_CHECK_IDENTITY=1 (or true, yes, on) is specified."""
+    return (read_setting(root, "NOVELAI_CHECK_IDENTITY") or "").strip().lower() in {"1", "true", "yes", "on"}
 
 
 def load_characters(root: Path) -> dict | None:
@@ -136,7 +227,7 @@ def lint_identity(request_id: str, request: dict, characters: dict | None) -> li
             continue
         missing = [k for k in keys if str(features[k]).lower() not in text]
         if missing:
-            warnings.append(f"Missing identifying features for {name}: " + ", ".join(f"{k}（{features[k]}）" for k in missing)
+            warnings.append(f"Missing identifying features for {name}: " + ", ".join(f"{k} ({features[k]})" for k in missing)
                             + ". Use the canonical wording or exclude invisible features in cast.")
     return warnings
 
@@ -206,16 +297,65 @@ def candidates(root: Path, request_id: str) -> list[Path]:
                   key=lambda p: int(p.stem[1:])) if folder.is_dir() else []
 
 
+def run_records(root: Path, request_id: str) -> list[Path]:
+    folder = root / CANDIDATES_DIR / request_id
+    return [p for p in folder.glob("r*.novelai.json") if p.is_file() and re.fullmatch(r"r[0-9]{3,}\.novelai\.json", p.name)] if folder.is_dir() else []
+
+
+def unknown_records(root: Path, request_id: str) -> list[Path]:
+    """Execution records without PNGs (unknown result)."""
+    return sorted((r for r in run_records(root, request_id) if not r.with_name(r.name.split(".")[0] + ".png").is_file()),
+                  key=lambda r: int(r.name.split(".")[0][1:]))
+
+
 def next_candidate(root: Path, request_id: str) -> int:
     """Find the next candidate number; stop on records without PNGs (unknown result) to prevent resending."""
-    folder = root / CANDIDATES_DIR / request_id
-    records = [p for p in folder.glob("r*.novelai.json") if p.is_file() and re.fullmatch(r"r[0-9]{3,}\.novelai\.json", p.name)] if folder.is_dir() else []
-    unknown = [r.name for r in records if not r.with_name(r.name.split(".")[0] + ".png").is_file()]
+    unknown = [r.name for r in unknown_records(root, request_id)]
     if unknown:
         raise BatchError(f"{request_id} has execution records with unknown results: {', '.join(unknown)}. "
-                         "Check results and consumption at NovelAI, then move records to failed/ before retrying.")
-    numbers = [int(p.stem[1:]) for p in candidates(root, request_id)] + [int(r.name.split(".")[0][1:]) for r in records]
+                         "Check results and consumption at NovelAI, then move records to failed/ before retrying "
+                         f"(python -X utf8 scripts/novelai_batch.py move-unknown --ids {request_id}).")
+    numbers = [int(p.stem[1:]) for p in candidates(root, request_id)] + [int(r.name.split(".")[0][1:]) for r in run_records(root, request_id)]
     return max(numbers or [0]) + 1
+
+
+def candidate_ids(root: Path, pages: list[int] | None, ids: list[str] | None, all_pages: bool) -> list[str]:
+    """Request IDs with candidate folders. Includes records for panels whose request JSON was deleted or renamed."""
+    if ids:
+        bad = [i for i in ids if not REQUEST_ID.fullmatch(i)]
+        if bad:
+            raise BatchError("Invalid characters in request ID: " + ", ".join(bad))
+        return ids
+    folder = root / CANDIDATES_DIR
+    found = sorted(p.name for p in folder.iterdir() if p.is_dir() and REQUEST_ID.fullmatch(p.name)) if folder.is_dir() else []
+    return found if all_pages else [i for i in found if page_of(i) in (pages or [])]
+
+
+def move_unknown(root: Path, ids: list[str], number: int | None, confirmed: bool, note: str) -> list[tuple[str, int, Path | None]]:
+    """Move execution records with unknown results to failed/<timestamp>-rNNN/ (not deleted). Without confirmed, only return targets."""
+    found = []
+    for request_id in ids:
+        for record in unknown_records(root, request_id):
+            n = int(record.name.split(".")[0][1:])
+            if number is None or n == number:
+                found.append((request_id, n))
+    moved = []
+    stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
+    for request_id, n in found:
+        if not confirmed:
+            moved.append((request_id, n, None))
+            continue
+        folder = root / CANDIDATES_DIR / request_id
+        files = [p for p in folder.glob(f"r{n:03d}.*") if p.is_file()]
+        target = folder / "failed" / f"{stamp}-r{n:03d}"
+        target.mkdir(parents=True)  # Stop if a destination with the same name already exists.
+        for path in files:
+            path.replace(target / path.name)
+        write_json(target / "moved.json", {"action": "move-unknown", "request_id": request_id, "kind": "novelai", "number": n,
+                                           "files": [p.name for p in files], "moved_at": datetime.now().isoformat(timespec="seconds"),
+                                           "note": note})
+        moved.append((request_id, n, target))
+    return moved
 
 
 def load_adopted(root: Path) -> dict:
@@ -240,7 +380,8 @@ def parse_value(raw: str) -> str:
 
 
 def read_variables(root: Path) -> dict[str, tuple[str, str]]:
-    """Read only the three permitted variable types; never expand or display API keys or other settings."""
+    """Read only the three permitted variable types from environment variables and .env.novelai; never expand or display API keys or other settings."""
+    check_legacy(root)
     found: dict[str, list[tuple[str, str]]] = {}
     for name, value in os.environ.items():
         if VAR_NAME.fullmatch(name):
@@ -253,7 +394,7 @@ def read_variables(root: Path) -> dict[str, tuple[str, str]]:
             match = VAR_ASSIGNMENT.match(line)
             if match:
                 found.setdefault(match.group(1), []).append((parse_value(match.group(2)), relative))
-    duplicated = [f"{n}（{'・'.join(s for _, s in v)}）" for n, v in found.items() if len(v) > 1]
+    duplicated = [f"{n} ({' / '.join(s for _, s in v)})" for n, v in found.items() if len(v) > 1]
     if duplicated:
         raise BatchError("Duplicate variable locations; keep one location: " + ", ".join(duplicated))
     return {name: values[0] for name, values in found.items()}
@@ -266,7 +407,7 @@ def expand(value, variables: dict[str, tuple[str, str]], used: set[str]):
             if not VAR_NAME.fullmatch(name):
                 raise BatchError(f"Invalid variable: ${{{name}}}. Variable names must start with {VAR_HELP}.")
             if name not in variables:
-                raise BatchError(f"Variable {name} not found in .env or other sources. Check with vars.")
+                raise BatchError(f"Variable {name} not found in {VAR_FILE} or other sources. Check with vars.")
             used.add(name)
             return variables[name][0]
         return PLACEHOLDER.sub(replace, value)
@@ -290,12 +431,12 @@ def env_set(root: Path, name: str, value: str) -> str:
         raise BatchError("The value must be a single line.")
     if '"' in value and "'" in value:
         raise BatchError("A value cannot contain both ' and \".")
-    elsewhere = [s for n, (_, s) in read_variables(root).items() if n == name and s != ".env"]
+    elsewhere = [s for n, (_, s) in read_variables(root).items() if n == name and s != VAR_FILE]
     if elsewhere:
         raise BatchError(f"{name} exists in {elsewhere[0]}. Edit it there or remove the duplicate.")
     quote = "'" if '"' in value else '"'
     new_line = f"{name}={quote}{value}{quote}"
-    path = api.project_path(root, ".env")
+    path = api.project_path(root, VAR_FILE)
     lines = path.read_text(encoding="utf-8-sig").splitlines() if path.is_file() else []
     pattern = re.compile(r"^\s*(?:export\s+)?" + re.escape(name) + r"\s*=")
     replaced = False
@@ -305,7 +446,7 @@ def env_set(root: Path, name: str, value: str) -> str:
             replaced = True
     if not replaced:
         lines.append(new_line)
-    temporary = path.with_suffix(".tmp")
+    temporary = path.with_name(path.name + ".tmp")
     temporary.write_text("\n".join(lines) + "\n", encoding="utf-8")
     temporary.replace(path)
     return "updated" if replaced else "added"
@@ -351,7 +492,9 @@ def generate(root: Path, args) -> None:
     plan = []
     warned = []
     cameras: dict[int | None, list[tuple[str, str | None]]] = {}
-    characters = load_characters(root)
+    characters = load_characters(root) if identity_check_enabled(root) else None
+    if characters is not None:
+        print("Identifying-feature check: enabled (NOVELAI_CHECK_IDENTITY)")
     for request_id in ids:
         request, used = resolved_request(root, request_id, variables)
         notes = lint_prompt(request) + lint_identity(request_id, request, characters)
@@ -579,7 +722,7 @@ def build(root: Path, page: int, write_psd: bool) -> Path:
           f" / typesetting checks: {report['summary']['error']} errors, {report['summary']['warning']} warnings")
     print(f"  Review (with artwork): {rel(root, review['display'])}; annotated: {rel(root, review['check_overlay'])} (do not publish)")
     for name, messages in notes.items():
-        print(f"  [Placement] {name}: {'・'.join(messages)}")
+        print(f"  [Placement] {name}: {' / '.join(messages)}")
     for issue in report["issues"]:
         if issue["level"] == "error":
             print(f"  [error] {issue['code']} {issue['target']}: {issue['message_ja']}")
@@ -603,11 +746,13 @@ def main(argv=None) -> int:
     listing.add_argument("--page", type=int, action="append")
     show = commands.add_parser("vars", help="List character, style, and background variables")
     show.add_argument("--show-values", action="store_true", help="Also display values (prompt text)")
-    setter = commands.add_parser("env-set", help="Write a character, style, or background variable to .env")
+    setter = commands.add_parser("env-set", help="Write a character, style, or background variable to .env.novelai")
     setter.add_argument("name")
     group = setter.add_mutually_exclusive_group(required=True)
     group.add_argument("--value")
     group.add_argument("--value-file", help="UTF-8 text file containing the value (project-relative path)")
+    migrate = commands.add_parser("env-migrate", help="Move variables and auxiliary settings from .env or .secrets in earlier versions to .env.novelai")
+    migrate.add_argument("--dry-run", action="store_true", help="Display variable names to move without modifying files")
     templ = commands.add_parser("templatize", help="Replace variable values in request JSON with ${VARIABLE_NAME}")
     templ.add_argument("name")
     templ.add_argument("--dry-run", action="store_true")
@@ -637,6 +782,15 @@ def main(argv=None) -> int:
     target.add_argument("--ids", type=lambda s: [v for v in s.split(",") if v], help="Comma-separated request IDs")
     target.add_argument("--all", action="store_true", help="Requests for all pages (p01-... format)")
     latest.add_argument("--dry-run", action="store_true", help="Show the targets without changing the selection record")
+    unknown = commands.add_parser("move-unknown", help="Move execution records with unknown results to failed/ (displays targets by default)")
+    target = unknown.add_mutually_exclusive_group(required=True)
+    target.add_argument("--page", type=int, action="append", help="Page number; repeatable")
+    target.add_argument("--ids", type=lambda s: [v for v in s.split(",") if v], help="Comma-separated request IDs")
+    target.add_argument("--all", action="store_true", help="All requests with candidate folders")
+    unknown.add_argument("--candidate", type=int, help="Record number (3 for r003.novelai.json). If omitted, all unknown records for the targets")
+    unknown.add_argument("--confirm-checked", action="store_true",
+                         help="Verified NovelAI image history and Anlas consumption, confirming no image was produced (or it is unneeded)")
+    unknown.add_argument("--note", default="", help="Verification notes (saved in moved.json)")
     make = commands.add_parser("build", help="Rebuild page PNG (PSD if requested)")
     make.add_argument("--page", type=int, action="append")
     make.add_argument("--all", action="store_true")
@@ -657,12 +811,18 @@ def main(argv=None) -> int:
         elif args.command == "vars":
             variables = read_variables(root)
             if not variables:
-                print("No character, style, or background prompt variables (NOVELAI_CHAR_, NOVELAI_STYLE_, NOVELAI_BACKGROUND_).")
+                print(f"No character, style, or background prompt variables (NOVELAI_CHAR_, NOVELAI_STYLE_, NOVELAI_BACKGROUND_ in {VAR_FILE}).")
             for name, (value, source) in sorted(variables.items()):
                 print(f"{name} ({source}, {len(value)} characters)" + (f": {value}" if args.show_values else ""))
         elif args.command == "env-set":
             value = args.value if args.value is not None else api.project_path(root, args.value_file).read_text(encoding="utf-8-sig").strip()
-            print(f"{args.name} {env_set(root, args.name, value)} in .env (other lines unchanged).")
+            print(f"{args.name} {env_set(root, args.name, value)} in {VAR_FILE} (other lines unchanged).")
+        elif args.command == "env-migrate":
+            moved = env_migrate(root, args.dry_run)
+            for relative, name in moved:
+                print(f"{name}: {relative} → {VAR_FILE}" + (" (check only)" if args.dry_run else ""))
+            print(f"No lines to migrate. Variables and auxiliary settings are in {VAR_FILE}." if not moved else
+                  "API keys and other lines were preserved in their original files (values not displayed).")
         elif args.command == "templatize":
             result = templatize(root, args.name, args.dry_run)
             for request_id, count in result.items():
@@ -681,6 +841,18 @@ def main(argv=None) -> int:
             chosen = adopt_latest(root, ids, args.dry_run)
             for request_id, path in chosen.items():
                 print(f"{request_id}: {rel(root, path)}" + (" (check only)" if args.dry_run else " selected."))
+        elif args.command == "move-unknown":
+            if args.ids == []:
+                raise BatchError("Specify request IDs with --ids.")
+            ids = candidate_ids(root, args.page, args.ids, args.all)
+            moved = move_unknown(root, ids, args.candidate, args.confirm_checked, args.note)
+            for request_id, number, target in moved:
+                print(f"{request_id}: r{number:03d}.novelai.json" + (f" → {rel(root, target)}" if target else " (unknown result; check only)"))
+            if not moved:
+                print("No execution records with unknown results.")
+            elif not args.confirm_checked:
+                print("Check NovelAI image history and Anlas consumption. If no image was produced (or it is unneeded), pass --confirm-checked"
+                      " to move the record to failed/. If an image was produced, save it in the same folder as rNNN.png without moving the record.")
         elif args.command == "build":
             pages = pages_from_manifests(root) if args.all else (args.page or [])
             if not pages:

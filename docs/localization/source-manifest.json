@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "sourceCommit": "b7a06f740da679a407b40cdc388d63a0b9a62126",
-  "sourceVersion": "0.5.0",
-  "capturedOn": "2026-10-05",
+  "sourceCommit": "ad50dd0debb68b7706e12ce3d3270a0a26cc3277",
+  "sourceVersion": "0.5.4",
+  "capturedOn": "2026-10-26",
   "files": [
     {
       "path": ".gitattributes",
@@ -11,13 +11,13 @@
     },
     {
       "path": ".gitignore",
-      "sha256": "411a037bdd80e6ad9c2b5f62a2efd8ecab9816c86e68601eba704d253f9cd583",
-      "bytes": 5215
+      "sha256": "b78f6480b08723403a2e69d59154cfb1a0c007869fc3419c2ce2f3d6238a6ce7",
+      "bytes": 5524
     },
     {
       "path": "AGENTS.md",
-      "sha256": "33aad63c302f51e3f82b8b396d2c4c3a87234b7203f630b3e61ddf0dd5169aed",
-      "bytes": 12268
+      "sha256": "443f061ca4e5045f9401b0c6e4269e21c0dd048e8dd47b0fa7748eb76ffdc782",
+      "bytes": 12599
     },
     {
       "path": "CLAUDE.md",
@@ -31,18 +31,18 @@
     },
     {
       "path": "README.md",
-      "sha256": "c8345839e236ef236a970a62f733ee2b5c65a68389aa360111432c93b5abc89c",
-      "bytes": 31096
+      "sha256": "715aaf00cdc81ae7412053adae399a89b61e2b2279f6cc6a2a9da3093657c04c",
+      "bytes": 63744
     },
     {
       "path": "distribution-version.txt",
-      "sha256": "c2f2fc398169dfaf4b6a16077a5938b7361aefac1143f532b17ea18c3229cf3a",
+      "sha256": "49cadbd22a7847e96f98304b09905ec1acbd209c34c7542f3f2d43eec96535b7",
       "bytes": 7
     },
     {
       "path": "docs/README.md",
-      "sha256": "1afc2ed21320002db71fcd50d7a4da658cf6b6a5cdeb972f2cad2ee2c2bf7667",
-      "bytes": 3027
+      "sha256": "5190d845454fd8c1717fe98bb93b3e45f4f6591703a657c4833ace46a212ffd5",
+      "bytes": 6379
     },
     {
       "path": "docs/RIGHTS.md",
@@ -56,13 +56,13 @@
     },
     {
       "path": "docs/architecture.md",
-      "sha256": "c14b90d7057f8843cc9e748f778d6ca81f59c45649e0b780e40e68f8fe8457be",
-      "bytes": 17707
+      "sha256": "8daea4912bf6c169021a167811ad57f784d752a8403e0504cfe62a7b37b4145e",
+      "bytes": 21940
     },
     {
       "path": "docs/knowledge/ai-production.md",
-      "sha256": "91891945e58fdbe0ea5729491cf155fc692d1277a0849d8516ec513954c5f128",
-      "bytes": 25023
+      "sha256": "c25881d1b6a483cc147c541d3523f5f7d6deb063dedf5dd27f567221f926c53b",
+      "bytes": 26602
     },
     {
       "path": "docs/knowledge/codex-operation.md",
@@ -166,8 +166,8 @@
     },
     {
       "path": "docs/knowledge/novelai-api.md",
-      "sha256": "8c2232ba971509855f28ec8e97fe580804568922c44218d6ec9b0d0da0a34b4b",
-      "bytes": 17432
+      "sha256": "510a946caca6bb988b8dd301aedd5f9756437b02adef8df6e3a14c528ecbf10a",
+      "bytes": 25939
     },
     {
       "path": "docs/knowledge/optional-skills.md",
@@ -183,6 +183,11 @@
       "path": "docs/knowledge/panel-layout-policy.md",
       "sha256": "9ec65b580b774137f5df038df6cfee434d5093a1e50a06ef2499b75515b1117f",
       "bytes": 7710
+    },
+    {
+      "path": "docs/knowledge/pixai-api.md",
+      "sha256": "503481f5d9b8c8c6409b6c5f195e76523055208d6e68e65597c5f9e2293f2785",
+      "bytes": 33095
     },
     {
       "path": "docs/knowledge/process-checker.md",
@@ -346,8 +351,8 @@
     },
     {
       "path": "docs/publication.md",
-      "sha256": "254a82e0d38581125a90889d989d01912c5522c319a08b93fff775def029a64a",
-      "bytes": 8825
+      "sha256": "9744d20f553f652d14b6ad2af5c6f16059bc2afb7394966890f2bd24634cdd68",
+      "bytes": 8997
     },
     {
       "path": "examples/01/characters.png",
@@ -531,93 +536,358 @@
     },
     {
       "path": "resources/novelai-style-samples/catalog.json",
-      "sha256": "0672fe2f76569b1d968df493f57324784fa030190c071b303016125f34d7ce1b",
-      "bytes": 11468
+      "sha256": "06c5903c305023e681b226f249dc46151b139c2ddcefbd46eac3e38850820cfd",
+      "bytes": 24063
     },
     {
       "path": "resources/novelai-style-samples/index.html",
-      "sha256": "bb78aedd13260a9aa1630fb4e0c4fe76aef93de2e1a669d1b4eaec3306da5b82",
-      "bytes": 13035
+      "sha256": "5a86af84ad66988e332516f5e334c2de886339066ac45cbacac8af189f130ac4",
+      "bytes": 25347
     },
     {
       "path": "resources/novelai-style-samples/previews/style-01-school.webp",
-      "sha256": "66ba23b46ac32b9c2787f48287e7a12bcc85eec887714c6d9d5809840e7dbdc0",
-      "bytes": 131502
+      "sha256": "54d5ef5f3370c1c8684eb7734ddcf55c160f3bbe4dba483f459b8e93a7d1089b",
+      "bytes": 93928
     },
     {
       "path": "resources/novelai-style-samples/previews/style-01-street.webp",
-      "sha256": "c44b04bacc21a77357f1b9f679aaba9da0d14169d01586b79ad6f0f589184d58",
-      "bytes": 131700
+      "sha256": "458b8f36465b380d1a7792775ebeaff364d201c6603014215eeef9affb69a6ef",
+      "bytes": 119776
     },
     {
       "path": "resources/novelai-style-samples/previews/style-09-school.webp",
-      "sha256": "48077a8f66f45705f47b495a60039e1ddd217d7930e7b6a084df3aaf88f8c1f5",
-      "bytes": 133364
+      "sha256": "09ffcbb6174949f5f9b08049f8e1c4a3405f42c70eb77b331f378b7b6cedff59",
+      "bytes": 93698
     },
     {
       "path": "resources/novelai-style-samples/previews/style-09-street.webp",
-      "sha256": "a9c64483fc2eb1da34cdd380c08bb387e1b3f7d4b8b8afc0eb3a2281605154d3",
-      "bytes": 150676
+      "sha256": "7dd9a3d82c097dc22ca5d297cae0addb01e6385a0ca7aa2cdcc868269d5ca8ce",
+      "bytes": 109010
     },
     {
       "path": "resources/novelai-style-samples/previews/style-11-school.webp",
-      "sha256": "06c821b3730a4c563b9e6e525d32dab8f964a3e518d9502c98a4c2b7821155b1",
-      "bytes": 70860
+      "sha256": "386eebd8371e2512031d11c1fbec60445f9ef6eba1c43c2cbdcd827991b3d190",
+      "bytes": 68278
     },
     {
       "path": "resources/novelai-style-samples/previews/style-11-street.webp",
-      "sha256": "c8ec6dcd9afd876e486b65ca705c956431e715cdaa07c1ff2b04d24c2959fb07",
-      "bytes": 80890
+      "sha256": "971b470566ac03767474c8dca87638d75b86daef1f1ee3dc81b35c2770f4bcac",
+      "bytes": 65166
     },
     {
       "path": "resources/novelai-style-samples/previews/style-12-school.webp",
-      "sha256": "6cd6baf160904368aedf4e85ecb34f750eded2a70329ebf2daaff8bb77e2e6cd",
-      "bytes": 126680
+      "sha256": "9701d178eb2776424750b1454507b507a82ef3456b242bd2aea8589668f3fe26",
+      "bytes": 91390
     },
     {
       "path": "resources/novelai-style-samples/previews/style-12-street.webp",
-      "sha256": "9e7e1a242b1cffc2e1273c272466600f3165e550fecc7bc724b7c1378505d60b",
-      "bytes": 146074
+      "sha256": "6f0bbb29c2d9634a6aeef3db91116947980fb0577e17d7e898b9838fec26698c",
+      "bytes": 83622
     },
     {
       "path": "resources/novelai-style-samples/previews/style-15-school.webp",
-      "sha256": "b59811c8a72da8c7f0a2b7cc7094c82d52d47ad2b478bc57da20988e8da937b4",
-      "bytes": 170976
+      "sha256": "66ace703e306438b75627ec69c5fe1cd0e8a91abc0632a8f131ac5897b6abfc2",
+      "bytes": 138424
     },
     {
       "path": "resources/novelai-style-samples/previews/style-15-street.webp",
-      "sha256": "d02df1f4d0ad5fb1ca26c4d0aea8cb279192012d9174517423cd565a0390cb56",
-      "bytes": 171072
+      "sha256": "529789372380ea26f1474db3f555d78975b61bbfcea47a162362ac627e558e92",
+      "bytes": 146412
     },
     {
       "path": "resources/novelai-style-samples/previews/style-17-school.webp",
-      "sha256": "f1acaa22211d66db4e39caf54e619b107b98e797675e1803e4dc18cc35e6acf8",
-      "bytes": 148548
+      "sha256": "14a9cca4fb616c6f190da3e2a372cf3c2d7e5ffa9eacf50bed78392d3079dc49",
+      "bytes": 107892
     },
     {
       "path": "resources/novelai-style-samples/previews/style-17-street.webp",
-      "sha256": "ac85c55244bc5522dd16b76d20b19b8759940486cd0e56484cbc81c100423ff6",
-      "bytes": 156164
+      "sha256": "74fed0b1595ce5642977f8601499966ef271f78779625119fc0577a23862a28e",
+      "bytes": 104414
     },
     {
       "path": "resources/novelai-style-samples/previews/style-21-two-girls.webp",
-      "sha256": "33b8e17d8aa0520e7f14d0c324073b537371de9535e2305a59d0690a8fc73e11",
-      "bytes": 94226
+      "sha256": "722b54db12a5701f4f738b6f8f0762799fc35858111b24ceb56d69f71ef5247f",
+      "bytes": 118986
     },
     {
       "path": "resources/novelai-style-samples/previews/style-22-two-girls.webp",
-      "sha256": "471e4319116d08e7893a608e301d221f81a5b650d93349dd313d53bffd50a940",
-      "bytes": 73086
+      "sha256": "e022804758d504843b634325099277f281e956b5468cb5eacb28445dc7d30d07",
+      "bytes": 52904
     },
     {
       "path": "resources/novelai-style-samples/previews/style-24-two-girls.webp",
-      "sha256": "12e6f73a6f04a6fcb8ce7c668eea31282c1cc31c38d5be5f70dad86b252bf685",
-      "bytes": 62940
+      "sha256": "ec17db84175d34a74cf88cfd8e4b2cddf7dd6da5dbd0766a9abebf2cd715ad62",
+      "bytes": 39054
     },
     {
       "path": "resources/novelai-style-samples/previews/style-25-two-girls.webp",
-      "sha256": "d098789aefa218ef7234734b018b0ea10153837cab150d4dbf608f50ab47f4a9",
-      "bytes": 69732
+      "sha256": "89efc74249c75f2508094097ff4d2c09f296defea85838938dc4d638cda9a6ef",
+      "bytes": 100852
+    },
+    {
+      "path": "resources/novelai-style-samples/previews/style-26-two-girls.webp",
+      "sha256": "1a102804bae615cced4ac080202e3fccc998492379adf0d4228f769adb0355f4",
+      "bytes": 118868
+    },
+    {
+      "path": "resources/pixai-model-samples/catalog.json",
+      "sha256": "d6a3bbdefd547dae462f5824f6f3da0f6ed586d4a7f168825da7ba32e6da7687",
+      "bytes": 46937
+    },
+    {
+      "path": "resources/pixai-model-samples/index.html",
+      "sha256": "62cab91812c31311e92f219d7bfd1cc5e8e3bbcb0a9120c616ab67fe1c43cb8a",
+      "bytes": 44882
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/crystalize.jpg",
+      "sha256": "5975b937baa4284deeaa3f2ec6de49d16c87bab324cc1c5758c1e8b4ffd3e3b3",
+      "bytes": 113162
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/eternal.jpg",
+      "sha256": "64e9cf93ffd511ee80d00ef046c9b943e798cc252992e59ec388c7680ee9d8b7",
+      "bytes": 137765
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/haruka.jpg",
+      "sha256": "6515057b6af1206176a9e21493b5a9a1e672921a3a9547c9b90ba35a648ad6bb",
+      "bytes": 79667
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/haruka2.jpg",
+      "sha256": "ae9ad3fae391eff7f62ee84fcfed8139c58c1df321177e34f39bf67b8eeeb7bb",
+      "bytes": 101940
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/hinata2.jpg",
+      "sha256": "5d159bc024d7f97c3197b57d397a335816c7fcb3cdac8cb87a0630cce3467d3b",
+      "bytes": 74442
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/hoshino2.jpg",
+      "sha256": "5257550be29b1b5f098f7905d0592a2d4d6e94fb327717f5cbfd5b1ae9ed8412",
+      "bytes": 84196
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/nagi.jpg",
+      "sha256": "b3c069de1ab70df0e4c5309f3f92963b560e3600526629bfc0cd53c3dd1f51e9",
+      "bytes": 153266
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/otome2.jpg",
+      "sha256": "6140db5d566e2aa90bf30a963941e72a84417c024cf179f19d99c9dc6a2e97d3",
+      "bytes": 91514
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/serin.jpg",
+      "sha256": "f1d84c99fec0472a38b60b2a825540994b8b3558a04387cc7cdefe08c6207e5c",
+      "bytes": 75912
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-anime-watercolor-impasto.jpg",
+      "sha256": "83b1e4fad78edbd28a298fc09a9442835f35c37407ee4e003c1eb930c3443807",
+      "bytes": 86456
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-art-crayon.jpg",
+      "sha256": "afee2b779f44d1e5f73cdabaea46472229c458e2afe412d972b58deb6573d0ae",
+      "bytes": 94193
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-bold-line-soft-color.jpg",
+      "sha256": "b6716f996e05c8ea96013e80d36f4df0f506a8052305bc7c8b6b0e4730c80d0b",
+      "bytes": 91185
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-chibi.jpg",
+      "sha256": "00c4e6b1eff24693a563699f1ab88a70dc27f7d4964a4405e69359cafaec7a92",
+      "bytes": 144984
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-classic-japanese.jpg",
+      "sha256": "0746d8b3a3638ccb023a075cac782881769ef6e567b26f8b43a878e936379527",
+      "bytes": 105968
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-clean-flat-illustration.jpg",
+      "sha256": "603797accba2d1610546743cdc99100a8ec72e3748206bdb75e16c28c03b86a5",
+      "bytes": 122823
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-colored-pencil-grain.jpg",
+      "sha256": "7833466f37284e12d689ead65b5528a1f3f6bb0e04c26255f38cbcdd91562a0f",
+      "bytes": 114538
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-cool-warm-oil-contrast.jpg",
+      "sha256": "c98b472672285baac0af36e817cc6225a24bb2aa1d3a4cdf6732c40e07dcf99d",
+      "bytes": 114928
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-desaturated-cool.jpg",
+      "sha256": "cebf4720ec857626552343cdd178b345164583d8fb701872c60e1cdf4d57a326",
+      "bytes": 116675
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-flat-anime-pastel.jpg",
+      "sha256": "39a7d53659bb1c1faa7b37fd476de812a85b9f756fa4efc37ee45e3e02366a4a",
+      "bytes": 84985
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-glossy-glass-anime.jpg",
+      "sha256": "51399276787b049dc261affb51fcf0a190a796e2b439f1d9a6a59d9c4de651f2",
+      "bytes": 131110
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-grey-blocks-lineless.jpg",
+      "sha256": "e3b60646c2d3b684725bf4a30047e77d07511e6ccf934631854c1611fd3c38cb",
+      "bytes": 87813
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-hard-line-monochrome-accent.jpg",
+      "sha256": "e0503e7ce3386996e4a46f1e6ab4170d9e92efd1c5016318a5dfa8ca2ea42f28",
+      "bytes": 145518
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-high-contrast-retro-vivid.jpg",
+      "sha256": "9a6a1b874d128d5ae9f6a18f2420bbf48e550ec77f1639ef5b7d2106e38f2206",
+      "bytes": 152058
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-holographic.jpg",
+      "sha256": "f744f3bf6af3b255743a536659a8dc3897898bbcfacc7beea3a855f688ab7594",
+      "bytes": 143419
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-korean-style.jpg",
+      "sha256": "038aed6f65b434c49bbb75477470aee1147cf5c68c06fe888050e1d52bcc0953",
+      "bytes": 95586
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-lineart-watercolor-airy.jpg",
+      "sha256": "e1d0d45d8254420be8c2705b3a37f359148c3efeef8b6d1e80b96ce8b272e609",
+      "bytes": 106733
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-low-saturation-expressive-eyes.jpg",
+      "sha256": "d356c93fc9149596a8c3dc68783a7b5b20dfb1203d7742bd7419b54626ef5248",
+      "bytes": 107690
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-lucid-dreamy.jpg",
+      "sha256": "55b73dc20185f62ad7d0068bc88f0731a54f287118e8fcc45c4e3e8f7f20f8d7",
+      "bytes": 97591
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-luminous-retro-impasto.jpg",
+      "sha256": "7886f2f752bb8ded441ea976b95156e4a3641b0eb24eaaa8a14caee83351bb91",
+      "bytes": 97818
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-minimal-flat-color.jpg",
+      "sha256": "68b4265411750b9fe43066d8ba27b9a3e827d796273ba30c89812cdce81a2744",
+      "bytes": 107807
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-modern-oil-glamour.jpg",
+      "sha256": "7a3eff91507b35b04fc0c681ffb3aca3946de7a590570b426f50e3292f99af32",
+      "bytes": 104422
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-moe-pastel.jpg",
+      "sha256": "19736db44391c1564278f712d15b0b22743aac521868965588ffff9cbd5ddd26",
+      "bytes": 86808
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-oil-watercolor-blend.jpg",
+      "sha256": "7d458460148fb9fed39fa7a00d9961fab57e8adb5912d86b7b2d21dd25f4d656",
+      "bytes": 103945
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-painterly-doodle.jpg",
+      "sha256": "ca14920f1db339e0af14689066080e601cfbf9fb483c86c47523c011bd4c43bd",
+      "bytes": 138338
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-paper-watercolor.jpg",
+      "sha256": "8dcad851fff0ad32605e7e4e0884620b3036a67f493e060b38f09b752254dd6a",
+      "bytes": 128291
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-pencil-sketch.jpg",
+      "sha256": "e563fd150c55f222fa069e3c58882b9f9ba85acce5785345f57409f1286757ce",
+      "bytes": 110805
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-poster-graffiti.jpg",
+      "sha256": "ca0acd608688032f731f245e96271d57236626e09b9535536a16a7b353e070c8",
+      "bytes": 187183
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-retro-comic-fusion.jpg",
+      "sha256": "ed859366f82e46f74aaf93a5d8972882199237a47e94f177e06882755f862e11",
+      "bytes": 139569
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-retro-oil-glamour.jpg",
+      "sha256": "d6249f592f259d0b8ab1bcf4e9d4cca72d65912ea1f2db35178998a5db7bf24e",
+      "bytes": 115318
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-retro-tv-anime.jpg",
+      "sha256": "736c3e90fc94a0e04b8c6e1515afd4a79c99bfaac8b0b8fd1951cf25ea4a00bc",
+      "bytes": 122157
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-semi-realistic.jpg",
+      "sha256": "2aeec541acb68a4e2774f59ee5bc6fa55423a43815883d53abd91985e694fd88",
+      "bytes": 100133
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-stable-vaporwave.jpg",
+      "sha256": "82807264bb7f6eafb5792d2bde09de36b58fac5bb00e88bf839defbdae13068e",
+      "bytes": 147772
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-tinted-sketch.jpg",
+      "sha256": "ada1cc923f71c66e619ef69c730222da7a746ffe71c2d938ffed79f47687dbe7",
+      "bytes": 149332
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/style-vintage-collage.jpg",
+      "sha256": "f0554b2bbf2f507fd195e71ac69f2c92d0b9dd56014977812ca734a60c0d3d4a",
+      "bytes": 141732
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/tsubaki-flash.jpg",
+      "sha256": "c92af97ecf7e8861da0d3fde3dd29fe59933d48b421a74372383b4d7b1a58a48",
+      "bytes": 141041
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/tsubaki-v1-1.jpg",
+      "sha256": "41e7f1e9ad9c581b51babb18d90347fae03a77aa11449068fbaa91d88087d877",
+      "bytes": 81357
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/tsubaki.jpg",
+      "sha256": "5d8740882a9a68ae6c2e2f622aa50d443cd3a52d10f8b8d25c494df09319fcb1",
+      "bytes": 77588
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/tsubaki2.jpg",
+      "sha256": "1b8bcdb9790f2c332a4f910b88f5e1790816671cc9af3cbeefe0eb2de0588624",
+      "bytes": 108185
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/tsubaki3-flash.jpg",
+      "sha256": "fafe18bb0a0cc2788722af575a2fe164fe74b6a5d1eda1de55aace4fad3e9fbb",
+      "bytes": 82555
+    },
+    {
+      "path": "resources/pixai-model-samples/previews/tsubaki3.jpg",
+      "sha256": "52d8ed495539085ef4a54e765428b4cedd364bf16d1982f49a57988e60bd261f",
+      "bytes": 81541
     },
     {
       "path": "scripts/Initialize-OptionalSkills.ps1",
@@ -631,8 +901,8 @@
     },
     {
       "path": "scripts/New-MangaProject.ps1",
-      "sha256": "4b8b35195426c50976077fa1844a6b0dccde5355b6fc4ec672196fc55278b394",
-      "bytes": 17759
+      "sha256": "91a4f6af8cacdcb52bb6aec88086b9fe033d5c381e95ab5c01adb6096105bad6",
+      "bytes": 17864
     },
     {
       "path": "scripts/New-MangaProject.sh",
@@ -666,8 +936,8 @@
     },
     {
       "path": "scripts/new_manga_project.py",
-      "sha256": "057d28a67e1951b957b870384f3a1f92fc175445d7f069205a8eccdeb43df2e1",
-      "bytes": 13427
+      "sha256": "9a63bcc929d428e5b3516c8d9e4764ec7be203bdd719d1b67edb18b31dba8c3d",
+      "bytes": 13560
     },
     {
       "path": "scripts/prepare_page_layout.py",
@@ -681,8 +951,8 @@
     },
     {
       "path": "scripts/public_release.py",
-      "sha256": "5ae8ad94db9725aece402654066b988ae304f16aff14a466aea19f03cd569a67",
-      "bytes": 19515
+      "sha256": "3f1516386b70e44ee356eefb6ff16a64727a2732e01f58502e35737d95e1001e",
+      "bytes": 19902
     },
     {
       "path": "scripts/render_panel_templates.cjs",
@@ -731,8 +1001,8 @@
     },
     {
       "path": "skills/manga-ai-production/SKILL.md",
-      "sha256": "ccb5b5efd1c61bd0871a2bf07c6936ae200eca6e5e11553e824db26301437465",
-      "bytes": 8909
+      "sha256": "009d62f83b72ec760f85ab2b34e82cc1bf9df91e1dffe48d4f710a3af549000c",
+      "bytes": 13351
     },
     {
       "path": "skills/manga-cinema-review/SKILL.md",
@@ -780,19 +1050,59 @@
       "bytes": 4710
     },
     {
+      "path": "skills/novelai-batch-webui/SKILL.md",
+      "sha256": "618975b9e9e43aa0f95059520a1bce4ac01d73cd99ea70a42bbb44527ff78384",
+      "bytes": 12182
+    },
+    {
+      "path": "skills/novelai-batch-webui/lora_apply.py",
+      "sha256": "1953e188eaaa59c6f5a95a3149d43a92d1559c72cd575efc8ce3edd5a3ecb799",
+      "bytes": 3082
+    },
+    {
+      "path": "skills/novelai-batch-webui/lora_run.py",
+      "sha256": "7d446115eb8f96cc2d84c7150a380ba74ca23183371b5aaa234680e78bd661e9",
+      "bytes": 7849
+    },
+    {
+      "path": "skills/novelai-batch-webui/novelai_webui.py",
+      "sha256": "5b70f6bcc2b7f4fdcc15f20bf33f1213b88a8a8a93e54a3f5cd3343c6ecd3224",
+      "bytes": 73260
+    },
+    {
+      "path": "skills/pixai-batch-webui/SKILL.md",
+      "sha256": "0f0848c765dbd69d9a0af6d421ed92737623d745ff043dd07c49d7221f0b7802",
+      "bytes": 10024
+    },
+    {
+      "path": "skills/pixai-batch-webui/pixai_webui.py",
+      "sha256": "f51fbd68eca513d6fa3cc379950ad20b1095bb81210aa793e715af28d203b4cc",
+      "bytes": 72072
+    },
+    {
       "path": "templates/manga-project/.env.example",
-      "sha256": "ecec2afed542e2e7d09cf46c7fff53cab724614add2fb795617208c3dcd45bd2",
-      "bytes": 1354
+      "sha256": "c9e0272388dc6ee9397fc7ad243fd5937ffd06e10d329630cda4bf3e6f33e4ea",
+      "bytes": 1519
+    },
+    {
+      "path": "templates/manga-project/.env.novelai.example",
+      "sha256": "1d5951bdc24628a1e586afa44ede8f70be535a6c8ad5afffa110f7e34ddd6a56",
+      "bytes": 1393
+    },
+    {
+      "path": "templates/manga-project/.env.pixai.example",
+      "sha256": "12e769a1fd34b1931f34b1285a1b4fd0d746b38113b8f52111f90b41cad78a84",
+      "bytes": 1566
     },
     {
       "path": "templates/manga-project/.gitignore",
-      "sha256": "d8334fba2200424f5db3e121dd75b31f4ebe47c7e85dfe1900d191aa3a0272fa",
-      "bytes": 267
+      "sha256": "e36d0e7614d29b603a469bbec5f66a29fe87ba654a46d7ae288c532cd95fba53",
+      "bytes": 311
     },
     {
       "path": "templates/manga-project/AGENTS.md",
-      "sha256": "53a15df17410b37977cfa7354d627caaefb04e3bdb779bc5184b208a98a14c05",
-      "bytes": 17699
+      "sha256": "6185c63ef5a1e6895ac2d2cf5e799b85566ac0281b34088c30ff3e35ed872ca4",
+      "bytes": 21005
     },
     {
       "path": "templates/manga-project/OPTION.md",
@@ -806,8 +1116,8 @@
     },
     {
       "path": "templates/manga-project/README.md",
-      "sha256": "2478e6aeff62217e63beba135de7cd2331143ca61e6fc03d3658335d6e6134b2",
-      "bytes": 6249
+      "sha256": "1e21f9c3732032524c4fc2899cd5e4d19cc9ff2a94fb7d28020b683f83538268",
+      "bytes": 9607
     },
     {
       "path": "templates/manga-project/agent-modes/antigravity/AGENT-MODE.md",
@@ -841,8 +1151,8 @@
     },
     {
       "path": "templates/manga-project/config/novelai-style-presets.json",
-      "sha256": "785c7114907c26db7159ced47a9ccff25c258b296090fd9cb8fedf18a7b2fa8d",
-      "bytes": 4827
+      "sha256": "2a4056164d73cf80951f0c61dee184d627ee73e2d6c4f3b45ec73c4b69ee9077",
+      "bytes": 5536
     },
     {
       "path": "templates/manga-project/config/optional-skills.json",
@@ -858,6 +1168,21 @@
       "path": "templates/manga-project/config/panel-layout-policy.json",
       "sha256": "527ffce42715e8055866fe2c5327a128b5a9dfdf5e60c07b833de2bf58bda40f",
       "bytes": 2749
+    },
+    {
+      "path": "templates/manga-project/config/pixai-models.json",
+      "sha256": "5ab5650bb87091b689af3eba081d32d420780310bf28c5bce77b43c32169db5f",
+      "bytes": 8513
+    },
+    {
+      "path": "templates/manga-project/config/pixai-production-policy.json",
+      "sha256": "170cf9b0f4b62fa4479e8c57381b0a215aa3a281d3824eac3e66bfef12a50b39",
+      "bytes": 3727
+    },
+    {
+      "path": "templates/manga-project/config/pixai-request.example.json",
+      "sha256": "d9b234b2ad8f392c5ba1873d0d3c1c0849338d8adf1172c84b007b965d9a8998",
+      "bytes": 315
     },
     {
       "path": "templates/manga-project/config/process-requirements.json",
@@ -886,8 +1211,8 @@
     },
     {
       "path": "templates/manga-project/docs/SETUP.md",
-      "sha256": "9cc29cca8d2e419140bd4446fdf93748a141da8c7037d6198a5a9a26f91c0240",
-      "bytes": 5714
+      "sha256": "2ee47f57b36d5bdea98f94b09eaf7c953f4d184f2c5b1e88ee1f054d7d01b89d",
+      "bytes": 14896
     },
     {
       "path": "templates/manga-project/docs/experiments/TEMPLATE.md",
@@ -901,13 +1226,23 @@
     },
     {
       "path": "templates/manga-project/docs/knowledge/novelai-composed-production.md",
-      "sha256": "41dba01ea7fbaf840da4b0581a10f8b8167439e364d6be909b0ef8f2fc3b6fa2",
-      "bytes": 38025
+      "sha256": "bf510888d12924dd04099902f70bca0e4527bdfed4a4b69ed6a3c8e492c465fe",
+      "bytes": 50896
+    },
+    {
+      "path": "templates/manga-project/docs/knowledge/pixai-composed-production.md",
+      "sha256": "52c2d12c7638ccef41b9a48393b6aa97fd580935b0b04276aa3086339fff70b9",
+      "bytes": 41140
     },
     {
       "path": "templates/manga-project/docs/novelai-prompts/README.md",
-      "sha256": "b82f78a9ece109d2fefd320ba1e08c57eefe427a889f7788f1a40a8910a93627",
-      "bytes": 23807
+      "sha256": "26d27448e6461628edaf235751eacc4d067ebe4f8681f8975999ee82788fc7fb",
+      "bytes": 35690
+    },
+    {
+      "path": "templates/manga-project/docs/pixai-prompts/README.md",
+      "sha256": "bccc081402a577dc97a37b60ef0f8a918851d566f357e1f95ba028762d052057",
+      "bytes": 10428
     },
     {
       "path": "templates/manga-project/docs/production/DIALOGUE.md",
@@ -916,13 +1251,18 @@
     },
     {
       "path": "templates/manga-project/docs/production/NOVELAI-BATCH.md",
-      "sha256": "86e19c6655ac13cf5aac3835c938e3c2aef8a5681624190125d7b8258ebf1127",
-      "bytes": 3899
+      "sha256": "522b3edd7d968e98958f836a6e3892ed0e3013faab29add7c298e63f0d63286d",
+      "bytes": 4898
     },
     {
       "path": "templates/manga-project/docs/production/PANEL-LAYOUT-POLICY.md",
       "sha256": "2a0aba9804d3ad722d0debdae4c2aad2fca22a502306e40dbd1bf9af9cfcbaf1",
       "bytes": 12244
+    },
+    {
+      "path": "templates/manga-project/docs/production/PIXAI-BATCH.md",
+      "sha256": "9a77a62966de1ed93f38b322d0d787e6f4c8cb425c49c6295670c4ec61b57105",
+      "bytes": 3598
     },
     {
       "path": "templates/manga-project/docs/production/PSD-HANDOFF.md",
@@ -981,13 +1321,48 @@
     },
     {
       "path": "templates/manga-project/scripts/novelai_api.py",
-      "sha256": "4473d7a20f613770d7bb3dfa2fc81eeda852d2e61cbee00e4fdd71736aec92ce",
-      "bytes": 25502
+      "sha256": "0ea51790a5f9d39cde38e7df257ec56619dc22a7266b9cc71e74eb7a34d2be40",
+      "bytes": 31101
     },
     {
       "path": "templates/manga-project/scripts/novelai_batch.py",
-      "sha256": "7e29d0f519083c9cdc32a4ee77710c9bbcacb6b47433b456d0caf6776db5ab54",
-      "bytes": 38001
+      "sha256": "79c3bf6be265acf681ea30f018088a92a249b30d88184e7b0c9a3a4b9384e3b5",
+      "bytes": 49082
+    },
+    {
+      "path": "templates/manga-project/scripts/novelai_compose.py",
+      "sha256": "3bcfdd89b3e6399b11b154b9cdf5d521b237ca5c130244ee10f83f8f2fd94bf7",
+      "bytes": 28426
+    },
+    {
+      "path": "templates/manga-project/scripts/pixai_api.py",
+      "sha256": "5142d4188b6067001f395447e63d0fa9d6d349921cc685a794583b532536f9f0",
+      "bytes": 67679
+    },
+    {
+      "path": "templates/manga-project/scripts/pixai_batch.py",
+      "sha256": "af4849775c23d3efd23daaadb9e1ebea04fd2b131f6f7936bd2b525e72665ea9",
+      "bytes": 51326
+    },
+    {
+      "path": "templates/manga-project/scripts/pixai_compose.py",
+      "sha256": "c48556461270ad4474e8122d159c728df3fe3aab7a2a50d0cbe25b4bf03ccf41",
+      "bytes": 34573
+    },
+    {
+      "path": "templates/manga-project/scripts/pixai_edit.py",
+      "sha256": "f7d58567adfa9ae0d1063d3250bea382ee16cbd8ad55b9e26bc16c01d82eec85",
+      "bytes": 14000
+    },
+    {
+      "path": "templates/manga-project/scripts/pixai_mask.py",
+      "sha256": "a9cb2f1f10e3888fac599c71ffe37c50d6eddca3ddd2f0739a564a75cf604da7",
+      "bytes": 4039
+    },
+    {
+      "path": "templates/manga-project/scripts/pixai_models.py",
+      "sha256": "724d263090fb4bf93569442de9d3e11ff2ce077f047b6c65d265fc4402f9e6e1",
+      "bytes": 15672
     },
     {
       "path": "templates/manga-project/scripts/recolor_onomatopoeia.py",
@@ -3606,8 +3981,8 @@
     },
     {
       "path": "tests/Test-Scaffold.ps1",
-      "sha256": "caef2a36526cc653dba041be68f6d97b94fa2a9b7bead6104c235018f2e26d53",
-      "bytes": 28361
+      "sha256": "a62bb99dffe7f6e1c52af97cedfdb43513c01fdee140bb80288a48375edcb540",
+      "bytes": 29499
     },
     {
       "path": "tests/test_export_composed_psd.py",
@@ -3616,13 +3991,23 @@
     },
     {
       "path": "tests/test_novelai_api.py",
-      "sha256": "21966f393b3b4d78dea7da392033dae4a4dae8bab87da6a21bfd3260a52be2d4",
-      "bytes": 12948
+      "sha256": "b4fb38b448ce558b5cf4b1453e76e30bff75de4fbd09bef9ab8ee1fcc9b8ce50",
+      "bytes": 17533
     },
     {
       "path": "tests/test_novelai_batch.py",
-      "sha256": "94fbb7319b4c080e1bc56b41582f98634354ae8adcc4359b6e1d5fd4999b57bb",
-      "bytes": 21024
+      "sha256": "76c2ba2c088c07ba464b69bf7dabda551dcd0167fa326490b832f63d12d3060c",
+      "bytes": 28307
+    },
+    {
+      "path": "tests/test_novelai_compose.py",
+      "sha256": "da4df85d0381f9f8d925de6a7e375b76f9beddb1e2afb16ceede887627688c7b",
+      "bytes": 6207
+    },
+    {
+      "path": "tests/test_novelai_webui.py",
+      "sha256": "34b2e5ad292c96391de8b30508d9613a727288ea6fac898a1714202afe8fe0b9",
+      "bytes": 11107
     },
     {
       "path": "tests/test_optional_skills_portable.py",
@@ -3638,6 +4023,26 @@
       "path": "tests/test_panel_plan.py",
       "sha256": "3d7f3921df33d3bf965212883d243a9ca79eb22a07412b78fd5cfe90eddb1da5",
       "bytes": 3828
+    },
+    {
+      "path": "tests/test_pixai_api.py",
+      "sha256": "19b89a0856839d0cf8958e8f7da278eca3fb84cbc5359a5511efc5036f16f15d",
+      "bytes": 14020
+    },
+    {
+      "path": "tests/test_pixai_batch.py",
+      "sha256": "18b4335e7e46ea7168716ed7c31f134ca28007b52f90425807a3f76204577e9b",
+      "bytes": 20240
+    },
+    {
+      "path": "tests/test_pixai_models.py",
+      "sha256": "4030876d9b9c21cf09de9bce1ae48f579a697b930274d1d9e1e2e3ebe3fdeaa4",
+      "bytes": 8879
+    },
+    {
+      "path": "tests/test_pixai_webui.py",
+      "sha256": "afc7f3bbc58d1b5f33bd10285d7fbc494528319b1461971676306a01d3850ef1",
+      "bytes": 8579
     },
     {
       "path": "tests/test_process_checker.py",
@@ -3661,8 +4066,8 @@
     },
     {
       "path": "tests/test_scaffold_portable.py",
-      "sha256": "e7a07dc0aefd522008d4cff6504314045558075d1231f26f45121738f27037c9",
-      "bytes": 11434
+      "sha256": "70b9ac31f99084ee063f02b8e88bb3526485a6e8f0c8978cae448f36a07860da",
+      "bytes": 12329
     },
     {
       "path": "tests/test_typeset_manga.py",

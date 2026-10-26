@@ -10,7 +10,7 @@ Adopted by the user on 2026-09-20. Read when starting NovelAI comic production. 
 4. Before selection, do not generate NovelAI/API trials, including 0-Anlas trials. Wait only on style selection and style-dependent artwork; independently requested synopsis work may continue. After the answer, match its ID to `config/novelai-style-presets.json` and record adopted ID/prompt. `default_ids` lists available IDs, not an instruction to explain candidates, blend all styles, or silently choose the first. Do not use specific artist/cartoonist names. `sample_prompt_prefix` sets sample headcount; it does not require two female characters in every panel.
 5. Use the same adopted style, negative-prompt and appearance wording, and major generation settings across panels; vary only action, framing, and background per panel. A fixed seed does not guarantee consistency. Send character prompts only for people visible in that scene.
 
-The ten styles are `style-01` through `style-10` in display order (updated 2026-09-21). On that date the user excluded the thin, sharp-line drawing style; former `style-10` (cute color manga) became `style-09`, and former `style-11` (cute monochrome manga) became `style-10`. Sample HTML, catalog, and new-project settings share IDs. Do not reinterpret an old project's IDs as new IDs; compare name and prompt when needed.
+The eleven styles are `style-01` through `style-11` in display order (updated 2026-10-06; `style-11` was added by the user on that date, includes quality terms in its style prompt, and uses the script default for its sample negative prompt). As of 2026-09-21 there were ten styles: on that date the user excluded the thin, sharp-line drawing style, so former `style-10` (cute color manga) became `style-09`, and former `style-11` (cute monochrome manga) became `style-10`. Sample HTML, catalog, and new-project settings share IDs. Do not reinterpret an old project's IDs as new IDs; compare name and prompt when needed.
 
 ## Asset generation and composition
 
@@ -62,7 +62,7 @@ Translate storyboard content into **visible forms** before prompting. These prod
 5. **Identify whose body is close up:** `dark school shoes` alone may show unworn shoes. Describe character, body region, and posture: `1boy, lower body, standing, legs in navy trousers and white lab coat hem, school shoes, a paper airplane on the ground at his feet`. For hands, likewise identify ownership: `1girl, hands only, …`.
 6. **Two-character panels:** consecutive appearance descriptions can bury posture and blend traits. First consider separate panels, with the other person offscreen or over a shoulder. If both are needed, put posture and spatial relationships before appearance (`sitting side by side on the floor, knees up, girl on the right`), and keep appearance to essential identifying traits. Before using separate-character functionality such as `char_captions` in `v4_prompt`, verify its format in the official schema.
 7. **Choose angles from the storyboard:** `from above`, `from below`, and `from behind` are candidates, not mandatory prefixes for all panels. Choose for what must be shown; include landmarks (`rooftop edge at the top of the frame`, `courtyard far below`) and size (`small in frame`, `upper body`). Verify intent for repeated angles.
-8. **Repeat identifying features in every request:** use identical words for hair color/length, glasses shape, clothing layers/inner garments, and accessories whenever that character appears. Do not omit features because an earlier panel mentioned them. The 2026-09-29 comparison found inconsistent hair, glasses, and inner clothing where wording varied. Register features matching the chosen trial in `input/novelai/characters.json`, then list each request's cast and visible features in `cast`.
+8. **Repeat identifying features in every request:** use identical words for hair color/length, glasses shape, clothing layers/inner garments, and accessories whenever that character appears. Do not omit features because an earlier panel mentioned them. The 2026-09-29 comparison found inconsistent hair, glasses, and inner clothing where wording varied. Register features matching the chosen trial in `input/novelai/characters.json`, then list each request's cast and visible features in `cast`. Automatic identity-feature checking (warnings) in `generate` is **disabled by default**; it runs only when `NOVELAI_CHECK_IDENTITY=1` is specified in `.env.novelai` or the environment (user instruction in the project "NAIプロンプト検証", 2026-10-05; even when the automatic check is disabled, write identifying features in identical words in every request).
 
 ```json
 {
@@ -82,7 +82,7 @@ Translate storyboard content into **visible forms** before prompting. These prod
 }
 ```
 
-`"all"` includes every feature; an array lists only visible features (e.g. a sleeve in a hand close-up). Include feature strings verbatim in prompts, case-insensitively. With `.env` character variables, check expanded wording. The legacy `name_ja` field name remains for compatibility; English display names are valid.
+`"all"` includes every feature; an array lists only visible features (e.g. a sleeve in a hand close-up). Include feature strings verbatim in prompts, case-insensitively. With `.env.novelai` character variables, check expanded wording. The legacy `name_ja` field name remains for compatibility; English display names are valid.
 
 9. **Avoid numeric ages and man/woman:** numeric ages such as `25 years old` or a Japanese numeric-age expression may have little effect on appearance. `man`/`woman` can create another person beside the `1girl`/`1boy` character (user instruction, 2026-09-29). Describe people using `1girl`, `1boy`, `solo`, and appearance. Era/role terms such as `teenage`, `high school student`, and `adult` are allowed. For older/younger appearance also specify build, facial features, and clothing.
 
@@ -136,7 +136,7 @@ When creating or checking prompts with `manga-ai-production`, read the body text
 
 Fix mismatches in the request. Record insufficient material as unconfirmed with its target and reason, and do not send the affected request until the required action and connection to adjacent panels are decided. Do not turn this into a procedure that asks the user for a batch of additional settings. The check record can take the form "request ID / required relationship / continuing and changed state / verification result and reason for revision." The absence of warnings from automatic checking does not substitute for this content verification.
 
-`novelai_batch.py generate` checks items 2, 3, 5, 6, 8, 9 and repeated angles before sending. Fix warnings or record retention reasons in [Batch records](../production/NOVELAI-BATCH.md) before sending with `--accept-warnings`. These are term detections that do not judge relationships, continuing state, or text separation by meaning. Do not use `--accept-warnings` to skip the content verification.
+`novelai_batch.py generate` checks items 2, 3, 5, 6, 9 and repeated angles before sending and displays warnings (item 8's identity features are checked only when `NOVELAI_CHECK_IDENTITY=1` is set). Fix warnings or record retention reasons in [Batch records](../production/NOVELAI-BATCH.md) before sending with `--accept-warnings`. These are term detections that do not judge relationships, continuing state, or text separation by meaning. Do not use `--accept-warnings` to skip the content verification.
 
 Sources and scope: this makes concrete, as a procedure for expanding into generation requests, the relationship descriptions in the existing [production evidence E4](image-generation/production-evidence.md#e4) and [spatial continuity V13](manga/02-visual-direction.md#v13). Per-character input, reinforcing positions in natural language, and action tags: [NovelAI公式文書](https://docs.novelai.net/en/image/multiplecharacters/); correspondence between natural language and Japanese: [V5公式発表](https://journal.novelai.net/novelai-diffusion-v5-release-jp-343211a45664/) (checked 2026-10-03).
 
@@ -188,29 +188,52 @@ python -X utf8 scripts/novelai_batch.py build --page 1
 python -X utf8 scripts/novelai_batch.py build --all --write-psd
 ```
 
-- `generate` uses request seed first, random seeds later (`--seed request` fixes it). Requests run sequentially with a default 3-second interval and a default limit of 30 requests per run. Failure stops remaining requests without automatic retry. Do not regenerate panels with unknown-result records until results are checked and records moved. Cost flags mean the same as `novelai_api.py`; never assert unverified flags.
+- `generate` uses request seed first, random seeds later (`--seed request` fixes it). Requests run sequentially with a default 3-second interval and a default limit of 30 requests per run. Failure stops remaining requests without automatic retry. Do not regenerate panels with unknown-result records until results are checked and records moved. To move them, first check NovelAI's image history and Anlas consumption, then run `move-unknown --ids <request-ID> --confirm-checked --note 'What was verified'` (moves records to `failed/<timestamp>-rNNN/` without deleting them; omitting `--confirm-checked` only displays the targets). Cost flags mean the same as `novelai_api.py`; never assert unverified flags.
 - The generation and regeneration examples include `--accept-warnings`. Remove it if you want to check warnings and stop sending when any remain. Warnings are still displayed when it is included, and cost confirmation and error validation are not skipped.
 - `adopt-latest` adopts the highest-numbered PNG in each target folder (`--all` for all pages, `--ids` for specific panels). If a target has no candidate PNG, it stops without changing the selection record. For a panel whose new generation failed, an earlier highest number is chosen, so check the generation results and the images. Details: [editing and regeneration README](../novelai-prompts/README.md#adopt-the-highest-numbered-image-in-each-folder-at-once).
 - `build` stops if images are unselected and warns when placement does not cover a panel. Human-command PSDs are intended for later painting-software adjustment. Codex handoff PSDs still require both PNG revision confirmation and PSD instructions.
 - Keep the previously adopted request separate from alternatives such as `p01-03b.json`. Set both requests' `parameters.seed` to the same value and generate with `--seed request`; change seed values to make multiple pairs. Record settings other than the changed wording, whether the unchanged control succeeded, and all attempts including failed seeds. Do not conclude a phrase is necessary or unnecessary from a pair whose control failed. This is a recommended method, not a mandatory trial count for every panel. Evidence: [E4](image-generation/production-evidence.md#e4).
 - Codex uses this workflow from initial artwork onward and records per-page commands in [Batch records](../production/NOVELAI-BATCH.md). Present PNGs from `build`.
 
+<a id="compose"></a>
+
+### Assemble request JSON from arguments (`scripts/novelai_compose.py`)
+
+**Standard way to assemble requests for NovelAI API generation.** The model defaults to V5 (`nai-diffusion-5-curated`; Full produces overly dense detail that is less suited to comics, so it is not the default), and V4.5 is used only when specified by the user. It accepts style, background, per-character text, position pins, and generation settings as arguments and saves the request JSON to `input/novelai/requests/<ID>.json`. It makes no network calls and displays the same dry-run check as `novelai_batch.py generate` after saving. Sending, cost confirmation, and execution records continue to be handled by `novelai_batch.py`, and are handed off to that same pipeline only when `--execute` and cost-confirmation flags are passed. Saved request JSON files may be edited by hand, and JSON written directly without arguments can also be sent through the same `generate` command. When modifications are needed for additional features such as i2i or references or for specification changes, modify and use this script as the base (verify fees and format for additional features in [API procedure](novelai-api.md#compose-standard) first). The script was created and verified in the project "NAIプロンプト検証" (user instruction, 2026-10-05).
+
+```powershell
+python -X utf8 scripts/novelai_compose.py --id p01-03 --seed 123 `
+  --scene "standing side by side, upper body, eye level" --background "city street, daylight" --style "<style>" `
+  --char1-appearance "<appearance>" --char1-action "<pose and action>" --char1-pos 0.3,0.5 `
+  --char2-appearance "<appearance>" --char2-action "<pose and action>" --char2-pos 0.7,0.5
+```
+
+- **Order**: Base follows `headcount tag (derived automatically from characters, or no humans when empty) → --scene → --background → --style → quality tags`. Per-character text follows `girl/boy/other (no number) → appearance → pose and action`. Negative text follows `preset → --negative`. Input text is concatenated as-is (including spaces and commas) without rewriting. Sources: [タグの順序](https://docs.novelai.net/en/image/tags/), [複数人物](https://docs.novelai.net/en/image/multiplecharacters/), [品質タグ](https://docs.novelai.net/en/image/qualitytags/), and [除外プリセット](https://docs.novelai.net/en/image/undesiredcontent/) (checked 2026-10-05).
+- **Model**: `--model` selects `nai-diffusion-5-curated` (default), `nai-diffusion-5-full` (only when specified), or `nai-diffusion-4-5-curated` (only when specified). Quality tags, UC presets, Guidance (7.0 for V5, 5.0 for V4.5), and sent parameters match the Web UI defaults for each model. V4.5 supports up to 6 characters and snaps position pins to the centers of the 5×5 grid; V5 supports up to 22 characters. The basis for each setting is displayed at run time. **V5 Curated, V5 Full, and V4.5 Curated have been verified to match Web UI PNGs pixel-for-pixel at the same seed and input** (1 run each; see [Web UI parity observations](novelai-api.md#compose-standard) for conditions and limits). The V5 Full Web UI prepends `nsfw, ` to the negative prompt, but per user instruction the script does not add it (pass the full string including `nsfw, …` to `--uc-preset-text` for an exact Web UI match). For presets not verified against Web UI PNGs—such as `light` and `human` on V4.5—specify the full string with `--uc-preset-text`.
+- **Quality tags**: Automatically appends the Web UI quality tags to the end. If the input (Base or per-character) already contains the same tag, it is not added a second time (weighted tags such as `-0.8::feet::` count as duplicates only when the weight also matches). `--allow-duplicate-quality` reproduces the Web UI's duplicate behavior. The `no text` quality tag is exempted from `generate`'s "negative word in positive prompt" warning.
+- **Settings overridable in `.env.novelai`**: Reads only the following four settings and never reads API key lines. Priority is `arguments > environment variables / .env.novelai > defaults`: `NOVELAI_QUALITY_TAGS` (full quality-tag string; empty disables adding them; argument `--quality-tags`), `NOVELAI_UC_PRESET` (`heavy` or `none`, plus `light` and `human` on V5 Curated; argument `--uc-preset`), `NOVELAI_UC_PRESET_TEXT` (full UC preset string; argument `--uc-preset-text`), and `NOVELAI_CHECK_IDENTITY` (`1` enables identity-feature checking).
+- **Characters**: `--charN-type`, `--charN-appearance`, `--charN-action`, `--charN-pos`, and `--charN-negative` (`N` is sequential starting at 1), or `--chars-json` to pass an array. Position pins are used and set `use_coords` to `true` only when specified for all characters (`--coords on|off|auto`). When omitted, `use_coords: false` (`AI’s Choice`) is used. **Even with `use_coords: false`, `centers` values affected the generated image in observed testing.** To reproduce the exact Web UI image, pass the Web UI coordinates with `--coords off` and `--charN-pos`. Web UI PNG fields `tag_hint_qt` and `tag_hint_uc_preset` did not affect the image and are not sent.
+- **Style, background, and character text**: Pass the values of `NOVELAI_STYLE_`, `NOVELAI_BACKGROUND_`, and `NOVELAI_CHAR_` from `.env.novelai` directly as arguments. This script does not read prompt-variable values and treats unexpanded `${VARIABLE_NAME}` references as an error (it reads only the four helper settings above; requests with variable references use the `novelai_batch.py` mechanism in the next section).
+- **Generation setting defaults**: Steps default to 23 for V5 and 28 for V4.5 (matching `novelai_api.py`; pass the Web UI value when reproducing a Web UI image). Uses `k_euler_ancestral`, `karras`, `prefer_brownian: true`, and `deliberate_euler_ancestral_bug: false` (omitting those two boolean flags causes the API defaults to differ from the Web UI). Dimensions use `--width` and `--height`, falling back to `generationCanvas` in `config/page-layout.json`, or the Web UI default 832 × 1216 when unset. Displays a notice when settings exceed the Opus no-Anlas candidate limits (1,048,576 pixels and 28 steps).
+- **Actual sent JSON**: On every submission, saves `r001.request-body.json` (the exact bytes sent) and `r001.request.json` (a formatted copy of the same content) next to the candidate PNG. Because `.request.json` shares the request JSON format, you can copy it to `input/novelai/requests/`, adjust it by hand, and use it as the basis for regeneration.
+- Only when using identity-feature checking (`cast` in `characters.json`), use `--cast-from <existing-request-ID>` to copy the registered cast entry.
+
 <a id="character-variables"></a>
 
-### Read characters, style, and backgrounds from .env (only on request)
+### Read characters, style, and backgrounds from `.env.novelai` (only on request)
 
-To let humans change appearance globally before regenerating, character, style, and background prompts can become project-root `.env` variables referenced as `${NOVELAI_CHAR_MIO}`, `${NOVELAI_STYLE_MAIN}`, and `${NOVELAI_BACKGROUND_CLASSROOM}` in request JSON. **Only do this when a human asks.**
+To let humans change appearance globally before regenerating, character, style, and background prompts can become project-root `.env.novelai` variables referenced as `${NOVELAI_CHAR_MIO}`, `${NOVELAI_STYLE_MAIN}`, and `${NOVELAI_BACKGROUND_CLASSROOM}` in request JSON. **Only do this when a human asks.**
 
 1. Propose names (`NOVELAI_CHAR_`, `NOVELAI_STYLE_`, or `NOVELAI_BACKGROUND_` according to purpose, plus uppercase ASCII letters, digits, `_`) and the prompt for each variable; confirm with the user.
-2. Write with `python -X utf8 scripts/novelai_batch.py env-set NOVELAI_CHAR_MIO --value-file input/novelai/char-mio.txt`. Do not display/change other `.env` lines, including keys.
+2. Write to `.env.novelai` with `python -X utf8 scripts/novelai_batch.py env-set NOVELAI_CHAR_MIO --value-file input/novelai/char-mio.txt`. Other lines in `.env.novelai` are left unchanged. API keys live in shared `.env` or `.secrets/` and are neither displayed nor modified.
 3. Check replacements with `templatize NOVELAI_CHAR_MIO --dry-run`, then replace matching wording in JSON with `templatize NOVELAI_CHAR_MIO`.
 4. Check names with `vars`; record names and requests in [Batch records](../production/NOVELAI-BATCH.md).
 
-Humans can then edit `.env` and rerun `generate`. Execution records contain expanded requests. Never expand API keys or variables other than `NOVELAI_CHAR_*`, `NOVELAI_STYLE_*`, and `NOVELAI_BACKGROUND_*`. A variable defined in more than one of the environment, `.env`, `.secrets/novelai.env`, and `.secrets/.env` stops execution.
+Humans can then edit `.env.novelai` and rerun `generate`. Execution records contain expanded requests. Never expand API keys or variables other than `NOVELAI_CHAR_*`, `NOVELAI_STYLE_*`, and `NOVELAI_BACKGROUND_*`. A variable defined in both the environment and `.env.novelai` stops execution. If variables or helper settings placed in `.env` or `.secrets/` by an earlier version remain, execution stops and instructs you to migrate them to `.env.novelai` with `python -X utf8 scripts/novelai_batch.py env-migrate` (keeping other lines such as API keys; use `--dry-run` to preview). Source lines are removed only after saving to the destination succeeds; if a save fails mid-way and leaves duplicates in both files, verify the destination value and clean up the duplicate.
 
 Assign style and background to Base (`input` and `v4_prompt.caption.base_caption`), and character features to the corresponding Character. For requests that do not use per-character input, merge them into the body. Only requests that reference a variable are affected by a change, so do not give every panel the same background; use separate background variables for each scene. `templatize` replaces every matching string in the request JSON, so check the targets with `--dry-run` and by reading the diff.
 
-Values in Japanese can be saved and expanded as a single UTF-8 line. There is no translation feature, and the model's interpretation must be checked in the image. The feature check compares the terms registered in `characters.json` with the expanded request; it is not image recognition or semantic understanding. When a character's appearance changes, update that file's features and the specification of visible features (`cast`) as well, and separately verify the assignment to per-character input by content. Do not force the same feature check on style and background.
+Values in Japanese can be saved and expanded as a single UTF-8 line. There is no translation feature, and the model's interpretation must be checked in the image. The feature check is disabled by default and compares the terms registered in `characters.json` with the expanded request only when `NOVELAI_CHECK_IDENTITY=1` is set (it is not image recognition or semantic understanding). When a character's appearance changes, update that file's features and the specification of visible features (`cast`) as well, and separately verify the assignment to per-character input by content. Do not force the same feature check on style and background.
 
 Actual editing examples, applying edits from text files, dry-run checks, and regeneration, adoption, and PNG/PSD rebuilding are collected in the [user-facing README](../novelai-prompts/README.md). This feature is only for NovelAI batch generation and does not apply to other generation methods.
 
@@ -238,6 +261,75 @@ Search `templates/onomatopoeia/catalog.json` by meaning, duration, intensity, ty
 If no suitable asset exists, make a separate transparent English asset and inspect alpha, spelling, and repeat count. Legacy four-through-seven-repeat IDs now contain that many whole English words. Default dialogue is horizontal with centered lines and natural English punctuation; separate frames, effects, balloons, and text. Place sound effects at the sounding moment, not a landing sound during flight.
 
 Use imagegen for local corrections when overall appearance is acceptable and only a part differs. Preserve original and edited versions. For whole-composition, headcount, or action mismatches, revisit generation or composition. Do not turn a past session's "at most five regenerations" into a permanent limit for new works; follow each request's limit.
+
+<a id="page-viewer"></a>
+
+### Page-flipping HTML viewer for PNG previews (built by the AI agent)
+
+Once pages are typeset with NovelAI and page PNG previews are built with `novelai_batch.py build`, the AI agent creates an HTML viewer that lets the user flip forward and backward through the pages and presents its path. This is a convenience aid for user review and an operational proposal of the production kit (user instruction, 2026-10-06). Do not apply it to other production methods such as `imagegen`. The HTML file is a review artifact placed in `output/`; it is not used for publication or distribution, and it does not replace visual image inspection or the post-artwork comparison table.
+
+1. **Collect target pages**: Inspect `output/build/page-NN/` in numerical order and collect pages whose **latest version** (the folder with the highest `vNNN` number) contains both `page-NN.png` and `page-NN-display.png` (the review image scaled down to display width). Omit unbuilt pages (missing folders) or numbering gaps from the HTML, and tell the user which pages are missing.
+2. **Create the HTML**: Replace `__PAGES__` in the template below with a JSON array of the following form and save it as UTF-8 to `output/build/preview.html`. Paths are relative to the HTML file (relative to `output/build/`):
+
+   ```json
+   [{"page": 1, "version": "v002", "display": "page-01/v002/page-01-display.png", "png": "page-01/v002/page-01.png"}]
+   ```
+
+3. **Reading direction**: Match `RTL` in the template to the publication format in the project's `OPTION.md`. In this US English edition, left-to-right reading is the default (`RTL = false`, `<nav dir="ltr">`, where `→` advances to the next page and `←` goes to the previous page); if right-to-left reading is selected, set `RTL = true` and `<nav dir="rtl">` (where the "Next page" button sits on the left and `←` advances to the next page).
+4. **Rules to follow**: Do not use external libraries or external network calls. Do not copy or embed images; reference the existing PNG files. Page numbers and similar labels belong only in the viewer UI controls—never draw them onto the page images themselves (the rule against adding unrequested page numbers to pages remains in force).
+5. **Post-creation check**: Verify that every `display` and `png` path written in the HTML actually exists. **Do not launch a browser.** Present the project-relative path and the existence-verified absolute path so the user can open it personally.
+6. **Updating**: Every time pages are revised and rebuilt with `build`, recreate the HTML from step 1. Confirm that it does not point to stale versions (check that every page references its latest `vNNN`) before presenting it again.
+
+Template (ready to save as-is; keyboard navigation, buttons, and page selector verified):
+
+```html
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Page Preview</title>
+<style>
+:root{color-scheme:light dark}
+body{margin:0;height:100vh;display:flex;flex-direction:column;font:16px/1.5 system-ui,sans-serif}
+nav{display:flex;gap:.5rem;align-items:center;justify-content:center;flex-wrap:wrap;padding:.5rem;border-bottom:1px solid #8886}
+button,select{font:inherit;padding:.35rem .9rem}
+main{flex:1;min-height:0;display:flex;justify-content:center;align-items:center;padding:.5rem}
+img{max-width:100%;max-height:100%;object-fit:contain;background:#fff}
+</style>
+<nav dir="ltr">
+<button id="prev">Previous page</button>
+<select id="jump" aria-label="Page"></select>
+<button id="next">Next page</button>
+<span id="info"></span>
+<a id="full" target="_blank">Open full-size PNG</a>
+</nav>
+<main><img id="page" alt=""></main>
+<script>
+const pages = __PAGES__;
+const RTL = false; // false for left-to-right works (US English default); true for right-to-left works
+const $ = id => document.getElementById(id), img = $('page'), jump = $('jump');
+let index = 0;
+pages.forEach((p, k) => { const o = document.createElement('option'); o.value = k; o.textContent = 'Page ' + p.page; jump.append(o); });
+function show(k) {
+  index = Math.max(0, Math.min(pages.length - 1, k));
+  const p = pages[index];
+  img.src = p.display; img.alt = 'Page ' + p.page; $('full').href = p.png;
+  $('info').textContent = (index + 1) + ' / ' + pages.length + ' (' + p.version + ')';
+  jump.value = index; $('prev').disabled = index === 0; $('next').disabled = index === pages.length - 1;
+  history.replaceState(null, '', '#' + p.page);
+}
+$('prev').onclick = () => show(index - 1);
+$('next').onclick = () => show(index + 1);
+jump.onchange = () => show(Number(jump.value));
+addEventListener('keydown', e => {
+  const step = e.key === 'ArrowLeft' ? (RTL ? 1 : -1) : e.key === 'ArrowRight' ? (RTL ? -1 : 1) : 0;
+  if (step) show(index + step);
+});
+const start = pages.findIndex(p => '#' + p.page === location.hash);
+show(start < 0 ? 0 : start);
+</script>
+</html>
+```
 
 ## Opus cost checks
 

@@ -1,59 +1,157 @@
-# Editing and regenerating NovelAI characters, style, and backgrounds
+# Edit and Regenerate NovelAI Characters, Styles, and Backgrounds
 
-This README gives the steps for a human to change the look of a work **whose NovelAI prompts are already assembled, or whose comic PNG previews are finished**. Work in the existing project folder. You can edit characters, style, and backgrounds in the project folder's `.env` settings file. Do not use this for image generation other than NovelAI.
+This guide explains how to change character appearances, art styles, and backgrounds, regenerate images, and rebuild pages in a **project where NovelAI prompt assembly is already complete** or **where manga PNG previews are already finished**. Work inside the existing project folder.
 
-In these steps, **Codex (or another AI agent such as Claude Code, Grok Build, or Antigravity) prepares the editing environment, and the human edits the text, runs the commands, and chooses the images.** If you want to hand command execution to Codex, ask for that work at each stage. Asking for preparation does not authorize image generation or paid use.
+By editing `.env.novelai` or the editing text files inside the project folder, you can replace shared parts of your prompts (character hairstyles and clothing, art style, backgrounds, and more) in bulk.
 
-| Task | Usually handled by |
-| --- | --- |
-| Turning existing prompts into variables, setting up references in request JSON, creating editable text | Codex |
-| Deciding the look, style, and background to change, and editing the text | Human |
-| Updating the feature list, verifying the content of expanded requests and warnings | Human asks Codex |
-| Running the apply, dry-run check, generate, adopt, and build commands | Human (each stage can also be requested of Codex) |
-| Checking cost and allowance, deciding whether to run generation, choosing images, reviewing PNG revisions | Human; Codex assists with checks and judgment |
+> [!NOTE]
+> Settings files are split into three files: `.env` is for shared settings such as API keys and URLs, `.env.novelai` is for NovelAI (the file edited in this guide), and `.env.pixai` is for PixAI. In projects created with an earlier version where NovelAI variables were placed in `.env`, the script will instruct you to migrate them. Run `python -X utf8 scripts/novelai_batch.py env-migrate` to move them to `.env.novelai` (API key lines and other settings remain in `.env`; use `--dry-run` to preview only).
 
-The order is **Codex prepares → human edits and applies the text → Codex checks the content → dry-run check → generate → adopt images → rebuild pages.** Editing settings alone does not change images that were already made.
+> [!NOTE]
+> This workflow standardizes on **asking an AI agent (Codex, Claude Code, Antigravity, etc.) to prepare and inspect the environment while you decide what to change**.
+> At each stage, you can either run commands yourself from a terminal or ask the AI agent to run them for you. Asking for preparation alone does not authorize image generation or paid usage.
 
-After PNGs are finished, regenerate and rebuild using the existing requests, adopted images, and page manifests. If images have not been generated yet, do the first generation and adopt every panel after editing. If the page manifests, text placement, or typesetting environment are not ready, Codex prepares them before build.
+---
 
-Variable names and file names below are examples. After preparation, use the file names and commands for your own work that Codex gives you.
+## [Quick Start] Change Only a Character's Appearance
 
-## 1. Ask Codex for the initial preparation
+Use this shortest path when you want to quickly change a character's appearance.
+**Ask the AI agent to prepare the environment only the first time**; from the second time onward, you only need **Step 1 through Step 4**.
 
-Open Codex in the existing project folder and make a request like the following. If preparation is already done, check with Codex where the editable files and commands are, then go to step 3.
+### [First Time Only] Step 0. Ask the AI Agent to Prepare the Environment
+If prompts have not yet been converted into variables in your project, ask the AI agent in the project folder as shown below (**this is generally needed only once per project**. If variables already exist in `.env.novelai`, skip to Step 1. Note that if you make major changes to the underlying prompt assembly later, you may need to repeat this step).
 
-> This work has NovelAI prompt assembly done (or PNG previews done). Using the existing prompts, set it up so that I can edit characters, style, and backgrounds myself from .env. Show me the variable names, current text, and affected panels, and after I confirm, set up the references in the request JSON and create editable UTF-8 text files. Keep the existing images, adoption records, and page manifests. Record the files I should edit and the commands I should run in docs/production/NOVELAI-BATCH.md, and walk me through them. Do not generate images this time; only prepare.
+> 🤖 **Sample prompt for the AI:**
+> "Based on the existing prompts, please set things up so I can edit characters, styles, and backgrounds myself from `.env.novelai`. Do not generate any images this time—just do the preparation."
 
-Codex prepares only the requested work, matching the existing style and character settings. Codex shows you the variable names and text, and after you confirm, sets up `.env`, the editable text, and the request JSON references. You do not need to adopt the examples below as your work's settings.
+---
 
-Existing works do not receive updates automatically. If an old script does not support style and background variables, ask Codex to update it while keeping the work's own changes.
+### Step 1. Edit the Character Variable in `.env.novelai`
+Open `.env.novelai` in the project root in a text editor, edit the right-hand side (inside `"`) of the target character's line, and save it (UTF-8, single line without line breaks):
+```dotenv
+NOVELAI_CHAR_MIO="girl, black twintails, blue jacket"
+```
+If you are unsure whether your editor is saving as UTF-8, use only ASCII English characters and symbols rather than Japanese text.
 
-## 2. What you can change
+### Step 2. Regenerate Images
+Run the following in a terminal in the project folder. **Run this only after confirming that all current settings cost 0 Anlas and that you have sufficient V5 free allowance** (see [6. Check Cost / Allowance and Run Generation](#6-check-cost--allowance-and-run-generation) for how to verify). `--confirm-zero-anlas` and `--confirm-v5-allowance` declare that you have verified these conditions; the command itself does not verify 0 Anlas. Replace `--cost-note` with the actual verification method and timestamp. For V4.5, omit `--confirm-v5-allowance`:
+```powershell
+python -X utf8 scripts/novelai_batch.py generate --page 1 --execute --accept-warnings --confirm-zero-anlas --confirm-v5-allowance --cost-note 'Enter how and when you verified the cost and allowance for all current settings'
+```
+> 🤖 **If asking the AI:** "I changed Mio's appearance, so please regenerate page 1 with NovelAI (0 Anlas and within free allowance only)."
 
-A "prompt" is the text that describes the picture to be generated. A "variable" is a name attached to that text. Variable names use uppercase ASCII letters, digits, and underscores.
-
-| Purpose | Example variable name | What you change |
-| --- | --- | --- |
-| Character | `NOVELAI_CHAR_MIO` | Mio's hairstyle, clothing, and the appearance needed to identify her |
-| Style | `NOVELAI_STYLE_MAIN` | Line, color, shading, and other art style |
-| Background | `NOVELAI_BACKGROUND_CLASSROOM` | The classroom's desks, windows, light, and so on |
-
-**Setting up the request JSON is Codex's job.** Codex puts style and background into the scene-wide text (Base) and characters into the corresponding per-character text (Character). For requests that do not use per-character input, Codex merges them into the body. Codex keeps pose, expression, and action in each panel's request so that only the appearance is easy to change.
-
-Codex separates background variables by location. If you change the classroom variable, only requests that use the classroom variable change. Requests that do not reference the variable are unchanged.
-
-For example, **Codex** prepares references like the following in the request JSON. This is an excerpt that illustrates the mechanism; you do not need to copy it into JSON. When `v4_prompt` is used, Codex sets the same Base in both `input` and `caption.base_caption`.
-
-```text
-Base: 1girl, standing, ${NOVELAI_BACKGROUND_CLASSROOM}, ${NOVELAI_STYLE_MAIN}
-Character: ${NOVELAI_CHAR_MIO}, smiling, on the left
+### Step 3. Adopt the New Candidate Images
+Inspect the generated images and adopt the latest image for each panel:
+```powershell
+python -X utf8 scripts/novelai_batch.py adopt-latest --page 1
+```
+To adopt the latest images across all pages at once, run:
+```powershell
+python -X utf8 scripts/novelai_batch.py adopt-latest --all
 ```
 
-## 3. Confirm where to run commands
+> 🤖 **If asking the AI:** "Please adopt the latest (highest-numbered) image for each panel."
 
-Run commands in a **terminal whose working location is the project folder**. On Windows, one way is to open the project folder in File Explorer, type `powershell` in the address bar, and press Enter. If you hand each command to Codex, you do not need this terminal step.
+### Step 4. Rebuild the Page PNG
+```powershell
+python -X utf8 scripts/novelai_batch.py build --page 1
+```
+Output is written to a versioned folder such as `output/build/page-01/v001/`. Open the latest version's page PNG to inspect the finished result.
 
-Copy the following one line at a time and press Enter. Do not copy the code block's surrounding marks. In later command examples, the `1` is "page 1"; change it to the target page of your own work.
+After confirming that the PNG needs no further changes, if you need a PSD for adjustment in CLIP STUDIO PAINT or similar software, rebuild with `--write-psd`:
+```powershell
+python -X utf8 scripts/novelai_batch.py build --page 1 --write-psd
+```
+The PSD is saved alongside the page PNG in a new version folder (for example, `output/build/page-01/v002/page-01.psd`). Do not create a PSD before checking the PNG (see [8. Rebuild Page PNGs and Inspect the Result](#8-rebuild-page-pngs-and-inspect-the-result) for details).
+
+If you want to flip through pages sequentially, you can ask the AI agent to create an HTML viewer (see [8. Rebuild Page PNGs and Inspect the Result](#8-rebuild-page-pngs-and-inspect-the-result) for details).
+
+### Run Steps 1–4 in the Browser (WebUI)
+Instead of using the terminal, you can edit `.env.novelai` variables and request JSON, run generation, adopt candidates, build PNG/PSD files, and preview pages in a browser UI. Run the following in a terminal in your project folder and open the displayed `http://127.0.0.1:8765/?token=…` URL in your browser (press Ctrl+C to stop):
+```powershell
+python -X utf8 .agents/skills/novelai-batch-webui/novelai_webui.py
+```
+Generating from the browser UI still requires verifying 0 Anlas and V5 allowance and entering your confirmation note. Paid generation cannot be performed from the browser UI. For details on the UI features and rules, see the [WebUI SKILL](../../.agents/skills/novelai-batch-webui/SKILL.md).
+
+> [!TIP]
+> **Want to understand the full workflow and details?**
+> If you want to review how to change backgrounds or art styles, how to edit safely via text files (Method B), how to run pre-send syntax checks (dry runs), or detailed command options, read on starting from "[Roles and Overall Workflow](#roles-and-overall-workflow)".
+
+---
+
+## Roles and Overall Workflow
+
+| Task | Primary Owner | Notes |
+| --- | --- | --- |
+| Templatize existing prompts, configure request JSON references, create editing text files | **AI Agent** | Initial environment setup |
+| Decide appearance, style, and background changes; edit prompt text | **You** | Edit `.env.novelai` or text files |
+| Inspect expanded requests and syntax warnings; dry-run without sending | **You or AI** | **Optional (skippable)**. Run when you want pre-generation checks |
+| Verify cost (Anlas) and allowance; decide to execute generation | **You** | AI assists with checking and decision-making |
+| Run generation, adoption, and `build` commands | **You or AI** | Run yourself or ask the AI |
+| Select candidate images, confirm finished page PNGs, request PSD creation | **You** | Judge by inspecting images and finished pages |
+
+```mermaid
+graph LR
+    A["1. AI Setup"] --> B["2. Edit Prompts"]
+    B -->|"Pre-check"| C["3. Inspect / Dry Run"]
+    C --> D["4. Generate Images"]
+    B -->|"Skippable"| D
+    D --> E["5. Adopt Candidates"]
+    E --> F["6. Rebuild Pages"]
+```
+
+> [!IMPORTANT]
+> **Editing settings alone does not change existing generated images.**
+> After changing prompts, you must run **Generate → Adopt → Rebuild Pages (`build`)** for the finished pages to update.
+
+---
+
+## 1. Initial Setup (Ask the AI Agent)
+
+Open your AI agent in the existing project folder and make the following request.
+(If setup is already complete, ask the AI where the editable files and commands are located and proceed to [3. Check Where to Run Commands](#3-check-where-to-run-commands).)
+
+> **Sample prompt for the AI:**
+> "This project has completed NovelAI prompt assembly (or PNG previews). Based on the existing prompts, please set things up so I can edit characters, styles, and backgrounds myself from `.env.novelai`.
+> Show me the variable names, current prompt text, and affected panels, and after I confirm, configure the references in the request JSON files and create UTF-8 text files for editing. Preserve existing images, adoption records, and page configurations.
+> Record the files I should edit and the commands I should run in `docs/production/NOVELAI-BATCH.md` and guide me through them. Do not generate any images this time—just do the preparation."
+
+The AI agent will convert the shared prompt parts into variables tailored to your project and show you the files to edit and commands to run.
+
+---
+
+## 2. What You Can Change (Prompt Variables)
+
+Shared elements inside prompts are extracted and managed as variables (`${VARIABLE_NAME}`). Variable names use uppercase ASCII letters, digits, and underscores.
+
+| Category | Example Variable Name | What You Can Change |
+| --- | --- | --- |
+| **Character** | `NOVELAI_CHAR_MIO` | Character-specific appearance such as hairstyle, hair color, clothing, and accessories |
+| **Art Style** | `NOVELAI_STYLE_MAIN` | Linework touch, coloring, palette, overall visual style |
+| **Background** | `NOVELAI_BACKGROUND_CLASSROOM` | Classroom desks, windows, time of day, lighting, etc. |
+
+### How Expansion Works Inside Request JSON
+Configuring variable references inside the request JSON files is **handled by the AI agent** (you do not need to edit JSON files directly).
+
+```text
+Base (shared background & style) : 1girl, standing, ${NOVELAI_BACKGROUND_CLASSROOM}, ${NOVELAI_STYLE_MAIN}
+Character (character appearance) : ${NOVELAI_CHAR_MIO}, smiling, on the left
+```
+
+- Art style and background are placed in the scene-wide text (`Base`), while character appearance is placed in the corresponding per-character text (`Character`).
+- Poses, expressions, and composition remain in each panel's individual request, allowing you to cleanly swap out only appearances or art styles.
+- Background variables are separated by location (classroom, hallway, etc.). Changing the classroom variable will not affect panels set outside the classroom.
+
+---
+
+## 3. Check Where to Run Commands
+
+When running commands yourself, run them in a **terminal (such as PowerShell) whose working directory is the project folder**.
+(If you delegate all command execution to the AI agent, you do not need to use the terminal yourself.)
+
+> **Tip (Windows)**: Open the project folder in File Explorer, type `powershell` into the address bar, and press Enter to open a terminal directly in that folder.
+
+Once the terminal is open, run the following commands to verify your working directory:
 
 ```powershell
 Get-Location
@@ -61,50 +159,58 @@ Test-Path project.json
 Test-Path scripts/novelai_batch.py
 ```
 
-Confirm that the first output is your project folder and that the other two both show `True`. If one shows `False`, reopen the terminal in the project folder. If Python cannot be found, tell Codex the error that was displayed.
+Verify that:
+- The first line shows the path to your project folder
+- Both of the following two lines output `True`
 
-Run the apply command in Method B in this terminal as well.
+If `False` is displayed, you are in a different folder—reopen the terminal at the root of your project folder.
 
-## 4. Choose one editing method and change the text
+---
 
-### Method A: edit .env directly
+## 4. Choose an Editing Method and Change the Prompts
 
-Open the project folder's `.env`, which Codex set up, in a text editor. If the file cannot be found, ask Codex about its creation status. `.env.example` is only a sample; editing it does not change any settings.
+There are two ways to edit prompts: **Method A (edit `.env.novelai` directly)** and **Method B (edit text files and apply them)**. Choose whichever method you prefer.
 
-Example before:
+### Method A: Edit `.env.novelai` Directly (Simplest)
+
+Open the `.env.novelai` file in the root of your project folder in a text editor.
+(Note: `.env.novelai.example` is a sample file; editing it has no effect. API keys and URLs live in the shared `.env` file and are not written here.)
 
 ```dotenv
+# Before:
 NOVELAI_CHAR_MIO="girl, short black hair, blue jacket"
 NOVELAI_STYLE_MAIN="clean lineart, soft colors, anime style"
 NOVELAI_BACKGROUND_CLASSROOM="classroom, desks, windows, daylight"
-```
 
-Example after:
-
-```dotenv
+# After:
 NOVELAI_CHAR_MIO="girl, black twintails, blue jacket"
 NOVELAI_STYLE_MAIN="bold lineart, vivid colors, cel shading"
 NOVELAI_BACKGROUND_CLASSROOM="classroom, desks, windows, warm sunset light"
 ```
 
-In this example, the hairstyle changes to twintails, the style to bold lines and vivid colors, and the classroom light to sunset. Do not change the name to the left of `=`; edit only the text inside the quotation marks on the right, and save as UTF-8. Write each setting on one line, and do not change other settings such as the API key. This method needs no apply command.
+- Keep the variable name to the left of `=` unchanged and edit **only the text inside the quotation marks (`"`) on the right**.
+- Write each setting on a single line without line breaks in the middle. Save the file in UTF-8 encoding.
+- Do not touch any other setting lines.
+- **No sync command is needed** (saving the file makes the settings take effect immediately).
 
-### Method B: edit text files and apply them to .env
+---
 
-If you do not want to touch `.env` directly, edit the **text files Codex created** in step 1. For example, in `input/novelai/prompts/mio.txt`, write only the following text. The variable name, `=`, and outer quotation marks are not needed.
+### Method B: Edit Text Files and Apply Them to `.env.novelai` (Safer)
+
+If you prefer not to touch `.env.novelai` directly, edit the text files created by the AI agent in Step 1.
+
+For example, open `input/novelai/prompts/mio.txt`, write only the prompt body below, and save it as UTF-8 (do not include the variable name, `=`, or outer quotation marks):
 
 ```text
 girl, black twintails, blue jacket
 ```
 
-Edit any other files you want to change in the same way.
-
-| Example text file | Example text |
+| Example Text File | Example Body Content |
 | --- | --- |
 | `input/novelai/prompts/style-main.txt` | `bold lineart, vivid colors, cel shading` |
 | `input/novelai/prompts/background-classroom.txt` | `classroom, desks, windows, warm sunset light` |
 
-Keep the text on one line and save as UTF-8. If this is your first time using commands, open a terminal as in step 3. Then run the following commands one line at a time, and the script applies them to `.env`. You can run only the commands for the files you changed.
+After editing and saving, run the following commands in the terminal to apply them to `.env.novelai` (you only need to run the command for the file(s) you changed):
 
 ```powershell
 python -X utf8 scripts/novelai_batch.py env-set NOVELAI_CHAR_MIO --value-file input/novelai/prompts/mio.txt
@@ -112,161 +218,278 @@ python -X utf8 scripts/novelai_batch.py env-set NOVELAI_STYLE_MAIN --value-file 
 python -X utf8 scripts/novelai_batch.py env-set NOVELAI_BACKGROUND_CLASSROOM --value-file input/novelai/prompts/background-classroom.txt
 ```
 
-Confirm that "updated" or "added" is displayed. The script updates the relevant setting and does not generate images. It keeps other setting values, but it normalizes line endings and character encoding in `.env` when saving.
+Verify that the command outputs that the variable was updated or added.
 
-**Text files are not synchronized automatically.** Run the apply command every time you edit a text file. If you run Method B after Method A, the script replaces the `.env` value with the contents of the text file.
+> [!IMPORTANT]
+> **Text file contents are not synchronized automatically.**
+> Every time you edit a text file, run the `env-set` command (or ask the AI to run it).
 
-An example request when you hand the apply step to Codex:
+> **Sample prompt when asking the AI to apply text files:**
+> "I saved the editing text files. Please check the changed files and apply them to `.env.novelai` with `env-set`. Do not generate any images."
 
-> I saved the editing text files. Check the changed files and apply them to .env with env-set. Do not generate images.
+---
 
-### Writing in Japanese
+### Writing Prompts in Japanese
+You can also write Japanese directly in the prompt body or editing text files (e.g., `女の子、黒髪のツインテール、青いジャケット`).
+The script does not translate the text and embeds it directly into the request. Check whether the intended appearance comes through in the image, and consult the AI about adjusting it into English tags if needed.
 
-You can also write Japanese in the value on the right or in the editable text files. For example, this single line (it means "a girl, black twintails, a blue jacket"):
+> [!TIP]
+> Once you finish editing the prompts, you can either run the optional [5. Inspect Settings and Dry-Run Without Sending](#5-inspect-settings-and-dry-run-without-sending) or **skip inspection and proceed directly to [6. Check Cost / Allowance and Run Generation](#6-check-cost--allowance-and-run-generation)**. (If you edited text files using Method B, make sure to apply them to `.env.novelai` with `env-set` before proceeding.)
 
-```text
-女の子、黒髪のツインテール、青いジャケット
-```
+---
 
-The script does not translate the text; it puts it into the request as is. You and Codex check in the generated image whether the intended look was achieved. If you change from English to Japanese, also ask Codex to update the feature list in step 5.
+## 5. Inspect Settings and Dry-Run Without Sending
 
-## 5. Ask Codex to check the content, then run a dry-run check
+> [!TIP]
+> **This step is optional (skippable).**
+> If you are comfortable writing prompts or want to proceed straight to generation without a dry-run simulation, you may skip this step and go directly to [6. Check Cost / Allowance and Run Generation](#6-check-cost--allowance-and-run-generation). (If you edited text files with Method B, apply them to `.env.novelai` via `env-set` first.)
 
-First tell Codex which items you changed and ask it to check the expanded requests. **Adjusting the feature list and the request JSON is Codex's job.**
+After changing your prompts, you can check setting consistency and run a dry run (simulation without network calls) before actually generating images.
 
-> I changed Mio's hairstyle from short hair to black twintails. I also changed the style and the classroom light. Update the feature list in characters.json and the visible-feature specification for each panel to match .env, and check the expanded requests. Also check the assignment to per-character input and the continuity of the scene. Do not generate images this time.
+### 1. Ask the AI Agent to Inspect the Content
+Tell the AI what you changed and ask it to inspect the expanded request JSON.
 
-After Codex's check, run the following command to see the registered variable names. The script normally does not display the text.
+> **Sample prompt for the AI:**
+> "I changed Mio's hairstyle to black twintails and also updated the art style and classroom lighting. Please inspect the expanded requests against `.env.novelai`, including per-character input assignment and scene continuity. Do not generate any images this time."
+
+### 2. Check Registered Variables
+List the registered variables in the terminal:
 
 ```powershell
+# List registered variables (name, source, character count)
 python -X utf8 scripts/novelai_batch.py vars
-```
 
-If you also want to read the prompt text, run the following command. The script does not include the API key in what it displays.
-
-```powershell
+# Also show variable values (prompt text)
 python -X utf8 scripts/novelai_batch.py vars --show-values
 ```
+Note: Secret values such as API keys are never displayed.
 
-Next, check page 1's requests without sending them.
+### 3. Dry-Run Check (Without Sending)
+Check the request contents for page 1 locally without sending anything to the NovelAI server:
 
 ```powershell
 python -X utf8 scripts/novelai_batch.py generate --page 1
 ```
 
-The script displays dimensions, seeds, the variables used, and warnings, and finally shows "Not sent." If a warning or error appears, tell Codex its content and ask for a fix. This display confirms that the settings are ready; it does not generate an image or guarantee that the content is correct.
+No images are generated; the command displays dimensions, seed values, variables used, and syntax warnings, ending with a "no transmission" summary.
+If warnings or errors appear, share them with the AI agent and ask it to fix them.
 
-An example request when you also hand the command execution to Codex:
+> **Sample prompt when asking the AI to run the commands and inspect:**
+> "Please run a dry-run check with `vars` and `generate --page 1`, inspect the settings and warnings, and handle any needed fixes. Do not generate any images."
 
-> Run vars and the dry-run check with generate --page 1, and check the settings and warnings. Make any necessary fixes, and do not generate images.
+### About Prompt Warnings (Lint)
+The script automatically detects phrasing that rarely produces the intended visual result and issues warnings:
+- **Negative words in positive prompts**: `not`, `without`, etc. (often causes the unwanted element to appear; move to `negative_prompt` or use `no humans` for scenes without people)
+- **Expressions of intent**: `as if`, `trying to`, `awkwardly`, etc. (rewrite as concrete, visible facial, hand, or body descriptions)
+- **Numeric ages and `man`/`woman`**: Weak visual effect and can cause extra people to appear (use `1girl`, `1boy`, etc.)
 
-### When you change a character's features
+When warnings appear, the AI agent normally fixes the prompt. If you intentionally keep a phrasing that triggers a warning, pass `--accept-warnings` when generating.
 
-For example, if you change from short hair to twintails, Codex changes the hair feature in Mio's `features` in `input/novelai/characters.json` to the same wording as the new prompt. For close-ups where hair is not visible, such as hands, Codex adjusts the targets in `cast`. You do not need to edit the JSON by hand.
+> **Checking character identity features (optional)**:
+> Automatic checking of character identity features (hair, clothing, etc.) is disabled by default. Enable it only if desired by setting `NOVELAI_CHECK_IDENTITY=1` in `.env.novelai`. When enabled, the AI agent keeps the feature terms in `input/novelai/characters.json` synchronized with your updated prompts.
 
-The script checks whether the registered feature strings appear in the request text. It does not judge paraphrased meaning, which character a feature attaches to, or whether twintails were actually drawn in the generated image. You and Codex check the image separately after generation. Without a feature list, the script does not run the feature check. There is no equivalent feature-list check for style and background.
+---
 
-Codex reviews each warning and, as a rule, fixes the prompt. If you and Codex decide to keep a warning deliberately, Codex records the reason in `docs/production/NOVELAI-BATCH.md`. The generation and regeneration examples below include `--accept-warnings` by default, which allows sending even when warnings remain. If you want to check warnings and stop sending when any remain, remove this argument. Warnings are still displayed when it is included. It is not an argument that skips cost checks or errors. Use the dry-run check examples without this argument.
+## 6. Check Cost / Allowance and Run Generation
 
-## 6. Check cost and allowance, then run generation
+### Pre-Check Cost and Allowance
+Before generating, always verify that **all current settings (model, dimensions, step count, etc.) cost 0 Anlas** and that **your V5 free allowance is sufficient**.
+(Even with an active Opus subscription, certain dimensions or step counts may consume additional Anlas.)
 
-Check the cost of this run's style, model, and all settings. Even when Codex helps with the check, confirm the result and any unconfirmed items before deciding to run. Even with Opus, having a subscription does not mean that 0 Anlas has been confirmed for this run. Also check the V5 allowance. For details, see [connection and cost procedure](../knowledge/novelai-api.md#generate-after-confirmation). If it cannot be confirmed, neither you nor Codex should send.
+> [!CAUTION]
+> Never run generation while cost or allowance is unverified. If you cannot verify them, hold off on generation until verified.
 
-**Only when all of this run's settings are confirmed to be 0 Anlas and the V5 allowance is also confirmed**, run the following V5 command. Rewrite the `--cost-note` text to the actual verification method and time. For V4 and V4.5, remove `--confirm-v5-allowance`.
+> **About subscription, Anlas, and V5 allowance check frequency**:
+> To avoid excessive API calls, the subscription check API is not called on every single generation; it is called on the first generation and automatically re-queried roughly once every 10 generations thereafter.
+> However, if you change the model, dimensions, steps, sample count, or extra features, if the previous generation failed or its completion could not be confirmed, or if the remaining V5 allowance is low (`3%` or less), it re-queries immediately without waiting for 10 runs. To force a fresh query at any time, delete `output/novelai/subscription-check.json`.
 
+### Run the Generation Command
+
+Run the generation command only after confirming that all settings cost 0 Anlas and that V5 allowance is available.
+(Replace the `--cost-note` text with how and when you actually verified.)
+
+**For NovelAI V5:**
 ```powershell
-python -X utf8 scripts/novelai_batch.py generate --page 1 --execute --accept-warnings --confirm-zero-anlas --confirm-v5-allowance --cost-note 'Enter how and when you confirmed the cost and allowance for all settings this run'
+python -X utf8 scripts/novelai_batch.py generate --page 1 --execute --accept-warnings --confirm-zero-anlas --confirm-v5-allowance --cost-note 'Enter how and when you verified the cost and allowance for all current settings'
 ```
 
-`--execute` is the flag that actually sends generation. The script generates each panel on the page one image at a time and adds candidates without overwriting earlier images. For a work whose images have not been generated, this is the first generation; for a work with finished previews, it is regeneration. If a run fails, the script does not resend automatically. Check the result and consumption, and ask Codex to summarize the situation if needed.
+**For NovelAI V4 / V4.5:**
+(Run without `--confirm-v5-allowance`)
+```powershell
+python -X utf8 scripts/novelai_batch.py generate --page 1 --execute --accept-warnings --confirm-zero-anlas --cost-note 'Enter how and when you verified the cost for all current settings'
+```
 
-An example request when you hand generation to Codex:
+- `--execute`: Actually sends generation requests to NovelAI.
+- Each panel on page 1 is generated one image at a time in order and saved sequentially (`r001.png`, `r002.png`, ...) under `output/novelai/candidates/<panel-ID>/`. Existing images are never overwritten.
+- If an error occurs mid-run, the script stops safely and does not automatically retry.
 
-> Generate page 1 with NovelAI after the changes. Run it only if 0 Anlas is confirmed for all of this run's settings and, for V5, the allowance is sufficient. If it cannot be confirmed, do not send and tell me. I do not authorize paid use or automatic resending after a failure.
+> **Sample prompt when asking the AI to run generation:**
+> "Please generate the updated page 1 with NovelAI. Run it only if you can confirm 0 Anlas for all current settings and sufficient allowance if using V5. If you cannot confirm, do not send and let me know. I do not authorize paid usage or automatic retries on failure."
 
-Ordinary regeneration may change the seed (the number that determines generation variation). If you want to compare only the prompt change, ask Codex before generating to compare at the same seed. Codex sets `parameters.seed` to the same value in the before and after requests and prepares a command with `--seed request`. Even with the same seed, character and composition matches are not guaranteed.
+#### About Seeds
+In normal regeneration, the seed (random number determining generation variation) changes on each run so you can explore new compositions and expressions.
+If you want to "keep the previous composition and compare only the effect of prompt changes (such as hairstyle or color)," ask the AI agent to run a same-seed comparison with `--seed request`.
 
-## 7. Check the images and adopt the new candidates
+---
 
-Check candidates and the adoption status with the following command.
+## 7. Inspect and Adopt Candidate Images
 
+Once generation finishes, inspect the generated candidate images and adopt the ones to include in the page.
+
+### 1. Check Candidates and Current Adoption Status
 ```powershell
 python -X utf8 scripts/novelai_batch.py list --page 1
 ```
+Displays the number of candidates for each panel and which candidate is currently adopted.
 
-Candidates are in places like `output/novelai/candidates/p01-02/r003.png`. Open the images, check the look, background, action, and character positions, and choose the candidate to use. `p01-02` is panel 2 of page 1, and `r003.png` is candidate number 3. Run the adopt command for the candidate you chose.
+### 2. Visually Inspect Candidate Images
+Candidate images are saved in `output/novelai/candidates/<panel-ID>/`.
+(For example, page 1 panel 2 is `output/novelai/candidates/p01-02/r003.png`.)
 
+Open the images in an image viewer, check appearances, backgrounds, actions, and character positions, and decide which candidate number (`3` for `r003.png`) to adopt.
+
+### 3. Run the Adoption Command
+
+**To adopt panel by panel:**
 ```powershell
+# Adopt candidate 3 (r003.png) for p01-02 (page 1, panel 2)
 python -X utf8 scripts/novelai_batch.py adopt p01-02 --candidate 3
 ```
 
-Replace the request ID and candidate number with real ones, and adopt each changed panel. For a first generation, adopt every panel on the page. Regeneration alone does not switch the adopted image, so if you skip this, the page may be rebuilt with old images.
-
 ### Adopt the highest-numbered image in each folder at once
 
-To use the highest-numbered PNG of each regenerated panel, you can adopt them together with the following command without rewriting numbers by hand. First check the targets with `--dry-run`, review the images, and then adopt.
+<a id="adopt-the-highest-numbered-image-in-each-folder-at-once"></a>
+<a id="各フォルダの最新番号をまとめて採用する"></a>
+
+To apply the newly regenerated latest images all at once, use the `adopt-latest` command:
 
 ```powershell
-# Only display the targets (the adoption record is not changed)
+# Display targets only (dry run without changing adoption records)
 python -X utf8 scripts/novelai_batch.py adopt-latest --page 1 --dry-run
-# Adopt the highest-numbered PNG in each folder on page 1
+
+# Adopt the highest-numbered PNG for each panel on page 1
 python -X utf8 scripts/novelai_batch.py adopt-latest --page 1
-# Adopt for all pages
+
+# Adopt the highest-numbered PNG for every panel across all pages
 python -X utf8 scripts/novelai_batch.py adopt-latest --all
-# If you regenerated only some panels, specify just those request IDs
+
+# When only specific panels were regenerated, specify request IDs to adopt
 python -X utf8 scripts/novelai_batch.py adopt-latest --ids p01-02,p01-04
 ```
 
-For example, if one panel's highest number is `r003.png` and another's is `r005.png`, each is chosen. "Latest" is decided by candidate number, not by modification time. Targets are panels that have request JSON, and `--all` covers all pages in the `p01-...` format. Choose the same `--page`, `--all`, or `--ids` that you used for generation and regeneration.
+- "Latest" is determined by candidate number (the highest number), not by file modification time.
+- Updates the adoption record for the target panels in `input/novelai/adopted.json`.
 
-This command replaces the existing adoption for the target panels in `input/novelai/adopted.json` and keeps adoptions for other panels. For a panel with no new PNG, such as after a failed generation, the earlier highest-numbered PNG is selected. If any target has no candidate PNG at all, the command stops with an error and does not change the adoption record. Check the generation results and the images before using it. It makes no API connection; after adopting, rebuild the page PNGs with `build` in step 8.
+> [!NOTE]
+> Simply regenerating images does not switch the adopted image. If you proceed without adopting, the page will be rebuilt using the old images.
 
-An example request when you hand the adoption record to Codex:
+> **Sample prompt when asking the AI to record adoption:**
+> "I checked the images. Use candidate 3 for `p01-02`, and adopt the latest (highest-numbered) image for the remaining panels. Please record them with `adopt`."
+> (If you ask the AI to review the images, the AI can also open and inspect the candidates and propose which ones to adopt.)
 
-> I reviewed the images. I will use candidate 3 for p01-02. Record the adoption with adopt.
+---
 
-> I reviewed the images. I will adopt the latest (highest-numbered) image in each folder. Record the adoption with adopt-latest.
+## 8. Rebuild Page PNGs and Inspect the Result
 
-Codex reflects the candidates you specified in the adoption record. If you also ask for an image review, Codex actually opens the images, checks them, and explains its recommendation.
-
-## 8. Rebuild the page PNGs and review the finished page
-
-For a work with finished previews, run the following build command using the existing page manifests. If you started before image generation and the page manifests, text placement, or typesetting environment are not ready, first ask Codex to prepare them. Codex performs the post-artwork comparison and sets up the necessary structure. After preparation, run the following.
+Once adoption records are updated, composite the panel artwork, speech balloons, and lettering to rebuild the finished page PNG.
 
 ```powershell
 python -X utf8 scripts/novelai_batch.py build --page 1
 ```
 
-The script saves the result in a per-version folder such as `output/build/page-01/v001/`. Open the page PNG at the location shown in the output, and check how it looks after cropping, the lettering, and the reading order. Build does not send any generation to NovelAI.
+- The rebuilt page PNG is saved in a new versioned folder such as `output/build/page-01/v001/`.
+- Open the saved page PNG and check how the cropped panels look, along with the lettering and reading order.
+- (`build` is a local compositing step and makes no network calls to NovelAI.)
 
-An example request when you hand the build and review to Codex:
+> **For projects started before image generation**:
+> If page configuration, lettering placement, or the typesetting environment is not yet set up, ask the AI agent to prepare them first. Run `build` once the necessary configuration is in place.
 
-> Rebuild page 1's PNG with the adopted images, then review the finished page and show it to me. If the page manifest or text placement is not ready, prepare it first. Do not create a PSD this time.
+> **Sample prompt when asking the AI to rebuild and inspect:**
+> "Please rebuild the page 1 PNG with the adopted images, inspect the finished page, and present it to me. If page configuration or lettering placement is not ready yet, please set that up first. Do not create a PSD this time."
 
-If there are revisions, tell Codex where. Codex presents the revised PNG again, and you check the latest PNG.
+If any adjustments are needed, tell the AI agent what to fix and inspect the newly presented latest PNG.
 
-### If you also want a PSD
+### Page-Flipping HTML Viewer for Checking Pages
+When you want to flip through multiple pages in order, you can ask the AI agent to create a page-flipping HTML viewer. The AI collects the latest version of each page under `output/build/` and creates `output/build/preview.html` (with previous/next buttons, arrow-key navigation, and a page selector; in left-to-right works `→` advances to the next page, and in right-to-left works `←` advances to the next page). Whenever you rebuild pages with `build`, ask the AI to update the HTML. Because the AI does not launch a browser, open the HTML file at the reported path yourself.
 
-If you create an adjustment PSD yourself, run the following command.
+> **Sample prompt when asking the AI to create the HTML viewer:**
+> "Please create an HTML viewer so I can flip through the rebuilt page PNGs. Follow 'Page-flipping HTML viewer for PNG previews' in `novelai-composed-production.md`, collect only the latest version of each page, and tell me the path to open. Do not launch a browser."
+
+### Creating a PSD for Further Adjustment
+To create a PSD for adjustments in painting software such as CLIP STUDIO PAINT, run `build` with `--write-psd`:
 
 ```powershell
 python -X utf8 scripts/novelai_batch.py build --page 1 --write-psd
 ```
 
-A PSD you create with this command is a manuscript for adjusting in painting software. If you ask Codex to create and hand over a PSD, finish the revision review of the latest PNG first and then say, "This PNG needs no revisions. Please also create and verify a PSD and hand it over." If you have already instructed PSD creation, Codex proceeds to creation and verification after the PNG revision review.
+> [!TIP]
+> As a rule, first confirm that the PNG preview needs no further fixes before creating a PSD. When asking the AI to create a PSD, tell it: "This PNG needs no changes. Please also create, verify, and hand off the PSD."
 
-## Where to look when you are stuck
+---
 
-| Display or situation | What you check or ask |
-| --- | --- |
-| Invalid variable name | Tell Codex what was displayed. Codex checks the three permitted variable name types and the script version |
-| Variable not found | Check whether you applied the text edit. If the reference setup is the problem, ask Codex |
-| The same variable is in several places | Ask Codex to sort out the duplicate. Codex consolidates it into one of the environment, `.env`, `.secrets/novelai.env`, or `.secrets/.env` |
-| The value must be one line | Remove line breaks within the text you edited and save it on one line |
-| Text file not found | Check the file name and apply command Codex gave you |
-| Changed the setting but nothing changed | Check whether you generated and adopted new candidates. Codex checks the request's variable references |
-| Build fails | Tell Codex the error. Codex checks adoption, page manifests, text placement, and the typesetting environment |
+## Troubleshooting Common Errors
 
-`templatize`, which replaces the initial requests with variables, changes every place that has the same text. **Codex uses it during the initial preparation**, after checking the targets with `--dry-run`. For ordinary editing you only change the text of the variables Codex set up; you do not need to run `templatize` each time.
+| Message / Situation | Primary Cause | Solution |
+| --- | --- | --- |
+| **Invalid variable name (`Invalid variable:`)** | A variable name that does not match naming rules was specified | Variable names must start with `NOVELAI_CHAR_`, `NOVELAI_STYLE_`, or `NOVELAI_BACKGROUND_`. Ask the AI to check script support. |
+| **Variable X is missing in `.env.novelai` (`Variable ... not found in .env.novelai` / `Variable ... not found`)** | The expected variable could not be found | If editing text files (Method B), make sure you ran `env-set` to apply them. If there is an issue with references in the request JSON, ask the AI to fix it. |
+| **Duplicate variable across multiple sources (`Duplicate variable in multiple sources:`)** | The variable is defined in more than one place | Ask the AI to check for duplicates between `.env.novelai` and environment variables and consolidate them into one place. |
+| **Value must be a single line (`Value must be a single line:`)** | The prompt text contains a line break | Remove line breaks from the edited text and save it as a single line. |
+| **`FileNotFoundError`** | The text file path passed to `env-set --value-file` does not exist | Double-check the file path (`input/novelai/prompts/...`) and command provided by the AI. |
+| **Changed settings, but the image did not change** | Generation, adoption, or `build` has not been completed | Check in order:<br>1. Did you regenerate?<br>2. Did you adopt the new candidate with `adopt` / `adopt-latest`?<br>3. Did you run `build` afterward? |
+| **Unknown-result execution record exists (`Execution records with unknown outcome exist:`)** | An interruption or timeout during sending left an execution record without an image (automatic retry is disabled, so subsequent generation stops) | Check NovelAI's image history and Anlas consumption. If no image was produced (or it is unneeded), inspect targets with `python -X utf8 scripts/novelai_batch.py move-unknown --ids p07-03`, then move the record to `failed/` by adding `--confirm-checked --note 'What was verified'` before regenerating (nothing is deleted). If an image was produced, save that image as `rNNN.png` in the same folder without moving the record. |
+| **`build` fails** | Incomplete adoption records, page configuration, or typesetting environment | Share the error output with the AI so it can check adoption status, `input/pages/page-01.json`, lettering placement, and fonts/typesetting dependencies. |
 
-The authoritative procedure is the [NovelAI production procedure](../knowledge/novelai-composed-production.md#character-variables), and the per-work commands and adoption records are in [NovelAI batch records](../production/NOVELAI-BATCH.md). Upstream explanation updated 2026-10-05. This guidance is based on the local script implementation; check the effect of actual generation for each work.
+> **About `templatize`**:
+> The `templatize` command, which replaces matching text in request JSON files with `${VARIABLE_NAME}` in bulk, is used by the AI agent during initial setup. You do not need to run it during normal editing.
+
+---
+
+## Appendix A: Assemble Request JSON from Arguments and Customize Helper Settings in `.env.novelai`
+
+When assembling a new panel request JSON or passing parameters directly from a script, you can use the standard assembly script `scripts/novelai_compose.py`. The default model is V5.
+
+```powershell
+python -X utf8 scripts/novelai_compose.py --id p01-03 --seed 123 `
+  --scene "upper body" --background "classroom, daylight" --style "bold lineart, vivid colors" `
+  --char1-appearance "black twintails" --char1-action "smile" --char1-pos 0.3,0.5 `
+  --char2-appearance "short blue hair" --char2-action "looking aside" --char2-pos 0.7,0.5
+```
+
+Because the character type (`girl` by default; `boy` or `other` via `--charN-type`) is automatically prepended, do not include it in `--charN-appearance`. The default model is V5 Curated; V4.5 is used only when explicitly specified (`--model`).
+
+The assembled request is saved to `input/novelai/requests/p01-03.json` (no network call is made at this stage; run generation using the command in Step 6).
+
+You can also customize quality tags and undesired-content (negative) presets in `.env.novelai` (when omitted, Web UI defaults are used):
+
+```dotenv
+# Full quality-tag string (leave empty to disable adding quality tags)
+NOVELAI_QUALITY_TAGS="very aesthetic, masterpiece, no text"
+
+# Undesired-content preset name (heavy, none; light and human are V5 Curated only)
+NOVELAI_UC_PRESET="heavy"
+
+# Full undesired-content preset text (takes precedence over UC_PRESET when set)
+NOVELAI_UC_PRESET_TEXT="lowres, bad anatomy"
+
+# Enable automatic character identity-feature checking (1 = enabled; disabled by default)
+NOVELAI_CHECK_IDENTITY=1
+```
+
+For detailed arguments and specifications, see [NovelAI Production Procedure](../knowledge/novelai-composed-production.md#compose) and [API Procedure](../knowledge/novelai-api.md#compose-standard).
+
+---
+
+## Appendix B: Inspect the Actual Sent Request Payload
+
+Every time you run generation, the following two JSON files are saved in the same folder as the candidate PNG (for example, `output/novelai/candidates/p01-02/`):
+
+- `r003.request.json`: Formatted, human-readable request settings. Useful when comparing against Web UI settings or fine-tuning a request by hand based on that run.
+- `r003.request-body.json`: The exact raw payload sent to the NovelAI API endpoint.
+
+These files help diagnose why an art style differed from expectations or verify exact parameters. You can also copy `r003.request.json` into `input/novelai/requests/` and edit it to regenerate as a new request.
+
+---
+
+- **Canonical procedure**: [NovelAI Production Procedure](../knowledge/novelai-composed-production.md#character-variables)
+- **Per-project commands and adoption records**: [NovelAI Batch Generation Log](../production/NOVELAI-BATCH.md)

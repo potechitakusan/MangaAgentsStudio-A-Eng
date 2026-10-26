@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "selection_source": "After selecting six candidates, the user added five on 2026-09-20. On 2026-09-21, the thin, sharp-line drawing style was removed and ten candidates were renumbered.",
+  "selection_source": "After selecting six candidates, the user added five on 2026-09-20. On 2026-09-21, the thin, sharp-line drawing style was removed and ten candidates were renumbered. On 2026-10-06, the user added one more style (style-11).",
   "default_ids": [
     "style-01",
     "style-02",
@@ -11,12 +11,13 @@
     "style-07",
     "style-08",
     "style-09",
-    "style-10"
+    "style-10",
+    "style-11"
   ],
   "active_style_id": null,
   "ask_when_unspecified": true,
   "artist_names_allowed": false,
-  "model": "nai-diffusion-5-full",
+  "model": "nai-diffusion-5-curated",
   "kit_sample_library_relative_path": "resources/novelai-style-samples/index.html",
   "sample_images_in_project_template": false,
   "generation_settings": {
@@ -99,6 +100,15 @@
       "negative_style": "",
       "sample_prompt_prefix": "2girls, multiple girls, ",
       "selection_source": "Additional user selection 5"
+    },
+    {
+      "id": "style-11",
+      "name_ja": "Vivid color, thin lines, large round eyes",
+      "style_prompt": "masterpiece, best quality, highly detailed,vivid colors, saturated,thin lines, clean lineart,digital art, clean coloring,large eyes, round eyes,",
+      "negative_style": "",
+      "sample_prompt_prefix": "2girls, multiple girls, ",
+      "selection_source": "Additional user selection 6 (2026-10-06)",
+      "note_ja": "The style prompt is used as specified (including words that overlap with the script's quality tags). The negative prompt uses the script's default negative preset."
     }
   ]
 }

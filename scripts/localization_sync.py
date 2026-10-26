@@ -15,6 +15,7 @@ import subprocess
 ROOT = Path(__file__).resolve().parents[1]
 IGNORED = {'.git', '.work', 'backup', 'backups', '.agents', '.codex', '.venv',
            'venv', '__pycache__', 'node_modules', '.secrets', '.pytest_cache'}
+ENV_EXAMPLES = {'.env.example', '.env.novelai.example', '.env.pixai.example'}
 
 
 def sha256(path):
@@ -27,7 +28,7 @@ def sha256(path):
 
 def excluded(path):
     return (any(part in IGNORED for part in path.parts)
-            or path.name.startswith('.env') and path.name != '.env.example'
+            or (path.name.startswith('.env') and path.name not in ENV_EXAMPLES)
             or path.suffix in {'.pyc', '.pyo', '.bak', '.tmp', '.log'}
             or path.as_posix() in {'docs/PLAN.md', 'docs/PROGRESS.md'})
 

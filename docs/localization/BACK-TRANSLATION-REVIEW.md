@@ -27,3 +27,7 @@ The separate reviewer compared changed English prose and new portable code again
 ## Japanese 0.5.0 update
 
 The integrating translator compared the changed English prose, the batch-script port, and the new editing README against the Japanese `b6a958a..b7a06f7` diff. This was **not** an independent sub-agent review; that workflow step remains open. See [0.5.0 review](REVIEW-0.5.0.md) for method, findings, intentional adaptations, and open items.
+
+## Japanese 0.5.4 update (0.5.2–0.5.4)
+
+An independent `research` sub-agent compared the changed and newly added English documentation, configurations, WebUI skills, scripts, and catalogs against the Japanese `b7a06f7..ad50dd0` diff and source files. Nine findings (including schema and field alignments in `pixai-request.example.json`, `pixai-models.json`, `pixai-production-policy.json`, and `.env.pixai.example`, the 0.5.4 workflow Mermaid diagram in `README.md`, and English CLI error strings in troubleshooting tables) were resolved before recording the final state. See [0.5.4 review](REVIEW-0.5.4.md) for full scope, findings, and confirmed intentional US English adaptations.

@@ -40,7 +40,8 @@ class BatchTests(unittest.TestCase):
         (self.root / nb.REQUESTS_DIR).mkdir(parents=True)
         for rid in ("p01-01", "p01-02", "p02-01", "chara-mio"):
             self.save(rid, request())
-        (self.root / ".env").write_text(f"NOVELAI_API_KEY={KEY}\nNOVELAI_CHAR_MIO=\"{PROMPT}\"\n", encoding="utf-8")
+        (self.root / ".env").write_text(f"NOVELAI_API_KEY={KEY}\nCOMFYUI_URL=http://127.0.0.1:8188\n", encoding="utf-8")
+        (self.root / ".env.novelai").write_text(f"NOVELAI_CHAR_MIO=\"{PROMPT}\"\n", encoding="utf-8")
         self.addCleanup(patch.stopall)
         patch.dict(os.environ, {}, clear=True).start()
 
@@ -63,17 +64,74 @@ class BatchTests(unittest.TestCase):
     def test_variables_never_include_api_key(self):
         variables = nb.read_variables(self.root)
         self.assertEqual(set(variables), {"NOVELAI_CHAR_MIO"})
-        self.assertEqual(variables["NOVELAI_CHAR_MIO"], (PROMPT, ".env"))
+        self.assertEqual(variables["NOVELAI_CHAR_MIO"], (PROMPT, ".env.novelai"))
         with self.assertRaises(nb.BatchError):
             nb.expand("${NOVELAI_API_KEY}", variables, set())
         with self.assertRaises(nb.BatchError):
             nb.expand("${NOVELAI_CHAR_UNKNOWN}", variables, set())
 
     def test_duplicate_variable_is_rejected(self):
+        with patch.dict(os.environ, {"NOVELAI_CHAR_MIO": "other"}):
+            with self.assertRaises(nb.BatchError):
+                nb.read_variables(self.root)
+
+    def test_legacy_variables_block_until_migrated_and_keys_stay(self):
+        (self.root / ".env").write_text(f"NOVELAI_API_KEY={KEY}\nNOVELAI_STYLE_MAIN=\"soft colors\"\nNOVELAI_UC_PRESET=light\n", encoding="utf-8")
         (self.root / ".secrets").mkdir()
-        (self.root / ".secrets/novelai.env").write_text("NOVELAI_CHAR_MIO=other\n", encoding="utf-8")
+        (self.root / ".secrets/novelai.env").write_text(f"NOVELAI_API_KEY={KEY}\nNOVELAI_BACKGROUND_ROOF=\"rooftop\"\n", encoding="utf-8")
+        for call in (lambda: nb.read_variables(self.root), lambda: nb.read_setting(self.root, "NOVELAI_UC_PRESET")):
+            with self.assertRaises(nb.BatchError) as raised:
+                call()
+            self.assertIn("env-migrate", str(raised.exception))
+            self.assertNotIn(KEY, str(raised.exception))
+        self.assertEqual(nb.env_migrate(self.root, True), [(".env", "NOVELAI_STYLE_MAIN"), (".env", "NOVELAI_UC_PRESET"),
+                                                            (".secrets/novelai.env", "NOVELAI_BACKGROUND_ROOF")])
+        self.assertIn("NOVELAI_STYLE_MAIN", (self.root / ".env").read_text(encoding="utf-8"))
+        nb.env_migrate(self.root, False)
+        self.assertEqual((self.root / ".env").read_text(encoding="utf-8"), f"NOVELAI_API_KEY={KEY}\n")
+        self.assertEqual((self.root / ".secrets/novelai.env").read_text(encoding="utf-8"), f"NOVELAI_API_KEY={KEY}\n")
+        self.assertEqual(set(nb.read_variables(self.root)), {"NOVELAI_CHAR_MIO", "NOVELAI_STYLE_MAIN", "NOVELAI_BACKGROUND_ROOF"})
+        self.assertEqual(nb.read_setting(self.root, "NOVELAI_UC_PRESET"), "light")
+        self.assertNotIn(KEY, (self.root / ".env.novelai").read_text(encoding="utf-8"))
+        # Leave both unchanged if the destination already has the same name
+        (self.root / ".env").write_text(f"NOVELAI_API_KEY={KEY}\nNOVELAI_CHAR_MIO=dup\n", encoding="utf-8")
         with self.assertRaises(nb.BatchError):
-            nb.read_variables(self.root)
+            nb.env_migrate(self.root, False)
+        self.assertIn("NOVELAI_CHAR_MIO=dup", (self.root / ".env").read_text(encoding="utf-8"))
+
+    def test_migration_target_failure_preserves_original_values(self):
+        source = self.root / ".env"
+        before = f'NOVELAI_API_KEY={KEY}\nNOVELAI_STYLE_MAIN="soft colors"\n'
+        source.write_text(before, encoding="utf-8")
+        target = self.root / nb.VAR_FILE
+        target_before = target.read_bytes()
+        original_replace = Path.replace
+
+        def fail_target(path, destination):
+            if destination == target:
+                raise OSError("simulated target save failure")
+            return original_replace(path, destination)
+
+        with patch.object(Path, "replace", fail_target), self.assertRaises(OSError):
+            nb.env_migrate(self.root, False)
+        self.assertEqual(source.read_text(encoding="utf-8"), before)
+        self.assertEqual(target.read_bytes(), target_before)
+
+    def test_migration_source_failure_keeps_values_in_destination(self):
+        source = self.root / ".env"
+        source.write_text(f'NOVELAI_API_KEY={KEY}\nNOVELAI_STYLE_MAIN="soft colors"\n', encoding="utf-8")
+        original_replace = Path.replace
+
+        def fail_source(path, destination):
+            if destination == source:
+                raise OSError("simulated source save failure")
+            return original_replace(path, destination)
+
+        with patch.object(Path, "replace", fail_source), self.assertRaises(OSError):
+            nb.env_migrate(self.root, False)
+        self.assertIn('NOVELAI_STYLE_MAIN="soft colors"', (self.root / nb.VAR_FILE).read_text(encoding="utf-8"))
+        self.assertIn(f"NOVELAI_API_KEY={KEY}", source.read_text(encoding="utf-8"))
+        self.assertNotIn(KEY, (self.root / nb.VAR_FILE).read_text(encoding="utf-8"))
 
     def test_style_and_background_round_trip_keeps_key_and_resolves_nested_prompts(self):
         nb.env_set(self.root, "NOVELAI_STYLE_MAIN", "bold lineart, vivid colors")
@@ -92,6 +150,8 @@ class BatchTests(unittest.TestCase):
         character = resolved["parameters"]["v4_prompt"]["caption"]["char_captions"][0]
         self.assertEqual(character, {"char_caption": PROMPT, "centers": [{"x": 0.3, "y": 0.5}]})
         self.assertIn(f"NOVELAI_API_KEY={KEY}", (self.root / ".env").read_text(encoding="utf-8"))
+        self.assertIn("NOVELAI_STYLE_MAIN", (self.root / ".env.novelai").read_text(encoding="utf-8"))
+        self.assertNotIn("NOVELAI_STYLE_MAIN", (self.root / ".env").read_text(encoding="utf-8"))
         self.assertNotIn(KEY, json.dumps(resolved))
         out = StringIO()
         with redirect_stdout(out), patch.object(api, "load_key") as key, patch.object(api, "api_request") as network:
@@ -129,8 +189,8 @@ class BatchTests(unittest.TestCase):
         self.assertIn("${NOVELAI_CHAR_MIO}", (self.root / nb.REQUESTS_DIR / "p01-01.json").read_text(encoding="utf-8"))
         self.assertEqual(nb.env_set(self.root, "NOVELAI_CHAR_MIO", "1girl, red hoodie"), "updated")
         self.assertEqual(nb.env_set(self.root, "NOVELAI_CHAR_REN", "1boy, glasses"), "added")
-        text = (self.root / ".env").read_text(encoding="utf-8")
-        self.assertIn(f"NOVELAI_API_KEY={KEY}", text)
+        self.assertEqual((self.root / ".env").read_text(encoding="utf-8"), f"NOVELAI_API_KEY={KEY}\nCOMFYUI_URL=http://127.0.0.1:8188\n")
+        self.assertIn("NOVELAI_CHAR_REN", (self.root / ".env.novelai").read_text(encoding="utf-8"))
         resolved, used = nb.resolved_request(self.root, "p01-01", nb.read_variables(self.root))
         self.assertIn("red hoodie", resolved["input"])
         self.assertEqual(used, {"NOVELAI_CHAR_MIO"})
@@ -169,6 +229,28 @@ class BatchTests(unittest.TestCase):
         (folder / "r001.novelai.json").write_text("{}", encoding="utf-8")
         with self.assertRaises(nb.BatchError):
             nb.next_candidate(self.root, "p01-01")
+
+    def test_move_unknown_requires_confirmation_and_unblocks_regeneration(self):
+        folder = self.root / nb.CANDIDATES_DIR / "p01-01"
+        folder.mkdir(parents=True)
+        Image.new("RGB", (8, 8)).save(folder / "r001.png")
+        (folder / "r001.novelai.json").write_text("{}", encoding="utf-8")
+        (folder / "r002.novelai.json").write_text("{}", encoding="utf-8")
+        listed = nb.move_unknown(self.root, ["p01-01"], None, False, "")
+        self.assertEqual(listed, [("p01-01", 2, None)])
+        self.assertTrue((folder / "r002.novelai.json").is_file())
+        self.assertEqual(nb.candidate_ids(self.root, [1], None, False), ["p01-01"])
+        self.assertEqual(nb.candidate_ids(self.root, [2], None, False), [])
+        moved = nb.move_unknown(self.root, nb.candidate_ids(self.root, None, None, True), None, True, "No image in history")
+        target = moved[0][2]
+        self.assertEqual(target.parent, folder / "failed")
+        self.assertTrue((target / "r002.novelai.json").is_file())
+        self.assertFalse((folder / "r002.novelai.json").exists())
+        self.assertTrue((folder / "r001.png").is_file())
+        self.assertEqual(json.loads((target / "moved.json").read_text(encoding="utf-8"))["note"], "No image in history")
+        self.assertEqual(nb.next_candidate(self.root, "p01-01"), 2)
+        with self.assertRaises(nb.BatchError):
+            nb.candidate_ids(self.root, None, ["../x"], False)
 
     def test_generate_stops_at_first_failure(self):
         calls = []
@@ -209,6 +291,34 @@ class BatchTests(unittest.TestCase):
         self.assertTrue(nb.lint_identity("p09-01", {"input": "1boy, solo", "parameters": {}}, characters))
         self.assertEqual(nb.lint_identity("p09-02", {"input": "no humans, sky", "parameters": {}}, characters), [])
         self.assertEqual(nb.lint_identity("p01-01", missing, None), [])
+
+    def test_identity_check_is_off_unless_enabled_and_no_text_is_not_a_negation(self):
+        characters = {"characters": {"mio": {"features": {"hair": "light brown short bob hair"}}},
+                      "cast": {"p01-01": {"mio": "all"}}}
+        (self.root / "input/novelai").mkdir(parents=True, exist_ok=True)
+        (self.root / nb.CHARACTERS).write_text(json.dumps(characters), encoding="utf-8")
+        self.save("p01-01", request(text="1girl, short black hair, very aesthetic, masterpiece, no text"))
+        self.assertEqual(nb.lint_prompt(request(text="1girl, masterpiece, no text")), [])
+        out = StringIO()
+        with redirect_stdout(out):
+            nb.generate(self.root, self.gen_args(ids=["p01-01"]))
+        self.assertNotIn("Identifying-feature", out.getvalue())
+        with (self.root / ".env.novelai").open("a", encoding="utf-8") as stream:
+            stream.write("NOVELAI_CHECK_IDENTITY=1\n")
+        out = StringIO()
+        with redirect_stdout(out):
+            nb.generate(self.root, self.gen_args(ids=["p01-01"]))
+        self.assertIn("Identifying-feature check: enabled", out.getvalue())
+        self.assertIn("Missing identifying features", out.getvalue())
+
+    def test_setting_reader_only_reads_allowed_names(self):
+        (self.root / ".env.novelai").write_text('NOVELAI_UC_PRESET="light"\n', encoding="utf-8")
+        self.assertEqual(nb.read_setting(self.root, "NOVELAI_UC_PRESET"), "light")
+        self.assertIsNone(nb.read_setting(self.root, "NOVELAI_QUALITY_TAGS"))
+        with patch.dict(os.environ, {"NOVELAI_QUALITY_TAGS": "masterpiece"}):
+            self.assertEqual(nb.read_setting(self.root, "NOVELAI_QUALITY_TAGS"), "masterpiece")
+        with self.assertRaises(nb.BatchError):
+            nb.read_setting(self.root, "NOVELAI_API_KEY")
 
     def test_warnings_block_sending_until_accepted(self):
         self.save("p01-01", request(text="1girl, solo, not smiling"))

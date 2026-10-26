@@ -81,9 +81,9 @@ if ($ProcessRequirementsFrom) {
     if ($LASTEXITCODE -ne 0) { throw 'Could not validate the source requirements. The new project has not been created.' }
 }
 $mappings = @(
-    @{ Source = 'templates\manga-project'; Target = ''; Extensions = @('.md', '.json', '.py'); Special = @('.gitignore', '.env.example', 'requirements-composition.txt') },
+    @{ Source = 'templates\manga-project'; Target = ''; Extensions = @('.md', '.json', '.py'); Special = @('.gitignore', '.env.example', '.env.novelai.example', '.env.pixai.example', 'requirements-composition.txt') },
     @{ Source = 'docs\knowledge'; Target = 'docs\knowledge'; Extensions = @('.md'); Special = @() },
-    @{ Source = 'skills'; Target = '.agents\skills'; Extensions = @('.md'); Special = @() },
+    @{ Source = 'skills'; Target = '.agents\skills'; Extensions = @('.md', '.py'); Special = @() },
     @{ Source = 'scripts\video'; Target = 'scripts\video'; Extensions = @('.py'); Special = @() }
 )
 $package = [Collections.Generic.List[object]]::new()
@@ -99,7 +99,7 @@ foreach ($mapping in $mappings) {
     foreach ($file in $files) {
         $relative = $file.FullName.Substring($sourceRoot.Length).TrimStart('\')
         if ($relative -match '(^|[\\/])(\.secrets|\.git|\.work|\.codex)([\\/]|$)' -or
-            ($file.Name -like '.env*' -and $file.Name -ne '.env.example') -or
+            ($file.Name -like '.env*' -and $file.Name -notin @('.env.example', '.env.novelai.example', '.env.pixai.example')) -or
             $file.Name -match '(?i)(secret|credential|api[-_]?key|token)') { throw "Secret-like package filename: $relative" }
         $panelAsset = $mapping.Source -eq 'templates\manga-project' -and (
             $relative -eq 'templates\panel-templates\index.html' -or
@@ -210,7 +210,7 @@ try {
         agentMode = $AgentMode
         locale = 'en-US'
         readingDirection = 'ltr'
-        localizationVersion = '0.5.0-en-US.1'
+        localizationVersion = '0.5.4-en-US.1'
     }
     if ($processSourceRelativePath) { $project.processRequirementsSourceRelativePath = $processSourceRelativePath }
     [IO.File]::WriteAllText((Join-Path $target 'project.json'), ($project | ConvertTo-Json -Depth 10), $utf8)

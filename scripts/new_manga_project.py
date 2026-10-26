@@ -19,6 +19,7 @@ KNOWLEDGE = re.compile(r'docs/knowledge/supervision/(?:(?:README|routing|sources
 PROJECT_SCRIPTS = ('Resolve-ReviewProfile.ps1', 'resolve_review_profile.py', 'Resolve-ReviewProfile.sh',
                    'Initialize-OptionalSkills.ps1', 'initialize_optional_skills.py', 'Initialize-OptionalSkills.sh',
                    'validate_panel_plan.py', 'prepare_page_layout.py', 'process_checker.py')
+ENV_EXAMPLES = {'.env.example', '.env.novelai.example', '.env.pixai.example'}
 
 
 def no_links(path: Path) -> None:
@@ -73,9 +74,9 @@ def collect_package(root: Path) -> dict[str, Path]:
         package[destination] = source
 
     mappings = (
-        ('templates/manga-project', '', {'.md', '.json', '.py'}, {'.gitignore', '.env.example', 'requirements-composition.txt'}, ('agent-modes',)),
+        ('templates/manga-project', '', {'.md', '.json', '.py'}, {*ENV_EXAMPLES, '.gitignore', 'requirements-composition.txt'}, ('agent-modes',)),
         ('docs/knowledge', 'docs/knowledge', {'.md'}, set(), ('supervision',)),
-        ('skills', '.agents/skills', {'.md'}, set(), ()),
+        ('skills', '.agents/skills', {'.md', '.py'}, set(), ()),
         ('scripts/video', 'scripts/video', {'.py'}, set(), ()),
     )
     for source_relative, destination, extensions, special, skip in mappings:
@@ -86,7 +87,7 @@ def collect_package(root: Path) -> dict[str, Path]:
             raise ValueError(f'Empty distribution source directory: {source_root}')
         for file in files:
             relative = file.relative_to(source_root).as_posix()
-            if any(part in {'.secrets', '.git', '.work', '.codex'} for part in file.relative_to(source_root).parts) or (file.name.startswith('.env') and file.name != '.env.example') or re.search(r'secret|credential|api[-_]?key|token', file.name, re.I):
+            if any(part in {'.secrets', '.git', '.work', '.codex'} for part in file.relative_to(source_root).parts) or (file.name.startswith('.env') and file.name not in ENV_EXAMPLES) or re.search(r'secret|credential|api[-_]?key|token', file.name, re.I):
                 raise ValueError(f'Distribution filename may contain secrets: {relative}')
             asset = source_relative == 'templates/manga-project' and (
                 relative in {'templates/panel-templates/index.html', 'templates/onomatopoeia/index.html'}
@@ -179,7 +180,7 @@ def create_project(project_name: str, destination_parent: str | Path | None = No
         for directory in ('input', 'assets/characters', 'assets/references', 'workflows', 'output', '.secrets'):
             (target / directory).mkdir(parents=True, exist_ok=True)
         now = datetime.now(timezone.utc).isoformat()
-        project = {'schemaVersion': 1, 'name': project_name, 'createdAt': now, 'distributionVersion': version, 'sourceKitRelativePath': Path(os.path.relpath(root, target)).as_posix(), 'agentMode': agent_mode, 'locale': 'en-US', 'readingDirection': 'ltr', 'localizationVersion': '0.5.0-en-US.1'}
+        project = {'schemaVersion': 1, 'name': project_name, 'createdAt': now, 'distributionVersion': version, 'sourceKitRelativePath': Path(os.path.relpath(root, target)).as_posix(), 'agentMode': agent_mode, 'locale': 'en-US', 'readingDirection': 'ltr', 'localizationVersion': '0.5.4-en-US.1'}
         if source:
             project['processRequirementsSourceRelativePath'] = Path(os.path.relpath(source, target)).as_posix()
         write_json(target / 'project.json', project)

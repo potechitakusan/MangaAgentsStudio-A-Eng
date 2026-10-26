@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "adopted_on": "2026-10-25",
+  "workflow": "separate_images_then_composition",
+  "layout_owner": "Codex",
+  "pixai_task": "illustration_assets_only",
+  "default_model": "tsubaki2",
+  "default_api": "v2",
+  "prompt_helper": "disable",
+  "character_consistency": {
+    "first_choice": "consistent_appearance_prompt",
+    "lora_variable_prefix": "PIXAI_LORA_",
+    "reference_image": "ipAdapter_unverified",
+    "note_ja": "Keep character appearance consistent primarily by writing the same appearance prompt in each request. LoRA effectiveness is unverified; test it in character trials before using it across panels. Convert prompts to variables only when requested by the user. Reference images (IP-Adapter), i2i, and ControlNet are undocumented in current official API docs; test on a single panel after user approval before expanding."
+  },
+  "camera": {
+    "preferred": [
+      "from above",
+      "from below",
+      "from behind"
+    ],
+    "optional": [
+      "dutch angle",
+      "cinematic angle"
+    ],
+    "side_view_requires_intent": true
+  },
+  "composition": {
+    "roomy_source": true,
+    "allow_rotation": true,
+    "allow_cropped_view": true,
+    "preserve_full_source": true,
+    "match_panel_aspect": true,
+    "crop_must_keep_planned_content": true
+  },
+  "character_trial_before_panels": true,
+  "batch_size": {
+    "default": 1,
+    "use_4_for": ["two_or_more_characters", "inpaint", "rework_of_panel_with_candidates"],
+    "cost_note_ja": "On Tsubaki.3 pro 1k, 1 image costs 4,000 credits and 4 images cost 7,000 credits (verified in the user's PixAI usage history, 2026-10-25). Default to choosing from 4 candidates for complex panels and reworks."
+  },
+  "panel_aspect_examples": [
+    "2:3",
+    "3:2",
+    "3:4",
+    "4:3",
+    "9:16",
+    "16:9",
+    "1:1",
+    "1:3",
+    "3:1"
+  ],
+  "panel_aspect_note_ja": "v2 determines dimensions from aspectRatio and size (1k or 1.5k). Choose an aspect ratio close to the panel shape, generate a slightly wider area than the panel bounds, and reveal the intended region with panel frames and masks during composition.",
+  "batch": {
+    "script": "scripts/pixai_batch.py",
+    "requests_dir": "input/pixai/requests",
+    "adopted": "input/pixai/adopted.json",
+    "candidates_dir": "output/pixai/candidates",
+    "pages_dir": "input/pages",
+    "build_dir": "output/build",
+    "character_variable_prefix": "PIXAI_CHAR_",
+    "variables_file": ".env.pixai"
+  },
+  "post_generation_check": {
+    "form": "docs/reviews/NAME-REVIEW.md",
+    "section_ja": "Post-artwork comparison",
+    "required_before_typesetting": true
+  },
+  "typesetting": {
+    "script": "scripts/typeset_manga.py",
+    "speech_balloon_tail": true,
+    "in_image_text_as_drawn_object": true,
+    "no_unrequested_title_or_page_number": true
+  },
+  "credits": {
+    "checked_on": "2026-10-25",
+    "balance_api": null,
+    "require_explicit_user_authorization": true,
+    "require_cost_note": true,
+    "unverified_parameters_require_flag": true,
+    "note_ja": "No balance or credit-consumption query endpoint is documented in the official API. Pass --confirm-credits only when the user has explicitly authorized credit consumption for that scope."
+  },
+  "polling": {
+    "min_interval_seconds": 1.5,
+    "script_interval_seconds": [
+      3,
+      10
+    ],
+    "max_waiting_tasks": 10
+  },
+  "dialogue": {
+    "default_direction": "horizontal",
+    "horizontal_alignment": "center",
+    "locale": "en-US",
+    "reading_direction": "ltr",
+    "punctuation": "natural-English",
+    "wrap": "word-boundaries"
+  },
+  "psd": {
+    "full_source_layers": true,
+    "panel_masks": true,
+    "preview_and_approval_required": true,
+    "smart_objects": false
+  },
+  "implementation_note_ja": "Operational settings. Read during production startup and confirm cost authorization with the user before sending."
+}

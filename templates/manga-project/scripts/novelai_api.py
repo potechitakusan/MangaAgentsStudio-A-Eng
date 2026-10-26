@@ -234,8 +234,10 @@ def prepare_request_data(root: Path, request: dict) -> tuple[dict, bytes]:
     params.setdefault("image_format", "png")
     if params["image_format"] != "png":
         raise ClientError("Only PNG output is supported.")
-    if type(params.get("seed")) is not int or not 0 <= params["seed"] <= 4294967295:
-        raise ClientError("Fix seed to an integer from 0 to 4294967295.")
+    # Randomize seed if omitted. The transmitted value is preserved in saved request JSON and execution records.
+    params.setdefault("seed", secrets.randbelow(4294967296))
+    if type(params["seed"]) is not int or not 0 <= params["seed"] <= 4294967295:
+        raise ClientError("seed must be an integer from 0 to 4294967295 (randomized if omitted).")
     if not isinstance(params.get("sampler"), str) or not params["sampler"].strip():
         raise ClientError("Set a sampler verified against official specifications.")
     if type(params.get("scale")) not in (int, float) or not math.isfinite(params["scale"]) or params["scale"] <= 0:
@@ -261,7 +263,9 @@ def check_cost(args, request: dict) -> None:
         params = request["parameters"]
         if params["steps"] > 28 or params["width"] * params["height"] > 1048576:
             raise ClientError("This request exceeds the dimensions/steps eligible as Opus zero-consumption candidates in this kit.")
-        if set(params) - PLAIN_PARAMETERS:
+        # controlnet_strength is sent by novelai_compose.py at the same value as the web UI (1.0). There is no ControlNet input image; treat 1.0 alone as standard generation.
+        extra = set(params) - PLAIN_PARAMETERS - ({"controlnet_strength"} if params.get("controlnet_strength") == 1.0 else set())
+        if extra:
             raise ClientError("Extra features or unverified parameters prevent sending this as zero-consumption generation.")
         if request["model"].startswith("nai-diffusion-5") and not args.confirm_v5_allowance:
             raise ClientError("V5 also requires verification of sufficient Opus allowance for this generation.")
@@ -339,6 +343,74 @@ def run(args, root: Path) -> None:
     execute_generation(root, request, payload, args.output, args)
 
 
+# Do not look up the subscription (Anlas and usage allowance check) on every generation. To reduce the risk of warnings
+# from excessive API calls, check on the first generation (trial run) and every CHECK_INTERVAL generations thereafter (user instruction, 2026-10-05).
+# Always check regardless of count when conditions change, the previous generation did not complete, or V5 usage allowance is low. The count is an estimate and does not indicate actual consumption.
+CHECK_INTERVAL = 10
+LOW_USAGE_PERCENT = 3
+CHECK_STATE = "output/novelai/subscription-check.json"
+
+
+def check_signature(request: dict) -> str:
+    """Cost-relevant conditions. Re-check if they change."""
+    params = request["parameters"]
+    extra = ",".join(sorted(set(params) - PLAIN_PARAMETERS))
+    return f"{request['model']}|{params['steps']}|{params['width']}x{params['height']}|{params['n_samples']}|{extra}"
+
+
+def read_check_state(root: Path) -> dict | None:
+    path = root / CHECK_STATE
+    if not path.is_file():
+        return None
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError, UnicodeError):
+        return None
+    if (not isinstance(data, dict) or not isinstance(data.get("state"), dict) or not isinstance(data.get("signature"), str)
+            or type(data.get("generationsSinceCheck")) is not int or type(data.get("needsCheck")) is not bool
+            or not isinstance(data.get("checkedAt"), str)):
+        return None
+    return data
+
+
+def write_check_state(root: Path, state: dict, check: dict, signature: str, needs_check: bool) -> None:
+    path = root / CHECK_STATE
+    path.parent.mkdir(parents=True, exist_ok=True)
+    data = {"schemaVersion": 1, "checkedAt": check["checkedAt"], "signature": signature, "state": state,
+            "generationsSinceCheck": check["generationsSinceCheck"], "needsCheck": needs_check}
+    temporary = path.with_suffix(".tmp")
+    with temporary.open("w", encoding="utf-8") as stream:
+        json.dump(data, stream, ensure_ascii=False, indent=2)
+        stream.write("\n")
+    temporary.replace(path)
+
+
+def subscription_for_generation(root: Path, key: str, request: dict) -> tuple[dict, dict, str]:
+    """Return the subscription state, check record, and signature for this generation. Call the API only when needed."""
+    signature = check_signature(request)
+    saved = read_check_state(root)
+    usage = (saved or {}).get("state", {}).get("usage", {})
+    reason = None
+    if saved is None:
+        reason = "First generation (trial run)"
+    elif saved["needsCheck"]:
+        reason = "Completion of the previous generation could not be verified"
+    elif saved["signature"] != signature:
+        reason = "Model, dimensions, steps, sample count, or extra features differ from the previous lookup"
+    elif saved["generationsSinceCheck"] >= CHECK_INTERVAL:
+        reason = f"Performed {CHECK_INTERVAL} generations since the previous lookup"
+    elif request["model"].startswith("nai-diffusion-5") and (
+            usage.get("isNegative") is True or ("percent" in usage and usage["percent"] <= LOW_USAGE_PERCENT)):
+        reason = "Remaining V5 usage allowance is low"
+    if reason is not None:
+        now = datetime.now(timezone.utc).isoformat()
+        state = subscription(key)
+        return state, {"method": "api", "reason": reason, "checkedAt": now, "generationsSinceCheck": 0}, signature
+    check = {"method": "cached", "reason": f"Reusing previous lookup result (checked every {CHECK_INTERVAL} generations)", "checkedAt": saved["checkedAt"],
+             "generationsSinceCheck": saved["generationsSinceCheck"] + 1}
+    return saved["state"], check, signature
+
+
 def execute_generation(root: Path, request: dict, payload: bytes, output_relative: str, args) -> Path:
     """Send once after cost/subscription checks; save PNG and execution record. Never retry automatically."""
     digest = hashlib.sha256(payload).hexdigest()
@@ -347,7 +419,8 @@ def execute_generation(root: Path, request: dict, payload: bytes, output_relativ
     # Do not send or save keys accidentally pasted into requests or cost notes.
     if key in payload.decode("utf-8") or key in args.cost_note:
         raise ClientError("Do not include credentials in requests or cost notes.")
-    state = subscription(key)
+    state, check, signature = subscription_for_generation(root, key, request)
+    print("Subscription lookup: " + ("API call" if check["method"] == "api" else "skipped (reusing previous result)") + " / " + check["reason"])
     if args.confirm_zero_anlas and (state["active"] is not True or state["tier"] != 3):
         raise ClientError("Stopped zero-consumption generation because an active Opus subscription could not be verified.")
     if args.confirm_zero_anlas and request["model"].startswith("nai-diffusion-5"):
@@ -358,7 +431,12 @@ def execute_generation(root: Path, request: dict, payload: bytes, output_relativ
     if not output.is_relative_to(root / "output") or output.suffix.lower() != ".png":
         raise ClientError("Output must be a PNG under output/.")
     record_path = output.with_suffix(".novelai.json")
-    if output.exists() or record_path.exists() or record_path.with_suffix(".tmp").exists():
+    # Save the actual transmitted JSON next to the candidate PNG (for reference). -body.json is the exact transmitted bytes;
+    # .request.json is the formatted equivalent in the same format as project request JSON, suitable for copying and manual editing or resending.
+    body_path = output.with_name(output.stem + ".request-body.json")
+    readable_path = output.with_name(output.stem + ".request.json")
+    if (output.exists() or record_path.exists() or record_path.with_suffix(".tmp").exists()
+            or body_path.exists() or readable_path.exists()):
         raise ClientError("An image or execution record already exists with this name. Check the record instead of resending.")
     output.parent.mkdir(parents=True, exist_ok=True)
     correlation_id = "".join(secrets.choice("abcdefghijklmnopqrstuvwxyz0123456789") for _ in range(6))
@@ -366,8 +444,17 @@ def execute_generation(root: Path, request: dict, payload: bytes, output_relativ
               "correlationId": correlation_id, "requestSha256": digest, "request": request,
               "credentialSource": source, "subscriptionBefore": state,
               "costMode": "zero_anlas_confirmed" if args.confirm_zero_anlas else "paid_authorized",
-              "costNote": args.cost_note, "v5AllowanceConfirmed": args.confirm_v5_allowance,
+              "costNote": args.cost_note, "v5AllowanceConfirmed": args.confirm_v5_allowance, "subscriptionCheck": check,
               "actualAnlasCost": None, "output": output.relative_to(root).as_posix()}
+    record["sentRequestFiles"] = {"body": body_path.relative_to(root).as_posix(),
+                                  "readable": readable_path.relative_to(root).as_posix()}
+    with body_path.open("xb") as stream:
+        stream.write(payload)
+    with readable_path.open("x", encoding="utf-8") as stream:
+        json.dump(request, stream, ensure_ascii=False, indent=2)
+        stream.write("\n")
+    # Save the check state as incomplete before sending, and clear it only when generation completion is verified. Always check on the next generation after a failure or unknown result.
+    write_check_state(root, state, check, signature, True)
     # Stop concurrent runs targeting the same output before sending.
     with record_path.open("x", encoding="utf-8") as stream:
         json.dump(record, stream, ensure_ascii=False, indent=2)
@@ -380,6 +467,7 @@ def execute_generation(root: Path, request: dict, payload: bytes, output_relativ
         record.update(status="png-saved", actualCanvas={"width": width, "height": height},
                       finishedAt=datetime.now(timezone.utc).isoformat())
         write_record(record_path, record)
+        write_check_state(root, state, check, signature, False)
     except (ClientError, OSError):
         record["status"] = "incomplete-check-result-and-consumption-before-retry"
         try:

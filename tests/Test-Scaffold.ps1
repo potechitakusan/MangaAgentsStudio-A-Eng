@@ -1,4 +1,4 @@
-﻿#requires -Version 5.1
+#requires -Version 5.1
 [CmdletBinding()]
 param()
 Set-StrictMode -Version Latest
@@ -34,7 +34,16 @@ Check ($creationText.Contains($projectRoot) -and $creationText.Contains('Reopen 
 $project = Get-Content -LiteralPath (Join-Path $projectRoot 'project.json') -Raw -Encoding UTF8 | ConvertFrom-Json
 Check ($project.name -ceq $japaneseName) 'Japanese project name survives JSON round trip'
 Check ((Split-Path $projectRoot -Parent) -eq $testRoot) 'Project is a direct child of the selected parent'
-Check (@(Get-ChildItem -LiteralPath (Join-Path $projectRoot '.agents\skills') -Directory).Count -eq 10) 'Ten skills include supervision, process checking, and external panel generation'
+Check (@(Get-ChildItem -LiteralPath (Join-Path $projectRoot '.agents\skills') -Directory).Count -eq 12) 'Twelve skills include supervision, process checking, external panel generation, NovelAI WebUI, and PixAI WebUI'
+foreach ($webuiFile in @('novelai-batch-webui/SKILL.md', 'novelai-batch-webui/novelai_webui.py', 'novelai-batch-webui/lora_run.py', 'novelai-batch-webui/lora_apply.py', 'pixai-batch-webui/SKILL.md', 'pixai-batch-webui/pixai_webui.py')) {
+    $webuiCopy = Join-Path $projectRoot ('.agents/skills/' + $webuiFile)
+    $webuiSource = Join-Path $root ('skills/' + $webuiFile)
+    Check ((Test-Path -LiteralPath $webuiCopy -PathType Leaf) -and
+           (Get-FileHash -LiteralPath $webuiCopy).Hash -eq (Get-FileHash -LiteralPath $webuiSource).Hash) ('Distributed WebUI file matches the source: ' + $webuiFile)
+}
+$missingPixaiFiles = @(@('.env.example', '.env.novelai.example', '.env.pixai.example', 'scripts/pixai_api.py', 'scripts/pixai_batch.py', 'scripts/pixai_compose.py', 'scripts/pixai_models.py', 'scripts/pixai_mask.py', 'scripts/pixai_edit.py', 'config/pixai-models.json') |
+    Where-Object { -not (Test-Path -LiteralPath (Join-Path $projectRoot $_) -PathType Leaf) })
+Check ($missingPixaiFiles.Count -eq 0) 'Three sample env files and PixAI scripts are distributed'
 Check ((Test-Path -LiteralPath (Join-Path $projectRoot '.agents/skills/manga-process-checker/SKILL.md')) -and
        (Test-Path -LiteralPath (Join-Path $projectRoot 'scripts/process_checker.py')) -and
        (Test-Path -LiteralPath (Join-Path $projectRoot 'docs/knowledge/process-checker.md'))) 'Process checker procedure, management script, and knowledge are distributed'

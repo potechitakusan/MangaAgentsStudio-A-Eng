@@ -18,12 +18,13 @@ PUBLIC_TREES = ('docs/knowledge', 'docs/localization', 'skills', 'templates/mang
 EXTENSIONS = {'.md', '.py', '.ps1', '.json'}
 PANEL_ROOT = 'templates/manga-project/templates/panel-templates'
 NOVELAI_RESOURCE_ROOT = 'resources/novelai-style-samples'
+PIXAI_RESOURCE_ROOT = 'resources/pixai-model-samples'
 TEMPLATE_REQUIREMENTS = 'templates/manga-project/scripts/requirements-composition.txt'
 PNG_SIGNATURE = b'\x89PNG\r\n\x1a\n'
 PNG_IMAGE_CHUNKS = {b'IHDR', b'PLTE', b'IDAT', b'IEND', b'tRNS'}
 JPEG_JFIF_SEGMENT = b'\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00\x01\x00\x01\x00\x00'
 WEBP_IMAGE_CHUNKS = {b'VP8 ', b'VP8L', b'VP8X', b'ALPH', b'ANIM', b'ANMF'}
-SPECIAL_FILES = {'.gitignore', '.env.example'}
+SPECIAL_FILES = {'.gitignore', '.env.example', '.env.novelai.example', '.env.pixai.example'}
 OLD_FOLDER_NAME = 'Proto' + 'type'
 OLD_FOLDER_PATH = re.compile(
     r'(?:' + re.escape(OLD_FOLDER_NAME) + r'[\\/]|[\\/]'
@@ -104,6 +105,10 @@ def public_files(root=ROOT):
                     relative_path == f'{NOVELAI_RESOURCE_ROOT}/index.html'
                     or (path.parent.relative_to(root).as_posix() == f'{NOVELAI_RESOURCE_ROOT}/previews' and path.suffix == '.webp')
                 )
+                pixai_resource = (
+                    relative_path == f'{PIXAI_RESOURCE_ROOT}/index.html'
+                    or (path.parent.relative_to(root).as_posix() == f'{PIXAI_RESOURCE_ROOT}/previews' and path.suffix == '.jpg')
+                )
                 onomatopoeia_asset = (
                     relative_path == 'templates/manga-project/templates/onomatopoeia/index.html'
                     or (path.parent.relative_to(root).as_posix() == 'templates/manga-project/templates/onomatopoeia/images' and path.suffix == '.webp')
@@ -112,9 +117,9 @@ def public_files(root=ROOT):
                 panel_renderer = relative_path == 'scripts/render_panel_templates.cjs'
                 portable_shell = path.parent == root / 'scripts' and path.suffix == '.sh'
                 template_requirements = relative_path == TEMPLATE_REQUIREMENTS
-                if path.suffix not in EXTENSIONS and name not in SPECIAL_FILES and not example_image and not panel_asset and not novelai_resource and not onomatopoeia_asset and not panel_renderer and not portable_shell and not template_requirements:
+                if path.suffix not in EXTENSIONS and name not in SPECIAL_FILES and not example_image and not panel_asset and not novelai_resource and not pixai_resource and not onomatopoeia_asset and not panel_renderer and not portable_shell and not template_requirements:
                     raise ValueError(f'Unexpected file in the public scope: {relative_path}')
-                if (name.startswith('.env') and name != '.env.example') or '.secrets' in path.parts:
+                if (name.startswith('.env') and name not in SPECIAL_FILES) or '.secrets' in path.parts:
                     raise ValueError(f'Secret settings in the public scope: {relative_path}')
                 if relative == 'templates/manga-project':
                     template_parts = path.relative_to(base).parts
@@ -256,6 +261,8 @@ def distributed_target(root, target):
     except ValueError:
         relative = None
     if relative:
+        if relative in ('docs/knowledge/novelai-composed-production.md', 'docs/knowledge/pixai-composed-production.md') and (template / relative).is_file():
+            return template / relative
         if relative.startswith('docs/knowledge/'):
             return root / relative
         if relative.startswith('.agents/skills/'):
